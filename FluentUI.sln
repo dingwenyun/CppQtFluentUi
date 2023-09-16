@@ -17,6 +17,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FluentUiUtils", "FluentUiUtils\FluentUiUtils.vcxproj", "{C2B3105F-32BE-49CE-B310-C3D5B4F37756}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FluentUiDemo", "FluentUiDemo\FluentUiDemo.vcxproj", "{CD3B4CC7-4B69-4CF9-855C-300F70ED7488}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5D0EDA31-F9F7-4F42-AAB9-A89D3AA491E3} = {5D0EDA31-F9F7-4F42-AAB9-A89D3AA491E3}
+		{C2B3105F-32BE-49CE-B310-C3D5B4F37756} = {C2B3105F-32BE-49CE-B310-C3D5B4F37756}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

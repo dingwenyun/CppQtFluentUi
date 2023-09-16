@@ -3,6 +3,7 @@
 #include "ButtonDemo.h"
 #include "../FluentUiControl/FluCenterLabelWidget.h"
 #include "../FluentUiUtils/FluentUiLogUtils.h"
+#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
 #include "ApiTest_QCursor.h"
 #include "FluToolTipDemo.h"
 
@@ -24,6 +25,8 @@ int main(int argc, char** argv)
 	//ApiTest_QCursor apiTest_Qcursor;
 	//apiTest_Qcursor.show();
 
+
+	QString qss = FluentUiStyleSheetUitls::getQssByFileName("[{\"key\":\"key1\", \"value\":\"val1\"},{\"key\":\"key2\", \"value\":\"val2\"}]", "../StyleSheet/FluTest.qss");
 	FluToolTipDemo demo;
 	demo.show();
 

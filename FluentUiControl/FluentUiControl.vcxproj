@@ -227,7 +227,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FluButton.cpp" />
     <ClCompile Include="FluCenterLabelWidget.cpp" />
+    <ClCompile Include="FluCheckBox.cpp" />
     <ClCompile Include="FluNavigationAvatarWidget.cpp" />
     <ClCompile Include="FluNavigationBaseTreeWidget.cpp" />
     <ClCompile Include="FluNavigationTreeItem.cpp" />
@@ -261,6 +263,8 @@
     <QtMoc Include="FluCenterLabelWidget.h" />
     <QtMoc Include="FluNavigationTreeItem.h" />
     <QtMoc Include="FluNavigationTreeWidget.h" />
+    <ClInclude Include="FluButton.h" />
+    <QtMoc Include="FluCheckBox.h" />
     <ClInclude Include="FluTheme.h" />
     <ClInclude Include="FluToolTip.h" />
     <ClInclude Include="FluTransparentToolButton.h" />
