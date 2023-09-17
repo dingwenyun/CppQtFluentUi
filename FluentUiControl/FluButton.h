@@ -10,7 +10,7 @@
 
 class FluPushButton : public QPushButton
 {
-	//Q_OBJECT
+	Q_OBJECT
 public:
 	FluPushButton(QWidget* parent);
 
@@ -33,12 +33,14 @@ public:
 	{
 		m_isPressed = true;
 		QPushButton::mousePressEvent(e);
+		update();
 	}
 
 	void mouseReleaseEvent(QMouseEvent* e)
 	{
 		m_isPressed = false;
 		QPushButton::mouseReleaseEvent(e);
+		update();
 	}
 
 	void enterEvent(QEnterEvent* event)

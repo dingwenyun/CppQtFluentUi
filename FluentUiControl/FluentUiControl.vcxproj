@@ -263,7 +263,7 @@
     <QtMoc Include="FluCenterLabelWidget.h" />
     <QtMoc Include="FluNavigationTreeItem.h" />
     <QtMoc Include="FluNavigationTreeWidget.h" />
-    <ClInclude Include="FluButton.h" />
+    <QtMoc Include="FluButton.h" />
     <QtMoc Include="FluCheckBox.h" />
     <ClInclude Include="FluTheme.h" />
     <ClInclude Include="FluToolTip.h" />

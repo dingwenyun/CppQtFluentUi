@@ -6,6 +6,8 @@
 
 #include "../FluentUiControl/FluDef.h"
 
+#define FluGetIcon(nType) FluentUiIconUtils::GetFluentIcon
+
 class FluentUiIconUtils
 {
 private:

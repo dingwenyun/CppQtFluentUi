@@ -2,6 +2,7 @@
 #include "FluentUiIconUtils.h"
 #include <QFontDatabase>
 #include <QPainter>
+#include "../FluentUiControl/FluDef.h"
 
 FluentUiIconUtils::FluentUiIconUtils()
 {
