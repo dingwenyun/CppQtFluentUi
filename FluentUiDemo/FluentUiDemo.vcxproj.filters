@@ -26,13 +26,13 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ButtonDemo.cpp">
+    <ClCompile Include="FluButtonDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NavigationDemo.cpp">
+    <ClCompile Include="FluNavigationDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ApiTest_QCursor.cpp">
+    <ClCompile Include="FluApiTest_QCursor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluToolTipDemo.cpp">
@@ -40,18 +40,18 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="ButtonDemo.h">
+    <QtMoc Include="FluButtonDemo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluToolTipDemo.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="NavigationDemo.h">
+    <ClInclude Include="FluNavigationDemo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ApiTest_QCursor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FluToolTipDemo.h">
+    <ClInclude Include="FluApiTest_QCursor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

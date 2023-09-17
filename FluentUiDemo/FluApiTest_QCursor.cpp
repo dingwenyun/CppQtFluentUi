@@ -1,14 +1,14 @@
-#include "ApiTest_QCursor.h"
+#include "FluApiTest_QCursor.h"
 #include <QApplication>
 #include <QCursor>
 
 
-ApiTest_QCursor::ApiTest_QCursor(QWidget* parent /*= nullptr*/) : QWidget(parent)
+FluApiTest_QCursor::FluApiTest_QCursor(QWidget* parent /*= nullptr*/) : QWidget(parent)
 {
 
 }
 
-void ApiTest_QCursor::mousePressEvent(QMouseEvent* event)
+void FluApiTest_QCursor::mousePressEvent(QMouseEvent* event)
 {
 	LogDebug << QCursor::pos();
 	QScreen *screen = QApplication::screenAt(QCursor::pos()); // 获取到在哪个屏幕

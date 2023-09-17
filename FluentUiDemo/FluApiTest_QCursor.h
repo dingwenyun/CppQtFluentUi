@@ -5,10 +5,10 @@
 #include <QWidget>
 #include <QMouseEvent>
 
-class ApiTest_QCursor : public QWidget
+class FluApiTest_QCursor : public QWidget
 {
 public:
-	ApiTest_QCursor(QWidget* parent = nullptr);
+	FluApiTest_QCursor(QWidget* parent = nullptr);
 
 	void mousePressEvent(QMouseEvent* event);
 

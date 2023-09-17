@@ -59,7 +59,7 @@ void FluPushButton::paintEvent(QPaintEvent* event)
 
 	if (!isEnabled())
 		painter.setOpacity(0.3628);
-	else
+	else if(m_isPressed)
 		painter.setOpacity(0.786);
 
 	int iconW = iconSize().width();
@@ -69,8 +69,8 @@ void FluPushButton::paintEvent(QPaintEvent* event)
 	int minW = minimumSizeHint().width();
 	int y = (height() - iconH) / 2;
 	int x = 12;
-	if (minW > 0)
-		x = 12 + (width() - minW) / 2;
+	//if (minW > 0)
+	//	x = 12 + (width() - minW) / 2;
 
 	QPixmap pixmap = m_icon.pixmap(iconW, iconH);
 	painter.drawPixmap(x, y, pixmap);

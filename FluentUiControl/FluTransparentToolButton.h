@@ -13,8 +13,6 @@ public:
 		QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluTransparentToolButton.qss");
 		setStyleSheet(qss);
 		setText("FluTransparentToolButton");
-
-
 	}
 
 protected:

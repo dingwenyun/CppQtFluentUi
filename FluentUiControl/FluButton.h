@@ -59,3 +59,23 @@ private:
 	bool m_isHover;
 	QIcon m_icon;
 };
+
+class FluPrimaryPushButton : public FluPushButton
+{
+public:
+	FluPrimaryPushButton(QWidget* parent)
+		: FluPushButton(parent)
+	{
+
+	}
+	FluPrimaryPushButton(QString text, QWidget* parent = nullptr, QIcon icon = QIcon())
+		: FluPushButton(text, parent, icon)
+	{
+
+	}
+};
+
+class FluTransparentPushButton : public FluPushButton
+{
+
+};

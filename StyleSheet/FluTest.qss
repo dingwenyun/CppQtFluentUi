@@ -1,0 +1,7 @@
+QPushButton {
+    color: [[key1]];
+}
+
+QLabel {
+    color: [[key2]];
+}
