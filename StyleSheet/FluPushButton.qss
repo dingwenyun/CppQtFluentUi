@@ -37,28 +37,28 @@ FluPushButton:disabled {
 FluPrimaryPushButton {
     color: white;
     /*theme color*/
-    background-color: #f9a825;
+    background-color: #0078D4;
     /*theme color light1*/
-    border: 1px solid #fff59b;
+    border: 1px solid #60ABE4;
     /*theme color dark1*/
-    border-bottom: 1px solid #f9a825;
+    border-bottom: 1px solid #004A83;
 }
 
 FluPrimaryPushButton:hover {
     /*theme color light1*/
-    background-color: #fff59b;
+    background-color: #60ABE4;
     /*theme color light2*/
-    border: 1px solid #fff176;
+    border: 1px solid #4CA0E0;
     /*theme color dark1*/
-    border-bottom: 1px solid #f9a825;
+    border-bottom: 1px solid #004A83;
 }
 
 FluPrimaryPushButton:pressed {
     color: rgba(255, 255, 255, 0.63);
     /*theme color light 3*/
-    background-color: #ffee58;
+    background-color: #268CDC;
     /*theme color light 3*/
-    border: 1px solid #ffee58;
+    border: 1px solid #268CDC;
 }
 
 FluPrimaryPushButton:disabled {
