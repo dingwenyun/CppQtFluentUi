@@ -13,6 +13,8 @@ FluPushButton::FluPushButton(QWidget* parent) : QPushButton(parent)
 
 	QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluPushButton.qss");
 	setStyleSheet(qss);
+
+	_postInit();
 }
 
 FluPushButton::FluPushButton(QString text, QWidget* parent /*= nullptr*/, QIcon icon /*= QIcon()*/) : FluPushButton(parent)
@@ -72,7 +74,13 @@ void FluPushButton::paintEvent(QPaintEvent* event)
 	//if (minW > 0)
 	//	x = 12 + (width() - minW) / 2;
 
+	// 绘制按钮时也有一些效果
 	QPixmap pixmap = m_icon.pixmap(iconW, iconH);
 	painter.drawPixmap(x, y, pixmap);
 }
 
+void FluTogglePushButton::_postInit()
+{
+	setCheckable(true);
+	setChecked(false);
+}

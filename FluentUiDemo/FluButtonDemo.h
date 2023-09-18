@@ -14,4 +14,6 @@ private:
 
 	FluPushButton *m_pushBtn1;
 	FluPushButton* m_pushBtn2;
+	FluPrimaryPushButton* m_primaryBtn1;
+	FluPrimaryPushButton* m_primaryBtn2;
 };

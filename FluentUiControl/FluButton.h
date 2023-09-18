@@ -16,10 +16,10 @@ public:
 
 	FluPushButton(QString text, QWidget* parent = nullptr, QIcon icon = QIcon());
 
-	//void _postInit()
-	//{
+	virtual void _postInit()
+	{
 
-	//}
+	}
 
 	void setIcon(QIcon icon);
 
@@ -64,6 +64,7 @@ private:
 
 class FluPrimaryPushButton : public FluPushButton
 {
+	Q_OBJECT
 public:
 	FluPrimaryPushButton(QWidget* parent)
 		: FluPushButton(parent)
@@ -80,4 +81,11 @@ public:
 class FluTransparentPushButton : public FluPushButton
 {
 
+};
+
+class FluTogglePushButton : public FluPushButton
+{
+	Q_OBJECT
+public:
+	void _postInit();
 };

@@ -9,12 +9,20 @@ FluPushButton {
     outline: none;
 }
 
+FluPushButton[hasIcon=false] {
+    padding: 5px 12px 6px 12px;
+}
+
+FluPushButton[hasIcon=true] {
+    padding: 5px 12px 6px 36px;
+}
+
 FluPushButton:hover {
     background: rgba(249, 249, 249, 0.5);
 }
 
 FluPushButton::pressed {
-	color: rgba(0, 0, 0, 0.63);
+    color: rgba(0, 0, 0, 0.63);
     background: rgba(249, 249, 249, 0.3);
     border-bottom: 1px solid rgba(0, 0, 0, 0.073);
 }
@@ -24,4 +32,84 @@ FluPushButton:disabled {
     background: rgba(255, 255, 255, 0.3);
     border: 1px solid rgba(0, 0, 0, 0.06);
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+FluPrimaryPushButton {
+    color: white;
+    /*theme color*/
+    background-color: #f9a825;
+    /*theme color light1*/
+    border: 1px solid #fff59b;
+    /*theme color dark1*/
+    border-bottom: 1px solid #f9a825;
+}
+
+FluPrimaryPushButton:hover {
+    /*theme color light1*/
+    background-color: #fff59b;
+    /*theme color light2*/
+    border: 1px solid #fff176;
+    /*theme color dark1*/
+    border-bottom: 1px solid #f9a825;
+}
+
+FluPrimaryPushButton:pressed {
+    color: rgba(255, 255, 255, 0.63);
+    /*theme color light 3*/
+    background-color: #ffee58;
+    /*theme color light 3*/
+    border: 1px solid #ffee58;
+}
+
+FluPrimaryPushButton:disabled {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(205, 205, 205);
+    border: 1px solid rgb(205, 205, 205);
+}
+
+FluTogglePushButton {
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.073);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+    border-radius: 5px;
+    font: 14px 'Segoe UI', 'Microsoft YaHei';
+    padding: 5px 12px 6px 12px;
+    outline: none;
+}
+
+FluTogglePushButton:hover {
+    background: rgba(249, 249, 249, 0.5);
+}
+
+FluTogglePushButton::pressed {
+    color: rgba(0, 0, 0, 0.63);
+    background: rgba(249, 249, 249, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
+}
+
+FluTogglePushButton:disabled {
+    color: rgba(0, 0, 0, 0.36);
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+FluTogglePushButton:checked {
+    color: white;
+    background-color: --ThemeColorPrimary;
+    border: 1px solid --ThemeColorLight1;
+    border-bottom: 1px solid --ThemeColorDark1;
+}
+
+FluTogglePushButton:checked:hover {
+    background-color: --ThemeColorLight1;
+    border: 1px solid --ThemeColorLight2;
+    border-bottom: 1px solid --ThemeColorDark1;
+}
+
+FluTogglePushButton:checked:pressed {
+    color: rgba(255, 255, 255, 0.63);
+    background-color: --ThemeColorLight3;
+    border: 1px solid --ThemeColorLight3;
 }
