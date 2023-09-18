@@ -2,7 +2,7 @@
 
 #### 概述：
 
-CppQtFluentUI采用Vs2019+Qt5.12使用纯C++代码编写FluentUI.
+CppQtFluentUI采用Vs2019+Qt6.5.2使用纯C++代码编写FluentUI.
 
 ## 1.开始
 
@@ -14,7 +14,9 @@ CppQtFluentUI采用Vs2019+Qt5.12使用纯C++代码编写FluentUI.
 
 ## 3.参考
 
->github仓库: [zhiyiYo/PyQt-Fluent-Widgets: A fluent design widgets library based on PyQt/PySide. Make Qt Great Again. (github.com)](https://github.com/zhiyiYo/PyQt-Fluent-Widgets)
+>[ 1] PyQt-Fluent-Widgets: [zhiyiYo/PyQt-Fluent-Widgets: A fluent design widgets library based on PyQt/PySide. Make Qt Great Again. (github.com)](https://github.com/zhiyiYo/PyQt-Fluent-Widgets)
+>
+>[2] FluentUI [zhuzichu520/FluentUI: FluentUI for QML (github.com)](https://github.com/zhuzichu520/FluentUI)
 
 ## 4.许可
 
