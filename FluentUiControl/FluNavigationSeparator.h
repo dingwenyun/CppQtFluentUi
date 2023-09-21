@@ -8,8 +8,8 @@
 class FluNavigationSeparator : public FluNavigationWidget
 {
 public:
-	FluNavigationSeparator(QWidget* parent = nullptr) : FluNavigationWidget(parent, false)
-	{
+	FluNavigationSeparator(QWidget* parent = nullptr) : FluNavigationWidget(false, parent)
+	{// 默认为压缩状态
 		setCompacted(true);
 	}
 
@@ -25,16 +25,6 @@ public:
 		}
 		update();
 	}
-
-	//bool getDarkMode()
-	//{
-	//	return m_bDarkMode;
-	//}
-
-	//void setDarkMode(bool bDarkMode)
-	//{
-	//	m_bDarkMode = bDarkMode;
-	//}
 protected:
 	void paintEvent(QPaintEvent* event)
 	{

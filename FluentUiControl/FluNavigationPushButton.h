@@ -9,12 +9,21 @@ class FluNavigationPushButton : public FluNavigationWidget
 {
 	Q_OBJECT
 public:
-	FluNavigationPushButton(QWidget* parent = nullptr, QPixmap icon = QPixmap(), QString text = "", bool bSelectable = false) :
-		FluNavigationWidget(parent, bSelectable)
+	//FluNavigationPushButton(QWidget* parent = nullptr, QPixmap icon = QPixmap(), QString text = "", bool bSelectable = false) :
+	//	FluNavigationWidget(parent, bSelectable)
+	//{
+	//	m_icon = icon;
+	//	m_text = text;
+	//	setStyleSheet("NavigationPushButton{font: 14px 'Segoe UI', 'Microsoft YaHei'}");
+	//}
+
+	FluNavigationPushButton(QPixmap icon, QString text, bool bSelectable, QWidget* parent = nullptr)
+		: FluNavigationWidget(bSelectable, parent)
 	{
 		m_icon = icon;
 		m_text = text;
-		setStyleSheet("NavigationPushButton{font: 14px 'Segoe UI', 'Microsoft YaHei'}");
+
+		//setFont(this);
 	}
 
 	QString getText()
@@ -56,10 +65,10 @@ protected:
 		painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing | QPainter::SmoothPixmapTransform);
 		painter.setPen(Qt::NoPen);
 
-		if(!getPressed())
-			painter.setOpacity(0.4);
 		if (getPressed())
 			painter.setOpacity(0.7);
+		if (!isEnabled())
+			painter.setOpacity(0.4);
 
 		QColor normalCorlor;
 		QColor enterColor;

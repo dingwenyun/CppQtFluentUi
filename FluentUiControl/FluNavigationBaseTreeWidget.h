@@ -6,7 +6,7 @@ class FluNavigationBaseTreeWidget : public FluNavigationWidget
 {
 	Q_OBJECT
 public:
-	FluNavigationBaseTreeWidget(QWidget* parent, bool bSelectable) : FluNavigationWidget(parent, bSelectable)
+	FluNavigationBaseTreeWidget(bool bSelectable, QWidget* parent) : FluNavigationWidget(bSelectable, parent)
 	{
 
 	}

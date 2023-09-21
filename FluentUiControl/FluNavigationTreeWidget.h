@@ -1,114 +1,76 @@
 #pragma once
 
 #include "FluNavigationBaseTreeWidget.h"
-#include "FluNavigationTreeItem.h"
+//#include "FluNavigationTreeItem.h"
 #include <QVBoxLayout>
 #include <QPropertyAnimation>
 #include <algorithm>
 
+class FluNavigationTreeItem;
 class FluNavigationTreeWidget : public FluNavigationBaseTreeWidget
 {
 	Q_OBJECT
 public:
-	FluNavigationTreeWidget(QWidget* parent, QPixmap icon, QString text, bool bSelectable)
-		: FluNavigationBaseTreeWidget(parent, bSelectable)
-	{
-		m_bExpanded = false;
-		m_itemWidget = new FluNavigationTreeItem(parent, icon, text, bSelectable);
-		m_vLayout = new QVBoxLayout(this);
+	FluNavigationTreeWidget(QPixmap icon, QString text, bool bSelectable, QWidget* parent);
 
-		m_expandAni = new QPropertyAnimation(this, "geometry", this);
+	void __initWidget();
+
+	void addChild(FluNavigationWidget* child);
+
+	QString getText();
+
+	QPixmap getIcon();
+
+	void setText(QString text);
+
+	void setIcon(QPixmap icon);
+
+	void setFont(QFont font);
+
+
+	void insertChild(int index, FluNavigationWidget* child);
+
+	void removeChild(FluNavigationWidget* child);
+
+	//QVector<FluNavigationTreeWidget*> getTreeChildren()
+	//{
+	//	return m_treeChildren;
+	//}
+
+	QVector<FluNavigationWidget*> childItems()
+	{
+		return m_treeChildren;
 	}
 
-	void __initWidget()
+	FluNavigationTreeItem* getTreeItemWidget()
 	{
-		m_vLayout->setSpacing(4);
-		m_vLayout->setContentsMargins(0, 0, 0, 0);
-		m_vLayout->addWidget(m_itemWidget, 0, Qt::AlignTop);
-
-		connect(m_itemWidget, &FluNavigationTreeItem::signalItemClicked, this, &FluNavigationTreeWidget::_onClicked);
-
-		// 设置窗口透明
-		setAttribute(Qt::WA_TranslucentBackground);
-		connect(m_expandAni, &QPropertyAnimation::valueChanged, this, &FluNavigationTreeWidget::_onSize);
+		return m_itemWidget;
 	}
 
-	void addChild()
-	{
+	void setExpanded(bool bExpanded, bool bAni);
 
+	bool isRoot()
+	{
+		return getTreeParent() == nullptr;
 	}
 
-	QString getText()
+	bool isLeaf()
 	{
-		return m_itemWidget->getText();
+		return m_treeChildren.empty();
 	}
 
-	QPixmap getIcon()
-	{
-		return m_itemWidget->getIcon();
-	}
+	void setSelected(bool bSelected);
 
-	void setText(QString text)
-	{
-		m_itemWidget->setText(text);
-	}
+	void mouseReleaseEvent(QMouseEvent* event);
 
-	void setIcon(QPixmap icon)
-	{
-		m_itemWidget->setIcon(icon);
-	}
-
-	void setFont(QFont font)
-	{
-		QWidget* pParentWidget = dynamic_cast<QWidget*>(parent());
-		pParentWidget->setFont(font);
-		m_itemWidget->setFont(font);
-	}
-
-
-	void insertChild(int index, FluNavigationWidget* child)
-	{
-		auto itf = std::find(m_treeChildren.begin(), m_treeChildren.end(), child);
-		if (itf != m_treeChildren.end())
-			return;
-
-		child->setTreeParent(this);
-		child->setNodeDepth(getNodeDepth() + 1);
-		child->setVisible(m_bExpanded);
-
-		connect(m_expandAni, &QPropertyAnimation::valueChanged, this, &FluNavigationTreeWidget::_onSize);
-
-		if (index <= 0)
-			index = m_treeChildren.size();
-
-		m_treeChildren.insert(index + m_treeChildren.begin(), (FluNavigationTreeWidget*)child);
-		m_vLayout->insertWidget(index, child, 0, Qt::AlignTop);
-	}
-
-	void removeChild(FluNavigationWidget* child)
-	{
-		
-	}
+	void setCompacted(bool bCompacted);
 
 public slots:
-	void _onClicked(bool triggerByUser, bool clickArrow)
-	{
-		if (!getCompacted())
-		{
-			if (getSelectable() && !getSelected() && !clickArrow)
-			{
-			}
-		}
-	}
-
-	void _onSize(QVariant size)
-	{
-		QSize tmpSize = size.toSize();
-		this->setFixedSize(tmpSize);
-	}
+	void _onClicked(bool triggerByUser, bool clickArrow);
+	void _onSize(QVariant size);
 private:
 	QPropertyAnimation* m_expandAni;
-	QVector<FluNavigationTreeWidget*> m_treeChildren;
+	QVector<FluNavigationWidget*> m_treeChildren;
 	FluNavigationTreeItem* m_itemWidget;
 	QVBoxLayout* m_vLayout;
 	bool m_bExpanded;

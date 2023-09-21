@@ -9,9 +9,11 @@ class FluNavigationAvatarWidget : public FluNavigationWidget
 {
 	Q_OBJECT
 public:
-	FluNavigationAvatarWidget(QWidget* parent) : FluNavigationWidget(parent)
+	FluNavigationAvatarWidget(QString name, QPixmap avatar, QWidget* parent)
+		: FluNavigationWidget(false, parent)
 	{
-
+		m_name = name;
+		setAvatar(avatar);
 	}
 protected:
 	void paintEvent(QPaintEvent* event) override
@@ -20,8 +22,12 @@ protected:
 		// 绘制头像更加平滑
 		painter.setRenderHints(QPainter::SmoothPixmapTransform | QPainter::Antialiasing);
 		painter.setPen(Qt::NoPen);
+
+
 		if (getPressed())
 			painter.setOpacity(0.7);
+		
+		// 绘制背景颜色
 		if (getEnter())
 		{
 			// 绘制背景颜色
@@ -46,6 +52,7 @@ protected:
 		painter.drawEllipse(0, 0, 24, 24);
 		painter.translate(-8, -6);
 
+		// 不是压缩状态
 		if (!getCompacted())
 		{
 			if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)

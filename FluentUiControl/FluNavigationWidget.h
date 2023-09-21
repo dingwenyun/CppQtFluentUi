@@ -10,7 +10,7 @@ class FluNavigationWidget : public QWidget
 {
 	Q_OBJECT
 public:
-	FluNavigationWidget(QWidget* parent = nullptr, bool bSelectable = true) : QWidget(parent)
+	FluNavigationWidget(bool bSelectable, QWidget* parent = nullptr) : QWidget(parent)
 	{
 		m_bCompacted = true;
 		m_bSelected = false;
@@ -30,7 +30,7 @@ protected:
 		update();
 	}
 
-	void leaveEvent(QEvent* event) override
+	void leaveEvent(QEvent* event)
 	{
 		m_bEnter = false;
 		m_bPressed = false;
@@ -78,6 +78,14 @@ public:
 		}
 		update();
 	}
+
+	//void setSelected(bool bSelected)
+	//{
+	//	if (!m_bSelectable)
+	//		return;
+	//	m_bSelected = bSelected;
+	//	update();
+	//}
 
 	bool getEnter()
 	{
@@ -165,7 +173,8 @@ public:
 		m_nNodeDepth = nNodeDepth;
 	}
 
-
+private:
+	int EXPAND_WIDTH = 312;
 private:
 	bool m_bCompacted;
 	bool m_bSelected;

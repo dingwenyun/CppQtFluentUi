@@ -6,12 +6,13 @@ class FluNavigationToolButton : public FluNavigationPushButton
 {
 	Q_OBJECT
 public:
-	FluNavigationToolButton(QWidget* parent, QPixmap icon)
-		: FluNavigationPushButton(parent, icon, "", false)
+	FluNavigationToolButton(QPixmap icon, QWidget* parent = nullptr)
+		: FluNavigationPushButton(icon, "", false, parent)
 	{
 		//setFixedSize(40, 40);
 	}
-
+	
+	// 设置指定大小
 	void setCompacted(bool bCompacted)
 	{
 		setFixedSize(40, 36);

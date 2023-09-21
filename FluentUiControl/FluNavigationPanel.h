@@ -271,9 +271,33 @@ public:
 
 	}
 
-	void expand()
+	void expand(bool bUseAni = true)
 	{
+		_setWidgetCompacted(false);
+		m_expandAnimation->setProperty("expand", true);
+		m_menuButton->setToolTip("Close Navigation");
+		//determine the display mode according to the width of window
+	    //https://learn.microsoft.com/en-us/windows/apps/design/controls/navigationview#default
+		int nExpandWidth = 1007 + m_expandWidth - 322;
+		if (window()->width() > nExpandWidth && !m_bMinimalEnabled && !m_bCollapsible)
+		{
 
+		}
+		else
+		{
+
+		}
+
+
+	}
+
+	void _setWidgetCompacted(bool bCompacted)
+	{
+		QList<FluNavigationWidget*> widgets = findChildren<FluNavigationWidget*>();
+		for (auto itList = widgets.begin(); itList != widgets.end(); itList++)
+		{
+			(*itList)->setCompacted(bCompacted);
+		}
 	}
 
 	void removeWidget(QString routeKey)
@@ -301,6 +325,13 @@ public:
 	{
 		m_bReturnButtonVisible = bVisible;
 		//m_returnButton->setVisible(bVisible);
+	}
+
+	void setCollapsible(bool bOn)
+	{
+		m_bCollapsible = bOn;
+		if (!bOn && m_displayMode != FluNavigationDisplayMode::EXPAND)
+			expand(false);
 	}
 
 	void setExpandWidth(int width)
