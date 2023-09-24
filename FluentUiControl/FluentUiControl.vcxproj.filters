@@ -59,6 +59,12 @@
     <ClInclude Include="FluToolTip.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FluNavigationToolTipFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FluNavigationItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluFrameLessWidgetV1.h">
@@ -128,6 +134,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FluButton.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluScrollBar.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -223,6 +232,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluCheckBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluNavigationToolTipFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluNavigationItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluScrollBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -11,6 +11,7 @@
 #include "../FluentUiUtils/FluentUiIconUtils.h"
 #include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
  
+// 导航栏显示模式
 enum class FluNavigationDisplayMode
 {
 	MINIMAL = 0,
@@ -19,6 +20,7 @@ enum class FluNavigationDisplayMode
 	MENU
 };
 
+// 导航栏位置
 enum class FluNavigationItemPosition
 {
 	TOP = 0,
@@ -26,51 +28,6 @@ enum class FluNavigationItemPosition
 	BOTTOM
 };
 
-class NavigationItem
-{
-public:
-	NavigationItem(QString routeKey, QString parentRouteKey, FluNavigationWidget* widget)
-		: m_routeKey(routeKey), m_parentRouteKey(parentRouteKey), m_widget(widget)
-	{
-
-	}
-
-public:
-	QString getRouteKey()
-	{
-		return m_routeKey;
-	}
-	
-	void setRouteKey(const QString& routeKey)
-	{
-		m_routeKey = routeKey;
-	}
-
-	QString getParentRouteKey()
-	{
-		return m_parentRouteKey;
-	}
-
-	void setParentRouteKey(const QString& parentRouteKey)
-	{
-		m_parentRouteKey = parentRouteKey;
-	}
-
-	FluNavigationWidget* getWidget()
-	{
-		return m_widget;
-	}
-
-	void setWidget(FluNavigationWidget* widget)
-	{
-		m_widget = widget;
-	}
-
-private:
-	QString m_routeKey;
-	QString m_parentRouteKey;
-	FluNavigationWidget* m_widget;
-};
 
 using FluNavigationWidgetClickedCallBack = void (*)();
 
@@ -78,9 +35,14 @@ class FluNavigationPanel : public QWidget
 {
 	Q_OBJECT
 public:
-	FluNavigationPanel(QWidget* parent = nullptr, bool bMinimalEnable = false)
+	FluNavigationPanel(bool bMinimalEnable = false, QWidget* parent = nullptr)
 		: QWidget(parent)
 	{
+		m_parent = parent;
+		m_bMenuButtonVisible = true;
+		m_bReturnButtonVisible = false;
+		m_bCollapsible = true;
+
 		__initWidget(parent, bMinimalEnable);
 		__initLayout();
 		__connect();
@@ -90,9 +52,6 @@ public:
 
 	void __initWidget(QWidget* parent, bool bMinimalEnable)
 	{
-		m_parent = parent;
-		m_bMenuButtonVisible = true;
-		m_bReturnButtonVisible = false;
 
 		m_scrollArea = new QScrollArea(this);
 		m_scrollWidget = new QWidget();
