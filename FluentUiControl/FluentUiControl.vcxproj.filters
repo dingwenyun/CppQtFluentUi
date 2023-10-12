@@ -121,7 +121,7 @@
     <QtMoc Include="FluNavigationAvatarWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="FluNavigationBaseTreeWidget.h">
+    <QtMoc Include="FluNavigationTreeWidgetBase.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FluCenterLabelWidget.h">
@@ -216,7 +216,7 @@
     <ClCompile Include="FluNavigationAvatarWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FluNavigationBaseTreeWidget.cpp">
+    <ClCompile Include="FluNavigationTreeWidgetBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluNavigationTreeWidget.cpp">

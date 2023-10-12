@@ -231,7 +231,7 @@
     <ClCompile Include="FluCenterLabelWidget.cpp" />
     <ClCompile Include="FluCheckBox.cpp" />
     <ClCompile Include="FluNavigationAvatarWidget.cpp" />
-    <ClCompile Include="FluNavigationBaseTreeWidget.cpp" />
+    <ClCompile Include="FluNavigationTreeWidgetBase.cpp" />
     <ClCompile Include="FluNavigationItem.cpp" />
     <ClCompile Include="FluNavigationToolTipFilter.cpp" />
     <ClCompile Include="FluNavigationTreeItem.cpp" />
@@ -263,7 +263,7 @@
     <ClCompile Include="FluSampleCardView.cpp" />
     <ClCompile Include="FluWidget.cpp" />
     <QtMoc Include="FluNavigationAvatarWidget.h" />
-    <QtMoc Include="FluNavigationBaseTreeWidget.h" />
+    <QtMoc Include="FluNavigationTreeWidgetBase.h" />
     <QtMoc Include="FluCenterLabelWidget.h" />
     <QtMoc Include="FluNavigationTreeItem.h" />
     <QtMoc Include="FluNavigationTreeWidget.h" />
