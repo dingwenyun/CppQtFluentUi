@@ -10,16 +10,15 @@
 
 class FluentUiIconUtils
 {
-private:
-	FluentUiIconUtils();
-	~FluentUiIconUtils();
+  private:
+    FluentUiIconUtils();
+    ~FluentUiIconUtils();
 
-public:
-	static FluentUiIconUtils* getInstance();
-	static QPixmap GetFluentIconPixmap(FluAwesomeType nType);
-	static QIcon GetFluentIcon(FluAwesomeType nType);
+  public:
+    static FluentUiIconUtils* getInstance();
+    static QPixmap GetFluentIconPixmap(FluAwesomeType nType);
+    static QIcon GetFluentIcon(FluAwesomeType nType);
 
-private:
-	QFont m_fluentFont;
+  private:
+    QFont m_fluentFont;
 };
-

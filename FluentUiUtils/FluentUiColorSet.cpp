@@ -2,5 +2,4 @@
 
 FluentUiColorSet::FluentUiColorSet()
 {
-
 }

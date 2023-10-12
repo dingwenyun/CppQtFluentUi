@@ -5,15 +5,15 @@
 
 class FluentUiColorSet
 {
-public:
-	QString darkest;
-	QString darker;
-	QString dark;
-	QString normal;
-	QString light;
-	QString lighter;
-	QString lightest;
-public:
-	FluentUiColorSet();
-};
+  public:
+    QString darkest;
+    QString darker;
+    QString dark;
+    QString normal;
+    QString light;
+    QString lighter;
+    QString lightest;
 
+  public:
+    FluentUiColorSet();
+};

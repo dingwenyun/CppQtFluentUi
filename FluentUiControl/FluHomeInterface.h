@@ -11,17 +11,17 @@
 
 class FluHomeInterface : public QScrollArea
 {
-	Q_OBJECT
+    Q_OBJECT
 
-public:
-	FluSetPropertyP(QWidget,view);
-	FluSetPropertyP(QVBoxLayout, vLayout);
-	FluSetPropertyP(FluBannerWidget, bannerWidget);
-	FluSetPropertyP(FluSampleCardView, basicCardView);
-public:
-	FluHomeInterface(QWidget* parent = nullptr);
+  public:
+    FluSetPropertyP(QWidget, view);
+    FluSetPropertyP(QVBoxLayout, vLayout);
+    FluSetPropertyP(FluBannerWidget, bannerWidget);
+    FluSetPropertyP(FluSampleCardView, basicCardView);
 
-protected:
-	void paintEvent(QPaintEvent* event) override;
+  public:
+    FluHomeInterface(QWidget* parent = nullptr);
+
+  protected:
+    void paintEvent(QPaintEvent* event) override;
 };
-

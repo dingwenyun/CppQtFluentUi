@@ -6,13 +6,13 @@
 
 int main(int argc, char** argv)
 {
-	QApplication app(argc, argv);
-	
-	FluentUiLogUtils::init();
-	LogDebug << "called!";
+    QApplication app(argc, argv);
 
-	FluMainWidget w;
-	w.show();
-	
-	return app.exec();
+    FluentUiLogUtils::init();
+    LogDebug << "called!";
+
+    FluMainWidget w;
+    w.show();
+
+    return app.exec();
 }

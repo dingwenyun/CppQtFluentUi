@@ -10,63 +10,64 @@
 
 class FLUENTUICONTROL_EXPORT FluFrameLessWidgetV1 : public QWidget
 {
-	Q_OBJECT
-public:
-	enum class BorderArea
-	{
-		BorderAreaNone = 0,
-		BorderAreaTop,
-		BorderAreaBottom,
-		BorderAreaLeft,
-		BorderAreaRight,
-		BorderAreaTopLeft,
-		BorderAreaTopRight,
-		BorderAreaBottomLeft,
-		BorderAreaBottomRight,
-	};
-public:
-	FluFrameLessWidgetV1(QWidget *parent = nullptr, QWidget* centerWidget = nullptr);
-	virtual ~FluFrameLessWidgetV1();
+    Q_OBJECT
+  public:
+    enum class BorderArea
+    {
+        BorderAreaNone = 0,
+        BorderAreaTop,
+        BorderAreaBottom,
+        BorderAreaLeft,
+        BorderAreaRight,
+        BorderAreaTopLeft,
+        BorderAreaTopRight,
+        BorderAreaBottomLeft,
+        BorderAreaBottomRight,
+    };
 
-	void UpdateBorderArea(QPoint pos);
-	void UpdateCursor();
-	void UpdateWindowByBorderArea();
+  public:
+    FluFrameLessWidgetV1(QWidget* parent = nullptr, QWidget* centerWidget = nullptr);
+    virtual ~FluFrameLessWidgetV1();
 
-	void adjustWndSizeByMouseMove(QMouseEvent* event);
+    void UpdateBorderArea(QPoint pos);
+    void UpdateCursor();
+    void UpdateWindowByBorderArea();
 
-	QWidget* getCenterWidget()
-	{
-		return m_centerWidget;
-	}
+    void adjustWndSizeByMouseMove(QMouseEvent* event);
 
-	void setMouseLeftBtnPressPoint(QPoint mouseLeftBtnPressPoint)
-	{
-		//LogDebug << mouseLeftBtnPressPoint;
-		m_mouseLeftBtnPressPoint = mouseLeftBtnPressPoint;
-	}
+    QWidget* getCenterWidget()
+    {
+        return m_centerWidget;
+    }
 
-protected:
-	void mouseMoveEvent(QMouseEvent* event) override;
-	void mousePressEvent(QMouseEvent* event) override;
-	void mouseReleaseEvent(QMouseEvent* event) override;
+    void setMouseLeftBtnPressPoint(QPoint mouseLeftBtnPressPoint)
+    {
+        // LogDebug << mouseLeftBtnPressPoint;
+        m_mouseLeftBtnPressPoint = mouseLeftBtnPressPoint;
+    }
 
-	void resizeEvent(QResizeEvent* event) override;
-	void moveEvent(QMoveEvent* event) override;
-public slots:
-	void slotClickMinBtn();
-	void slotClickCloseBtn();
-	void slotClickMaxNorBtn();
+  protected:
+    void mouseMoveEvent(QMouseEvent* event) override;
+    void mousePressEvent(QMouseEvent* event) override;
+    void mouseReleaseEvent(QMouseEvent* event) override;
 
-protected:
-	QHBoxLayout* m_hLayout;
-	QVBoxLayout* m_vLayout;
+    void resizeEvent(QResizeEvent* event) override;
+    void moveEvent(QMoveEvent* event) override;
+  public slots:
+    void slotClickMinBtn();
+    void slotClickCloseBtn();
+    void slotClickMaxNorBtn();
 
-	QWidget* m_centerWidget;
-	QPushButton* m_minBtn;
-	QPushButton* m_closeBtn;
-	QPushButton* m_maxNorBtn;
+  protected:
+    QHBoxLayout* m_hLayout;
+    QVBoxLayout* m_vLayout;
 
-	QPoint m_mouseLeftBtnPressPoint;
-	BorderArea m_borderArea;
-	bool m_bMouseLeftBtnPress;
+    QWidget* m_centerWidget;
+    QPushButton* m_minBtn;
+    QPushButton* m_closeBtn;
+    QPushButton* m_maxNorBtn;
+
+    QPoint m_mouseLeftBtnPressPoint;
+    BorderArea m_borderArea;
+    bool m_bMouseLeftBtnPress;
 };

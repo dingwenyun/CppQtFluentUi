@@ -6,12 +6,11 @@
 
 class FLUENTUICONTROL_EXPORT FluLabel : public QLabel
 {
-	Q_OBJECT
+    Q_OBJECT
 
-public:
-	FluLabel(QWidget *parent = nullptr);
-	~FluLabel();
+  public:
+    FluLabel(QWidget *parent = nullptr);
+    ~FluLabel();
 
-private:
-	 
+  private:
 };

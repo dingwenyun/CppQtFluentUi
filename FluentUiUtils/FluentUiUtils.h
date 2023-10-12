@@ -5,7 +5,7 @@
 
 class FLUENTUIUTILS_EXPORT FluentUiUtils
 {
-public:
+  public:
     FluentUiUtils();
 
     static QPixmap GetFluentIcon(int nIndex);

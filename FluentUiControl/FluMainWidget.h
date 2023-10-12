@@ -10,21 +10,20 @@
 
 class FluMainWidget : public FluFrameLessWidgetV1
 {
-	Q_OBJECT
+    Q_OBJECT
 
-public:
-	FluMainWidget(QWidget* parent = nullptr, QWidget* centerWidget = nullptr);
+  public:
+    FluMainWidget(QWidget* parent = nullptr, QWidget* centerWidget = nullptr);
 
-	// 水平布局
-	QHBoxLayout *m_hLayout;
+    // 水平布局
+    QHBoxLayout* m_hLayout;
 
-	//QWidge* m_leftWidget;
-	FluNavigationInterface* m_navigationInterface;
-	//QVBoxLayout* m_leftVLayout;
+    // QWidge* m_leftWidget;
+    FluNavigationInterface* m_navigationInterface;
+    // QVBoxLayout* m_leftVLayout;
 
-	//QWidget* m_rightTopWidget;
-	//QWidget* m_rightBottomWidget;
-	//QVBoxLayout* m_rightVLayout;
-	QStackedLayout* m_stackLayout;
+    // QWidget* m_rightTopWidget;
+    // QWidget* m_rightBottomWidget;
+    // QVBoxLayout* m_rightVLayout;
+    QStackedLayout* m_stackLayout;
 };
-

@@ -2,5 +2,4 @@
 
 FluentUiThemeUtils::FluentUiThemeUtils()
 {
-
 }

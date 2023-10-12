@@ -5,16 +5,16 @@
 
 class FluPixmapLabel : public QLabel
 {
-public:
-	FluPixmapLabel(QWidget* parent = nullptr);
+  public:
+    FluPixmapLabel(QWidget* parent = nullptr);
 
-	void setPixmap(QPixmap pixmap);
+    void setPixmap(QPixmap pixmap);
 
-	QPixmap getPixmap();
+    QPixmap getPixmap();
 
-protected:
-	void paintEvent(QPaintEvent* event);
-private:
-	QPixmap m_pixmap;
+  protected:
+    void paintEvent(QPaintEvent* event);
+
+  private:
+    QPixmap m_pixmap;
 };
-

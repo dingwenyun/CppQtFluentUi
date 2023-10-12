@@ -3,9 +3,8 @@
 #include "FluToolTip.h"
 #include "FluNavigationWidget.h"
 
-class FluNavigationToolTipFilter : public FluToolTipFilter 
+class FluNavigationToolTipFilter : public FluToolTipFilter
 {
-public:
-	bool _canShowToolTip();
+  public:
+    bool _canShowToolTip();
 };
-

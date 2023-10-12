@@ -7,11 +7,10 @@
 
 class FluApiTest_QCursor : public QWidget
 {
-public:
-	FluApiTest_QCursor(QWidget* parent = nullptr);
+  public:
+    FluApiTest_QCursor(QWidget* parent = nullptr);
 
-	void mousePressEvent(QMouseEvent* event);
+    void mousePressEvent(QMouseEvent* event);
 
-//	void example();
+    //	void example();
 };
-

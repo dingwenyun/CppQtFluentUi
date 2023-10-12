@@ -8,13 +8,14 @@
 
 class FluLinkCardView : public QScrollArea
 {
-	Q_OBJECT
-	FluSetPropertyP(QWidget, view);
-	FluSetPropertyP(QHBoxLayout, hLayout);
-public:
-	FluLinkCardView(QWidget* parent = nullptr);
-	void addCard(QPixmap img, QString title, QString content, QString url);
-protected:
-	void paintEvent(QPaintEvent* event) override;
-};
+    Q_OBJECT
+    FluSetPropertyP(QWidget, view);
+    FluSetPropertyP(QHBoxLayout, hLayout);
 
+  public:
+    FluLinkCardView(QWidget* parent = nullptr);
+    void addCard(QPixmap img, QString title, QString content, QString url);
+
+  protected:
+    void paintEvent(QPaintEvent* event) override;
+};

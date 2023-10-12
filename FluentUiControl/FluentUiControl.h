@@ -4,6 +4,6 @@
 
 class FLUENTUICONTROL_EXPORT FluentUiControl
 {
-public:
+  public:
     FluentUiControl();
 };

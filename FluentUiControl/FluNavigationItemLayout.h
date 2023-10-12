@@ -4,12 +4,12 @@
 #include <QLayoutItem>
 #include <QWidget>
 
-class FluNavigationItemLayout : public QVBoxLayout 
+class FluNavigationItemLayout : public QVBoxLayout
 {
-	Q_OBJECT
-public:
-	FluNavigationItemLayout(QWidget* parent = nullptr);
-public:
-	void setGeometry(const QRect& rect);
-};
+    Q_OBJECT
+  public:
+    FluNavigationItemLayout(QWidget* parent = nullptr);
 
+  public:
+    void setGeometry(const QRect& rect);
+};

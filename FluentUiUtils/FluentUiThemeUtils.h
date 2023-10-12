@@ -2,37 +2,37 @@
 
 #include <QObject>
 
-enum class FluentUiThemeUtilsDarkMode 
+enum class FluentUiThemeUtilsDarkMode
 {
-	Light = 1,
-	Dark = 2
+    Light = 1,
+    Dark = 2
 };
 
 class FluentUiThemeUtils : public QObject
 {
-	Q_OBJECT
-public:
-	FluentUiThemeUtils();
+    Q_OBJECT
+  public:
+    FluentUiThemeUtils();
 
-	static FluentUiThemeUtils* getInstance()
-	{
-		static FluentUiThemeUtils utils;
-		return &utils;
-	}
-public:
-	Q_SIGNAL void darkModeChanged(FluentUiThemeUtilsDarkMode darkMode);
-	FluentUiThemeUtilsDarkMode getDarkMode()
-	{
-		return m_darkMode;
-	}
+    static FluentUiThemeUtils* getInstance()
+    {
+        static FluentUiThemeUtils utils;
+        return &utils;
+    }
 
-	void setDarkMode(FluentUiThemeUtilsDarkMode darkMode)
-	{
-		m_darkMode = darkMode;
-		emit darkModeChanged(m_darkMode);
-	}
+  public:
+    Q_SIGNAL void darkModeChanged(FluentUiThemeUtilsDarkMode darkMode);
+    FluentUiThemeUtilsDarkMode getDarkMode()
+    {
+        return m_darkMode;
+    }
 
-private:
-	FluentUiThemeUtilsDarkMode m_darkMode;
+    void setDarkMode(FluentUiThemeUtilsDarkMode darkMode)
+    {
+        m_darkMode = darkMode;
+        emit darkModeChanged(m_darkMode);
+    }
+
+  private:
+    FluentUiThemeUtilsDarkMode m_darkMode;
 };
-

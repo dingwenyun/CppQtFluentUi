@@ -5,149 +5,150 @@
 #include <QMouseEvent>
 #include <QEvent>
 
-
 class FluNavigationWidget : public QWidget
 {
-	Q_OBJECT
-public:
-	FluNavigationWidget(bool bSelectable, QWidget* parent = nullptr);
-signals:
-	void clicked(bool bClicked);
-protected:
-	void enterEvent(QEvent* event);
+    Q_OBJECT
+  public:
+    FluNavigationWidget(bool bSelectable, QWidget* parent = nullptr);
+  signals:
+    void clicked(bool bClicked);
 
-	void leaveEvent(QEvent* event);
+  protected:
+    void enterEvent(QEvent* event);
 
-	void mousePressEvent(QMouseEvent* event);
+    void leaveEvent(QEvent* event);
 
-	void mouseReleaseEvent(QMouseEvent* event);
-public:
-	void emitClicked(bool bClicked)
-	{
-		emit clicked(bClicked);
-	}
+    void mousePressEvent(QMouseEvent* event);
 
-	void click()
-	{
-		emit clicked(true);
-	}
+    void mouseReleaseEvent(QMouseEvent* event);
 
-	// 获取是否在收缩状态
-	bool getCompacted()
-	{
-		return m_bCompacted;
-	}
+  public:
+    void emitClicked(bool bClicked)
+    {
+        emit clicked(bClicked);
+    }
 
-	void setCompacted(bool bCompacted)	// 是否收缩状态
-	{
-		if (m_bCompacted == bCompacted)
-		{
-			return;
-		}
+    void click()
+    {
+        emit clicked(true);
+    }
 
-		m_bCompacted = bCompacted;
-		if (m_bCompacted)
-		{
-			setFixedSize(40, 36);
-		}
-		else
-		{
-			setFixedSize(EXPAND_WIDTH, 36);
-		}
-		update();
-	}
+    // 获取是否在收缩状态
+    bool getCompacted()
+    {
+        return m_bCompacted;
+    }
 
-	bool getEnter()
-	{
-		return m_bEnter;
-	}
+    void setCompacted(bool bCompacted)  // 是否收缩状态
+    {
+        if (m_bCompacted == bCompacted)
+        {
+            return;
+        }
 
-	void setEnter(bool bEnter)
-	{
-		m_bEnter = bEnter;
-	}
+        m_bCompacted = bCompacted;
+        if (m_bCompacted)
+        {
+            setFixedSize(40, 36);
+        }
+        else
+        {
+            setFixedSize(EXPAND_WIDTH, 36);
+        }
+        update();
+    }
 
-	bool getPressed()
-	{
-		return m_bPressed;
-	}
+    bool getEnter()
+    {
+        return m_bEnter;
+    }
 
-	void setPressed(bool bPressed)
-	{
-		m_bPressed = bPressed;
-	}
+    void setEnter(bool bEnter)
+    {
+        m_bEnter = bEnter;
+    }
 
-	bool getSelected()
-	{
-		return m_bSelected;
-	}
+    bool getPressed()
+    {
+        return m_bPressed;
+    }
 
-	void setSelected(bool bSelected)
-	{
-		if (!m_bSelectable)
-		{
-			return;
-		}
+    void setPressed(bool bPressed)
+    {
+        m_bPressed = bPressed;
+    }
 
-		m_bSelected = bSelected;
-		update();
-	}
+    bool getSelected()
+    {
+        return m_bSelected;
+    }
 
-	bool getSelectable()
-	{
-		return m_bSelectable;
-	}
+    void setSelected(bool bSelected)
+    {
+        if (!m_bSelectable)
+        {
+            return;
+        }
 
-	void setSelectable(bool bSelectable)
-	{
-		m_bSelectable = bSelectable;
-	}
+        m_bSelected = bSelected;
+        update();
+    }
 
-	bool isRoot()
-	{
-		return true;
-	}
+    bool getSelectable()
+    {
+        return m_bSelectable;
+    }
 
-	bool isLeaf()
-	{
-		return true;
-	}
+    void setSelectable(bool bSelectable)
+    {
+        m_bSelectable = bSelectable;
+    }
 
-	FluNavigationWidget* getTreeParent()
-	{
-		return m_treeParent;
-	}
+    bool isRoot()
+    {
+        return true;
+    }
 
-	void setTreeParent(FluNavigationWidget* treeParent)
-	{
-		m_treeParent = treeParent;
-	}
+    bool isLeaf()
+    {
+        return true;
+    }
 
-	int getNodeDepth()
-	{
-		return m_nNodeDepth;
-	}
+    FluNavigationWidget* getTreeParent()
+    {
+        return m_treeParent;
+    }
 
-	void setNodeDepth(int nNodeDepth)
-	{
-		m_nNodeDepth = nNodeDepth;
-	}
+    void setTreeParent(FluNavigationWidget* treeParent)
+    {
+        m_treeParent = treeParent;
+    }
 
-	int getEXPAND_WIDTH()
-	{
-		return EXPAND_WIDTH;
-	}
+    int getNodeDepth()
+    {
+        return m_nNodeDepth;
+    }
 
-private:
-	int EXPAND_WIDTH = 312;
-private:
-	bool m_bCompacted;
-	bool m_bSelected;
-	bool m_bPressed;
-	bool m_bEnter;
-	bool m_bSelectable;
+    void setNodeDepth(int nNodeDepth)
+    {
+        m_nNodeDepth = nNodeDepth;
+    }
 
-	FluNavigationWidget* m_treeParent;
-	int m_nNodeDepth;
+    int getEXPAND_WIDTH()
+    {
+        return EXPAND_WIDTH;
+    }
+
+  private:
+    int EXPAND_WIDTH = 312;
+
+  private:
+    bool m_bCompacted;
+    bool m_bSelected;
+    bool m_bPressed;
+    bool m_bEnter;
+    bool m_bSelectable;
+
+    FluNavigationWidget* m_treeParent;
+    int m_nNodeDepth;
 };
-

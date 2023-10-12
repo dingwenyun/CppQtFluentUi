@@ -10,32 +10,31 @@
 
 int main(int argc, char** argv)
 {
-	QApplication app(argc, argv);
+    QApplication app(argc, argv);
 
-	//QWidget widget;
-	//widget.show();
+    // QWidget widget;
+    // widget.show();
 
-	//ButtonDemo buttonDemo;
-	//buttonDemo.show();
+    // ButtonDemo buttonDemo;
+    // buttonDemo.show();
 
-	FluentUiLogUtils::init();
+    FluentUiLogUtils::init();
 
-	//FluCenterLabelWidget widget(nullptr, "TempText");
-	//widget.show();
+    // FluCenterLabelWidget widget(nullptr, "TempText");
+    // widget.show();
 
-	//ApiTest_QCursor apiTest_Qcursor;
-	//apiTest_Qcursor.show();
+    // ApiTest_QCursor apiTest_Qcursor;
+    // apiTest_Qcursor.show();
 
+    // QString qss = FluentUiStyleSheetUitls::getQssByFileName("[{\"key\":\"key1\", \"value\":\"val1\"},{\"key\":\"key2\", \"value\":\"val2\"}]", "../StyleSheet/FluTest.qss");
+    // FluToolTipDemo demo;
+    // demo.show();
 
-	//QString qss = FluentUiStyleSheetUitls::getQssByFileName("[{\"key\":\"key1\", \"value\":\"val1\"},{\"key\":\"key2\", \"value\":\"val2\"}]", "../StyleSheet/FluTest.qss");
-	//FluToolTipDemo demo;
-	//demo.show();
+    //	FluPushButtonDemo demo;
+    //	demo.show();
 
-//	FluPushButtonDemo demo;
-//	demo.show();
+    FluNavigationPanel panel;
+    panel.show();
 
-	FluNavigationPanel panel;
-	panel.show();
-
-	return app.exec();
+    return app.exec();
 }

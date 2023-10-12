@@ -7,19 +7,18 @@
 
 class FluCheckBox : public QCheckBox
 {
-	Q_OBJECT
-public:
-	FluCheckBox(QWidget* parent = nullptr) : QCheckBox(parent)
-	{
-		QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluCheckBox.qss");
-		setStyleSheet(qss);
-	}
+    Q_OBJECT
+  public:
+    FluCheckBox(QWidget* parent = nullptr) : QCheckBox(parent)
+    {
+        QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluCheckBox.qss");
+        setStyleSheet(qss);
+    }
 
-	FluCheckBox(QString text, QWidget* parent)
-	{
-		QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluCheckBox.qss");
-		setStyleSheet(qss);
-		setText(text);
-	}
+    FluCheckBox(QString text, QWidget* parent)
+    {
+        QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluCheckBox.qss");
+        setStyleSheet(qss);
+        setText(text);
+    }
 };
-

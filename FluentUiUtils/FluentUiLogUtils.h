@@ -11,7 +11,7 @@
 // [时间] [等级] [文件名] [函数名] [行数] [内容]
 class FluentUiLogUtils
 {
-public:
+  public:
     enum LogLevel
     {
         Debug,
@@ -20,7 +20,7 @@ public:
         Err,
     };
 
-public:
+  public:
     FluentUiLogUtils()
     {
     }
@@ -34,37 +34,37 @@ public:
 
     static void myMessageOutput(QtMsgType type, const QMessageLogContext& context, const QString& msg);
 
-public:
+  public:
     static QFile* gFileLog;
     static QtMessageHandler gDefaultHandler;
 };
 
 #define LogFunc LogDebug << "called.";
 
-#define LogDebug                                                           \
+#define LogDebug                                                                          \
     qDebug().nospace() << "[" << FluentUiLogUtils::getTime().toStdString().c_str() << "]" \
-             << "["                                                        \
-             << "debug"                                                    \
-             << "]"                                                        \
-             << "[" << FluentUiLogUtils::getFileName(__FILE__).toStdString().c_str() << "][" << __FUNCTION__ << "][" << __LINE__ << "] "
+                       << "["                                                             \
+                       << "debug"                                                         \
+                       << "]"                                                             \
+                       << "[" << FluentUiLogUtils::getFileName(__FILE__).toStdString().c_str() << "][" << __FUNCTION__ << "][" << __LINE__ << "] "
 
-#define LogInfo                                                            \
+#define LogInfo                                                                           \
     qDebug().nospace() << "[" << FluentUiLogUtils::getTime().toStdString().c_str() << "]" \
-             << "["                                                        \
-             << "info"                                                     \
-             << "]"                                                        \
-             << "[" << FluentUiLogUtils::getFileName(__FILE__).toStdString().c_str() << "][" << __FUNCTION__ << "][" << __LINE__ << "] "
+                       << "["                                                             \
+                       << "info"                                                          \
+                       << "]"                                                             \
+                       << "[" << FluentUiLogUtils::getFileName(__FILE__).toStdString().c_str() << "][" << __FUNCTION__ << "][" << __LINE__ << "] "
 
-#define LogWarn                                                            \
+#define LogWarn                                                                           \
     qDebug().nospace() << "[" << FluentUiLogUtils::getTime().toStdString().c_str() << "]" \
-             << "["                                                        \
-             << "warn"                                                     \
-             << "]"                                                        \
-             << "[" << FluentUiLogUtils::getFileName(__FILE__).toStdString().c_str() << "][" << __FUNCTION__ << "][" << __LINE__ << "] "
+                       << "["                                                             \
+                       << "warn"                                                          \
+                       << "]"                                                             \
+                       << "[" << FluentUiLogUtils::getFileName(__FILE__).toStdString().c_str() << "][" << __FUNCTION__ << "][" << __LINE__ << "] "
 
-#define LogErr                                                             \
+#define LogErr                                                                            \
     qDebug().nospace() << "[" << FluentUiLogUtils::getTime().toStdString().c_str() << "]" \
-             << "["                                                        \
-             << "err"                                                      \
-             << "]"                                                        \
-             << "[" << FluentUiLogUtils::getFileName(__FILE__).toStdString().c_str() << "][" << __FUNCTION__ << "][" << __LINE__ << "] "
+                       << "["                                                             \
+                       << "err"                                                           \
+                       << "]"                                                             \
+                       << "[" << FluentUiLogUtils::getFileName(__FILE__).toStdString().c_str() << "][" << __FUNCTION__ << "][" << __LINE__ << "] "
