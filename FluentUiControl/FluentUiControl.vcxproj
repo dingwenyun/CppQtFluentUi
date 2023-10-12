@@ -237,6 +237,7 @@
     <ClCompile Include="FluNavigationTreeItem.cpp" />
     <ClCompile Include="FluNavigationTreeWidget.cpp" />
     <ClCompile Include="FluScrollBar.cpp" />
+    <ClCompile Include="FluSeparator.cpp" />
     <ClCompile Include="FluTheme.cpp" />
     <ClCompile Include="FluToolTip.cpp" />
     <ClCompile Include="FluTransparentToolButton.cpp" />
@@ -271,6 +272,7 @@
     <ClInclude Include="FluNavigationItem.h" />
     <ClInclude Include="FluNavigationToolTipFilter.h" />
     <QtMoc Include="FluScrollBar.h" />
+    <ClInclude Include="FluSeparator.h" />
     <ClInclude Include="FluTheme.h" />
     <ClInclude Include="FluToolTip.h" />
     <ClInclude Include="FluTransparentToolButton.h" />

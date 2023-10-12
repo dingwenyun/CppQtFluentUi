@@ -41,7 +41,7 @@ public:
 
 	void setMouseLeftBtnPressPoint(QPoint mouseLeftBtnPressPoint)
 	{
-		LogDebug << mouseLeftBtnPressPoint;
+		//LogDebug << mouseLeftBtnPressPoint;
 		m_mouseLeftBtnPressPoint = mouseLeftBtnPressPoint;
 	}
 

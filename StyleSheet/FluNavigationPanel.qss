@@ -1,16 +1,28 @@
-NavigationPanel[menu=true] {
+/*
+FluNavigationPanel {
+    background-color: pink;
+    border: 1px solid transparent;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}*/
+
+
+/*
+FluNavigationPanel[menu=true] {
     background-color: rgb(243, 243, 243);
     border: 1px solid rgb(229, 229, 229);
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
-}
+}*/
 
-NavigationPanel[menu=false] {
+
+/*
+FluNavigationPanel[menu=false] {
     background-color: transparent;
     border: 1px solid transparent;
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
-}
+}*/
 
 QScrollArea,
 #scrollWidget {

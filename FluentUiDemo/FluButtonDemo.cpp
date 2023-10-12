@@ -17,8 +17,6 @@ FluPushButtonDemo::FluPushButtonDemo(QWidget* parent /*= nullptr*/)
 	m_gridLayout->addWidget(m_pushBtn2, 0, 1);
 	m_gridLayout->addWidget(m_primaryBtn1, 1, 0);
 	m_gridLayout->addWidget(m_primaryBtn2, 1, 1);
-
-
 	//resize(600, 400);
 }
 

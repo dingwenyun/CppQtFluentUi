@@ -10,7 +10,10 @@
 #include "FluNavigationToolButton.h"
 #include "../FluentUiUtils/FluentUiIconUtils.h"
 #include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
- 
+#include <QPainter>
+#include <QStyleOption>
+#include <QFrame>
+
 // 导航栏显示模式
 enum class FluNavigationDisplayMode
 {
@@ -31,40 +34,32 @@ enum class FluNavigationItemPosition
 
 using FluNavigationWidgetClickedCallBack = void (*)();
 
-class FluNavigationPanel : public QWidget
+class FluNavigationPanel : public QFrame
 {
 	Q_OBJECT
 public:
 	FluNavigationPanel(bool bMinimalEnable = false, QWidget* parent = nullptr)
-		: QWidget(parent)
+		: QFrame(parent)
 	{
 		m_parent = parent;
 		m_bMenuButtonVisible = true;
 		m_bReturnButtonVisible = false;
 		m_bCollapsible = true;
 
-		__initWidget(parent, bMinimalEnable);
-		__initLayout();
-		__connect();
-
-		//setStyleSheet("background-color:pink;");
-	}
-
-	void __initWidget(QWidget* parent, bool bMinimalEnable)
-	{
-
 		m_scrollArea = new QScrollArea(this);
 		m_scrollWidget = new QWidget();
 
-		//m_menuButton = new FluNavigationToolButton(this, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::GlobalNavButton));
+		m_menuButton = new FluNavigationToolButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::GlobalNavButton), this);
 		//m_returnButton = new FluNavigationToolButton(this, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::Back));
-
 		//m_returnButton->setVisible(false);
-
 		m_vLayout = new FluNavigationItemLayout(this);
+		setLayout(m_vLayout);
+
 		m_vTopLayout = new FluNavigationItemLayout();
+		LogDebug << "vlayout size hint:" << m_vLayout->sizeHint();
 		m_vBottomLayout = new FluNavigationItemLayout();
 		m_vScrollLayout = new FluNavigationItemLayout(m_scrollWidget);
+		LogDebug << "vScrolllayout size hint:" << m_vScrollLayout->sizeHint();
 
 		m_expandAnimation = new QPropertyAnimation(this, "geometry", this);
 		m_expandWidth = 322;
@@ -75,12 +70,26 @@ public:
 		else
 			m_displayMode = FluNavigationDisplayMode::COMPACT;
 
+		__initWidget(parent, bMinimalEnable);
+		__initLayout();
+		__connect();
+
+		//setStyleSheet("background-color: pink;");
+		//setStyleSheet("background-color:red;");
+	}
+
+	void __initWidget(QWidget* parent, bool bMinimalEnable)
+	{
 		//resize(48, height());
+		setFixedSize(48, height());
+
 		setAttribute(Qt::WA_StyledBackground);
 		window()->installEventFilter(this);
 
-	//	m_returnButton->hide();
-	//	m_returnButton->setDisabled(true);
+		//	LogDebug << "resize:" << "w:" << width() << ",h:" << height();
+
+		//	m_returnButton->hide();
+		//	m_returnButton->setDisabled(true);
 
 		m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 		m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -93,15 +102,24 @@ public:
 		setProperty("menu", false);
 		m_scrollWidget->setObjectName("scrollWidget");
 
+		//m_scrollWidget->resize(48, height());
+		//m_scrollArea->resize(48, height());
+
 		//FluSetStyleSheet(FluNavigationPanel);
 
-		QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluNavigationPanel.qss");
-		setStyleSheet(qss);
+		//QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluNavigationPanel.qss");
+		//setStyleSheet(qss);
+
+		//setStyleSheet("background-color: pink;");
+		setStyleSheet("background-color:red;");
+
+		LogDebug << "panel size:" << "w:" << width() << ",h:" << height();
+		LogDebug << "scroll widget:" << "w:" << m_scrollWidget->width() << ",h:" << m_scrollWidget->height();
 	}
 
 	void __connect()
 	{
-
+		connect(m_menuButton, &FluNavigationToolButton::signalClicked, this, &FluNavigationPanel::toggle);
 	}
 
 	void __initLayout()
@@ -125,7 +143,8 @@ public:
 		m_vScrollLayout->setAlignment(Qt::AlignTop);
 		m_vBottomLayout->setAlignment(Qt::AlignBottom);
 
-	//	m_vTopLayout->addWidget(m_menuButton);
+		//m_vTopLayout->addWidget(m_menuButton);
+		LogDebug << "panel size:" << "w:" << width() << ",h:" << height();
 	}
 
 	void insertWidget(int index, QString routeKey, FluNavigationWidget* widget, FluNavigationWidgetClickedCallBack onClicked, FluNavigationItemPosition postion, QString toolTip, QString parentRouteKey)
@@ -144,7 +163,7 @@ public:
 		//connect(widget, &FluNavigationWidget::signalClicked, nullptr, &onClicked);
 		if (onClicked != nullptr)
 		{
-			
+
 		}
 	}
 
@@ -157,11 +176,19 @@ public:
 		QString routeKey = widget->property("routeKey").toString();
 		setCurrentItem(routeKey);
 
-		
+
 		if (widget != m_menuButton && m_displayMode == FluNavigationDisplayMode::MENU && !widget->isLeaf())
 		{
 			collapse();
 		}
+	}
+
+	void toggle()
+	{
+		if (m_displayMode == FluNavigationDisplayMode::COMPACT || m_displayMode == FluNavigationDisplayMode::MINIMAL)
+			expand();
+		else
+			collapse();
 	}
 
 	// 折叠
@@ -234,20 +261,24 @@ public:
 	{
 		_setWidgetCompacted(false);
 		m_expandAnimation->setProperty("expand", true);
-		m_menuButton->setToolTip("Close Navigation");
+		m_menuButton->setToolTip("Close Navigation");// 关闭导航栏
 		//determine the display mode according to the width of window
-	    //https://learn.microsoft.com/en-us/windows/apps/design/controls/navigationview#default
-		int nExpandWidth = 1007 + m_expandWidth - 322;
-		if (window()->width() > nExpandWidth && !m_bMinimalEnabled && !m_bCollapsible)
-		{
+		//https://learn.microsoft.com/en-us/windows/apps/design/controls/navigationview#default
+		//int nExpandWidth = 1007 + m_expandWidth - 322;
+		//if (window()->width() > nExpandWidth && !m_bMinimalEnabled && !m_bCollapsible)
+		//{
+		//	m_displayMode = FluNavigationDisplayMode::EXPAND;
+		//}
+		//else
+		//{
+		//	setProperty("menu", true);
+		//	//setStyle(QApplication::style());
+		//	m_displayMode = FluNavigationDisplayMode::MENU;
+		//}
 
-		}
-		else
-		{
-
-		}
-
-
+		//setExpandWidth(nExpandWidth);
+		m_displayMode = FluNavigationDisplayMode::EXPAND;
+		setFixedWidth(312);
 	}
 
 	void _setWidgetCompacted(bool bCompacted)
@@ -303,7 +334,8 @@ public:
 		m_expandWidth = width;
 		//
 	}
-	
+
+protected:
 private:
 	FluNavigationDisplayMode m_displayMode;
 	FluNavigationHistory* m_history;

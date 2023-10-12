@@ -65,6 +65,9 @@
     <ClInclude Include="FluNavigationItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FluSeparator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluFrameLessWidgetV1.h">
@@ -241,6 +244,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluScrollBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluSeparator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

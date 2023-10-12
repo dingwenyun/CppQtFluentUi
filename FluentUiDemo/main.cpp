@@ -6,6 +6,7 @@
 #include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
 #include "FluApiTest_QCursor.h"
 #include "FluToolTipDemo.h"
+#include "../FluentUiControl/FluNavigationPanel.h"
 
 int main(int argc, char** argv)
 {
@@ -30,8 +31,11 @@ int main(int argc, char** argv)
 	//FluToolTipDemo demo;
 	//demo.show();
 
-	FluPushButtonDemo demo;
-	demo.show();
+//	FluPushButtonDemo demo;
+//	demo.show();
+
+	FluNavigationPanel panel;
+	panel.show();
 
 	return app.exec();
 }

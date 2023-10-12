@@ -65,7 +65,7 @@ FluFrameLessWidgetV1::FluFrameLessWidgetV1(QWidget *parent, QWidget* centerWidge
 	setMouseTracking(true);
 	m_closeBtn->setMouseTracking(true);
 	m_centerWidget->setMouseTracking(true);
-//	setAttribute(Qt::WA_Hover);
+	setAttribute(Qt::WA_Hover);
 }
 
 FluFrameLessWidgetV1::~FluFrameLessWidgetV1()
@@ -196,7 +196,7 @@ void FluFrameLessWidgetV1::UpdateWindowByBorderArea()
 
 void FluFrameLessWidgetV1::adjustWndSizeByMouseMove(QMouseEvent* event)
 {
-	LogDebug << "BorderArea:" << (int)m_borderArea;
+//	LogDebug << "BorderArea:" << (int)m_borderArea;
 	if (m_borderArea == BorderArea::BorderAreaRight)
 	{
 		QPoint distancePoint = event->globalPos() - m_mouseLeftBtnPressPoint;
@@ -204,7 +204,7 @@ void FluFrameLessWidgetV1::adjustWndSizeByMouseMove(QMouseEvent* event)
 		int wndH = height();
 		//setFixedWidth(wndW);
 		resize(wndW, wndH);
-		LogDebug  << "setFixedWidth:" << wndW;
+		//LogDebug  << "setFixedWidth:" << wndW;
 		setMouseLeftBtnPressPoint(event->globalPos());
 		return;
 	}
@@ -222,7 +222,7 @@ void FluFrameLessWidgetV1::adjustWndSizeByMouseMove(QMouseEvent* event)
 		move(gWndX, gWndY);
 		//setFixedWidth(wndW);
 		resize(wndW, wndH);
-		LogDebug << geometry();
+		//LogDebug << geometry();
 		setMouseLeftBtnPressPoint(event->globalPos());
 		return;
 	}
@@ -232,21 +232,21 @@ void FluFrameLessWidgetV1::adjustWndSizeByMouseMove(QMouseEvent* event)
 		QRect wndRect = rect();
 		QPoint distancePoint = event->globalPos() - m_mouseLeftBtnPressPoint;
 
-		LogDebug << "distancePoint:" << distancePoint;
+		//LogDebug << "distancePoint:" << distancePoint;
 
 		int gWndX = pos().x();
 		int gWndY = pos().y() + wndRect.y() + distancePoint.y();
 		int wndW = width();
 		int wndH = height() - distancePoint.y();
 
-		LogDebug << "wndW:" << wndW << ",wndH:" << wndH;
+		//LogDebug << "wndW:" << wndW << ",wndH:" << wndH;
 		//setGeometry(gWndX, gWndY, wndW, wndH);
 		//setFixedSize(wndW, wndH);
 		//setFixedHeight(wndH);
 		move(gWndX, gWndY);
 		//setFixedHeight(wndH);
 		resize(wndW, wndH);
-		LogDebug << "BorderArea::BorderAreaTop After Set Geometry:" << geometry();
+		//LogDebug << "BorderArea::BorderAreaTop After Set Geometry:" << geometry();
 		setMouseLeftBtnPressPoint(event->globalPos());
 		return;
 	}
@@ -258,7 +258,7 @@ void FluFrameLessWidgetV1::adjustWndSizeByMouseMove(QMouseEvent* event)
 		int wndH = height() + distancePoint.y();
 	//	setFixedHeight(wndH);
 		resize(wndW, wndH);
-		LogDebug << geometry();
+		//LogDebug << geometry();
 		setMouseLeftBtnPressPoint(event->globalPos());
 		return;
 	}
@@ -277,7 +277,7 @@ void FluFrameLessWidgetV1::adjustWndSizeByMouseMove(QMouseEvent* event)
 		move(gWndX, gWndY);
 	//	setFixedSize(wndW, wndH);
 		resize(wndW, wndH);
-		LogDebug << geometry();
+		//LogDebug << geometry();
 		setMouseLeftBtnPressPoint(event->globalPos());
 		return;
 	}
@@ -296,7 +296,7 @@ void FluFrameLessWidgetV1::adjustWndSizeByMouseMove(QMouseEvent* event)
 		move(gWndX, gWndY);
 		//setFixedSize(wndW, wndH);
 		resize(wndW, wndH);
-		LogDebug << geometry();
+		//LogDebug << geometry();
 		setMouseLeftBtnPressPoint(event->globalPos());
 		return;
 	}
@@ -314,7 +314,7 @@ void FluFrameLessWidgetV1::adjustWndSizeByMouseMove(QMouseEvent* event)
 		move(gWndX, gWndY);
 		//setFixedSize(wndW, wndH);
 		resize(wndW, wndH);
-		LogDebug << "(" << wndW << ", " << wndH << ")" << "geometry:" << geometry();
+		//LogDebug << "(" << wndW << ", " << wndH << ")" << "geometry:" << geometry();
 		setMouseLeftBtnPressPoint(event->globalPos());
 		return;
 	}
@@ -326,7 +326,7 @@ void FluFrameLessWidgetV1::adjustWndSizeByMouseMove(QMouseEvent* event)
 		int wndH = height() + distancePoint.y();
 		//setFixedSize(wndW, wndH);
 		resize(wndW, wndH);
-		LogDebug << geometry();
+		//LogDebug << geometry();
 		setMouseLeftBtnPressPoint(event->globalPos());
 		return;
 	}
@@ -363,7 +363,7 @@ void FluFrameLessWidgetV1::mouseMoveEvent(QMouseEvent* event)
 			int realX = event->globalPos().x() - normalGeometry().width() * tmpX;
 			int realY = event->globalPos().y() + normalGeometry().height() * tmpY;
 
-			LogDebug << "realX:" << realX << "," << "realY:" << realY;
+			//LogDebug << "realX:" << realX << "," << "realY:" << realY;
 			setUpdatesEnabled(false);
 			setWindowState(Qt::WindowState::WindowNoState);
 			setGeometry(realX, realY, normalGeometry().size().width(), normalGeometry().height());
@@ -375,7 +375,7 @@ void FluFrameLessWidgetV1::mouseMoveEvent(QMouseEvent* event)
 			return;
 		}
 
-		LogDebug << "move to:" << event->globalPos() - m_mouseLeftBtnPressPoint + pos();
+		//LogDebug << "move to:" << event->globalPos() - m_mouseLeftBtnPressPoint + pos();
 		move(event->globalPos() - m_mouseLeftBtnPressPoint + pos());
 		setMouseLeftBtnPressPoint(event->globalPos());
 	}
@@ -405,12 +405,12 @@ void FluFrameLessWidgetV1::mouseReleaseEvent(QMouseEvent* event)
 
 void FluFrameLessWidgetV1::resizeEvent(QResizeEvent* event)
 {
-	LogDebug << "size:" << event->size();
+	//LogDebug << "size:" << event->size();
 }
 
 void FluFrameLessWidgetV1::moveEvent(QMoveEvent* event)
 {
-	LogDebug << event->oldPos() << " => " << event->pos();
+	//LogDebug << event->oldPos() << " => " << event->pos();
 }
 
 void FluFrameLessWidgetV1::slotClickMinBtn()
