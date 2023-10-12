@@ -9,20 +9,11 @@ class FluNavigationPushButton : public FluNavigationWidget
 {
 	Q_OBJECT
 public:
-	//FluNavigationPushButton(QWidget* parent = nullptr, QPixmap icon = QPixmap(), QString text = "", bool bSelectable = false) :
-	//	FluNavigationWidget(parent, bSelectable)
-	//{
-	//	m_icon = icon;
-	//	m_text = text;
-	//	setStyleSheet("NavigationPushButton{font: 14px 'Segoe UI', 'Microsoft YaHei'}");
-	//}
-
 	FluNavigationPushButton(QPixmap icon, QString text, bool bSelectable, QWidget* parent = nullptr)
 		: FluNavigationWidget(bSelectable, parent)
 	{
 		m_icon = icon;
 		m_text = text;
-
 		//setFont(this);
 	}
 
@@ -65,9 +56,10 @@ protected:
 		painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing | QPainter::SmoothPixmapTransform);
 		painter.setPen(Qt::NoPen);
 
-		if (getPressed())
+		if (getPressed())// 鼠标按下
 			painter.setOpacity(0.7);
-		if (!isEnabled())
+
+		if (!isEnabled())// 窗口是否被禁用
 			painter.setOpacity(0.4);
 
 		QColor normalCorlor;
@@ -76,6 +68,7 @@ protected:
 		QMargins tmpMargins = _margins();
 		int nMarginLeft = tmpMargins.left();
 		int nMarginRight = tmpMargins.right();
+
 		QRect globalRect = QRect(mapToGlobal(QPoint()), size());
 
 		if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Light)
@@ -102,10 +95,10 @@ protected:
 				painter.setBrush(enterColor);
 			}
 
-			// 绘制竖线
-			painter.drawRoundedRect(rect(), 5, 5);
+			painter.drawRoundedRect(rect(), 5, 5);// 绘制背景
 			// 指示器暂时以蓝色为准
-			//painter.setBrush(m_themeColor);
+			//painter.setBrush(m_themeColor); // mark it!(仅仅是标记代码作用，方便查找代码)
+			// 绘制指示器(竖线)
 			painter.setBrush(Qt::blue);
 			painter.drawRoundedRect(0 + nMarginLeft, 10, 3, 16, 1.5, 1.5);
 		}
@@ -113,13 +106,13 @@ protected:
 		if (!getSelected() && getEnter() && isEnabled())
 		{
 			painter.setBrush(enterColor);
-			painter.drawRoundedRect(rect(), 5, 5);
+			painter.drawRoundedRect(rect(), 5, 5);// 绘制背景
 		}
 
 		// 绘制icon
 		painter.drawPixmap(QRect(11 + nMarginLeft, 10, 16, 16), m_icon);
 
-		// 绘制提示信息
+		// 非压缩状态下绘制文字信息
 		if (!getCompacted())
 		{
 			painter.setFont(FluNavigationPushButton::font());
@@ -131,7 +124,5 @@ protected:
 private:
 	QPixmap m_icon;
 	QString m_text;
-//	QColor m_themeColor;
-	//bool m_bDarkMode;
 };
 

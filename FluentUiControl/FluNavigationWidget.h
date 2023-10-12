@@ -10,57 +10,35 @@ class FluNavigationWidget : public QWidget
 {
 	Q_OBJECT
 public:
-	FluNavigationWidget(bool bSelectable, QWidget* parent = nullptr) : QWidget(parent)
-	{
-		m_bCompacted = true;
-		m_bSelected = false;
-		m_bPressed = false;
-		m_bEnter = false;
-		m_bSelectable = bSelectable;
-		m_treeParent = nullptr;
-		m_nNodeDepth = 0;
-		setFixedSize(40, 36);
-	}
+	FluNavigationWidget(bool bSelectable, QWidget* parent = nullptr);
 signals:
-	void signalClicked(bool bClicked);
+	void clicked(bool bClicked);
 protected:
-	void enterEvent(QEvent* event)
-	{
-		m_bEnter = true;
-		update();
-	}
+	void enterEvent(QEvent* event);
 
-	void leaveEvent(QEvent* event)
-	{
-		m_bEnter = false;
-		m_bPressed = false;
-		update();
-	}
+	void leaveEvent(QEvent* event);
 
-	void mousePressEvent(QMouseEvent* event)
-	{
-		QWidget::mousePressEvent(event);
-		m_bPressed = true;
-		update();
-	}
+	void mousePressEvent(QMouseEvent* event);
 
-	void mouseReleaseEvent(QMouseEvent* event)
-	{
-		QWidget::mouseReleaseEvent(event);
-		m_bPressed = false;
-		update();
-		emit signalClicked(true);
-	}
+	void mouseReleaseEvent(QMouseEvent* event);
 public:
-	void emitSignalClicked(bool bClicked)
+	void emitClicked(bool bClicked)
 	{
-		emit signalClicked(bClicked);
+		emit clicked(bClicked);
 	}
+
 	void click()
 	{
-		emit signalClicked(true);
+		emit clicked(true);
 	}
-	void setCompacted(bool bCompacted)
+
+	// 获取是否在收缩状态
+	bool getCompacted()
+	{
+		return m_bCompacted;
+	}
+
+	void setCompacted(bool bCompacted)	// 是否收缩状态
 	{
 		if (m_bCompacted == bCompacted)
 		{
@@ -74,18 +52,10 @@ public:
 		}
 		else
 		{
-			setFixedSize(312, 36);
+			setFixedSize(EXPAND_WIDTH, 36);
 		}
 		update();
 	}
-
-	//void setSelected(bool bSelected)
-	//{
-	//	if (!m_bSelectable)
-	//		return;
-	//	m_bSelected = bSelected;
-	//	update();
-	//}
 
 	bool getEnter()
 	{
@@ -119,18 +89,8 @@ public:
 			return;
 		}
 
-		if (m_bSelected == bSelected)
-		{
-			return;
-		}
-
 		m_bSelected = bSelected;
 		update();
-	}
-
-	bool getCompacted()
-	{
-		return m_bCompacted;
 	}
 
 	bool getSelectable()
@@ -171,6 +131,11 @@ public:
 	void setNodeDepth(int nNodeDepth)
 	{
 		m_nNodeDepth = nNodeDepth;
+	}
+
+	int getEXPAND_WIDTH()
+	{
+		return EXPAND_WIDTH;
 	}
 
 private:

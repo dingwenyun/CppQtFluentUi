@@ -119,7 +119,7 @@ public:
 
 	void __connect()
 	{
-		connect(m_menuButton, &FluNavigationToolButton::signalClicked, this, &FluNavigationPanel::toggle);
+		connect(m_menuButton, &FluNavigationToolButton::clicked, this, &FluNavigationPanel::toggle);
 	}
 
 	void __initLayout()

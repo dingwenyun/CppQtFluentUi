@@ -74,14 +74,14 @@ public:
 	{
 		if (!m_history.isEmpty())
 		{
-			m_items[m_history.back()]->emitSignalClicked(false);
+			m_items[m_history.back()]->emitClicked(false);
 			return;
 		}
 
 		if (m_history.isEmpty())
 		{
 			if (!m_defalutRouteKey.isEmpty())
-				m_items[m_defalutRouteKey]->emitSignalClicked(false);
+				m_items[m_defalutRouteKey]->emitClicked(false);
 			emit signalEmptyChanged(true);
 		}
 	}

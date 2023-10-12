@@ -146,7 +146,7 @@ void FluNavigationTreeWidget::_onClicked(bool triggerByUser, bool clickArrow)
 
 	if (!clickArrow || getCompacted())
 	{
-		emitSignalClicked(triggerByUser);
+		emitClicked(triggerByUser);
 	}
 }
 
