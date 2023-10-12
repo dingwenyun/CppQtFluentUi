@@ -9,7 +9,7 @@
 class FluNavigationTreeItem : public FluNavigationPushButton
 {
 	Q_OBJECT
-    Q_PROPERTY(bool arrowAngle READ getArrowAngle WRITE setArrowAngle)
+		Q_PROPERTY(bool arrowAngle READ getArrowAngle WRITE setArrowAngle)
 public:
 	FluNavigationTreeItem(QPixmap icon, QString text, bool bSelectable, QWidget* parent = nullptr);
 
@@ -30,7 +30,7 @@ public:
 		update();
 	}
 signals:
-	void signalItemClicked(bool bTrigger, bool bClickArrow);
+	void itemClicked(bool bTrigger, bool bClickArrow);
 
 protected:
 	void paintEvent(QPaintEvent* event);

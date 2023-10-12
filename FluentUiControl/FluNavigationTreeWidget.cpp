@@ -1,7 +1,7 @@
 #include "FluNavigationTreeWidget.h"
 #include "FluNavigationTreeItem.h"
 
-FluNavigationTreeWidget::FluNavigationTreeWidget(QPixmap icon, QString text, bool bSelectable, QWidget* parent) : FluNavigationBaseTreeWidget(bSelectable, parent)
+FluNavigationTreeWidget::FluNavigationTreeWidget(QPixmap icon, QString text, bool bSelectable, QWidget* parent) : FluNavigationTreeWidgetBase(bSelectable, parent)
 {
 	// treeChildren = [] 
 	m_bExpanded = false;
@@ -18,8 +18,7 @@ void FluNavigationTreeWidget::__initWidget()
 	m_vLayout->setSpacing(4);
 	m_vLayout->setContentsMargins(0, 0, 0, 0);
 	m_vLayout->addWidget(m_itemWidget, 0, Qt::AlignTop);
-
-	connect(m_itemWidget, &FluNavigationTreeItem::signalItemClicked, this, &FluNavigationTreeWidget::_onClicked);
+	connect(m_itemWidget, &FluNavigationTreeItem::itemClicked, this, &FluNavigationTreeWidget::_onClicked);
 
 	// 设置窗口透明
 	setAttribute(Qt::WA_TranslucentBackground);
@@ -92,6 +91,8 @@ void FluNavigationTreeWidget::setExpanded(bool bExpanded, bool bAni)
 		return;
 
 	m_bExpanded = bExpanded;
+	m_itemWidget->setExpanded(true);
+
 	for (auto child : m_treeChildren)
 	{
 		child->setVisible(bExpanded);
@@ -115,7 +116,7 @@ void FluNavigationTreeWidget::setExpanded(bool bExpanded, bool bAni)
 
 void FluNavigationTreeWidget::setSelected(bool bSelected)
 {
-	FluNavigationBaseTreeWidget::setSelected(bSelected);
+	FluNavigationTreeWidgetBase::setSelected(bSelected);
 	m_itemWidget->setSelected(true);
 }
 
@@ -126,7 +127,7 @@ void FluNavigationTreeWidget::mouseReleaseEvent(QMouseEvent* event)
 
 void FluNavigationTreeWidget::setCompacted(bool bCompacted)
 {
-	FluNavigationBaseTreeWidget::setCompacted(bCompacted);
+	FluNavigationTreeWidgetBase::setCompacted(bCompacted);
 	m_itemWidget->setCompacted(bCompacted);
 }
 

@@ -2,11 +2,11 @@
 
 #include "FluNavigationWidget.h"
 
-class FluNavigationBaseTreeWidget : public FluNavigationWidget 
+class FluNavigationTreeWidgetBase : public FluNavigationWidget
 {
 	Q_OBJECT
 public:
-	FluNavigationBaseTreeWidget(bool bSelectable, QWidget* parent) : FluNavigationWidget(bSelectable, parent)
+	FluNavigationTreeWidgetBase(bool bSelectable, QWidget* parent) : FluNavigationWidget(bSelectable, parent)
 	{
 
 	}

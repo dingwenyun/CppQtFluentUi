@@ -1,6 +1,6 @@
 #include "FluNavigationTreeItem.h"
 
-FluNavigationTreeItem::FluNavigationTreeItem(QPixmap icon, QString text, bool bSelectable, QWidget* parent /*= nullptr*/) 
+FluNavigationTreeItem::FluNavigationTreeItem(QPixmap icon, QString text, bool bSelectable, QWidget* parent /*= nullptr*/)
 	: FluNavigationPushButton(icon, text, bSelectable, parent)
 {
 	m_nArrowAngle = 0;
@@ -12,7 +12,7 @@ void FluNavigationTreeItem::setExpanded(bool bExpanded)
 	m_rotateAni->stop();
 	if (!bExpanded)
 	{
-		m_rotateAni->setEndValue(180);
+		m_rotateAni->setEndValue(0);
 		m_rotateAni->setDuration(150);
 		m_rotateAni->start();
 	}
@@ -72,9 +72,11 @@ void FluNavigationTreeItem::paintEvent(QPaintEvent* event)
 	painter.setPen(Qt::NoPen);
 
 	if (getPressed())
-		painter.setOpacity(0.7);
-	if (!isEnabled())
+		painter.setOpacity(0.7); // 按下
+
+	if (!isEnabled())		     // 是有被禁用
 		painter.setOpacity(0.4);
+
 	painter.translate(width() - 20, 18);
 	painter.rotate(m_nArrowAngle);
 	painter.drawPixmap(QRect(-5, -5, 9, 9), FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ArrowDown8));
@@ -86,8 +88,7 @@ void FluNavigationTreeItem::mouseReleaseEvent(QMouseEvent* event)
 	//判断是否点击了"箭头"
 	QRect tmpArrowRect = QRect(width() - 30, 8, 20, 20);
 	bool bClickArrow = tmpArrowRect.contains(event->pos());
-
 	FluNavigationWidget* parentWidget = dynamic_cast<FluNavigationWidget*>(parent());
-	emit signalItemClicked(true, bClickArrow && !parentWidget->isLeaf());
+	emit itemClicked(true, bClickArrow && !parentWidget->isLeaf());
 	update();
 }

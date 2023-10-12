@@ -1,13 +1,13 @@
 #pragma once
 
-#include "FluNavigationBaseTreeWidget.h"
+#include "FluNavigationTreeWidgetBase.h"
 //#include "FluNavigationTreeItem.h"
 #include <QVBoxLayout>
 #include <QPropertyAnimation>
 #include <algorithm>
 
 class FluNavigationTreeItem;
-class FluNavigationTreeWidget : public FluNavigationBaseTreeWidget
+class FluNavigationTreeWidget : public FluNavigationTreeWidgetBase
 {
 	Q_OBJECT
 public:
@@ -61,9 +61,10 @@ public:
 
 	void setSelected(bool bSelected);
 
-	void mouseReleaseEvent(QMouseEvent* event);
-
 	void setCompacted(bool bCompacted);
+
+protected:
+	void mouseReleaseEvent(QMouseEvent* event);
 
 public slots:
 	void _onClicked(bool triggerByUser, bool clickArrow);
