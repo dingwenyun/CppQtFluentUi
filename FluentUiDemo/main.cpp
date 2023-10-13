@@ -31,8 +31,8 @@ int main(int argc, char** argv)
     // FluToolTipDemo demo;
     // demo.show();
 
-    //	FluPushButtonDemo demo;
-    //	demo.show();
+    //    FluPushButtonDemo demo;
+    //    demo.show();
 
     //  FluNavigationPanel panel;
     //  panel.show();
