@@ -1,3 +1,6 @@
 [submodule "third_party/PyQt-Fluent-Widgets"]
 	path = third_party/PyQt-Fluent-Widgets
 	url = https://github.com/zhiyiYo/PyQt-Fluent-Widgets.git
+[submodule "third_party/framelesshelper"]
+	path = third_party/framelesshelper
+	url = https://github.com/wangwenx190/framelesshelper.git
