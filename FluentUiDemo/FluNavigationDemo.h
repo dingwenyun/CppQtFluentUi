@@ -1,3 +1,4 @@
+#include "../FluentUiControl/FluDef.h"
 #include <QWidget>
 #include <QFrame>
 #include <QLabel>
@@ -19,6 +20,7 @@ class FluWidgetDemo : public QFrame
 
         m_hLayout = new QHBoxLayout(this);
         m_hLayout->addWidget(m_label, 1, Qt::AlignCenter);
+        setObjectName(text.replace(" ", "-"));
     }
 
   private:
@@ -33,6 +35,18 @@ class FluWindowDemo : public FluFrameLessWidgetV1
     {
         m_hBoxLayout = new QHBoxLayout(this);
         m_navigationInterface = new FluNavigationInterface(this, true, false);
+        m_stackWidget = new QStackedWidget(this);
+
+        m_searchInterface = new FluWidgetDemo("Search Interface", this);
+        m_musicInterface = new FluWidgetDemo("Music Interface", this);
+
+        m_videoInterface = new FluWidgetDemo("Video Interface", this);
+        m_folderInterface = new FluWidgetDemo("Folder Interface", this);
+        m_settingInterface = new FluWidgetDemo("Setting Interface", this);
+        m_albumInterface0 = new FluWidgetDemo("Album Interface", this);
+        m_albumInterface01 = new FluWidgetDemo("Album Interface 1", this);
+        m_albumInterface02 = new FluWidgetDemo("Album Interface 2", this);
+        m_albumInterface011 = new FluWidgetDemo("Album Interface 1-1", this);
     }
 
     void __initLayout()
@@ -45,6 +59,17 @@ class FluWindowDemo : public FluFrameLessWidgetV1
 
     void __initNavigation()
     {
+        addSubInterface(m_searchInterface, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::Search), "Search");
+        addSubInterface(m_musicInterface, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::MusicAlbum), "Music library");
+        addSubInterface(m_videoInterface, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::Video), "Video library");
+
+        m_navigationInterface->addSeparator();
+
+        addSubInterface(m_albumInterface0, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::MusicAlbum), "albums", FluNavigationItemPosition::SCROLL);
+        addSubInterface(m_albumInterface01, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::MusicAlbum), "albums 01", FluNavigationItemPosition::TOP, m_albumInterface0);
+        addSubInterface(m_albumInterface011, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::MusicAlbum), "albums 011", FluNavigationItemPosition::TOP, m_albumInterface01);
+        addSubInterface(m_albumInterface02, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::MusicAlbum), "albums 02", FluNavigationItemPosition::TOP, m_albumInterface0);
+
     }
 
     void __initWindow()
@@ -61,15 +86,32 @@ class FluWindowDemo : public FluFrameLessWidgetV1
     {
     }
 
-    void addSubInterface(QWidget* interface, QIcon icon, QString str, FluNavigationItemPosition position = FluNavigationItemPosition::TOP, QWidget* parent = nullptr)
+    void addSubInterface(QWidget* interface, QPixmap icon, QString text, FluNavigationItemPosition position = FluNavigationItemPosition::TOP, QWidget* parent = nullptr)
     {
         m_stackWidget->addWidget(interface);
-        m_navigationInterface->addItem(interface->objectName(), icon, text, onClick, position, text, parent->objectName());
+        
+        QString parentRouteKey = "";
+        if (parent != nullptr)
+        {
+            parentRouteKey = parent->objectName();
+        }
+        m_navigationInterface->addItem(interface->objectName(), icon, text, []() {}, true, position, text, parentRouteKey);
+    }
+
+    void setQss()
+    {
+
     }
 
     void swithTo(QWidget* widget)
     {
         m_stackWidget->setCurrentWidget(widget);
+    }
+
+    void onCurrentInterfaceChanged(int nIndex)
+    {
+        QWidget* widget = m_stackWidget->widget(nIndex);
+        m_navigationInterface->setCurrentItem(widget->objectName());
     }
 
   private:
@@ -78,12 +120,12 @@ class FluWindowDemo : public FluFrameLessWidgetV1
     QStackedWidget* m_stackWidget;
 
     FluWidgetDemo* m_searchInterface;
-    FluWindowDemo* m_musicInterface;
-    FluWindowDemo* m_videoInterface;
-    FluWindowDemo* m_folderInterface;
-    FluWindowDemo* m_settingInterface;
-    FluWindowDemo* m_albumInterface0;
-    FluWindowDemo* m_albumInterface01;
-    FluWindowDemo* m_albumInterface02;
-    FluWindowDemo* m_albumInterface011;
+    FluWidgetDemo* m_musicInterface;
+    FluWidgetDemo* m_videoInterface;
+    FluWidgetDemo* m_folderInterface;
+    FluWidgetDemo* m_settingInterface;
+    FluWidgetDemo* m_albumInterface0;
+    FluWidgetDemo* m_albumInterface01;
+    FluWidgetDemo* m_albumInterface02;
+    FluWidgetDemo* m_albumInterface011;
 };

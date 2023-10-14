@@ -84,6 +84,7 @@ class FluNavigationPanel : public QFrame
     }
   signals:
     void displayModeChanged(FluNavigationDisplayMode mode);
+
   public:
     void __initWidget(QWidget* parent, bool bMinimalEnable)
     {
@@ -377,7 +378,7 @@ class FluNavigationPanel : public QFrame
         setFixedWidth(312);
     }
 
-     // 折叠
+    // 折叠
     void collapse()
     {
         if (m_expandAni->state() == QPropertyAnimation::Running)
@@ -401,7 +402,7 @@ class FluNavigationPanel : public QFrame
         m_expandAni->setProperty("expand", false);
         m_expandAni->start();
 
-        m_menuButton->setToolTip("打开导航栏");// 打开导航栏
+        m_menuButton->setToolTip("打开导航栏");  // 打开导航栏
     }
 
     void toggle()
@@ -412,7 +413,7 @@ class FluNavigationPanel : public QFrame
             collapse();
     }
 
-     void setCurrentItem(QString routeKey)
+    void setCurrentItem(QString routeKey)
     {
         if (routeKey.isEmpty())
             return;
@@ -483,7 +484,7 @@ class FluNavigationPanel : public QFrame
     }
 
   protected:
-    void resizeEvent(QResizeEvent *event)
+    void resizeEvent(QResizeEvent* event)
     {
         if (event->oldSize().height() == height())
             return;
@@ -495,7 +496,7 @@ class FluNavigationPanel : public QFrame
         m_scrollArea->setFixedHeight(qMax(midH, 36));
     }
 
-    bool eventFilter(QObject *obj, QEvent *event)
+    bool eventFilter(QObject* obj, QEvent* event)
     {
         if (obj != window() || !m_bCollapsible)
             return QFrame::eventFilter(obj, event);

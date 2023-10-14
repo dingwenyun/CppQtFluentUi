@@ -13,47 +13,39 @@ class FluNavigationInterface : public QWidget
     Q_OBJECT
   public:
     FluNavigationInterface(QWidget* parent = nullptr, bool bShowMenuButton = true, bool bShowReturnButton = false, bool bCollapsible = true);
-signals:
+  signals:
     void displayModeChanged(FluNavigationDisplayMode displayMode);
-  public:
 
-      FluNavigationTreeWidget* addItem(QString routeKey,
-                 QPixmap icon,
-                 QString text,
-                 FluNavigationWidgetClickedCallBack onClick = nullptr,
-                 bool bSelectable = true,
-                 FluNavigationItemPosition position = FluNavigationItemPosition::TOP,
-                 QString toolTip = "",
-                 QString parentRouteKey = "")
+  public:
+    FluNavigationTreeWidget* addItem(QString routeKey,
+                                     QPixmap icon,
+                                     QString text,
+                                     FluNavigationWidgetClickedCallBack onClick = nullptr,
+                                     bool bSelectable = true,
+                                     FluNavigationItemPosition position = FluNavigationItemPosition::TOP,
+                                     QString toolTip = "",
+                                     QString parentRouteKey = "")
     {
-          return insertItem(-1, routeKey, icon, text, onClick, bSelectable, position, toolTip, parentRouteKey);
+        return insertItem(-1, routeKey, icon, text, onClick, bSelectable, position, toolTip, parentRouteKey);
     }
 
-
-
-public:
-    void addWidget(QString routeKey,
-                   FluNavigationWidget* widget,
-                   FluNavigationWidgetClickedCallBack onClick,
-                   FluNavigationItemPosition position = FluNavigationItemPosition::TOP,
-                   QString tooltip = "",
-                   QString parentRouteKey = "")
+  public:
+    void addWidget(QString routeKey, FluNavigationWidget* widget, FluNavigationWidgetClickedCallBack onClick, FluNavigationItemPosition position = FluNavigationItemPosition::TOP, QString tooltip = "", QString parentRouteKey = "")
     {
         insertWidget(-1, routeKey, widget, onClick, position, tooltip, parentRouteKey);
     }
 
-
     FluNavigationTreeWidget* insertItem(int nIndex,
-                    QString routeKey,
-                    QPixmap icon,
-                    QString text,
-                    FluNavigationWidgetClickedCallBack onClick = nullptr,
-                    bool bSelectable = true,
-                    FluNavigationItemPosition position = FluNavigationItemPosition::TOP,
-                    QString toolTip = "",
-                    QString parentRouteKey = "") 
+                                        QString routeKey,
+                                        QPixmap icon,
+                                        QString text,
+                                        FluNavigationWidgetClickedCallBack onClick = nullptr,
+                                        bool bSelectable = true,
+                                        FluNavigationItemPosition position = FluNavigationItemPosition::TOP,
+                                        QString toolTip = "",
+                                        QString parentRouteKey = "")
     {
-        FluNavigationTreeWidget* treeWidget =  m_panel->insertItem(nIndex, routeKey, icon, text, onClick, bSelectable, position, toolTip, parentRouteKey);
+        FluNavigationTreeWidget* treeWidget = m_panel->insertItem(nIndex, routeKey, icon, text, onClick, bSelectable, position, toolTip, parentRouteKey);
         treeWidget->setMinimumHeight(m_panel->layoutMinHeight());
         return treeWidget;
     }
@@ -111,7 +103,7 @@ public:
     }
 
   protected:
-    bool eventFilter(QObject *obj, QEvent *event)
+    bool eventFilter(QObject* obj, QEvent* event)
     {
         if (obj != m_panel && event->type() != QEvent::Resize)
             return eventFilter(obj, event);
