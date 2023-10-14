@@ -102,7 +102,7 @@ class FluNavigationBar : public QWidget
     {
         auto itf = m_items.find(routeKey);
         if (itf != m_items.end())
-            return;
+            return nullptr;
 
         FluNavigationBarPushButton* btn = new FluNavigationBarPushButton(icon, text, bSelectable, selectedIcon, this);
         insertWidget(nIndex, routeKey, btn, onClick, position);
