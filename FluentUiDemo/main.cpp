@@ -38,8 +38,8 @@ int main(int argc, char** argv)
     //  FluNavigationPanel panel;
     //  panel.show();
 
-    //FRAMELESSHELPER_NAMESPACE::FramelessWidget w;
-    //w.show();
+    // FRAMELESSHELPER_NAMESPACE::FramelessWidget w;
+    // w.show();
 
     FluWindowDemo demo;
     demo.show();

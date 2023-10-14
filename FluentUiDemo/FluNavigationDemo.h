@@ -69,7 +69,6 @@ class FluWindowDemo : public FluFrameLessWidgetV1
         addSubInterface(m_albumInterface01, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::MusicAlbum), "albums 01", FluNavigationItemPosition::TOP, m_albumInterface0);
         addSubInterface(m_albumInterface011, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::MusicAlbum), "albums 011", FluNavigationItemPosition::TOP, m_albumInterface01);
         addSubInterface(m_albumInterface02, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::MusicAlbum), "albums 02", FluNavigationItemPosition::TOP, m_albumInterface0);
-
     }
 
     void __initWindow()
@@ -89,18 +88,18 @@ class FluWindowDemo : public FluFrameLessWidgetV1
     void addSubInterface(QWidget* interface, QPixmap icon, QString text, FluNavigationItemPosition position = FluNavigationItemPosition::TOP, QWidget* parent = nullptr)
     {
         m_stackWidget->addWidget(interface);
-        
+
         QString parentRouteKey = "";
         if (parent != nullptr)
         {
             parentRouteKey = parent->objectName();
         }
-        m_navigationInterface->addItem(interface->objectName(), icon, text, []() {}, true, position, text, parentRouteKey);
+        m_navigationInterface->addItem(
+            interface->objectName(), icon, text, []() {}, true, position, text, parentRouteKey);
     }
 
     void setQss()
     {
-
     }
 
     void swithTo(QWidget* widget)
