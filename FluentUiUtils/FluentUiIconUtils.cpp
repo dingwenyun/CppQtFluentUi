@@ -24,6 +24,7 @@ FluentUiIconUtils* FluentUiIconUtils::getInstance()
 QPixmap FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType nType)
 {
     QFont tmpFont = getInstance()->m_fluentFont;
+    tmpFont.setPixelSize(20);
 
     QPixmap tmpPixMap(30, 30);
     tmpPixMap.fill(Qt::transparent);
@@ -36,7 +37,7 @@ QPixmap FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType nType)
     painter.setFont(tmpFont);
     painter.drawText(tmpPixMap.rect(), Qt::AlignCenter, QChar((int)nType));
     painter.end();
-
+    //tmpPixMap.save("tmp.png");
     return tmpPixMap;
 }
 

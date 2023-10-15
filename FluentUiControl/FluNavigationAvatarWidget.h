@@ -9,7 +9,7 @@ class FluNavigationAvatarWidget : public FluNavigationWidget
 {
     Q_OBJECT
   public:
-    FluNavigationAvatarWidget(QString name, QPixmap avatar, QWidget* parent) : FluNavigationWidget(false, parent)
+    FluNavigationAvatarWidget(QString name, QPixmap avatar, QWidget* parent = nullptr) : FluNavigationWidget(false, parent)
     {
         m_name = name;
         setAvatar(avatar);

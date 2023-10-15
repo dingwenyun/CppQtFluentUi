@@ -27,3 +27,42 @@ FluNavigationInterface::FluNavigationInterface(QWidget* parent /*= nullptr*/, bo
 
     LogDebug << "w:" << width() << ",h:" << height();
 }
+
+FluNavigationTreeWidget* FluNavigationInterface::addItem(QString routeKey,
+                                                         QPixmap icon,
+                                                         QString text,
+                                                         FluNavigationWidgetClickedCallBack onClick /*= nullptr*/,
+                                                         bool bSelectable /*= true*/,
+                                                         FluNavigationItemPosition position /*= FluNavigationItemPosition::TOP*/,
+                                                         QString toolTip /*= ""*/,
+                                                         QString parentRouteKey /*= ""*/)
+{
+    return insertItem(-1, routeKey, icon, text, onClick, bSelectable, position, toolTip, parentRouteKey);
+}
+
+void FluNavigationInterface::addWidget(QString routeKey,
+                                       FluNavigationWidget* widget,
+                                       FluNavigationWidgetClickedCallBack onClick,
+                                       FluNavigationItemPosition position /*= FluNavigationItemPosition::TOP*/,
+                                       QString tooltip /*= ""*/,
+                                       QString parentRouteKey /*= ""*/)
+{
+    insertWidget(-1, routeKey, widget, onClick, position, tooltip, parentRouteKey);
+}
+
+void FluNavigationInterface::insertWidget(int nIndex,
+                                          QString routeKey,
+                                          FluNavigationWidget* widget,
+                                          FluNavigationWidgetClickedCallBack onClick /*= nullptr*/,
+                                          FluNavigationItemPosition position /*= FluNavigationItemPosition::TOP*/,
+                                          QString toolTip /*= ""*/,
+                                          QString parentRouteKey /*= ""*/)
+{
+    m_panel->insertWidget(nIndex, routeKey, widget, onClick, position, toolTip, parentRouteKey);
+    setMinimumHeight(m_panel->layoutMinHeight());
+}
+
+void FluNavigationInterface::addSeparator(FluNavigationItemPosition position /*= FluNavigationItemPosition::TOP*/)
+{
+    insertSeparator(-1, position);
+}

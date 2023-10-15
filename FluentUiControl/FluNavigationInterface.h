@@ -24,16 +24,10 @@ class FluNavigationInterface : public QWidget
                                      bool bSelectable = true,
                                      FluNavigationItemPosition position = FluNavigationItemPosition::TOP,
                                      QString toolTip = "",
-                                     QString parentRouteKey = "")
-    {
-        return insertItem(-1, routeKey, icon, text, onClick, bSelectable, position, toolTip, parentRouteKey);
-    }
+                                     QString parentRouteKey = "");
 
   public:
-    void addWidget(QString routeKey, FluNavigationWidget* widget, FluNavigationWidgetClickedCallBack onClick, FluNavigationItemPosition position = FluNavigationItemPosition::TOP, QString tooltip = "", QString parentRouteKey = "")
-    {
-        insertWidget(-1, routeKey, widget, onClick, position, tooltip, parentRouteKey);
-    }
+    void addWidget(QString routeKey, FluNavigationWidget* widget, FluNavigationWidgetClickedCallBack onClick, FluNavigationItemPosition position = FluNavigationItemPosition::TOP, QString tooltip = "", QString parentRouteKey = "");
 
     FluNavigationTreeWidget* insertItem(int nIndex,
                                         QString routeKey,
@@ -46,7 +40,8 @@ class FluNavigationInterface : public QWidget
                                         QString parentRouteKey = "")
     {
         FluNavigationTreeWidget* treeWidget = m_panel->insertItem(nIndex, routeKey, icon, text, onClick, bSelectable, position, toolTip, parentRouteKey);
-        treeWidget->setMinimumHeight(m_panel->layoutMinHeight());
+        if (treeWidget != nullptr)
+            treeWidget->setMinimumHeight(m_panel->layoutMinHeight());
         return treeWidget;
     }
 
@@ -56,16 +51,9 @@ class FluNavigationInterface : public QWidget
                       FluNavigationWidgetClickedCallBack onClick = nullptr,
                       FluNavigationItemPosition position = FluNavigationItemPosition::TOP,
                       QString toolTip = "",
-                      QString parentRouteKey = "")
-    {
-        m_panel->insertWidget(nIndex, routeKey, widget, onClick, position, toolTip, parentRouteKey);
-        setMinimumHeight(m_panel->layoutMinHeight());
-    }
+                      QString parentRouteKey = "");
 
-    void addSeparator(FluNavigationItemPosition position = FluNavigationItemPosition::TOP)
-    {
-        insertSeparator(-1, position);
-    }
+    void addSeparator(FluNavigationItemPosition position = FluNavigationItemPosition::TOP);
 
     void insertSeparator(int nIndex, FluNavigationItemPosition position = FluNavigationItemPosition::TOP)
     {

@@ -1,0 +1,106 @@
+#include "FluNavigationDemo.h"
+#include "../FluentUiControl/FluNavigationAvatarWidget.h"
+#include "../FluentUiUtils/FluentUiLogUtils.h"
+#include "../FluentUiUtils/FluentUiIconUtils.h"
+
+FluWidgetDemo::FluWidgetDemo(QString text, QWidget* parent /*= nullptr*/) : QFrame(parent)
+{
+    m_label = new QLabel(text, this);
+    m_label->setAlignment(Qt::AlignCenter);
+
+    m_hLayout = new QHBoxLayout(this);
+    m_hLayout->addWidget(m_label, 1, Qt::AlignCenter);
+    setObjectName(text.replace(" ", "-"));
+
+    setStyleSheet("background-color:pink");
+    LogDebug << "demo size:" << size();
+}
+
+FluWindowDemo::FluWindowDemo(QWidget* parent /*= nullptr*/) : FluFrameLessWidgetV1(parent)
+{
+
+    m_hBoxLayout = new QHBoxLayout(m_centerWidget);
+    m_centerWidget->setLayout(m_hBoxLayout);
+
+    m_navigationInterface = new FluNavigationInterface(m_centerWidget);
+    m_stackWidget = new QStackedWidget(m_centerWidget);
+
+    m_searchInterface = new FluWidgetDemo("Search Interface", m_centerWidget);
+    m_musicInterface = new FluWidgetDemo("Music Interface", m_centerWidget);
+
+    m_videoInterface = new FluWidgetDemo("Video Interface", m_centerWidget);
+    m_folderInterface = new FluWidgetDemo("Folder Interface", m_centerWidget);
+    m_settingInterface = new FluWidgetDemo("Setting Interface", m_centerWidget);
+    m_albumInterface0 = new FluWidgetDemo("Album Interface", m_centerWidget);
+    m_albumInterface01 = new FluWidgetDemo("Album Interface 1", m_centerWidget);
+    m_albumInterface02 = new FluWidgetDemo("Album Interface 2", m_centerWidget);
+    m_albumInterface011 = new FluWidgetDemo("Album Interface 1-1", m_centerWidget);
+
+    __initLayout();
+
+    __initNavigation();
+
+    __initWindow();
+}
+
+void FluWindowDemo::__initLayout()
+{
+    m_hBoxLayout->setSpacing(0);
+    m_hBoxLayout->setContentsMargins(0, 0, 0, 0);
+    m_hBoxLayout->addWidget(m_navigationInterface);
+    m_hBoxLayout->addWidget(m_stackWidget, 1);
+}
+
+void FluWindowDemo::__initNavigation()
+{
+    addSubInterface(m_searchInterface, FluGetIconPixmap(FluAwesomeType::Search), "Search");
+    addSubInterface(m_musicInterface,  FluGetIconPixmap(FluAwesomeType::MusicAlbum), "Music library");
+    addSubInterface(m_videoInterface, FluGetIconPixmap(FluAwesomeType::Video), "Video library");
+
+    m_navigationInterface->addSeparator();
+
+    addSubInterface(m_albumInterface0, FluGetIconPixmap(FluAwesomeType::MusicAlbum), "albums", FluNavigationItemPosition::SCROLL);
+    addSubInterface(m_albumInterface01, FluGetIconPixmap(FluAwesomeType::MusicAlbum), "albums 01", FluNavigationItemPosition::TOP, m_albumInterface0);
+    addSubInterface(m_albumInterface011, FluGetIconPixmap(FluAwesomeType::MusicAlbum), "albums 011", FluNavigationItemPosition::TOP, m_albumInterface01);
+    addSubInterface(m_albumInterface02, FluGetIconPixmap(FluAwesomeType::MusicAlbum), "albums 02", FluNavigationItemPosition::TOP, m_albumInterface0);
+
+    addSubInterface(m_folderInterface, FluGetIconPixmap(FluAwesomeType::Folder), "Folder library", FluNavigationItemPosition::SCROLL);
+    
+    FluNavigationAvatarWidget* avatarWidget = new FluNavigationAvatarWidget("mowangshuying", QPixmap("../res/shoko.png"));
+    m_navigationInterface->addWidget("avatar", avatarWidget, nullptr, FluNavigationItemPosition::BOTTOM);
+    addSubInterface(m_settingInterface, FluGetIconPixmap(FluAwesomeType::Settings), "Settings", FluNavigationItemPosition::BOTTOM);
+}
+
+void FluWindowDemo::__initWindow()
+{
+    //   resize(900, 700);
+    setFixedSize(900, 700);
+    QRect desktopRect = QApplication::primaryScreen()->geometry();
+    int nW = desktopRect.width();
+    int nH = desktopRect.height();
+    move(nW / 2 - width() / 2, nH / 2 - height() / 2);
+}
+
+void FluWindowDemo::addSubInterface(QWidget* interface, QPixmap icon, QString text, FluNavigationItemPosition position /*= FluNavigationItemPosition::TOP*/, QWidget* parent /*= nullptr*/)
+{
+    m_stackWidget->addWidget(interface);
+
+    QString parentRouteKey = "";
+    if (parent != nullptr)
+    {
+        parentRouteKey = parent->objectName();
+    }
+    m_navigationInterface->addItem(
+        interface->objectName(), icon, text, []() {}, true, position, text, parentRouteKey);
+}
+
+void FluWindowDemo::swithTo(QWidget* widget)
+{
+    m_stackWidget->setCurrentWidget(widget);
+}
+
+void FluWindowDemo::onCurrentInterfaceChanged(int nIndex)
+{
+    QWidget* widget = m_stackWidget->widget(nIndex);
+    m_navigationInterface->setCurrentItem(widget->objectName());
+}

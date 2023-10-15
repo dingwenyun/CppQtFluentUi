@@ -19,7 +19,7 @@ FluFrameLessWidgetV1::FluFrameLessWidgetV1(QWidget* parent, QWidget* centerWidge
     m_mouseLeftBtnPressPoint = QPoint(0, 0);
 
     m_vLayout = new QVBoxLayout(this);
-    m_vLayout->setContentsMargins(0, 0, 0, 0);
+    m_vLayout->setContentsMargins(2, 2, 2, 2);
     setLayout(m_vLayout);
 
     m_hLayout = new QHBoxLayout(this);
