@@ -37,7 +37,7 @@ QPixmap FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType nType)
     painter.setFont(tmpFont);
     painter.drawText(tmpPixMap.rect(), Qt::AlignCenter, QChar((int)nType));
     painter.end();
-    //tmpPixMap.save("tmp.png");
+    // tmpPixMap.save("tmp.png");
     return tmpPixMap;
 }
 

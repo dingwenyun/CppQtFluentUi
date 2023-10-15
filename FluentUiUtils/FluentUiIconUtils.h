@@ -7,7 +7,7 @@
 #include "../FluentUiControl/FluDef.h"
 
 #define FluGetIcon(nType) FluentUiIconUtils::GetFluentIcon(nType)
-#define FluGetIconPixmap(nType) FluentUiIconUtils::GetFluentIconPixmap(nType) 
+#define FluGetIconPixmap(nType) FluentUiIconUtils::GetFluentIconPixmap(nType)
 
 class FluentUiIconUtils
 {

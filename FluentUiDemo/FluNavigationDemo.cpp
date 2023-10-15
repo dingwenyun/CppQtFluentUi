@@ -18,7 +18,6 @@ FluWidgetDemo::FluWidgetDemo(QString text, QWidget* parent /*= nullptr*/) : QFra
 
 FluWindowDemo::FluWindowDemo(QWidget* parent /*= nullptr*/) : FluFrameLessWidgetV1(parent)
 {
-
     m_hBoxLayout = new QHBoxLayout(m_centerWidget);
     m_centerWidget->setLayout(m_hBoxLayout);
 
@@ -54,7 +53,7 @@ void FluWindowDemo::__initLayout()
 void FluWindowDemo::__initNavigation()
 {
     addSubInterface(m_searchInterface, FluGetIconPixmap(FluAwesomeType::Search), "Search");
-    addSubInterface(m_musicInterface,  FluGetIconPixmap(FluAwesomeType::MusicAlbum), "Music library");
+    addSubInterface(m_musicInterface, FluGetIconPixmap(FluAwesomeType::MusicAlbum), "Music library");
     addSubInterface(m_videoInterface, FluGetIconPixmap(FluAwesomeType::Video), "Video library");
 
     m_navigationInterface->addSeparator();
@@ -65,7 +64,7 @@ void FluWindowDemo::__initNavigation()
     addSubInterface(m_albumInterface02, FluGetIconPixmap(FluAwesomeType::MusicAlbum), "albums 02", FluNavigationItemPosition::TOP, m_albumInterface0);
 
     addSubInterface(m_folderInterface, FluGetIconPixmap(FluAwesomeType::Folder), "Folder library", FluNavigationItemPosition::SCROLL);
-    
+
     FluNavigationAvatarWidget* avatarWidget = new FluNavigationAvatarWidget("mowangshuying", QPixmap("../res/shoko.png"));
     m_navigationInterface->addWidget("avatar", avatarWidget, nullptr, FluNavigationItemPosition::BOTTOM);
     addSubInterface(m_settingInterface, FluGetIconPixmap(FluAwesomeType::Settings), "Settings", FluNavigationItemPosition::BOTTOM);

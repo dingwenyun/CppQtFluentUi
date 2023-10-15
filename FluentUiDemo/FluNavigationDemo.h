@@ -47,7 +47,7 @@ class FluWindowDemo : public FluFrameLessWidgetV1
 
   private:
     QHBoxLayout* m_hBoxLayout;
-   // QWidget* m_centerWidget;
+    // QWidget* m_centerWidget;
     FluNavigationInterface* m_navigationInterface;
     QStackedWidget* m_stackWidget;
 

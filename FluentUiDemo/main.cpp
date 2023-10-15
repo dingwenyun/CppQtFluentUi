@@ -44,8 +44,8 @@ int main(int argc, char** argv)
     FluWindowDemo demo;
     demo.show();
 
-  //  FluWidgetDemo demo("demo widget");
-  //  demo.show();
+    //  FluWidgetDemo demo("demo widget");
+    //  demo.show();
 
     return app.exec();
 }
