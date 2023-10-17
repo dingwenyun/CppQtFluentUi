@@ -2,6 +2,10 @@
 #include "../FluentUiControl/FluNavigationAvatarWidget.h"
 #include "../FluentUiUtils/FluentUiLogUtils.h"
 #include "../FluentUiUtils/FluentUiIconUtils.h"
+#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include <QMessageBox>
+
+using namespace std;
 
 FluWidgetDemo::FluWidgetDemo(QString text, QWidget* parent /*= nullptr*/) : QFrame(parent)
 {
@@ -12,7 +16,19 @@ FluWidgetDemo::FluWidgetDemo(QString text, QWidget* parent /*= nullptr*/) : QFra
     m_hLayout->addWidget(m_label, 1, Qt::AlignCenter);
     setObjectName(text.replace(" ", "-"));
 
-    setStyleSheet("background-color:pink");
+    QString qss = 
+        " FluWidgetDemo{\
+        border : 1px solid rgb(229, 229, 229); \
+        border-right : none; \
+        border-bottom : none;\
+        border-top-left-radius : 10px;\
+        background-color : rgb(249, 249, 249) \
+        } ";
+
+  //  setStyleSheet("background-color:pink");
+
+    setStyleSheet(qss);
+    m_label->setStyleSheet("font: 24px 'Segoe UI', 'Microsoft YaHei';");
     LogDebug << "demo size:" << size();
 }
 
@@ -22,6 +38,8 @@ FluWindowDemo::FluWindowDemo(QWidget* parent /*= nullptr*/) : FluFrameLessWidget
     m_centerWidget->setLayout(m_hBoxLayout);
 
     m_navigationInterface = new FluNavigationInterface(m_centerWidget);
+    LogDebug << "navigation infterface size:" << m_navigationInterface->size();
+
     m_stackWidget = new QStackedWidget(m_centerWidget);
 
     m_searchInterface = new FluWidgetDemo("Search Interface", m_centerWidget);
@@ -40,6 +58,9 @@ FluWindowDemo::FluWindowDemo(QWidget* parent /*= nullptr*/) : FluFrameLessWidget
     __initNavigation();
 
     __initWindow();
+
+    LogDebug << "navigation interface size:" << m_navigationInterface->size();
+    setMouseTracking(true);
 }
 
 void FluWindowDemo::__initLayout()
@@ -53,7 +74,7 @@ void FluWindowDemo::__initLayout()
 void FluWindowDemo::__initNavigation()
 {
     addSubInterface(m_searchInterface, FluGetIconPixmap(FluAwesomeType::Search), "Search");
-    addSubInterface(m_musicInterface, FluGetIconPixmap(FluAwesomeType::MusicAlbum), "Music library");
+    addSubInterface(m_musicInterface, FluGetIconPixmap(FluAwesomeType::MusicNote), "Music library");
     addSubInterface(m_videoInterface, FluGetIconPixmap(FluAwesomeType::Video), "Video library");
 
     m_navigationInterface->addSeparator();
@@ -66,7 +87,8 @@ void FluWindowDemo::__initNavigation()
     addSubInterface(m_folderInterface, FluGetIconPixmap(FluAwesomeType::Folder), "Folder library", FluNavigationItemPosition::SCROLL);
 
     FluNavigationAvatarWidget* avatarWidget = new FluNavigationAvatarWidget("mowangshuying", QPixmap("../res/shoko.png"));
-    m_navigationInterface->addWidget("avatar", avatarWidget, nullptr, FluNavigationItemPosition::BOTTOM);
+    m_navigationInterface->addWidget(
+        "avatar", avatarWidget, []() { QMessageBox::information(nullptr, "info", "write by mowangshuying"); }, FluNavigationItemPosition::BOTTOM);
     addSubInterface(m_settingInterface, FluGetIconPixmap(FluAwesomeType::Settings), "Settings", FluNavigationItemPosition::BOTTOM);
 }
 
@@ -74,6 +96,10 @@ void FluWindowDemo::__initWindow()
 {
     //   resize(900, 700);
     setFixedSize(900, 700);
+    //m_navigationInterface->resize(m_navigationInterface->width(), 700);
+
+    setWindowIcon(QIcon("../res/logo.png"));
+
     QRect desktopRect = QApplication::primaryScreen()->geometry();
     int nW = desktopRect.width();
     int nH = desktopRect.height();
@@ -89,8 +115,13 @@ void FluWindowDemo::addSubInterface(QWidget* interface, QPixmap icon, QString te
     {
         parentRouteKey = parent->objectName();
     }
-    m_navigationInterface->addItem(
-        interface->objectName(), icon, text, []() {}, true, position, text, parentRouteKey);
+    m_navigationInterface->addItem(interface->objectName(), icon, text, [interface, this]() { swithTo(interface);}, true, position, text, parentRouteKey);
+}
+
+void FluWindowDemo::setQss()
+{
+    QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluNavigationPanel.qss");
+    setStyleSheet(qss);
 }
 
 void FluWindowDemo::swithTo(QWidget* widget)

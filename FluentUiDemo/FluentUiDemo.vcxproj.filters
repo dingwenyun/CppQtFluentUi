@@ -46,11 +46,11 @@
     <QtMoc Include="FluToolTipDemo.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="FluNavigationDemo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FluNavigationDemo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FluApiTest_QCursor.h">
       <Filter>Header Files</Filter>
     </ClInclude>

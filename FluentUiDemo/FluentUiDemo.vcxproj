@@ -257,7 +257,7 @@
   <ItemGroup>
     <ClInclude Include="FluApiTest_QCursor.h" />
     <QtMoc Include="FluToolTipDemo.h" />
-    <ClInclude Include="FluNavigationDemo.h" />
+    <QtMoc Include="FluNavigationDemo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

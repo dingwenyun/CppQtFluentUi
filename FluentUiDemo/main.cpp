@@ -7,8 +7,10 @@
 #include "FluApiTest_QCursor.h"
 #include "FluToolTipDemo.h"
 #include "../FluentUiControl/FluNavigationPanel.h"
+#include "../FluentUiControl/FluNavigationInterface.h"
 #include <FramelessHelper/Widgets/FramelessWidget.h>
 #include "FluNavigationDemo.h"
+//#include "FramelessWidgetsHelperDemo.h"
 
 int main(int argc, char** argv)
 {
@@ -35,8 +37,8 @@ int main(int argc, char** argv)
     //    FluPushButtonDemo demo;
     //    demo.show();
 
-    //  FluNavigationPanel panel;
-    //  panel.show();
+      //FluNavigationPanel panel;
+      //panel.show();
 
     // FRAMELESSHELPER_NAMESPACE::FramelessWidget w;
     // w.show();
@@ -44,8 +46,14 @@ int main(int argc, char** argv)
     FluWindowDemo demo;
     demo.show();
 
-    //  FluWidgetDemo demo("demo widget");
-    //  demo.show();
+    //FluWidgetDemo demo("demo widget");
+    //demo.show();
+
+    //FluNavigationInterface demo;
+    //demo.show();
+
+   // FluFrameLessWidgetV2 v2;
+   // v2.show();
 
     return app.exec();
 }

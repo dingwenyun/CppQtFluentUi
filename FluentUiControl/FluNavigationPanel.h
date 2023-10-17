@@ -17,6 +17,7 @@
 #include "FluNavigationItem.h"
 #include "FluNavigationSeparator.h"
 #include "FluNavigationToolTipFilter.h"
+ #include <functional>
 
 // 导航栏显示模式
 enum class FluNavigationDisplayMode
@@ -35,8 +36,7 @@ enum class FluNavigationItemPosition
     BOTTOM
 };
 
-using FluNavigationWidgetClickedCallBack = void (*)();
-
+using FluNavigationWidgetClickedCallBack = std::function<void ()>;
 class FluNavigationPanel : public QFrame
 {
     Q_OBJECT
@@ -80,7 +80,7 @@ class FluNavigationPanel : public QFrame
         //  __connect();
 
         // setStyleSheet("background-color: pink;");
-        // setStyleSheet("background-color:red;");
+        //setStyleSheet("background-color:red;");
     }
   signals:
     void displayModeChanged(FluNavigationDisplayMode mode);
@@ -89,7 +89,7 @@ class FluNavigationPanel : public QFrame
     void __initWidget(QWidget* parent, bool bMinimalEnable)
     {
         // resize(48, height());
-        setFixedSize(48, height());
+        //setFixedSize(48, height());
         setAttribute(Qt::WA_StyledBackground);
         window()->installEventFilter(this);  // 事件处理器
 
@@ -153,9 +153,9 @@ class FluNavigationPanel : public QFrame
         m_vScrollLayout->setSpacing(4);
         m_vBottomLayout->setSpacing(4);
 
-        m_vLayout->addLayout(m_vTopLayout);
+        m_vLayout->addLayout(m_vTopLayout, 0);
         m_vLayout->addWidget(m_scrollArea, 1, Qt::AlignTop);
-        m_vLayout->addLayout(m_vBottomLayout);
+        m_vLayout->addLayout(m_vBottomLayout, 0);
 
         m_vLayout->setAlignment(Qt::AlignTop);
         m_vTopLayout->setAlignment(Qt::AlignTop);
@@ -164,8 +164,11 @@ class FluNavigationPanel : public QFrame
 
         m_vTopLayout->addWidget(m_returnButton);
         m_vTopLayout->addWidget(m_menuButton);
-        LogDebug << "panel size:"
-                 << "w:" << width() << ",h:" << height();
+
+        //setFixedSize(48, height());// 修改宽度
+        //resize(48, height());
+        setFixedWidth(48);
+        LogDebug << "panel size:" << "w:" << width() << ",h:" << height();
     }
 
     FluNavigationWidget* __widget(QString routeKey)
@@ -219,9 +222,10 @@ class FluNavigationPanel : public QFrame
             return;
 
         _registerWidget(routeKey, parentRouteKey, widget, onClicked, toolTip);
-        if (parentRouteKey.isEmpty())
+        if (!parentRouteKey.isEmpty())
         {
             FluNavigationTreeWidget* treeWidget = (FluNavigationTreeWidget*)(__widget(parentRouteKey));
+            treeWidget->insertChild(index, widget);
         }
         else
         {
@@ -245,7 +249,7 @@ class FluNavigationPanel : public QFrame
         connect(widget, &FluNavigationWidget::clicked, this, &FluNavigationPanel::_onWidgetClicked);
         if (onClicked != nullptr)
         {
-            connect(widget, &FluNavigationWidget::clicked, [&]() { onClicked(); });
+           connect(widget, &FluNavigationWidget::clicked, [=]() { onClicked(); });
         }
 
         widget->setProperty("routeKey", routeKey);
@@ -387,6 +391,8 @@ class FluNavigationPanel : public QFrame
         for (auto itMap = m_items.begin(); itMap != m_items.end(); itMap++)
         {
             FluNavigationWidget* tmpWidget = itMap->second->m_widget;
+
+            LogDebug << "calssName:" << tmpWidget->metaObject()->className();
             if (tmpWidget->metaObject()->className() == "FluNavigationTreeWidgetBase" && tmpWidget->isRoot())
             {
                 FluNavigationTreeWidgetBase* treeWidgetBase = (FluNavigationTreeWidgetBase*)(tmpWidget);
@@ -445,6 +451,38 @@ class FluNavigationPanel : public QFrame
 
     void _onExpandAniFinished()
     {
+        if (!m_expandAni->property("expand").toBool())
+        {
+            if (m_bMinimalEnabled)
+                m_displayMode = FluNavigationDisplayMode::MINIMAL;
+            else
+                m_displayMode = FluNavigationDisplayMode::COMPACT;
+
+            emit displayModeChanged(m_displayMode);
+        }
+
+        if (m_displayMode == FluNavigationDisplayMode::MINIMAL)
+        {
+            hide();
+            setProperty("menu", false);
+            setStyle(QApplication::style());
+        }
+        else if (m_displayMode == FluNavigationDisplayMode::COMPACT)
+        {
+            setProperty("menu", false);
+            setStyle(QApplication::style());
+            for (auto itMap = m_items.begin(); itMap != m_items.end(); itMap++)
+            {
+                itMap->second->m_widget->setCompacted(true);
+            }
+
+            if (!m_parent->isWindow())
+            {
+                setParent(m_parent);
+                move(0, 0);
+                show();
+            }
+        }
     }
 
     void _setWidgetCompacted(bool bCompacted)
@@ -486,42 +524,42 @@ class FluNavigationPanel : public QFrame
   protected:
     void resizeEvent(QResizeEvent* event)
     {
-        if (event->oldSize().height() == height())
+       if (event->oldSize().height() == height())
             return;
 
         int topH = m_vTopLayout->minimumSize().height();
-        int bottomH = m_vBottomLayout->minimumSize().height();
+       int bottomH = m_vBottomLayout->minimumSize().height();
 
-        int midH = height() - topH - bottomH - 20;
-        m_scrollArea->setFixedHeight(qMax(midH, 36));
+       int midH = height() - topH - bottomH - 20;
+       m_scrollArea->setFixedHeight(qMax(midH, 36));
     }
 
     bool eventFilter(QObject* obj, QEvent* event)
     {
-        if (obj != window() || !m_bCollapsible)
-            return QFrame::eventFilter(obj, event);
+        ///*if (obj != window() || !m_bCollapsible)
+        //    return QFrame::eventFilter(obj, event);
 
-        if (event->type() == QEvent::MouseButtonRelease)
-        {
-            QMouseEvent* mEvent = (QMouseEvent*)(event);
-            if (!geometry().contains(mEvent->pos()) && m_displayMode == FluNavigationDisplayMode::MENU)
-            {
-                collapse();
-            }
-        }
-        else if (event->type() == QEvent::Resize)
-        {
-            QResizeEvent* rEvent = (QResizeEvent*)(event);
-            int nTmpWidth = rEvent->size().width();
-            if (nTmpWidth < 1008 && m_displayMode == FluNavigationDisplayMode::EXPAND)
-            {
-                collapse();
-            }
-            else if (nTmpWidth >= 1008 && m_displayMode == FluNavigationDisplayMode::COMPACT && !m_bMenuButtonVisible)
-            {
-                expand();
-            }
-        }
+        //if (event->type() == QEvent::MouseButtonRelease)
+        //{
+        //    QMouseEvent* mEvent = (QMouseEvent*)(event);
+        //    if (!geometry().contains(mEvent->pos()) && m_displayMode == FluNavigationDisplayMode::MENU)
+        //    {
+        //        collapse();
+        //    }
+        //}
+        //else if (event->type() == QEvent::Resize)
+        //{
+        //    QResizeEvent* rEvent = (QResizeEvent*)(event);
+        //    int nTmpWidth = rEvent->size().width();
+        //    if (nTmpWidth < 1008 && m_displayMode == FluNavigationDisplayMode::EXPAND)
+        //    {
+        //        collapse();
+        //    }
+        //    else if (nTmpWidth >= 1008 && m_displayMode == FluNavigationDisplayMode::COMPACT && !m_bMenuButtonVisible)
+        //    {
+        //        expand();
+        //    }
+        //}*/
 
         return QFrame::eventFilter(obj, event);
     }

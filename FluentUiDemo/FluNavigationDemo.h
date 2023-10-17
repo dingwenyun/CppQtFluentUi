@@ -12,6 +12,7 @@
 
 class FluWidgetDemo : public QFrame
 {
+    Q_OBJECT
   public:
     FluWidgetDemo(QString text, QWidget* parent = nullptr);
 
@@ -22,6 +23,7 @@ class FluWidgetDemo : public QFrame
 
 class FluWindowDemo : public FluFrameLessWidgetV1
 {
+    Q_OBJECT
   public:
     FluWindowDemo(QWidget* parent = nullptr);
 
@@ -31,15 +33,9 @@ class FluWindowDemo : public FluFrameLessWidgetV1
 
     void __initWindow();
 
-    void __setQss()
-    {
-    }
-
     void addSubInterface(QWidget* interface, QPixmap icon, QString text, FluNavigationItemPosition position = FluNavigationItemPosition::TOP, QWidget* parent = nullptr);
 
-    void setQss()
-    {
-    }
+    void setQss();
 
     void swithTo(QWidget* widget);
 

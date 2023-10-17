@@ -40,8 +40,8 @@ class FluNavigationInterface : public QWidget
                                         QString parentRouteKey = "")
     {
         FluNavigationTreeWidget* treeWidget = m_panel->insertItem(nIndex, routeKey, icon, text, onClick, bSelectable, position, toolTip, parentRouteKey);
-        if (treeWidget != nullptr)
-            treeWidget->setMinimumHeight(m_panel->layoutMinHeight());
+       // if (treeWidget != nullptr)
+           // treeWidget->setMinimumHeight(m_panel->layoutMinHeight());
         return treeWidget;
     }
 
@@ -58,7 +58,7 @@ class FluNavigationInterface : public QWidget
     void insertSeparator(int nIndex, FluNavigationItemPosition position = FluNavigationItemPosition::TOP)
     {
         m_panel->insertSeparator(nIndex, position);
-        setMinimumHeight(m_panel->layoutMinHeight());
+       //setMinimumHeight(m_panel->layoutMinHeight());
     }
 
     void removeWidget(QString routeKey)
@@ -98,9 +98,9 @@ class FluNavigationInterface : public QWidget
 
         if (m_panel->getDisplayMode() != FluNavigationDisplayMode::MENU)
         {
-            QResizeEvent* rEvent = (QResizeEvent*)(event);
-            if (rEvent->oldSize().width() != rEvent->size().width())
-                setFixedWidth(rEvent->size().width());
+           // QResizeEvent* rEvent = (QResizeEvent*)(event);
+            //if (rEvent->oldSize().width() != rEvent->size().width())
+           //     setFixedWidth(rEvent->size().width());
         }
 
         return QWidget::eventFilter(obj, event);
@@ -121,5 +121,5 @@ class FluNavigationInterface : public QWidget
     //}*/
   private:
     FluNavigationPanel* m_panel;
-    QHBoxLayout* m_hLayout;
+    QVBoxLayout* m_vLayout;
 };
