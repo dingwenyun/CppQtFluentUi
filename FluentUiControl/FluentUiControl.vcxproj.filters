@@ -151,6 +151,12 @@
     <QtMoc Include="FluFrameLessWidgetV2.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="FluSlider.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluRadioButton.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FluFrameLessWidgetV1.cpp">
@@ -265,6 +271,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluFrameLessWidgetV2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluSlider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluRadioButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
