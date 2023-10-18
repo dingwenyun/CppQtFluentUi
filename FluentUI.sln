@@ -26,6 +26,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FluentUiSliderDemo", "Fluen
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FluentUiRadioButtonDemo", "FluentUiRadioButtonDemo\FluentUiRadioButtonDemo.vcxproj", "{888E68AD-6BD0-493A-9D19-14DB9BAB6453}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FluentUiFrameLessWidgetDemo", "FluentUiFrameLessWidgetDemo\FluentUiFrameLessWidgetDemo.vcxproj", "{24C2B840-5952-4C45-9739-0977E23589F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -139,6 +141,20 @@ Global
 		{888E68AD-6BD0-493A-9D19-14DB9BAB6453}.Release|x64.ActiveCfg = Release|x64
 		{888E68AD-6BD0-493A-9D19-14DB9BAB6453}.Release|x64.Build.0 = Release|x64
 		{888E68AD-6BD0-493A-9D19-14DB9BAB6453}.Release|x86.ActiveCfg = Release|x64
+		{24C2B840-5952-4C45-9739-0977E23589F6}.Debug|Win32.ActiveCfg = Debug|x64
+		{24C2B840-5952-4C45-9739-0977E23589F6}.Debug|x64.ActiveCfg = Debug|x64
+		{24C2B840-5952-4C45-9739-0977E23589F6}.Debug|x64.Build.0 = Debug|x64
+		{24C2B840-5952-4C45-9739-0977E23589F6}.Debug|x86.ActiveCfg = Debug|x64
+		{24C2B840-5952-4C45-9739-0977E23589F6}.Qt5.12.12Debug|Win32.ActiveCfg = Debug|x64
+		{24C2B840-5952-4C45-9739-0977E23589F6}.Qt5.12.12Debug|Win32.Build.0 = Debug|x64
+		{24C2B840-5952-4C45-9739-0977E23589F6}.Qt5.12.12Debug|x64.ActiveCfg = Debug|x64
+		{24C2B840-5952-4C45-9739-0977E23589F6}.Qt5.12.12Debug|x64.Build.0 = Debug|x64
+		{24C2B840-5952-4C45-9739-0977E23589F6}.Qt5.12.12Debug|x86.ActiveCfg = Debug|x64
+		{24C2B840-5952-4C45-9739-0977E23589F6}.Qt5.12.12Debug|x86.Build.0 = Debug|x64
+		{24C2B840-5952-4C45-9739-0977E23589F6}.Release|Win32.ActiveCfg = Release|x64
+		{24C2B840-5952-4C45-9739-0977E23589F6}.Release|x64.ActiveCfg = Release|x64
+		{24C2B840-5952-4C45-9739-0977E23589F6}.Release|x64.Build.0 = Release|x64
+		{24C2B840-5952-4C45-9739-0977E23589F6}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
