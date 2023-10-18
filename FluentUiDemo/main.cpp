@@ -10,6 +10,7 @@
 #include "../FluentUiControl/FluNavigationInterface.h"
 #include <FramelessHelper/Widgets/FramelessWidget.h>
 #include "FluNavigationDemo.h"
+#include "../FluentUiControl/FluFrameLessWidgetV2.h"
 //#include "FramelessWidgetsHelperDemo.h"
 
 int main(int argc, char** argv)
@@ -43,8 +44,8 @@ int main(int argc, char** argv)
     // FRAMELESSHELPER_NAMESPACE::FramelessWidget w;
     // w.show();
 
-    FluWindowDemo demo;
-    demo.show();
+    //FluWindowDemo demo;
+    //demo.show();
 
     //FluWidgetDemo demo("demo widget");
     //demo.show();
@@ -52,8 +53,8 @@ int main(int argc, char** argv)
     //FluNavigationInterface demo;
     //demo.show();
 
-   // FluFrameLessWidgetV2 v2;
-   // v2.show();
+    FluFrameLessWidgetV2 v2;
+    v2.show();
 
     return app.exec();
 }

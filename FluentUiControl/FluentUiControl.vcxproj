@@ -273,6 +273,8 @@
     <ClCompile Include="FluSampleCard.cpp" />
     <ClCompile Include="FluSampleCardView.cpp" />
     <ClCompile Include="FluWidget.cpp" />
+    <ClCompile Include="FluFrameLessWidgetV2.cpp" />
+    <QtMoc Include="FluFrameLessWidgetV2.h" />
     <QtMoc Include="FluNavigationAvatarWidget.h" />
     <QtMoc Include="FluNavigationTreeWidgetBase.h" />
     <QtMoc Include="FluCenterLabelWidget.h" />
