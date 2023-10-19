@@ -12,6 +12,7 @@
 #include "FluNavigationDemo.h"
 #include "../FluentUiControl/FluFrameLessWidgetV2.h"
 //#include "FramelessWidgetsHelperDemo.h"
+#include "../FluentUiControl/FluDialog.h"
 
 int main(int argc, char** argv)
 {
@@ -53,8 +54,11 @@ int main(int argc, char** argv)
     //FluNavigationInterface demo;
     //demo.show();
 
-    FluFrameLessWidgetV2 v2;
-    v2.show();
+  /*  FluFrameLessWidgetV2 v2;
+      v2.show();*/
+
+    FluDialog dialog("a dialog example", "just a example", nullptr);
+    dialog.exec();
 
     return app.exec();
 }

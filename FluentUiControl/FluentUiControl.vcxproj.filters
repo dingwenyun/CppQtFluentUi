@@ -71,6 +71,9 @@
     <ClInclude Include="FluNavigationBar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FluDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluFrameLessWidgetV1.h">
@@ -283,6 +286,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluUiMessBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

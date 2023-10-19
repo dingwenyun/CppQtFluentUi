@@ -38,6 +38,12 @@
     <ClCompile Include="FluToolTipDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FluSliderDemo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluRadioButtonDemo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluButtonDemo.h">
@@ -52,6 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FluApiTest_QCursor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FluSliderDemo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FluRadioButtonDemo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
