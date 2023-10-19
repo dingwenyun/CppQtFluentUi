@@ -68,7 +68,7 @@ void FluFrameLessWidgetV2::initialize()
 
 void FluFrameLessWidgetV2::updateStyleSheet()
 {
-  //  m_contentWidget->setStyleSheet("background-color:pink;");
+    //  m_contentWidget->setStyleSheet("background-color:pink;");
     update();
 }
 

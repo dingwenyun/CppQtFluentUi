@@ -2,11 +2,11 @@
 
 FluNavigationInterface::FluNavigationInterface(QWidget* parent /*= nullptr*/, bool bShowMenuButton /*= true*/, bool bShowReturnButton /*= false*/, bool bCollapsible /*= true*/) : QWidget(parent)
 {
-   // setMouseTracking(true);
-   // m_vLayout = new QVBoxLayout();
-   // setLayout(m_vLayout);
+    // setMouseTracking(true);
+    // m_vLayout = new QVBoxLayout();
+    // setLayout(m_vLayout);
 
-   // m_vLayout->setContentsMargins(0, 0, 0, 0);
+    // m_vLayout->setContentsMargins(0, 0, 0, 0);
     m_panel = new FluNavigationPanel(false, this);
     m_panel->setMenuButtonVisible(bShowMenuButton && bCollapsible);
     m_panel->setReturnButtonVisible(bShowReturnButton);
@@ -14,19 +14,19 @@ FluNavigationInterface::FluNavigationInterface(QWidget* parent /*= nullptr*/, bo
     m_panel->installEventFilter(this);
     connect(this, &FluNavigationInterface::displayModeChanged, m_panel, &FluNavigationPanel::displayModeChanged);
 
-    //m_vLayout->addWidget(m_panel);
-    //m_vLayout->addStretch();
+    // m_vLayout->addWidget(m_panel);
+    // m_vLayout->addStretch();
     // todo display mode change
     resize(48, height());
     setMinimumWidth(48);
     // setFixedWidth(48);
-   setAttribute(Qt::WA_TranslucentBackground);
+    setAttribute(Qt::WA_TranslucentBackground);
     // setWindowFlag(Qt::FramelessWindowHint);
-     //setAttribute(Qt::WA_StyledBackground);
+    // setAttribute(Qt::WA_StyledBackground);
     // setStyleSheet("background-color:pink;");
-    //setStyleSheet("background-color:pink;");  // 样式表未生效
-    //LogDebug << "w:" << width() << ",h:" << height();
-   // m_panel->show();
+    // setStyleSheet("background-color:pink;");  // 样式表未生效
+    // LogDebug << "w:" << width() << ",h:" << height();
+    // m_panel->show();
 }
 
 FluNavigationTreeWidget* FluNavigationInterface::addItem(QString routeKey,

@@ -108,12 +108,12 @@ class FluNavigationInterface : public QWidget
 
     void resizeEvent(QResizeEvent* event)
     {
-       // LogDebug << "w:" << width() << ",h:" << height() << "; panel w:" << m_panel->width() << ",panel h:" << m_panel->height();
+        // LogDebug << "w:" << width() << ",h:" << height() << "; panel w:" << m_panel->width() << ",panel h:" << m_panel->height();
         if (event->oldSize().height() != height())
-       {
-            LogDebug << "w =" << width() << ", h= " << height() << ", panel w = " << m_panel->width() << ", panel h = " << m_panel->height(); 
+        {
+            LogDebug << "w =" << width() << ", h= " << height() << ", panel w = " << m_panel->width() << ", panel h = " << m_panel->height();
             m_panel->setFixedHeight(height());
-       }
+        }
     }
 
     ///*void paintEvent(QPaintEvent* event)
