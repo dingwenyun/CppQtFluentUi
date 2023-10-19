@@ -18,8 +18,8 @@ FluNavigationInterface::FluNavigationInterface(QWidget* parent /*= nullptr*/, bo
     m_vLayout->addStretch();
     // todo display mode change
     resize(48, height());
-   // setMinimumWidth(48);
-   // setFixedWidth(48);
+    // setMinimumWidth(48);
+    // setFixedWidth(48);
     setAttribute(Qt::WA_TranslucentBackground);
     // setWindowFlag(Qt::FramelessWindowHint);
     // setAttribute(Qt::WA_StyledBackground);
@@ -60,7 +60,7 @@ void FluNavigationInterface::insertWidget(int nIndex,
                                           QString parentRouteKey /*= ""*/)
 {
     m_panel->insertWidget(nIndex, routeKey, widget, onClick, position, toolTip, parentRouteKey);
-   // setMinimumHeight(m_panel->layoutMinHeight());
+    // setMinimumHeight(m_panel->layoutMinHeight());
 }
 
 void FluNavigationInterface::addSeparator(FluNavigationItemPosition position /*= FluNavigationItemPosition::TOP*/)

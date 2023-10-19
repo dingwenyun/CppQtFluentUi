@@ -39,23 +39,23 @@ int main(int argc, char** argv)
     //    FluPushButtonDemo demo;
     //    demo.show();
 
-      //FluNavigationPanel panel;
-      //panel.show();
+    // FluNavigationPanel panel;
+    // panel.show();
 
     // FRAMELESSHELPER_NAMESPACE::FramelessWidget w;
     // w.show();
 
-    //FluWindowDemo demo;
-    //demo.show();
+    // FluWindowDemo demo;
+    // demo.show();
 
-    //FluWidgetDemo demo("demo widget");
-    //demo.show();
+    // FluWidgetDemo demo("demo widget");
+    // demo.show();
 
-    //FluNavigationInterface demo;
-    //demo.show();
+    // FluNavigationInterface demo;
+    // demo.show();
 
-  /*  FluFrameLessWidgetV2 v2;
-      v2.show();*/
+    /*  FluFrameLessWidgetV2 v2;
+        v2.show();*/
 
     FluDialog dialog("a dialog example", "just a example", nullptr);
     dialog.exec();

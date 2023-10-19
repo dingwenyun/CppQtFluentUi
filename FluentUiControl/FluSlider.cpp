@@ -2,8 +2,6 @@
 #include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
 #include "FluSlider.h"
 
-
-
 FluSlider::FluSlider(QWidget* parent) : QSlider(parent)
 {
     QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluSlider.qss");

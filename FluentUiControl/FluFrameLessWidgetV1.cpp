@@ -361,7 +361,8 @@ void FluFrameLessWidgetV1::mouseMoveEvent(QMouseEvent* event)
             int realX = event->globalPos().x() - normalGeometry().width() * tmpX;
             int realY = event->globalPos().y() + normalGeometry().height() * tmpY;
 
-            LogDebug << "realX:" << realX << "," << "realY:" << realY;
+            LogDebug << "realX:" << realX << ","
+                     << "realY:" << realY;
             setUpdatesEnabled(false);
             setWindowState(Qt::WindowState::WindowNoState);
             setGeometry(realX, realY, normalGeometry().size().width(), normalGeometry().height());

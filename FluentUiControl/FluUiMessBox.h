@@ -8,10 +8,9 @@
 
 class FluUiMessBox : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
   public:
-
-signals:
+  signals:
     void yesSignal();
     void noSignal();
 
@@ -67,7 +66,6 @@ signals:
     {
         emit yesSignal();
     }
-
 
   private:
     QLabel* m_titleLabel;

@@ -16,7 +16,7 @@ FluWidgetDemo::FluWidgetDemo(QString text, QWidget* parent /*= nullptr*/) : QFra
     m_hLayout->addWidget(m_label, 1, Qt::AlignCenter);
     setObjectName(text.replace(" ", "-"));
 
-    QString qss = 
+    QString qss =
         " FluWidgetDemo{\
         border : 1px solid rgb(229, 229, 229); \
         border-right : none; \
@@ -25,7 +25,7 @@ FluWidgetDemo::FluWidgetDemo(QString text, QWidget* parent /*= nullptr*/) : QFra
         background-color : rgb(249, 249, 249) \
         } ";
 
-  //  setStyleSheet("background-color:pink");
+    //  setStyleSheet("background-color:pink");
 
     setStyleSheet(qss);
     m_label->setStyleSheet("font: 24px 'Segoe UI', 'Microsoft YaHei';");
@@ -96,7 +96,7 @@ void FluWindowDemo::__initWindow()
 {
     //   resize(900, 700);
     setFixedSize(900, 700);
-    //m_navigationInterface->resize(m_navigationInterface->width(), 700);
+    // m_navigationInterface->resize(m_navigationInterface->width(), 700);
 
     setWindowIcon(QIcon("../res/logo.png"));
 
@@ -115,7 +115,8 @@ void FluWindowDemo::addSubInterface(QWidget* interface, QPixmap icon, QString te
     {
         parentRouteKey = parent->objectName();
     }
-    m_navigationInterface->addItem(interface->objectName(), icon, text, [interface, this]() { swithTo(interface);}, true, position, text, parentRouteKey);
+    m_navigationInterface->addItem(
+        interface->objectName(), icon, text, [interface, this]() { swithTo(interface); }, true, position, text, parentRouteKey);
 }
 
 void FluWindowDemo::setQss()

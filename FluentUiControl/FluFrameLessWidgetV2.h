@@ -16,22 +16,22 @@ class FluFrameLessWidgetV2 : public FRAMELESSHELPER_PREPEND_NAMESPACE(FramelessW
     Q_OBJECT
     Q_DISABLE_COPY_MOVE(FluFrameLessWidgetV2)
 
-public:
+  public:
     explicit FluFrameLessWidgetV2(QWidget *parent = nullptr);
     ~FluFrameLessWidgetV2() override;
 
     void waitReady();
 
-protected:
+  protected:
     void closeEvent(QCloseEvent *event) override;
 
-private:
+  private:
     void initialize();
 
-private Q_SLOTS:
+  private Q_SLOTS:
     void updateStyleSheet();
 
-private:
+  private:
     FRAMELESSHELPER_PREPEND_NAMESPACE(StandardTitleBar) *m_titleBar = nullptr;
-    QWidget* m_contentWidget;
+    QWidget *m_contentWidget;
 };
