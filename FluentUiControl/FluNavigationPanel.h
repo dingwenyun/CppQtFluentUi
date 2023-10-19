@@ -58,13 +58,13 @@ class FluNavigationPanel : public QFrame
 
         // ---
         m_vLayout = new FluNavigationItemLayout(this);
-        setLayout(m_vLayout);
+        //setLayout(m_vLayout);
 
         m_vTopLayout = new FluNavigationItemLayout();
-        LogDebug << "vlayout size hint:" << m_vLayout->sizeHint();
+        //LogDebug << "vlayout size hint:" << m_vLayout->sizeHint();
         m_vBottomLayout = new FluNavigationItemLayout();
         m_vScrollLayout = new FluNavigationItemLayout(m_scrollWidget);
-        LogDebug << "vScrolllayout size hint:" << m_vScrollLayout->sizeHint();
+        //LogDebug << "vScrolllayout size hint:" << m_vScrollLayout->sizeHint();
 
         m_expandAni = new QPropertyAnimation(this, "geometry", this);
         m_expandWidth = 322;
@@ -79,7 +79,7 @@ class FluNavigationPanel : public QFrame
         // __initLayout();
         //  __connect();
 
-        // setStyleSheet("background-color: pink;");
+        //setStyleSheet("background-color: pink;");
         // setStyleSheet("background-color:red;");
     }
   signals:
@@ -88,15 +88,14 @@ class FluNavigationPanel : public QFrame
   public:
     void __initWidget(QWidget* parent, bool bMinimalEnable)
     {
-        // resize(48, height());
-        // setFixedSize(48, height());
+        resize(48, height());
         setAttribute(Qt::WA_StyledBackground);
         window()->installEventFilter(this);  // 事件处理器
 
         //	LogDebug << "resize:" << "w:" << width() << ",h:" << height();
 
-        //	m_returnButton->hide();
-        //	m_returnButton->setDisabled(true);
+        m_returnButton->hide();
+        m_returnButton->setDisabled(true);
 
         m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -116,6 +115,10 @@ class FluNavigationPanel : public QFrame
         setProperty("menu", false);
         m_scrollWidget->setObjectName("scrollWidget");
         // mark it! styleSheet
+        QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluNavigationInterface.qss");
+        setStyleSheet(qss);
+        m_scrollWidget->setStyleSheet(qss);
+
 
         // m_scrollWidget->resize(48, height());
         // m_scrollArea->resize(48, height());
@@ -162,12 +165,12 @@ class FluNavigationPanel : public QFrame
         m_vScrollLayout->setAlignment(Qt::AlignTop);
         m_vBottomLayout->setAlignment(Qt::AlignBottom);
 
-        m_vTopLayout->addWidget(m_returnButton);
-        m_vTopLayout->addWidget(m_menuButton);
+        m_vTopLayout->addWidget(m_returnButton,0 , Qt::AlignTop);
+        m_vTopLayout->addWidget(m_menuButton, 0, Qt::AlignTop);
 
         // setFixedSize(48, height());// 修改宽度
         // resize(48, height());
-        setFixedWidth(48);
+       // setFixedWidth(48);
         LogDebug << "panel size:"
                  << "w:" << width() << ",h:" << height();
     }
@@ -366,21 +369,37 @@ class FluNavigationPanel : public QFrame
         m_menuButton->setToolTip("Close Navigation");  // 关闭导航栏
         // determine the display mode according to the width of window
         // https://learn.microsoft.com/en-us/windows/apps/design/controls/navigationview#default
-        // int nExpandWidth = 1007 + m_expandWidth - 322;
-        // if (window()->width() > nExpandWidth && !m_bMinimalEnabled && !m_bCollapsible)
-        //{
-        //	m_displayMode = FluNavigationDisplayMode::EXPAND;
-        //}
-        // else
-        //{
-        //	setProperty("menu", true);
-        //	//setStyle(QApplication::style());
-        //	m_displayMode = FluNavigationDisplayMode::MENU;
-        //}
+         int nExpandWidth = 1007 + m_expandWidth - 322;
+         if ( (window()->width() > nExpandWidth && !m_bMinimalEnabled) || (!m_bCollapsible))
+         {
+        	m_displayMode = FluNavigationDisplayMode::EXPAND;
+         }
+         else
+         {
+        	setProperty("menu", true);
+        	setStyle(QApplication::style());
+            m_displayMode = FluNavigationDisplayMode::MENU;
+            if (!m_parent->isWindow())
+            {
+                QPoint tmpPos = ((QWidget*)parent())->pos();
+                setParent(window());
+                move(tmpPos);
+            }
+
+            show();
+         }
+
+         if (bUseAni)
+         {
+             emit displayModeChanged(m_displayMode);
+             m_expandAni->setStartValue(QRect(pos(), QSize(48, height())));
+             m_expandAni->setEndValue(QRect(pos(), QSize(312,height())));
+             m_expandAni->start();
+         }
 
         // setExpandWidth(nExpandWidth);
-        m_displayMode = FluNavigationDisplayMode::EXPAND;
-        setFixedWidth(312);
+      //  m_displayMode = FluNavigationDisplayMode::EXPAND;
+        //setFixedWidth(312);
     }
 
     // 折叠
@@ -394,7 +413,12 @@ class FluNavigationPanel : public QFrame
             FluNavigationWidget* tmpWidget = itMap->second->m_widget;
 
             LogDebug << "calssName:" << tmpWidget->metaObject()->className();
-            if (tmpWidget->metaObject()->className() == "FluNavigationTreeWidgetBase" && tmpWidget->isRoot())
+         ///*   if (tmpWidget->metaObject()->className() == "FluNavigationTreeWidget")
+         //   {
+         //       int i = 0;
+         //   }*/
+
+            if (tmpWidget->inherits("FluNavigationTreeWidgetBase") && tmpWidget->isRoot())
             {
                 FluNavigationTreeWidgetBase* treeWidgetBase = (FluNavigationTreeWidgetBase*)(tmpWidget);
                 if (treeWidgetBase != nullptr)
@@ -537,30 +561,30 @@ class FluNavigationPanel : public QFrame
 
     bool eventFilter(QObject* obj, QEvent* event)
     {
-        ///*if (obj != window() || !m_bCollapsible)
-        //    return QFrame::eventFilter(obj, event);
+        if (obj != window() || !m_bCollapsible)
+            return QFrame::eventFilter(obj, event);
 
-        // if (event->type() == QEvent::MouseButtonRelease)
-        //{
-        //    QMouseEvent* mEvent = (QMouseEvent*)(event);
-        //    if (!geometry().contains(mEvent->pos()) && m_displayMode == FluNavigationDisplayMode::MENU)
-        //    {
-        //        collapse();
-        //    }
-        //}
-        // else if (event->type() == QEvent::Resize)
-        //{
-        //    QResizeEvent* rEvent = (QResizeEvent*)(event);
-        //    int nTmpWidth = rEvent->size().width();
-        //    if (nTmpWidth < 1008 && m_displayMode == FluNavigationDisplayMode::EXPAND)
-        //    {
-        //        collapse();
-        //    }
-        //    else if (nTmpWidth >= 1008 && m_displayMode == FluNavigationDisplayMode::COMPACT && !m_bMenuButtonVisible)
-        //    {
-        //        expand();
-        //    }
-        //}*/
+        if (event->type() == QEvent::MouseButtonRelease)
+        {
+            QMouseEvent* mEvent = (QMouseEvent*)(event);
+            if (!geometry().contains(mEvent->pos()) && m_displayMode == FluNavigationDisplayMode::MENU)
+            {
+                collapse();
+            }
+        }
+        else if (event->type() == QEvent::Resize)
+        {
+            QResizeEvent* rEvent = (QResizeEvent*)(event);
+            int nTmpWidth = rEvent->size().width();
+            if (nTmpWidth < 1008 && m_displayMode == FluNavigationDisplayMode::EXPAND)
+            {
+                collapse();
+            }
+            else if (nTmpWidth >= 1008 && m_displayMode == FluNavigationDisplayMode::COMPACT && !m_bMenuButtonVisible)
+            {
+                expand();
+            }
+        }
 
         return QFrame::eventFilter(obj, event);
     }

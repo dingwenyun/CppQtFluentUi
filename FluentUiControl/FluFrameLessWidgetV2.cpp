@@ -42,11 +42,11 @@ void FluFrameLessWidgetV2::initialize()
     resize(800, 600);
     m_titleBar = new StandardTitleBar(this);
     m_titleBar->setWindowIconVisible(true);
-    m_contentWidget = new QWidget(this);
+    m_centerWidget = new QWidget(this);
     const auto contentLayout = new QHBoxLayout;
     contentLayout->setContentsMargins(0, 0, 0, 0);
     contentLayout->setSpacing(0);
-    contentLayout->addWidget(m_contentWidget);
+    contentLayout->addWidget(m_centerWidget);
 
     const auto mainLayout = new QVBoxLayout(this);
     mainLayout->setSpacing(0);
@@ -68,7 +68,7 @@ void FluFrameLessWidgetV2::initialize()
 
 void FluFrameLessWidgetV2::updateStyleSheet()
 {
-    m_contentWidget->setStyleSheet("background-color:pink;");
+  //  m_contentWidget->setStyleSheet("background-color:pink;");
     update();
 }
 

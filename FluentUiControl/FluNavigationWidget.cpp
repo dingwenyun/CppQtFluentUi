@@ -12,7 +12,7 @@ FluNavigationWidget::FluNavigationWidget(bool bSelectable, QWidget* parent /*= n
     setFixedSize(40, 36);
 }
 
-void FluNavigationWidget::enterEvent(QEvent* event)
+void FluNavigationWidget::enterEvent(QEnterEvent* event)
 {
     m_bEnter = true;
     update();

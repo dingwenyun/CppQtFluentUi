@@ -32,8 +32,9 @@ FluWidgetDemo::FluWidgetDemo(QString text, QWidget* parent /*= nullptr*/) : QFra
     LogDebug << "demo size:" << size();
 }
 
-FluWindowDemo::FluWindowDemo(QWidget* parent /*= nullptr*/) : FluFrameLessWidgetV1(parent)
+FluWindowDemo::FluWindowDemo(QWidget* parent /*= nullptr*/) : FluFrameLessWidgetV2(parent)
 {
+    setWindowTitle("Fluent Navigation Demo Application");
     m_hBoxLayout = new QHBoxLayout(m_centerWidget);
     m_centerWidget->setLayout(m_hBoxLayout);
 
@@ -95,7 +96,7 @@ void FluWindowDemo::__initNavigation()
 void FluWindowDemo::__initWindow()
 {
     //   resize(900, 700);
-    setFixedSize(900, 700);
+    resize(900, 700);
     // m_navigationInterface->resize(m_navigationInterface->width(), 700);
 
     setWindowIcon(QIcon("../res/logo.png"));

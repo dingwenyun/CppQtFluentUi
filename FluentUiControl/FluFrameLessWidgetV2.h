@@ -31,7 +31,7 @@ class FluFrameLessWidgetV2 : public FRAMELESSHELPER_PREPEND_NAMESPACE(FramelessW
   private Q_SLOTS:
     void updateStyleSheet();
 
-  private:
+  protected:
     FRAMELESSHELPER_PREPEND_NAMESPACE(StandardTitleBar) *m_titleBar = nullptr;
-    QWidget *m_contentWidget;
+    QWidget *m_centerWidget;
 };

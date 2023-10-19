@@ -9,12 +9,7 @@ class FluNavigationPushButton : public FluNavigationWidget
 {
     Q_OBJECT
   public:
-    FluNavigationPushButton(QPixmap icon, QString text, bool bSelectable, QWidget* parent = nullptr) : FluNavigationWidget(bSelectable, parent)
-    {
-        m_icon = icon;
-        m_text = text;
-        // setFont(this);
-    }
+    FluNavigationPushButton(QPixmap icon, QString text, bool bSelectable, QWidget* parent = nullptr);
 
     QString getText()
     {
@@ -43,7 +38,7 @@ class FluNavigationPushButton : public FluNavigationWidget
         return QMargins(0, 0, 0, 0);
     }
 
-    bool _canDrawIndicator()
+    virtual bool _canDrawIndicator()
     {
         return getSelected();
     }
@@ -98,7 +93,10 @@ class FluNavigationPushButton : public FluNavigationWidget
             // 指示器暂时以蓝色为准
             // painter.setBrush(m_themeColor); // mark it!(仅仅是标记代码作用，方便查找代码)
             // 绘制指示器(竖线)
-            painter.setBrush(Qt::blue);
+
+            QColor indicatorColor;
+            indicatorColor.setRgb(0, 159, 170);
+            painter.setBrush(indicatorColor);
             painter.drawRoundedRect(0 + nMarginLeft, 10, 3, 16, 1.5, 1.5);
         }
 

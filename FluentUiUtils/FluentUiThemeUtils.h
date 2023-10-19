@@ -4,8 +4,8 @@
 
 enum class FluentUiThemeUtilsDarkMode
 {
-    Light = 1,
-    Dark = 2
+    Light = 0,
+    Dark = 1
 };
 
 class FluentUiThemeUtils : public QObject

@@ -8,14 +8,14 @@ FluNavigationItemLayout::FluNavigationItemLayout(QWidget* parent /*= nullptr*/) 
 void FluNavigationItemLayout::setGeometry(const QRect& rect)
 {
     QVBoxLayout::setGeometry(rect);
-    LogDebug << "rect:" << rect;
-    // for (int i = 0; i < count(); i++)
-    //{
-    //	QLayoutItem* item = itemAt(i);
-    //	if (item->widget() && item->widget()->metaObject()->className() == "FluNavigationSeparator")
-    //	{
-    //		QRect itemGeometry =  item->geometry();
-    //		item->widget()->setGeometry(0, itemGeometry.y(), itemGeometry.width(), itemGeometry.height());
-    //	}
-    //}
+    //LogDebug << "rect:" << rect;
+     for (int i = 0; i < count(); i++)
+    {
+    	QLayoutItem* item = itemAt(i);
+    	if (item->widget() && item->widget()->metaObject()->className() == "FluNavigationSeparator")
+    	{
+    		QRect itemGeometry =  item->geometry();
+    		item->widget()->setGeometry(0, itemGeometry.y(), itemGeometry.width(), itemGeometry.height());
+    	}
+    }
 }

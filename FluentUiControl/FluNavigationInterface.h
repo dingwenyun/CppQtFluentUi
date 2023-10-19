@@ -93,14 +93,14 @@ class FluNavigationInterface : public QWidget
   protected:
     bool eventFilter(QObject* obj, QEvent* event)
     {
-        if (obj != m_panel && event->type() != QEvent::Resize)
-            return eventFilter(obj, event);
+        if (obj != m_panel || event->type() != QEvent::Resize)
+            return QWidget::eventFilter(obj, event);
 
         if (m_panel->getDisplayMode() != FluNavigationDisplayMode::MENU)
         {
-            // QResizeEvent* rEvent = (QResizeEvent*)(event);
-            // if (rEvent->oldSize().width() != rEvent->size().width())
-            //     setFixedWidth(rEvent->size().width());
+            QResizeEvent* rEvent = (QResizeEvent*)(event);
+            if (rEvent->oldSize().width() != rEvent->size().width())
+                setFixedWidth(rEvent->size().width());
         }
 
         return QWidget::eventFilter(obj, event);
@@ -108,8 +108,12 @@ class FluNavigationInterface : public QWidget
 
     void resizeEvent(QResizeEvent* event)
     {
-        LogDebug << "w:" << width() << ",h:" << height() << "; panel w:" << m_panel->width() << ",panel h:" << m_panel->height();
-        m_panel->setFixedHeight(height());
+       // LogDebug << "w:" << width() << ",h:" << height() << "; panel w:" << m_panel->width() << ",panel h:" << m_panel->height();
+        if (event->oldSize().height() != height())
+       {
+            LogDebug << "w =" << width() << ", h= " << height() << ", panel w = " << m_panel->width() << ", panel h = " << m_panel->height(); 
+            m_panel->setFixedHeight(height());
+       }
     }
 
     ///*void paintEvent(QPaintEvent* event)

@@ -14,7 +14,7 @@ class FluNavigationWidget : public QWidget
     void clicked(bool bClicked);
 
   protected:
-    void enterEvent(QEvent* event);
+    void enterEvent(QEnterEvent* event);
 
     void leaveEvent(QEvent* event);
 
@@ -104,7 +104,7 @@ class FluNavigationWidget : public QWidget
         m_bSelectable = bSelectable;
     }
 
-    bool isRoot()
+    virtual bool isRoot()
     {
         return true;
     }
