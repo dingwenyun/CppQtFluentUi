@@ -2,6 +2,7 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QFont>
 #include "FluentUiControlGlobal.h"
 #include "../FluentUiUtils/FluentUiThemeUtils.h"
 #include "../FluentUiUtils/FluentUiFontUtils.h"
@@ -16,45 +17,13 @@ class FluLabelBase : public QLabel
     //Q_PROPERTY(bool underline READ getUnderline WRITE setUnderline)
 
   public:
-    FluLabelBase(QWidget *parent = nullptr) : QLabel(parent)
-    {
-        setFont(_getFont());
-        _setTextColor();
-    }
-
-    FluLabelBase(QString text, QWidget* parent = nullptr) : FluLabelBase(parent)
-    {
-        setText(text);
-    }
-
-    ~FluLabelBase()
-    {
-    }
+    FluLabelBase(QWidget* parent = nullptr);
+    FluLabelBase(QString text, QWidget* parent = nullptr);
 
   public:
-    virtual QFont _getFont()
-    {
-        return QFont();
-    }
+    virtual QFont _getFont();
 
-    void _setTextColor(QColor light = QColor(0,0,0), QColor dark = QColor(255, 255, 255))
-    {
-        m_lightColor = light;
-        m_darkColor = dark;
-        
-        QPalette tmpPalette = palette();
-        QColor textColor;
-        if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)
-        {
-            textColor = m_darkColor;
-        }
-        else
-        {
-            textColor = m_lightColor;
-        }
-        tmpPalette.setColor(QPalette::WindowText, textColor);
-        setPalette(tmpPalette);
-    }
+    void _setTextColor(QColor light = QColor(0,0,0), QColor dark = QColor(255, 255, 255));
 
     QColor getLightColor()
     {

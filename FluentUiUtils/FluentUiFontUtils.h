@@ -11,7 +11,7 @@ class FluentUiFontUtils
         widget->setFont(getFont(fontSize, weight));
     }
 
-    static const QFont getFont(int fontSize, QFont::Weight weight = QFont::Normal)
+    static QFont getFont(int fontSize, QFont::Weight weight = QFont::Normal)
     {
         QFont tmpFont = QFont();
         tmpFont.setFamilies({"Segoe UI", "Microsoft YaHei", "PingFang SC"});
