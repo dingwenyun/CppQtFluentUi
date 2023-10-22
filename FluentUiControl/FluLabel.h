@@ -9,14 +9,14 @@
 class FluLabelBase : public QLabel
 {
     Q_OBJECT
-    Q_PROPERTY(QColor lightColor READ getLightColor WRITE setLightColor)
-    Q_PROPERTY(QColor darkColor READ getDarkColor WRITE setDarkColor)
-    Q_PROPERTY(int pixelFontSize READ getPixelFontSize WRITE setPixelFontSize)
-    Q_PROPERTY(bool pixelFontSize READ getStrikeOut WRITE setStrikeOut)
-    Q_PROPERTY(bool underline READ getUnderline WRITE setUnderline)
+    //Q_PROPERTY(QColor lightColor READ getLightColor WRITE setLightColor)
+    //Q_PROPERTY(QColor darkColor READ getDarkColor WRITE setDarkColor)
+    //Q_PROPERTY(int pixelFontSize READ getPixelFontSize WRITE setPixelFontSize)
+    //Q_PROPERTY(bool strikeOut READ getStrikeOut WRITE setStrikeOut)
+    //Q_PROPERTY(bool underline READ getUnderline WRITE setUnderline)
 
   public:
-    FluLabelBase(QWidget *parent = nullptr) : QLabel(this)
+    FluLabelBase(QWidget *parent = nullptr) : QLabel(parent)
     {
         setFont(_getFont());
         _setTextColor();
@@ -32,7 +32,10 @@ class FluLabelBase : public QLabel
     }
 
   public:
-    virtual QFont _getFont() = 0;
+    virtual QFont _getFont()
+    {
+        return QFont();
+    }
 
     void _setTextColor(QColor light = QColor(0,0,0), QColor dark = QColor(255, 255, 255))
     {
@@ -117,7 +120,15 @@ class FluLabelBase : public QLabel
 class FluCaptionLabel : public FluLabelBase
 {
   public:
-      QFont _getFont()
+    FluCaptionLabel(QWidget* parent = nullptr) : FluLabelBase(parent)
+    {
+    }
+
+    FluCaptionLabel(QString text, QWidget* parent = nullptr) : FluLabelBase(text, parent)
+    {
+    }
+
+    QFont _getFont()
     {
           return FluentUiFontUtils::getFont(12);
     }
@@ -126,6 +137,14 @@ class FluCaptionLabel : public FluLabelBase
 class FluBodyLabel : public FluLabelBase
 {
   public:
+    FluBodyLabel(QWidget* parent = nullptr) : FluLabelBase(parent)
+    {
+    }
+
+    FluBodyLabel(QString text, QWidget* parent = nullptr) : FluLabelBase(text, parent)
+    {
+    }
+
     QFont _getFont()
     {
         return FluentUiFontUtils::getFont(14);
@@ -136,15 +155,32 @@ class FluBodyLabel : public FluLabelBase
 class FluStrongBodyLabel : public FluLabelBase
 {
   public:
+    FluStrongBodyLabel(QWidget* parent = nullptr) : FluLabelBase(parent)
+    {
+    }
+
+    FluStrongBodyLabel(QString text, QWidget* parent = nullptr) : FluLabelBase(text, parent)
+    {
+    }
+
     QFont _getFont()
     {
           return FluentUiFontUtils::getFont(14, QFont::DemiBold);
     }
 };
 
-class FluSubtitleLabel : public FluLabelBase
+class FluSubTitleLabel : public FluLabelBase
 {
   public:
+
+    FluSubTitleLabel(QWidget* parent = nullptr) : FluLabelBase(parent)
+    {
+    }
+
+    FluSubTitleLabel(QString text, QWidget* parent = nullptr) : FluLabelBase(text, parent)
+    {
+    }
+
     QFont _getFont()
     {
         return FluentUiFontUtils::getFont(20, QFont::DemiBold);
@@ -154,6 +190,13 @@ class FluSubtitleLabel : public FluLabelBase
 class FluTitleLabel : public FluLabelBase
 {
   public:
+    FluTitleLabel(QWidget* parent = nullptr) : FluLabelBase(parent)
+    {
+    }
+
+    FluTitleLabel(QString text, QWidget* parent = nullptr) : FluLabelBase(text, parent)
+    {
+    }
     QFont _getFont()
     {
         return FluentUiFontUtils::getFont(28, QFont::DemiBold);
@@ -163,6 +206,13 @@ class FluTitleLabel : public FluLabelBase
 class FluLargeTitleLabel : public FluLabelBase
 {
   public:
+    FluLargeTitleLabel(QWidget* parent = nullptr) : FluLabelBase(parent)
+    {
+    }
+
+    FluLargeTitleLabel(QString text, QWidget* parent = nullptr) : FluLabelBase(text, parent)
+    {
+    }
     QFont _getFont()
     {
         return FluentUiFontUtils::getFont(40, QFont::DemiBold);
@@ -172,6 +222,13 @@ class FluLargeTitleLabel : public FluLabelBase
 class FluDisplayLabel : public FluLabelBase
 {
   public:
+    FluDisplayLabel(QWidget* parent = nullptr) : FluLabelBase(parent)
+    {
+    }
+
+    FluDisplayLabel(QString text, QWidget* parent = nullptr) : FluLabelBase(text, parent)
+    {
+    }
     QFont _getFont()
     {
         return FluentUiFontUtils::getFont(68, QFont::DemiBold);

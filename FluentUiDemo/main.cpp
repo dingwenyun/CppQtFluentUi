@@ -14,6 +14,7 @@
 //#include "FramelessWidgetsHelperDemo.h"
 #include "../FluentUiControl/FluDialog.h"
 #include "FluSliderDemo.h"
+#include "FluLabelDemo.h"
 
 int main(int argc, char** argv)
 {
@@ -49,8 +50,8 @@ int main(int argc, char** argv)
     // FRAMELESSHELPER_NAMESPACE::FramelessWidget w;
     // w.show();
 
-    FluWindowDemo demo;
-    demo.show();
+  //  FluWindowDemo demo;
+  //  demo.show();
 
     // FluWidgetDemo demo("demo widget");
     // demo.show();
@@ -66,6 +67,10 @@ int main(int argc, char** argv)
 
     // FluSliderDemo demo;
     // demo.show();
+
+
+    FluLabelDemo demo;
+    demo.show();
 
     return app.exec();
 }

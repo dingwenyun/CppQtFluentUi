@@ -221,9 +221,11 @@
   <ItemGroup>
     <ClCompile Include="FluentUiColorSet.cpp" />
     <ClCompile Include="FluentUiColorUtils.cpp" />
+    <ClCompile Include="FluentUiFontUtils.cpp" />
     <ClCompile Include="FluentUiLogUtils.cpp" />
     <ClInclude Include="FluentUiColorUtils.h" />
     <ClInclude Include="FluentUiColorSet.h" />
+    <ClInclude Include="FluentUiFontUtils.h" />
     <ClInclude Include="FluentUiIconUtils.h" />
     <ClInclude Include="FluentUiStyleSheetUitls.h" />
     <QtMoc Include="FluentUiThemeUtils.h" />
