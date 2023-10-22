@@ -1,11 +1,11 @@
 #include "FluDef.h"
 #include "FluLabel.h"
 
-FluLabel::FluLabel(QWidget *parent) : QLabel(parent)
+FluLabelBase::FluLabelBase(QWidget *parent) : QLabel(parent)
 {
-    FluSetNameAndStypeSheet(FluLabel);
+    FluSetNameAndStypeSheet(FluLabelBase);
 }
 
-FluLabel::~FluLabel()
+FluLabelBase::~FluLabelBase()
 {
 }
