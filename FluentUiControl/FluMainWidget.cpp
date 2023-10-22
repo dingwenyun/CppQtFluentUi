@@ -13,7 +13,6 @@ FluMainWidget::FluMainWidget(QWidget* parent /*= nullptr*/, QWidget* centerWidge
     m_centerWidget->setMouseTracking(true);
 
     m_hLayout->setContentsMargins(0, 0, 0, 0);
-
     m_stackLayout = new QStackedLayout(m_centerWidget);
     m_navigationInterface = new FluNavigationInterface(m_centerWidget, true, true);
     m_hLayout->addWidget(m_navigationInterface, 0);

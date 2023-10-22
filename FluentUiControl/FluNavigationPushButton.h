@@ -2,6 +2,7 @@
 
 #include "FluNavigationWidget.h"
 #include "../FluentUiUtils/FluentUiThemeUtils.h"
+#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
 #include <QPainter>
 #include <QMargins>
 
@@ -106,8 +107,9 @@ class FluNavigationPushButton : public FluNavigationWidget
             painter.drawRoundedRect(rect(), 5, 5);  // 绘制背景
         }
 
+        LogDebug << "icon size:" << m_icon.size();
         // 绘制icon
-        painter.drawPixmap(QRect(11 + nMarginLeft, 10, 16, 16), m_icon);
+        painter.drawPixmap(QRect(11 + nMarginLeft, 10, 20, 20), m_icon);
 
         // 非压缩状态下绘制文字信息
         if (!getCompacted())
