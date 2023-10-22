@@ -46,7 +46,7 @@ class FluNavigationTreeWidget : public FluNavigationTreeWidgetBase
         return m_itemWidget;
     }
 
-    void setExpanded(bool bExpanded, bool bAni);
+    void setExpanded(bool bExpanded, bool bAni = false);
 
     bool isRoot()
     {
@@ -62,6 +62,10 @@ class FluNavigationTreeWidget : public FluNavigationTreeWidgetBase
 
     void setCompacted(bool bCompacted);
 
+    QPropertyAnimation* getExpandAni()
+    {
+        return m_expandAni;
+    }
   protected:
     void mouseReleaseEvent(QMouseEvent* event);
 

@@ -39,7 +39,7 @@ class FluNavigationWidget : public QWidget
         return m_bCompacted;
     }
 
-    void setCompacted(bool bCompacted)  // 是否收缩状态
+    virtual void setCompacted(bool bCompacted)  // 是否收缩状态
     {
         if (m_bCompacted == bCompacted)
         {
@@ -83,7 +83,7 @@ class FluNavigationWidget : public QWidget
         return m_bSelected;
     }
 
-    void setSelected(bool bSelected)
+    virtual void setSelected(bool bSelected)
     {
         if (!m_bSelectable)
         {
@@ -109,7 +109,7 @@ class FluNavigationWidget : public QWidget
         return true;
     }
 
-    bool isLeaf()
+    virtual bool isLeaf()
     {
         return true;
     }
@@ -138,6 +138,7 @@ class FluNavigationWidget : public QWidget
     {
         return EXPAND_WIDTH;
     }
+
 
   private:
     int EXPAND_WIDTH = 312;

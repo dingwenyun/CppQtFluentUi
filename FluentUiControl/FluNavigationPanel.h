@@ -431,7 +431,7 @@ class FluNavigationPanel : public QFrame
         QString routeKey = widget->property("routeKey").toString();
         setCurrentItem(routeKey);
 
-        if (widget != m_menuButton && m_displayMode == FluNavigationDisplayMode::MENU && !widget->isLeaf())
+        if (widget != m_menuButton && m_displayMode == FluNavigationDisplayMode::MENU && !(widget->inherits("FluNavigationTreeWidgetBase") && !widget->isLeaf()))
         {
             collapse();
         }

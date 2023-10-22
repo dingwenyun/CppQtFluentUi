@@ -7,7 +7,7 @@ FluNavigationTreeWidget::FluNavigationTreeWidget(QPixmap icon, QString text, boo
     // treeChildren = []
     m_bExpanded = false;
 
-    m_itemWidget = new FluNavigationTreeItem(icon, text, bSelectable, parent);
+    m_itemWidget = new FluNavigationTreeItem(icon, text, bSelectable, this);
     m_vLayout = new QVBoxLayout(this);
     m_expandAni = new QPropertyAnimation(this, "geometry", this);
 
@@ -23,7 +23,10 @@ void FluNavigationTreeWidget::__initWidget()
 
     // 设置窗口透明
     setAttribute(Qt::WA_TranslucentBackground);
-    connect(m_expandAni, &QPropertyAnimation::valueChanged, this, &FluNavigationTreeWidget::_onSize);
+    connect(m_expandAni, &QPropertyAnimation::valueChanged, [this](const QVariant& variant) {
+        QRect gemo = variant.toRect();
+        setFixedSize(gemo.size());
+    });
 }
 
 void FluNavigationTreeWidget::addChild(FluNavigationWidget* child)
@@ -68,11 +71,13 @@ void FluNavigationTreeWidget::insertChild(int index, FluNavigationWidget* child)
     child->setNodeDepth(getNodeDepth() + 1);
     child->setVisible(m_bExpanded);
 
-    connect(m_expandAni, &QPropertyAnimation::valueChanged, this, &FluNavigationTreeWidget::_onSize);
+
+    FluNavigationTreeWidget* treeWidget = (FluNavigationTreeWidget*)child;
+    connect(treeWidget->getExpandAni(), &QPropertyAnimation::valueChanged, [this]() { setFixedSize(sizeHint()); });
 
     if (index < 0)
         index = m_treeChildren.size();
-   // index += 1;
+
     m_treeChildren.insert(index + m_treeChildren.begin(), (FluNavigationTreeWidget*)child);
     m_vLayout->insertWidget(index + 1, child, 0, Qt::AlignTop);
 }
@@ -86,7 +91,7 @@ void FluNavigationTreeWidget::removeChild(FluNavigationWidget* child)
     m_vLayout->removeWidget(child);
 }
 
-void FluNavigationTreeWidget::setExpanded(bool bExpanded, bool bAni = false)
+void FluNavigationTreeWidget::setExpanded(bool bExpanded, bool bAni)
 {
     if (bExpanded == m_bExpanded)
         return;
@@ -159,5 +164,7 @@ void FluNavigationTreeWidget::_onClicked(bool triggerByUser, bool clickArrow)
 void FluNavigationTreeWidget::_onSize(QVariant size)
 {
     QRect tmpRect = size.toRect();
-    this->setFixedSize(tmpRect.width(), tmpRect.height());
+    //this->setFixedSize(tmpRect.width(), tmpRect.height());
+   // LogDebug << "sizeHint[" << getText() << "]:" << sizeHint();
+    setFixedSize(tmpRect.size());
 }
