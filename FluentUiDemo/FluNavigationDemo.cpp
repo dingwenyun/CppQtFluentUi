@@ -35,24 +35,24 @@ FluWidgetDemo::FluWidgetDemo(QString text, QWidget* parent /*= nullptr*/) : QFra
 FluWindowDemo::FluWindowDemo(QWidget* parent /*= nullptr*/) : FluFrameLessWidgetV2(parent)
 {
     setWindowTitle("Fluent Navigation Demo Application");
-    m_hBoxLayout = new QHBoxLayout(m_centerWidget);
-    m_centerWidget->setLayout(m_hBoxLayout);
+  //  m_hBoxLayout = new QHBoxLayout(m_centerWidget);
+  //  m_centerWidget->setLayout(m_hBoxLayout);
 
-    m_navigationInterface = new FluNavigationInterface(m_centerWidget);
+    m_navigationInterface = new FluNavigationInterface(this);
     LogDebug << "navigation infterface size:" << m_navigationInterface->size();
 
-    m_stackWidget = new QStackedWidget(m_centerWidget);
+    m_stackWidget = new QStackedWidget(this);
 
-    m_searchInterface = new FluWidgetDemo("Search Interface", m_centerWidget);
-    m_musicInterface = new FluWidgetDemo("Music Interface", m_centerWidget);
+    m_searchInterface = new FluWidgetDemo("Search Interface", this);
+    m_musicInterface = new FluWidgetDemo("Music Interface", this);
 
-    m_videoInterface = new FluWidgetDemo("Video Interface", m_centerWidget);
-    m_folderInterface = new FluWidgetDemo("Folder Interface", m_centerWidget);
-    m_settingInterface = new FluWidgetDemo("Setting Interface", m_centerWidget);
-    m_albumInterface0 = new FluWidgetDemo("Album Interface", m_centerWidget);
-    m_albumInterface01 = new FluWidgetDemo("Album Interface 1", m_centerWidget);
-    m_albumInterface02 = new FluWidgetDemo("Album Interface 2", m_centerWidget);
-    m_albumInterface011 = new FluWidgetDemo("Album Interface 1-1", m_centerWidget);
+    m_videoInterface = new FluWidgetDemo("Video Interface", this);
+    m_folderInterface = new FluWidgetDemo("Folder Interface", this);
+    m_settingInterface = new FluWidgetDemo("Setting Interface", this);
+    m_albumInterface0 = new FluWidgetDemo("Album Interface", this);
+    m_albumInterface01 = new FluWidgetDemo("Album Interface 1", this);
+    m_albumInterface02 = new FluWidgetDemo("Album Interface 2", this);
+    m_albumInterface011 = new FluWidgetDemo("Album Interface 1-1", this);
 
     __initLayout();
 
@@ -66,10 +66,10 @@ FluWindowDemo::FluWindowDemo(QWidget* parent /*= nullptr*/) : FluFrameLessWidget
 
 void FluWindowDemo::__initLayout()
 {
-    m_hBoxLayout->setSpacing(0);
-    m_hBoxLayout->setContentsMargins(0, 0, 0, 0);
-    m_hBoxLayout->addWidget(m_navigationInterface);
-    m_hBoxLayout->addWidget(m_stackWidget, 1);
+    m_contentLayout->setSpacing(0);
+    m_contentLayout->setContentsMargins(0, 0, 0, 0);
+    m_contentLayout->addWidget(m_navigationInterface);
+    m_contentLayout->addWidget(m_stackWidget, 1);
 }
 
 void FluWindowDemo::__initNavigation()

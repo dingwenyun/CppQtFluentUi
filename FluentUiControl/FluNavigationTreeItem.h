@@ -3,13 +3,14 @@
 #include "FluNavigationPushButton.h"
 #include "FluNavigationTreeWidget.h"
 #include "../FluentUiUtils/FluentUiIconUtils.h"
+#include "../FluentUiUtils/FluentUiLogUtils.h"
 #include <QPropertyAnimation>
 #include <QMargins>
 
 class FluNavigationTreeItem : public FluNavigationPushButton
 {
     Q_OBJECT
-    Q_PROPERTY(bool arrowAngle READ getArrowAngle WRITE setArrowAngle)
+    Q_PROPERTY(int arrowAngle READ getArrowAngle WRITE setArrowAngle)
   public:
     FluNavigationTreeItem(QPixmap icon, QString text, bool bSelectable, QWidget* parent = nullptr);
 
@@ -26,7 +27,9 @@ class FluNavigationTreeItem : public FluNavigationPushButton
 
     void setArrowAngle(int nArrowAngle)
     {
+
         m_nArrowAngle = nArrowAngle;
+        LogDebug << "nArrowAngle = " << nArrowAngle;
         update();
     }
   signals:

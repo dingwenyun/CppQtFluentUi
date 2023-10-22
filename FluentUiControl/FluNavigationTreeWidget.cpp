@@ -1,5 +1,6 @@
 #include "FluNavigationTreeWidget.h"
 #include "FluNavigationTreeItem.h"
+#include "../FluentUiUtils/FluentUiLogUtils.h"
 
 FluNavigationTreeWidget::FluNavigationTreeWidget(QPixmap icon, QString text, bool bSelectable, QWidget* parent) : FluNavigationTreeWidgetBase(bSelectable, parent)
 {
@@ -71,9 +72,9 @@ void FluNavigationTreeWidget::insertChild(int index, FluNavigationWidget* child)
 
     if (index < 0)
         index = m_treeChildren.size();
-
+   // index += 1;
     m_treeChildren.insert(index + m_treeChildren.begin(), (FluNavigationTreeWidget*)child);
-    m_vLayout->insertWidget(index, child, 0, Qt::AlignTop);
+    m_vLayout->insertWidget(index + 1, child, 0, Qt::AlignTop);
 }
 
 void FluNavigationTreeWidget::removeChild(FluNavigationWidget* child)
@@ -85,13 +86,13 @@ void FluNavigationTreeWidget::removeChild(FluNavigationWidget* child)
     m_vLayout->removeWidget(child);
 }
 
-void FluNavigationTreeWidget::setExpanded(bool bExpanded, bool bAni)
+void FluNavigationTreeWidget::setExpanded(bool bExpanded, bool bAni = false)
 {
     if (bExpanded == m_bExpanded)
         return;
 
     m_bExpanded = bExpanded;
-    m_itemWidget->setExpanded(true);
+    m_itemWidget->setExpanded(bExpanded);
 
     for (auto child : m_treeChildren)
     {
@@ -104,6 +105,10 @@ void FluNavigationTreeWidget::setExpanded(bool bExpanded, bool bAni)
         m_expandAni->stop();
         m_expandAni->setStartValue(geometry());
         m_expandAni->setEndValue(QRect(pos(), sizeHint()));
+
+
+        LogDebug << "expandAni start:" << geometry() << ","
+                 << "end:" << QRect(pos(), sizeHint());
         m_expandAni->setDuration(120);
         m_expandAni->setEasingCurve(QEasingCurve::OutQuad);
         m_expandAni->start();
@@ -153,6 +158,6 @@ void FluNavigationTreeWidget::_onClicked(bool triggerByUser, bool clickArrow)
 
 void FluNavigationTreeWidget::_onSize(QVariant size)
 {
-    QSize tmpSize = size.toSize();
-    this->setFixedSize(tmpSize);
+    QRect tmpRect = size.toRect();
+    this->setFixedSize(tmpRect.width(), tmpRect.height());
 }

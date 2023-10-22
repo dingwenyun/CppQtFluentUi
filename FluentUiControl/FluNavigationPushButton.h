@@ -33,7 +33,7 @@ class FluNavigationPushButton : public FluNavigationWidget
         update();
     }
 
-    QMargins _margins()
+    virtual QMargins _margins()
     {
         return QMargins(0, 0, 0, 0);
     }

@@ -58,13 +58,10 @@ class FluNavigationPanel : public QFrame
 
         // ---
         m_vLayout = new FluNavigationItemLayout(this);
-        // setLayout(m_vLayout);
 
         m_vTopLayout = new FluNavigationItemLayout();
-        // LogDebug << "vlayout size hint:" << m_vLayout->sizeHint();
         m_vBottomLayout = new FluNavigationItemLayout();
         m_vScrollLayout = new FluNavigationItemLayout(m_scrollWidget);
-        // LogDebug << "vScrolllayout size hint:" << m_vScrollLayout->sizeHint();
 
         m_expandAni = new QPropertyAnimation(this, "geometry", this);
         m_expandWidth = 322;
@@ -75,24 +72,17 @@ class FluNavigationPanel : public QFrame
         else
             m_displayMode = FluNavigationDisplayMode::COMPACT;
 
-        __initWidget(parent, bMinimalEnable);
-        // __initLayout();
-        //  __connect();
-
-        // setStyleSheet("background-color: pink;");
-        // setStyleSheet("background-color:red;");
+        __initWidget();
     }
   signals:
     void displayModeChanged(FluNavigationDisplayMode mode);
 
   public:
-    void __initWidget(QWidget* parent, bool bMinimalEnable)
+    void __initWidget()
     {
         resize(48, height());
         setAttribute(Qt::WA_StyledBackground);
         window()->installEventFilter(this);  // 事件处理器
-
-        //	LogDebug << "resize:" << "w:" << width() << ",h:" << height();
 
         m_returnButton->hide();
         m_returnButton->setDisabled(true);
@@ -110,8 +100,12 @@ class FluNavigationPanel : public QFrame
         // mark it!
         // mark it!
 
-        // mark it!
-        // mark it!
+        m_returnButton->installEventFilter(new FluNavigationToolTipFilter(m_returnButton, 1000));
+        m_returnButton->setToolTip("返回");
+        
+        m_menuButton->installEventFilter(new FluNavigationToolTipFilter(m_menuButton, 1000));
+        m_menuButton->setToolTip("打开导航栏");
+
         setProperty("menu", false);
         m_scrollWidget->setObjectName("scrollWidget");
         // mark it! styleSheet
@@ -119,29 +113,8 @@ class FluNavigationPanel : public QFrame
         setStyleSheet(qss);
         m_scrollWidget->setStyleSheet(qss);
 
-        // m_scrollWidget->resize(48, height());
-        // m_scrollArea->resize(48, height());
-
-        // FluSetStyleSheet(FluNavigationPanel);
-
-        // QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluNavigationPanel.qss");
-        // setStyleSheet(qss);
-
-        // setStyleSheet("background-color: pink;");
-        // setStyleSheet("background-color:red;");
-
-        // LogDebug << "panel size:"
-        //        << "w:" << width() << ",h:" << height();
-        // LogDebug << "scroll widget:"
-        //         << "w:" << m_scrollWidget->width() << ",h:" << m_scrollWidget->height();
-
         __initLayout();
     }
-
-    // void __connect()
-    //{
-    //    connect(m_menuButton, &FluNavigationToolButton::clicked, this, &FluNavigationPanel::toggle);
-    //}
 
     void __initLayout()
     {
@@ -167,11 +140,7 @@ class FluNavigationPanel : public QFrame
         m_vTopLayout->addWidget(m_returnButton, 0, Qt::AlignTop);
         m_vTopLayout->addWidget(m_menuButton, 0, Qt::AlignTop);
 
-        // setFixedSize(48, height());// 修改宽度
-        // resize(48, height());
-        // setFixedWidth(48);
-        LogDebug << "panel size:"
-                 << "w:" << width() << ",h:" << height();
+        LogDebug << "panel size:" << "w:" << width() << ",h:" << height();
     }
 
     FluNavigationWidget* __widget(QString routeKey)
@@ -412,11 +381,6 @@ class FluNavigationPanel : public QFrame
             FluNavigationWidget* tmpWidget = itMap->second->m_widget;
 
             LogDebug << "calssName:" << tmpWidget->metaObject()->className();
-            ///*   if (tmpWidget->metaObject()->className() == "FluNavigationTreeWidget")
-            //   {
-            //       int i = 0;
-            //   }*/
-
             if (tmpWidget->inherits("FluNavigationTreeWidgetBase") && tmpWidget->isRoot())
             {
                 FluNavigationTreeWidgetBase* treeWidgetBase = (FluNavigationTreeWidgetBase*)(tmpWidget);
