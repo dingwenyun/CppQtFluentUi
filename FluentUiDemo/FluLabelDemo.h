@@ -12,6 +12,7 @@ class FluLabelDemo : public QWidget
         QVBoxLayout* vLayout = new QVBoxLayout(this);
         vLayout->setContentsMargins(30, 30, 30, 30);
         vLayout->setSpacing(20);
+        vLayout->addWidget(new FluHyperLinkLabel("https://www.bilibili.com/", "bilibili.com"));
         vLayout->addWidget(new FluCaptionLabel("Caption"));
         vLayout->addWidget(new FluBodyLabel("Body"));
         vLayout->addWidget(new FluStrongBodyLabel("Strong Body"));
