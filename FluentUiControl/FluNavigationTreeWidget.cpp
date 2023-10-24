@@ -71,7 +71,6 @@ void FluNavigationTreeWidget::insertChild(int index, FluNavigationWidget* child)
     child->setNodeDepth(getNodeDepth() + 1);
     child->setVisible(m_bExpanded);
 
-
     FluNavigationTreeWidget* treeWidget = (FluNavigationTreeWidget*)child;
     connect(treeWidget->getExpandAni(), &QPropertyAnimation::valueChanged, [this]() { setFixedSize(sizeHint()); });
 
@@ -110,7 +109,6 @@ void FluNavigationTreeWidget::setExpanded(bool bExpanded, bool bAni)
         m_expandAni->stop();
         m_expandAni->setStartValue(geometry());
         m_expandAni->setEndValue(QRect(pos(), sizeHint()));
-
 
         LogDebug << "expandAni start:" << geometry() << ","
                  << "end:" << QRect(pos(), sizeHint());
@@ -164,7 +162,7 @@ void FluNavigationTreeWidget::_onClicked(bool triggerByUser, bool clickArrow)
 void FluNavigationTreeWidget::_onSize(QVariant size)
 {
     QRect tmpRect = size.toRect();
-    //this->setFixedSize(tmpRect.width(), tmpRect.height());
-   // LogDebug << "sizeHint[" << getText() << "]:" << sizeHint();
+    // this->setFixedSize(tmpRect.width(), tmpRect.height());
+    // LogDebug << "sizeHint[" << getText() << "]:" << sizeHint();
     setFixedSize(tmpRect.size());
 }

@@ -139,7 +139,6 @@ class FluNavigationWidget : public QWidget
         return EXPAND_WIDTH;
     }
 
-
   private:
     int EXPAND_WIDTH = 312;
 

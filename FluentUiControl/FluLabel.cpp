@@ -1,8 +1,8 @@
 #include "FluLabel.h"
 
-FluLabelBase::FluLabelBase(QWidget *parent /*= nullptr*/) : QLabel(parent)
+FluLabelBase::FluLabelBase(QWidget* parent /*= nullptr*/) : QLabel(parent)
 {
-    setFont(_getFont());
+    // setFont(_getFont());
     _setTextColor();
 }
 

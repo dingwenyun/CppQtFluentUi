@@ -19,6 +19,5 @@ class FluLabelDemo : public QWidget
         vLayout->addWidget(new FluTitleLabel("Title"));
         vLayout->addWidget(new FluLargeTitleLabel("Large Title"));
         vLayout->addWidget(new FluDisplayLabel("Display"));
-
     }
 };

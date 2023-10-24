@@ -66,6 +66,7 @@ class FluNavigationTreeWidget : public FluNavigationTreeWidgetBase
     {
         return m_expandAni;
     }
+
   protected:
     void mouseReleaseEvent(QMouseEvent* event);
 

@@ -34,6 +34,6 @@ class FluFrameLessWidgetV2 : public FRAMELESSHELPER_PREPEND_NAMESPACE(FramelessW
 
   protected:
     FRAMELESSHELPER_PREPEND_NAMESPACE(StandardTitleBar) *m_titleBar = nullptr;
-    //QWidget *m_centerWidget;
+    // QWidget *m_centerWidget;
     QHBoxLayout *m_contentLayout;
 };

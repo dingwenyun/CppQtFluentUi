@@ -42,7 +42,7 @@ class FluWindowDemo : public FluFrameLessWidgetV2
     void onCurrentInterfaceChanged(int nIndex);
 
   private:
-  //  QHBoxLayout* m_hBoxLayout;
+    //  QHBoxLayout* m_hBoxLayout;
     // QWidget* m_centerWidget;
     FluNavigationInterface* m_navigationInterface;
     QStackedWidget* m_stackWidget;

@@ -35,8 +35,8 @@ FluWidgetDemo::FluWidgetDemo(QString text, QWidget* parent /*= nullptr*/) : QFra
 FluWindowDemo::FluWindowDemo(QWidget* parent /*= nullptr*/) : FluFrameLessWidgetV2(parent)
 {
     setWindowTitle("Fluent Navigation Demo Application");
-  //  m_hBoxLayout = new QHBoxLayout(m_centerWidget);
-  //  m_centerWidget->setLayout(m_hBoxLayout);
+    //  m_hBoxLayout = new QHBoxLayout(m_centerWidget);
+    //  m_centerWidget->setLayout(m_hBoxLayout);
 
     m_navigationInterface = new FluNavigationInterface(this);
     LogDebug << "navigation infterface size:" << m_navigationInterface->size();

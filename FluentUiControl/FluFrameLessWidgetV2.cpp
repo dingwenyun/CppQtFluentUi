@@ -42,7 +42,7 @@ void FluFrameLessWidgetV2::initialize()
     resize(800, 600);
     m_titleBar = new StandardTitleBar(this);
     m_titleBar->setWindowIconVisible(true);
-   // m_centerWidget = new QWidget(this);
+    // m_centerWidget = new QWidget(this);
     m_contentLayout = new QHBoxLayout;
     m_contentLayout->setContentsMargins(0, 0, 0, 0);
     m_contentLayout->setSpacing(0);
@@ -55,7 +55,6 @@ void FluFrameLessWidgetV2::initialize()
     setLayout(mainLayout);
 
     updateStyleSheet();
-
 
     FramelessWidgetsHelper *helper = FramelessWidgetsHelper::get(this);
     helper->setTitleBarWidget(m_titleBar);

@@ -102,7 +102,7 @@ class FluNavigationPanel : public QFrame
 
         m_returnButton->installEventFilter(new FluNavigationToolTipFilter(m_returnButton, 1000));
         m_returnButton->setToolTip("返回");
-        
+
         m_menuButton->installEventFilter(new FluNavigationToolTipFilter(m_menuButton, 1000));
         m_menuButton->setToolTip("打开导航栏");
 
@@ -140,7 +140,8 @@ class FluNavigationPanel : public QFrame
         m_vTopLayout->addWidget(m_returnButton, 0, Qt::AlignTop);
         m_vTopLayout->addWidget(m_menuButton, 0, Qt::AlignTop);
 
-        LogDebug << "panel size:" << "w:" << width() << ",h:" << height();
+        LogDebug << "panel size:"
+                 << "w:" << width() << ",h:" << height();
     }
 
     FluNavigationWidget* __widget(QString routeKey)
