@@ -1,3 +1,6 @@
+#include "FluLabelBase.h"
+#include "../FluentUiUtils/FluentUiFontUtils.h"
+
 class FluSubTitleLabel : public FluLabelBase
 {
   public:
