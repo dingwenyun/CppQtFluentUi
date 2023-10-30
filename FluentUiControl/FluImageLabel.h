@@ -11,6 +11,10 @@
 class FluImageLabel : public QLabel
 {
     Q_OBJECT
+    Q_PROPERTY(int topLeftRadius READ getTopLeftRadius WRITE setTopLeftRadius)
+    Q_PROPERTY(int topRightRadius READ getTopRightRadius WRITE setTopRightRadius)
+    Q_PROPERTY(int bottomLeftRadius READ getBottomLeftRadius WRITE setBottomLeftRadius)
+    Q_PROPERTY(int bottomLeftRadius READ getBottomRightRadius WRITE setBottomRightRadius)
     // 构造函数
   public:
     FluImageLabel(QWidget* parent = nullptr) : QLabel(parent)
@@ -125,6 +129,48 @@ class FluImageLabel : public QLabel
     bool isNull()
     {
         return m_image.isNull();
+    }
+
+  public:
+    // property
+    int getTopLeftRadius()
+    {
+        return m_topLeftRadius;
+    }
+
+    void setTopLeftRadius(int topLeftRadius)
+    {
+        m_topLeftRadius = topLeftRadius;
+    }
+
+    int getTopRightRadius()
+    {
+        return m_topRightRadius;
+    }
+
+    void setTopRightRadius(int topRightRadius)
+    {
+        m_topRightRadius = topRightRadius;
+    }
+
+    int getBottomLeftRadius()
+    {
+        return m_bottomLeftRadius;
+    }
+
+    void setBottomLeftRadius(int bottomLeftRadius)
+    {
+        m_bottomLeftRadius = bottomLeftRadius;
+    }
+
+    int getBottomRightRadius()
+    {
+        return m_bottomRightRadius;
+    }
+
+    void setBottomRightRadius(int bottomRightRadius)
+    {
+        m_bottomRightRadius = bottomRightRadius;
     }
 
   signals:
