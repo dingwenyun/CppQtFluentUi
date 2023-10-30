@@ -50,8 +50,8 @@ int main(int argc, char** argv)
     // FRAMELESSHELPER_NAMESPACE::FramelessWidget w;
     // w.show();
 
-    // FluWindowDemo demo;
-    // demo.show();
+    FluWindowDemo demo;
+    demo.show();
 
     // FluWidgetDemo demo("demo widget");
     // demo.show();
@@ -59,8 +59,8 @@ int main(int argc, char** argv)
     // FluNavigationInterface demo;
     // demo.show();
 
-    /*  FluFrameLessWidgetV2 v2;
-        v2.show();*/
+    // FluFrameLessWidgetV2 v2;
+    // v2.show();
 
     // FluDialog dialog("a dialog example", "just a example", nullptr);
     // dialog.exec();
@@ -68,8 +68,8 @@ int main(int argc, char** argv)
     // FluSliderDemo demo;
     // demo.show();
 
-    FluLabelDemo demo;
-    demo.show();
+    // FluLabelDemo demo;
+    // demo.show();
 
     return app.exec();
 }

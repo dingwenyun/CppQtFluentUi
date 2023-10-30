@@ -19,7 +19,7 @@ QPixmap FluPixmapLabel::getPixmap()
 void FluPixmapLabel::paintEvent(QPaintEvent* event)
 {
     if (m_pixmap.isNull())
-        return;
+        return QLabel::paintEvent(event);
 
     QPainter painter(this);
     painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);

@@ -223,7 +223,6 @@ class FluDisplayLabel : public FluLabelBase
     }
 };
 
-
 class FluHyperLinkLabel : public QPushButton
 {
     Q_OBJECT
@@ -240,12 +239,12 @@ class FluHyperLinkLabel : public QPushButton
         connect(this, &QPushButton::clicked, [=] {
             if (m_url.isValid())
                 QDesktopServices::openUrl(m_url);
-            });
+        });
 
         QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluHyperLinkLabel.qss");
         setStyleSheet(qss);
 
-        //setAttribute(Qt::WA_StyledBackground);
+        // setAttribute(Qt::WA_StyledBackground);
     }
 
     FluHyperLinkLabel(QString text, QWidget* parent = nullptr) : FluHyperLinkLabel(parent)
@@ -259,7 +258,6 @@ class FluHyperLinkLabel : public QPushButton
         m_url = QUrl(url);
     }
 
-   
     void setUrl(QUrl url)
     {
         m_url = url;
@@ -279,10 +277,10 @@ class FluHyperLinkLabel : public QPushButton
     {
         m_bUnderlineVisible = bVisible;
         setProperty("underline", bVisible);
-        //setStyle();
+        // setStyle();
     }
 
-private:
+  private:
     QUrl m_url;
-  bool m_bUnderlineVisible;
+    bool m_bUnderlineVisible;
 };

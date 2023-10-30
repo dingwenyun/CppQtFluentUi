@@ -240,6 +240,7 @@
     <ClCompile Include="FluCenterLabelWidget.cpp" />
     <ClCompile Include="FluCheckBox.cpp" />
     <ClCompile Include="FluDialog.cpp" />
+    <ClCompile Include="FluImageLabel.cpp" />
     <ClCompile Include="FluLineEdit.cpp" />
     <ClCompile Include="FluNavigationAvatarWidget.cpp" />
     <ClCompile Include="FluNavigationBar.cpp" />
@@ -290,6 +291,7 @@
     <QtMoc Include="FluCheckBox.h" />
     <QtMoc Include="FluNavigationBarPushButton.h" />
     <ClInclude Include="FluDialog.h" />
+    <QtMoc Include="FluImageLabel.h" />
     <ClInclude Include="FluLineEdit.h" />
     <ClInclude Include="FluNavigationBar.h" />
     <ClInclude Include="FluNavigationItem.h" />
