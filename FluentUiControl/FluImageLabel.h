@@ -237,7 +237,7 @@ class FluImageLabel : public QLabel
         painter.drawImage(rect(), img);
     }
 
-  private:
+  protected:
     // 成员变量
     QImage m_image;
 

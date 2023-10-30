@@ -2,6 +2,7 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
+#include "../FluentUiControl/FluHyperLinkLabel.h"
 #include "../FluentUiControl/FluLabel.h"
 
 class FluLabelDemo : public QWidget

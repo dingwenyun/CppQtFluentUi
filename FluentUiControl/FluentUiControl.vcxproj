@@ -236,11 +236,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FluAvatarWidget.cpp" />
+    <ClCompile Include="FluBodyLabel.cpp" />
     <ClCompile Include="FluButton.cpp" />
+    <ClCompile Include="FluCaptionLabel.cpp" />
     <ClCompile Include="FluCenterLabelWidget.cpp" />
     <ClCompile Include="FluCheckBox.cpp" />
     <ClCompile Include="FluDialog.cpp" />
+    <ClCompile Include="FluDisplayLabel.cpp" />
+    <ClCompile Include="FluHyperLinkLabel.cpp" />
     <ClCompile Include="FluImageLabel.cpp" />
+    <ClCompile Include="FluLabelBase.cpp" />
+    <ClCompile Include="FluLargeTitleLabel.cpp" />
     <ClCompile Include="FluLineEdit.cpp" />
     <ClCompile Include="FluNavigationAvatarWidget.cpp" />
     <ClCompile Include="FluNavigationBar.cpp" />
@@ -254,7 +261,10 @@
     <ClCompile Include="FluScrollBar.cpp" />
     <ClCompile Include="FluSeparator.cpp" />
     <ClCompile Include="FluSlider.cpp" />
+    <ClCompile Include="FluStrongBodyLabel.cpp" />
+    <ClCompile Include="FluSubTitleLabel.cpp" />
     <ClCompile Include="FluTheme.cpp" />
+    <ClCompile Include="FluTitleLabel.cpp" />
     <ClCompile Include="FluToolTip.cpp" />
     <ClCompile Include="FluTransparentToolButton.cpp" />
     <ClCompile Include="FluBannerWidget.cpp" />
@@ -290,8 +300,14 @@
     <QtMoc Include="FluButton.h" />
     <QtMoc Include="FluCheckBox.h" />
     <QtMoc Include="FluNavigationBarPushButton.h" />
+    <ClInclude Include="FluAvatarWidget.h" />
+    <ClInclude Include="FluBodyLabel.h" />
+    <ClInclude Include="FluCaptionLabel.h" />
     <ClInclude Include="FluDialog.h" />
     <QtMoc Include="FluImageLabel.h" />
+    <QtMoc Include="FluHyperLinkLabel.h" />
+    <ClInclude Include="FluDisplayLabel.h" />
+    <ClInclude Include="FluLargeTitleLabel.h" />
     <ClInclude Include="FluLineEdit.h" />
     <ClInclude Include="FluNavigationBar.h" />
     <ClInclude Include="FluNavigationItem.h" />
@@ -300,7 +316,10 @@
     <QtMoc Include="FluRadioButton.h" />
     <ClInclude Include="FluSeparator.h" />
     <QtMoc Include="FluSlider.h" />
+    <ClInclude Include="FluStrongBodyLabel.h" />
+    <ClInclude Include="FluSubTitleLabel.h" />
     <ClInclude Include="FluTheme.h" />
+    <ClInclude Include="FluTitleLabel.h" />
     <ClInclude Include="FluToolTip.h" />
     <ClInclude Include="FluTransparentToolButton.h" />
     <ClInclude Include="FluPixmapLabel.h" />
@@ -326,8 +345,11 @@
     <QtMoc Include="FluMainWidget.h" />
     <QtMoc Include="FluSampleCardView.h" />
     <QtMoc Include="FluWidget.h" />
-    <QtMoc Include="FluLabel.h" />
+    <ClInclude Include="FluLabel.h" />
     <QtMoc Include="FluFrameLessWidgetV1.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="FluLabelBase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
