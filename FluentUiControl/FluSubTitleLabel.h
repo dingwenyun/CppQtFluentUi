@@ -4,15 +4,9 @@
 class FluSubTitleLabel : public FluLabelBase
 {
   public:
-    FluSubTitleLabel(QWidget* parent = nullptr) : FluLabelBase(parent)
-    {
-        setFont(_getFont());
-    }
+    FluSubTitleLabel(QWidget* parent = nullptr);
 
-    FluSubTitleLabel(QString text, QWidget* parent = nullptr) : FluSubTitleLabel(parent)
-    {
-        setText(text);
-    }
+    FluSubTitleLabel(QString text, QWidget* parent = nullptr);
 
     QFont _getFont()
     {

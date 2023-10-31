@@ -3,7 +3,7 @@
 #include <QWidget>
 #include <QHBoxLayout>
 #include <vector>
-#include "../FluentUiControl/FluNavigationAvatarWidget.h"
+#include "../FluentUiControl/FluAvatarWidget.h"
 
 class FluAvatarWidgetDemo : public QWidget
 {
@@ -12,9 +12,15 @@ class FluAvatarWidgetDemo : public QWidget
     {
         resize(400, 300);
         setStyleSheet("FluAvatarWidgetDemo{background:white}");
+        QHBoxLayout* hBoxLayout = new QHBoxLayout(this);
+
+        QPixmap avatar = QPixmap("../res/shoko.png");
         std::vector<int> sizes = {96, 48, 32, 24};
         for (auto s : sizes)
         {
+            FluAvatarWidget* w = new FluAvatarWidget(avatar, this);
+            w->setRadius(s / 2);
+            hBoxLayout->addWidget(w);
         }
     }
 

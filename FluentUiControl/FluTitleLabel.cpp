@@ -4,3 +4,8 @@ FluTitleLabel::FluTitleLabel(QWidget* parent /*= nullptr*/) : FluLabelBase(paren
 {
     setFont(_getFont());
 }
+
+FluTitleLabel::FluTitleLabel(QString text, QWidget* parent /*= nullptr*/) : FluTitleLabel(parent)
+{
+    setText(text);
+}

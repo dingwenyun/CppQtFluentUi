@@ -13,7 +13,7 @@ class FluAvatarWidget : public FluImageLabel
 
     FluAvatarWidget(QImage image, QWidget* parent = nullptr);
 
-    FluAvatarWidget(QPixmap image, QWidget* parent = nullptr);
+    FluAvatarWidget(QPixmap image, QWidget* parent = nullptr); 
 
     void _postInit();
 

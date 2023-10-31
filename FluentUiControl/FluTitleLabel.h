@@ -8,10 +8,7 @@ class FluTitleLabel : public FluLabelBase
   public:
     FluTitleLabel(QWidget* parent = nullptr);
 
-    FluTitleLabel(QString text, QWidget* parent = nullptr) : FluTitleLabel(parent)
-    {
-        setText(text);
-    }
+    FluTitleLabel(QString text, QWidget* parent = nullptr);
 
     QFont _getFont()
     {

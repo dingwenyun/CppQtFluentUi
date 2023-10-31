@@ -202,9 +202,6 @@
     <ClCompile Include="FluFrameLessWidgetV1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FluLabel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FluWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

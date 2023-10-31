@@ -272,7 +272,6 @@
     <ClCompile Include="FluFrameLessWidgetV1.cpp" />
     <ClCompile Include="FluHomeInterface.cpp" />
     <ClCompile Include="FluImgWidget.cpp" />
-    <ClCompile Include="FluLabel.cpp" />
     <ClCompile Include="FluLinkCardView.cpp" />
     <ClCompile Include="FluLinkCardWidget.cpp" />
     <ClCompile Include="FluMainWidget.cpp" />
