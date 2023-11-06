@@ -8,7 +8,7 @@ using namespace std;
 
 class FluComboBoxBase : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
   public:
   protected:
     bool m_bHover;

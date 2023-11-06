@@ -6,12 +6,13 @@
 #include <QFontMetrics>
 #include <QStyleOptionViewItem>
 
-class FluShortcutMenuItemDelegate : public FluMenuItemDelegate 
+class FluShortcutMenuItemDelegate : public FluMenuItemDelegate
 {
   public:
     FluShortcutMenuItemDelegate(QWidget *parent = nullptr) : FluMenuItemDelegate(parent)
     {
     }
+
   public:
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index);
 };

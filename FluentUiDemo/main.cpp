@@ -51,8 +51,8 @@ int main(int argc, char** argv)
     // FRAMELESSHELPER_NAMESPACE::FramelessWidget w;
     // w.show();
 
- /*   FluWindowDemo demo;
-       demo.show();*/
+    /*   FluWindowDemo demo;
+          demo.show();*/
 
     // FluWidgetDemo demo("demo widget");
     // demo.show();
@@ -71,7 +71,6 @@ int main(int argc, char** argv)
 
     // FluLabelDemo demo;
     // demo.show();
-
 
     FluAvatarWidgetDemo demo;
     demo.show();

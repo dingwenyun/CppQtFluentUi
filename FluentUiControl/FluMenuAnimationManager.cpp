@@ -1,5 +1,7 @@
+#include "FluRoundMenu.h"
 #include "FluMenuAnimationManager.h"
 
+std::map<FluMenuAnimationType, FluMenuAnimationManager*> FluMenuAnimationManager::m_managers;
 FluMenuAnimationManager::FluMenuAnimationManager(FluRoundMenu* menu) : QObject()
 {
     m_menu = menu;
@@ -13,10 +15,10 @@ FluMenuAnimationManager::FluMenuAnimationManager(FluRoundMenu* menu) : QObject()
 
 QSize FluMenuAnimationManager::availableViewSize(QPoint pos)
 {
-    QRect screenRect = QApplication::screenAt(QCursor::pos())->availableGeometry();
-    int w = screenRect.width() - 100;
-    int h = screenRect.height() - 100;
-    return QSize(w, h);
+    QRect screenRect = QApplication::screenAt(QCursor::pos())->availableGeometry();  // 获取屏幕
+    int w = screenRect.width() - 100;                                                // 屏幕宽度 - 100
+    int h = screenRect.height() - 100;                                               // 屏幕高度 - 100
+    return QSize(w, h);                                                              // 返回大小
 }
 
 QPoint FluMenuAnimationManager::_endPosition(QPoint pos)
@@ -44,7 +46,7 @@ void FluMenuAnimationManager::exec(QPoint pos)
     // pass
 }
 
-void FluMenuAnimationManager::_register(FluMenuAnimationType type, FluMenuAnimationManager* manager)
+void FluMenuAnimationManager::registerManager(FluMenuAnimationType type, FluMenuAnimationManager* manager)
 {
     m_managers[type] = manager;
 }

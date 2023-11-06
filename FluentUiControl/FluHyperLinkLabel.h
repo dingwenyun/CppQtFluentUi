@@ -6,7 +6,6 @@
 #include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
 #include "../FluentUiUtils/FluentUiFontUtils.h"
 
-
 class FluHyperLinkLabel : public QPushButton
 {
     Q_OBJECT

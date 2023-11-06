@@ -10,34 +10,36 @@
 #include "FluMenuActionListWidget.h"
 
 #include "FluMenuAnimationType.h"
-#include "FluRoundMenu.h"
+//#include "FluRoundMenu.h"
 
+class FluRoundMenu;
 class FluMenuAnimationManager : public QObject
 {
   public:
     FluMenuAnimationManager(FluRoundMenu* menu);
 
   public:
-    QSize availableViewSize(QPoint pos);
+    virtual QSize availableViewSize(QPoint pos);
 
-    QPoint _endPosition(QPoint pos);
+    virtual QPoint _endPosition(QPoint pos);
 
     QSize _menuSize();
 
     virtual void exec(QPoint pos);
 
-    void _register(FluMenuAnimationType type, FluMenuAnimationManager* manager);
+    static void registerManager(FluMenuAnimationType type, FluMenuAnimationManager* manager);
 
-    FluRoundMenu* make(FluMenuAnimationType type);
+    static FluRoundMenu* make(FluMenuAnimationType type);
 
   public slots:
     virtual void _onValueChanged()
-    {//pass
+    {  // pass
     }
 
     virtual void _updateMenuViewport();
-  private:
+
+  protected:
     FluRoundMenu* m_menu;
     QPropertyAnimation* m_ani;
-    std::map<FluMenuAnimationType, FluMenuAnimationManager*> m_managers;
+    static std::map<FluMenuAnimationType, FluMenuAnimationManager*> m_managers;
 };

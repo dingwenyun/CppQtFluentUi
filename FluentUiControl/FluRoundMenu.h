@@ -8,11 +8,10 @@
 #include "FluMenuActionListWidget.h"
 #include "FluSubMenuItemWidget.h"
 
-
 class FluMenuAnimationManager;
 class FluRoundMenu : public QMenu
 {
-	//Q_OBJECT
+    // Q_OBJECT
   public:
     FluRoundMenu(QString title, QWidget* parent = nullptr);
 
@@ -28,7 +27,18 @@ class FluRoundMenu : public QMenu
         connect(m_timer, &QTimer::timeout, this, &FluRoundMenu::_onShowMenuTimeOut);
 
         // 添加阴影效果
+        setShadowEffect();
+        m_hBoxLayout->addWidget(m_view, 1, Qt::AlignCenter);
+        m_hBoxLayout->setContentsMargins(12, 8, 12, 20);
 
+        // stylesheet
+        connect(m_view, &FluMenuActionListWidget::itemClicked, this, &FluRoundMenu::_onItemClicked);
+        connect(m_view, &FluMenuActionListWidget::itemEntered, this, &FluRoundMenu::_onItemEntered);
+    }
+
+    void setMaxVisibleItems(int num)
+    {
+        adjustSize();
     }
 
     FluMenuActionListWidget* getView()
@@ -36,8 +46,7 @@ class FluRoundMenu : public QMenu
         return m_view;
     }
 
-
-    void setShadowEffect(int blurRadius = 30, QPoint offset = QPoint(0,8), QColor color = QColor(0,0,0,30))
+    void setShadowEffect(int blurRadius = 30, QPoint offset = QPoint(0, 8), QColor color = QColor(0, 0, 0, 30))
     {
         m_shadowEffect = new QGraphicsDropShadowEffect(m_view);
         m_shadowEffect->setBlurRadius(blurRadius);
@@ -46,11 +55,42 @@ class FluRoundMenu : public QMenu
         m_view->setGraphicsEffect(nullptr);
         m_view->setGraphicsEffect(m_shadowEffect);
     }
+
+    void adjustSize()
+    {
+        QMargins contentMargins = layout()->contentsMargins();
+        int nW = m_view->width() + contentMargins.left() + contentMargins.right();
+        int nH = m_view->height() + contentMargins.top() + contentMargins.bottom();
+        setFixedSize(nW, nH);
+    }
+
+    QPixmap getIcon()
+    {
+        return m_icon;
+    }
+
+    QString getTitle()
+    {
+        return m_title;
+    }
+
+    void clear()
+    {
+    }
+
   public slots:
 
-  void _onShowMenuTimeOut()
-  {
-  }
+    void _onShowMenuTimeOut()
+    {
+    }
+
+    void _onItemClicked()
+    {
+    }
+
+    void _onItemEntered()
+    {
+    }
 
   private:
     bool m_bSubMenu;
@@ -67,7 +107,7 @@ class FluRoundMenu : public QMenu
 
     FluMenuAnimationManager* m_aniManager;
 
-    QTimer *m_timer;
+    QTimer* m_timer;
 
     QString m_title;
     QPixmap m_icon;

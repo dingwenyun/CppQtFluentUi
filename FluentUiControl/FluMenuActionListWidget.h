@@ -1,7 +1,9 @@
 #pragma once
 
 #include <QListWidget>
+#include "FluMenuAnimationType.h"
 #include "FluShortcutMenuItemDelegate.h"
+#include "FluMenuAnimationManager.h"
 
 class FluMenuActionListWidget : public QListWidget
 {
@@ -31,7 +33,7 @@ class FluMenuActionListWidget : public QListWidget
         adjustSize();
     }
 
-    void addItem(QListWidgetItem *item)
+    void addItem(QListWidgetItem* item)
     {
         QListWidget::addItem(item);
         adjustSize();
@@ -39,12 +41,12 @@ class FluMenuActionListWidget : public QListWidget
 
     QListWidgetItem* takeItem(int row)
     {
-        QListWidgetItem *item = QListWidget::takeItem(row);
+        QListWidgetItem* item = QListWidget::takeItem(row);
         adjustSize();
         return item;
     }
 
-    void adjustSize()
+    void adjustSize(QPoint pos = QPoint(), FluMenuAnimationType aniType = FluMenuAnimationType::NONE)
     {
         QSize size = QSize(0, 0);
         for (int i = 0; i < count(); i++)
@@ -53,9 +55,8 @@ class FluMenuActionListWidget : public QListWidget
             tmpSizeHint.setWidth(qMax(tmpSizeHint.width(), size.width()));
             tmpSizeHint.setHeight(tmpSizeHint.height() + size.height());
         }
-
-
     }
+
   private:
     int m_itemHeight;
     int m_maxVisibleItem;

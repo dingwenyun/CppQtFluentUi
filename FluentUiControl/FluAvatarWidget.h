@@ -13,7 +13,7 @@ class FluAvatarWidget : public FluImageLabel
 
     FluAvatarWidget(QImage image, QWidget* parent = nullptr);
 
-    FluAvatarWidget(QPixmap image, QWidget* parent = nullptr); 
+    FluAvatarWidget(QPixmap image, QWidget* parent = nullptr);
 
     void _postInit();
 
@@ -23,6 +23,7 @@ class FluAvatarWidget : public FluImageLabel
 
   protected:
     void paintEvent(QPaintEvent* event);
+
   private:
     int m_radius;
 };
