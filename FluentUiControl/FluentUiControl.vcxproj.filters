@@ -140,6 +140,12 @@
     <ClInclude Include="FluPullUpMenuAnimationManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FluFadeInDropDownMenuAnimationManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FluFadeInPullUpMenuAnimationManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluFrameLessWidgetV1.h">
@@ -433,6 +439,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluPullUpMenuAnimationManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluFadeInDropDownMenuAnimationManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluFadeInPullUpMenuAnimationManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

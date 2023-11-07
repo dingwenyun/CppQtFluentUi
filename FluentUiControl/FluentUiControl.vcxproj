@@ -249,6 +249,8 @@
     <ClCompile Include="FluDisplayLabel.cpp" />
     <ClCompile Include="FluDropDownMenuAnimationManager.cpp" />
     <ClCompile Include="FluDummyMenuAnimationManager.cpp" />
+    <ClCompile Include="FluFadeInDropDownMenuAnimationManager.cpp" />
+    <ClCompile Include="FluFadeInPullUpMenuAnimationManager.cpp" />
     <ClCompile Include="FluHyperLinkLabel.cpp" />
     <ClCompile Include="FluImageLabel.cpp" />
     <ClCompile Include="FluLabelBase.cpp" />
@@ -323,6 +325,8 @@
     <ClInclude Include="FluDisplayLabel.h" />
     <ClInclude Include="FluDropDownMenuAnimationManager.h" />
     <ClInclude Include="FluDummyMenuAnimationManager.h" />
+    <ClInclude Include="FluFadeInDropDownMenuAnimationManager.h" />
+    <ClInclude Include="FluFadeInPullUpMenuAnimationManager.h" />
     <ClInclude Include="FluLargeTitleLabel.h" />
     <ClInclude Include="FluLineEdit.h" />
     <ClInclude Include="FluMenuActionListWidget.h" />
