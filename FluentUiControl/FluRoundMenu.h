@@ -62,6 +62,8 @@ class FluRoundMenu : public QMenu
 
     void setDefaultAction(QAction* action);
 
+    void setDefaultAction(int nIndex);
+
     void addMenu(FluRoundMenu* menu);
 
     void insertMenu(QAction* before, FluRoundMenu* menu);

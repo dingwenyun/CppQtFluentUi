@@ -312,6 +312,14 @@ void FluRoundMenu::setDefaultAction(QAction* action)
     m_view->setCurrentRow(nIndex);
 }
 
+void FluRoundMenu::setDefaultAction(int nIndex)
+{
+    if (nIndex >= 0 && nIndex < m_actions.count())
+        return;
+
+    m_view->setCurrentRow(nIndex);
+}
+
 void FluRoundMenu::addMenu(FluRoundMenu* menu)
 {
     FluSubMenuItemWidget* widget = _createSubMenuItem(menu);

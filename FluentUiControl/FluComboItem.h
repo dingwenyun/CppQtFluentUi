@@ -7,7 +7,7 @@
 class FluComboItem
 {
   public:
-    FluComboItem(QString text, QPixmap icon, QVariant userData)
+    FluComboItem(QString text, QPixmap icon = QPixmap(), QVariant userData = QVariant::fromValue(nullptr))
     {
         m_text = text;
         m_icon = icon;

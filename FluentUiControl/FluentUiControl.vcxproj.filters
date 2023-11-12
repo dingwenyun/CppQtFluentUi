@@ -244,6 +244,21 @@
     <QtMoc Include="FluMenuItemDelegate.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="FluAnimationBase.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluComboBox.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluComboBoxMenu.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluIndicatorMenuItemDelegate.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluTranslateYAnimation.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FluFrameLessWidgetV1.cpp">
@@ -445,6 +460,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluFadeInPullUpMenuAnimationManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluAnimationBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluComboBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluComboBoxMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluIndicatorMenuItemDelegate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluTranslateYAnimation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
