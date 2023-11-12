@@ -113,22 +113,7 @@
     <ClInclude Include="FluMenuAnimationType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FluMenuItemDelegate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FluShortcutMenuItemDelegate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FluSubMenuItemWidget.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FluMenuActionListWidget.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FluMenuAnimationManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FluRoundMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FluDummyMenuAnimationManager.h">
@@ -242,6 +227,21 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FluLabelBase.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluSubMenuItemWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluRoundMenu.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluMenuActionListWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluShortcutMenuItemDelegate.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluMenuItemDelegate.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

@@ -1,6 +1,6 @@
 #include "FluSubMenuItemWidget.h"
 
-FluSubMenuItemWidget::FluSubMenuItemWidget(QMenu* menu, QListWidgetItem* item, QWidget* parent /*= nullptr*/) : QWidget(parent)
+FluSubMenuItemWidget::FluSubMenuItemWidget(FluRoundMenu* menu, QListWidgetItem* item, QWidget* parent /*= nullptr*/) : QWidget(parent)
 {
     m_menu = menu;
     m_item = item;

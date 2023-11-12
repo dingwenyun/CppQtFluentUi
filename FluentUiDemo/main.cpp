@@ -16,6 +16,7 @@
 #include "FluSliderDemo.h"
 #include "FluLabelDemo.h"
 #include "FluAvatarWidgetDemo.h"
+#include "FluMenuDemo.h"
 
 int main(int argc, char** argv)
 {
@@ -72,7 +73,11 @@ int main(int argc, char** argv)
     // FluLabelDemo demo;
     // demo.show();
 
-    FluAvatarWidgetDemo demo;
+    //  FluAvatarWidgetDemo demo;
+    //  demo.show();
+
+    FluMenuDemo demo;
     demo.show();
+
     return app.exec();
 }

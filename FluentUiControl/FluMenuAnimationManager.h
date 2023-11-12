@@ -8,9 +8,7 @@
 #include <QtMinMax>
 
 #include "FluMenuActionListWidget.h"
-
 #include "FluMenuAnimationType.h"
-//#include "FluRoundMenu.h"
 
 class FluRoundMenu;
 class FluMenuAnimationManager : public QObject
@@ -29,7 +27,7 @@ class FluMenuAnimationManager : public QObject
 
     static void registerManager(FluMenuAnimationType type, FluMenuAnimationManager* manager);
 
-    static FluRoundMenu* make(FluMenuAnimationType type);
+    static FluMenuAnimationManager* make(FluRoundMenu* roundMenu, FluMenuAnimationType type);
 
   public slots:
     virtual void _onValueChanged()

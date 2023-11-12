@@ -1,11 +1,11 @@
 #include "FluMenuITemDelegate.h"
 
-bool FluMenuItemDelegate::_isSeparator(QModelIndex index)
+bool FluMenuItemDelegate::_isSeparator(QModelIndex index) const
 {
     return index.model()->data(index, Qt::DecorationRole) == "seperator";
 }
 
-void FluMenuItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index)
+void FluMenuItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     if (!_isSeparator(index))
         return QStyledItemDelegate::paint(painter, option, index);

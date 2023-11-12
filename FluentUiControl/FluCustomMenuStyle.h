@@ -2,21 +2,14 @@
 
 #include <QProxyStyle>
 #include <QWidget>
+#include <QStyleOption>
 
 class FluCustomMenuStyle : public QProxyStyle
 {
   public:
-    FluCustomMenuStyle(int iconSize = 14) : QProxyStyle()
-    {
-        m_iconSize = iconSize;
-    }
+    FluCustomMenuStyle(int iconSize = 14);
 
-    int pixelMetric(QStyle::PixelMetric metric, QStyleOption* option, QWidget* widget)
-    {
-        if (metric == QStyle::PM_SmallIconSize)
-            return m_iconSize;
-        return QProxyStyle::pixelMetric(metric, option, widget);
-    }
+    int pixelMetric(PixelMetric metric, const QStyleOption *option = nullptr, const QWidget *widget = nullptr);
 
   protected:
     int m_iconSize;

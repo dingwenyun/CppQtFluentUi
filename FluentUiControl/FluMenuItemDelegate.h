@@ -8,12 +8,14 @@
 
 class FluMenuItemDelegate : public QStyledItemDelegate
 {
+    Q_OBJECT
   public:
-    FluMenuItemDelegate(QWidget *parent) : QStyledItemDelegate(parent)
+    FluMenuItemDelegate(QObject *parent = nullptr) : QStyledItemDelegate(parent)
     {
     }
 
   public:
-    bool _isSeparator(QModelIndex index);
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index);
+    bool _isSeparator(QModelIndex index) const;
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    // void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index);
 };

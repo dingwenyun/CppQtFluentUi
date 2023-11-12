@@ -3,12 +3,14 @@
 #include <QWidget>
 #include <QListWidgetItem>
 #include <QPainter>
+#include "FluRoundMenu.h"
 #include "../FluentUiUtils/FluentUiIconUtils.h"
 
 class FluSubMenuItemWidget : public QWidget
 {
+    Q_OBJECT
   public:
-    FluSubMenuItemWidget(QMenu* menu, QListWidgetItem* item, QWidget* parent = nullptr);
+    FluSubMenuItemWidget(FluRoundMenu* menu, QListWidgetItem* item, QWidget* parent = nullptr);
   signals:
     void showMenuSig(QListWidgetItem* item);
 
@@ -17,7 +19,18 @@ class FluSubMenuItemWidget : public QWidget
 
     void paintEvent(QPaintEvent* event);
 
+  public:
+    QListWidgetItem* getItem()
+    {
+        return m_item;
+    }
+
+    FluRoundMenu* getMenu()
+    {
+        return m_menu;
+    }
+
   protected:
-    QMenu* m_menu;
+    FluRoundMenu* m_menu;
     QListWidgetItem* m_item;
 };

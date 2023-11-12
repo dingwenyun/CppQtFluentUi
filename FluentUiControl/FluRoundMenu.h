@@ -6,91 +6,102 @@
 #include <QTimer>
 #include <QGraphicsDropShadowEffect>
 #include "FluMenuActionListWidget.h"
-#include "FluSubMenuItemWidget.h"
 
+class FluSubMenuItemWidget;
 class FluMenuAnimationManager;
 class FluRoundMenu : public QMenu
 {
-    // Q_OBJECT
+    Q_OBJECT
   public:
     FluRoundMenu(QString title, QWidget* parent = nullptr);
 
   public:
-    void __initWidgets()
-    {
-        setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint);
-        setAttribute(Qt::WA_TranslucentBackground);
-        setMouseTracking(true);
+    void __initWidgets();
 
-        m_timer->setSingleShot(true);
-        m_timer->setInterval(400);
-        connect(m_timer, &QTimer::timeout, this, &FluRoundMenu::_onShowMenuTimeOut);
+    void setMaxVisibleItems(int num);
 
-        // 添加阴影效果
-        setShadowEffect();
-        m_hBoxLayout->addWidget(m_view, 1, Qt::AlignCenter);
-        m_hBoxLayout->setContentsMargins(12, 8, 12, 20);
+    void setItemHeight(int height);
 
-        // stylesheet
-        connect(m_view, &FluMenuActionListWidget::itemClicked, this, &FluRoundMenu::_onItemClicked);
-        connect(m_view, &FluMenuActionListWidget::itemEntered, this, &FluRoundMenu::_onItemEntered);
-    }
+    FluMenuActionListWidget* getView();
 
-    void setMaxVisibleItems(int num)
-    {
-        adjustSize();
-    }
+    void setShadowEffect(int blurRadius = 30, QPoint offset = QPoint(0, 8), QColor color = QColor(0, 0, 0, 30));
 
-    FluMenuActionListWidget* getView()
-    {
-        return m_view;
-    }
+    void _setParentMenu(FluRoundMenu* menu, QListWidgetItem* item);
 
-    void setShadowEffect(int blurRadius = 30, QPoint offset = QPoint(0, 8), QColor color = QColor(0, 0, 0, 30))
-    {
-        m_shadowEffect = new QGraphicsDropShadowEffect(m_view);
-        m_shadowEffect->setBlurRadius(blurRadius);
-        m_shadowEffect->setOffset(offset);
-        m_shadowEffect->setColor(color);
-        m_view->setGraphicsEffect(nullptr);
-        m_view->setGraphicsEffect(m_shadowEffect);
-    }
+    void adjustSize();
 
-    void adjustSize()
-    {
-        QMargins contentMargins = layout()->contentsMargins();
-        int nW = m_view->width() + contentMargins.left() + contentMargins.right();
-        int nH = m_view->height() + contentMargins.top() + contentMargins.bottom();
-        setFixedSize(nW, nH);
-    }
+    QPixmap getIcon();
 
-    QPixmap getIcon()
-    {
-        return m_icon;
-    }
+    void setIcon(QPixmap icon);
 
-    QString getTitle()
-    {
-        return m_title;
-    }
+    QString getTitle();
 
-    void clear()
-    {
-    }
+    void clear();
 
+    void addAction(QAction* action);
+
+    QListWidgetItem* _createActionItem(QAction* action, QAction* preAction = nullptr);
+
+    int _adjustItemText(QListWidgetItem* item, QAction* action);
+
+    int _longestShortcutWidth();
+
+    QIcon _createItemIcon(QAction* action);
+
+    QIcon _createItemIcon(FluRoundMenu* menu);
+
+    bool _hasItemIcon();
+
+    void insertAction(QAction* before, QAction* action);
+
+    void addActions(const QList<QAction*> actions);
+
+    void insertActions(QAction* before, const QList<QAction*>& actions);
+
+    void removeAction(QAction* action);
+
+    void setDefaultAction(QAction* action);
+
+    void addMenu(FluRoundMenu* menu);
+
+    void insertMenu(QAction* before, FluRoundMenu* menu);
+
+    FluSubMenuItemWidget* _createSubMenuItem(FluRoundMenu* menu);
+
+    void addSeparator();
+
+    void _hideMenu(bool bHideBySystem = false);
+
+    void _closeParentMenu();
+
+    QList<QAction*> getMenuActions();
+
+    void adjustPosition();
+
+    void exec(QPoint pos, bool bAni = true, FluMenuAnimationType aniType = FluMenuAnimationType::DROP_DOWN);
+
+  signals:
+    void closedSignal();
   public slots:
 
-    void _onShowMenuTimeOut()
-    {
-    }
+    void _onShowMenuTimeOut();
 
-    void _onItemClicked()
-    {
-    }
+    void _onItemClicked(QListWidgetItem* item);
 
-    void _onItemEntered()
-    {
-    }
+    void _onItemEntered(QListWidgetItem* item);
+
+    void _onActionChanged();
+
+    void _showSubMenu(QListWidgetItem* item);
+
+  protected:
+    void hideEvent(QHideEvent* event);
+
+    void closeEvent(QCloseEvent* event);
+
+    void mousePressEvent(QMouseEvent* event);
+
+    void mouseMoveEvent(QMouseEvent* event);
 
   private:
     bool m_bSubMenu;
@@ -104,7 +115,6 @@ class FluRoundMenu : public QMenu
 
     QHBoxLayout* m_hBoxLayout;
     FluMenuActionListWidget* m_view;
-
     FluMenuAnimationManager* m_aniManager;
 
     QTimer* m_timer;
@@ -112,8 +122,7 @@ class FluRoundMenu : public QMenu
     QString m_title;
     QPixmap m_icon;
 
-    std::list<QAction> m_actions;
-    std::list<FluRoundMenu*> m_subMenus;
-
+    QList<QAction*> m_actions;
+    QList<FluRoundMenu*> m_subMenus;
     QGraphicsDropShadowEffect* m_shadowEffect;
 };

@@ -1,5 +1,10 @@
 #include "FluRoundMenu.h"
 #include "FluMenuAnimationManager.h"
+#include "FluDummyMenuAnimationManager.h"
+#include "FluDropDownMenuAnimationManager.h"
+#include "FluPullUpMenuAnimationManager.h"
+#include "FluFadeInDropDownMenuAnimationManager.h"
+#include "FluFadeInPullUpMenuAnimationManager.h"
 
 std::map<FluMenuAnimationType, FluMenuAnimationManager*> FluMenuAnimationManager::m_managers;
 FluMenuAnimationManager::FluMenuAnimationManager(FluRoundMenu* menu) : QObject()
@@ -51,13 +56,30 @@ void FluMenuAnimationManager::registerManager(FluMenuAnimationType type, FluMenu
     m_managers[type] = manager;
 }
 
-FluRoundMenu* FluMenuAnimationManager::make(FluMenuAnimationType type)
+FluMenuAnimationManager* FluMenuAnimationManager::make(FluRoundMenu* roundMenu, FluMenuAnimationType type)
 {
-    auto itf = m_managers.find(type);
-    if (itf == m_managers.end())
-        return nullptr;
+    switch (type)
+    {
+        case FluMenuAnimationType::NONE:
+            return new FluDummyMenuAnimationManager(roundMenu);
+            break;
+        case FluMenuAnimationType::DROP_DOWN:
+            return new FluDropDownMenuAnimationManager(roundMenu);
+            break;
+        case FluMenuAnimationType::PULL_UP:
+            return new FluPullUpMenuAnimationManager(roundMenu);
+            break;
+        case FluMenuAnimationType::FADE_IN_DROP_DOWN:
+            return new FluFadeInDropDownMenuAnimationManager(roundMenu);
+            break;
+        case FluMenuAnimationType::FADE_IN_PULL_UP:
+            return new FluFadeInPullUpMenuAnimationManager(roundMenu);
+            break;
+        default:
+            break;
+    }
 
-    return itf->second->m_menu;
+    return nullptr;
 }
 
 void FluMenuAnimationManager::_updateMenuViewport()

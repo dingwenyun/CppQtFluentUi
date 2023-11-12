@@ -1,6 +1,6 @@
 #include "FluShortcutMenuItemDelegate.h"
 
-void FluShortcutMenuItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index)
+void FluShortcutMenuItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     FluMenuItemDelegate::paint(painter, option, index);
     if (_isSeparator(index))

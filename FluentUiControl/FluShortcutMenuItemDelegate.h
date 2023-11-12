@@ -8,11 +8,12 @@
 
 class FluShortcutMenuItemDelegate : public FluMenuItemDelegate
 {
+    Q_OBJECT
   public:
-    FluShortcutMenuItemDelegate(QWidget *parent = nullptr) : FluMenuItemDelegate(parent)
+    FluShortcutMenuItemDelegate(QObject *parent = nullptr) : FluMenuItemDelegate(parent)
     {
     }
 
   public:
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index);
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
