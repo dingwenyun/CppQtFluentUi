@@ -11,8 +11,8 @@
 
 enum class FluComboBoxState
 {
-    FluCBS_SHOW, // 展示状态 
-    FluCBS_CLOSE // 关闭状态
+    FluCBS_SHOW,  // 展示状态
+    FluCBS_CLOSE  // 关闭状态
 };
 
 class FluComboBoxBase : public QPushButton
@@ -52,7 +52,7 @@ class FluComboBoxBase : public QPushButton
         QAction* action = new QAction(item->getIcon(), item->getText(), this);
         int nIndex = m_items.count() - 1;
         connect(action, &QAction::triggered, [=] {
-            //int nIndex = m_items.count() - 1;
+            // int nIndex = m_items.count() - 1;
             _onItemClicked(nIndex);
         });
 
@@ -112,7 +112,7 @@ class FluComboBoxBase : public QPushButton
 
         m_currentIndex = nIndex;
         setText(getCurrentText());
-        //adjustSize();
+        // adjustSize();
     }
 
     QString getCurrentText()
@@ -159,7 +159,7 @@ class FluComboBoxBase : public QPushButton
         if (getCurrentIndex() == nIndex)
         {
             setText(text);
-            //adjustSize();
+            // adjustSize();
         }
     }
 
@@ -179,7 +179,7 @@ class FluComboBoxBase : public QPushButton
         if (!bCorrect)
             return nullptr;
 
-       auto itf = m_items.begin() + nIndex;
+        auto itf = m_items.begin() + nIndex;
         return (*itf);
     }
 
@@ -215,7 +215,7 @@ class FluComboBoxBase : public QPushButton
         return -1;
     }
 
-     void clear()
+    void clear()
     {
         m_items.clear();
         m_currentIndex = -1;
@@ -262,10 +262,10 @@ class FluComboBoxBase : public QPushButton
     {
         m_comboBoxState = FluComboBoxState::FluCBS_CLOSE;
         m_dropMenu->hide();
-        //if (!m_dropMenu)
+        // if (!m_dropMenu)
         //    return;
-        //m_dropMenu->close();
-        //m_dropMenu = nullptr;
+        // m_dropMenu->close();
+        // m_dropMenu = nullptr;
     }
 
     void _onDropMenuClosed()
@@ -295,13 +295,11 @@ class FluComboBoxBase : public QPushButton
         m_dropMenu->exec(pd, true, FluMenuAnimationType::DROP_DOWN);
     }
 
-
     void _toggleComboMenu()
     {
         if (FluComboBoxState::FluCBS_SHOW == m_comboBoxState)
         {
             _closeComboMenu();
-
         }
         else
         {
@@ -315,12 +313,12 @@ class FluComboBoxBase : public QPushButton
             return;
 
         setCurrentIndex(nIndex);
-
     }
-signals:
-  void currentIndexChanged(int nIndex);
-  void currentTextChanged(QString text);
-protected:
+  signals:
+    void currentIndexChanged(int nIndex);
+    void currentTextChanged(QString text);
+
+  protected:
     bool eventFilter(QObject* watched, QEvent* event)
     {
         if (watched == this)
@@ -337,7 +335,6 @@ protected:
 
         return QObject::eventFilter(watched, event);
     }
-
 
   protected:
     bool m_bHover;

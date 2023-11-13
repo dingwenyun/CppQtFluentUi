@@ -14,11 +14,10 @@ class FluAnimationBase : public QObject
         parent->installEventFilter(this);
     }
 
- public:
+  public:
     virtual void _onHover(QEnterEvent* e)
     {
     }
-
 
     virtual void _onLeave(QEvent* e)
     {
@@ -33,7 +32,7 @@ class FluAnimationBase : public QObject
     }
 
   protected:
-    bool eventFilter(QObject *watched, QEvent *event)
+    bool eventFilter(QObject* watched, QEvent* event)
     {
         if (watched == parent())
         {

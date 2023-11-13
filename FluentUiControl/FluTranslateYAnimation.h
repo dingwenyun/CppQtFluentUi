@@ -16,7 +16,6 @@ class FluTranslateYAnimation : public FluAnimationBase
         m_ani = new QPropertyAnimation(this, "y", this);
     }
 
-
   public:
     void _onPress(QMouseEvent* e)
     {
@@ -34,22 +33,22 @@ class FluTranslateYAnimation : public FluAnimationBase
         m_ani->start();
     }
 
-
     void setY(float y)
-      {
+    {
         m_Y = y;
         QWidget* parentWidget = (QWidget*)parent();
         parentWidget->update();
         emit valueChanged(y);
-      }
+    }
 
     float getY()
-      {
+    {
         return m_Y;
-      }
+    }
 
-signals:
-      void valueChanged(int value);
+  signals:
+    void valueChanged(int value);
+
   private:
     int m_Y;
     int m_maxOffset;

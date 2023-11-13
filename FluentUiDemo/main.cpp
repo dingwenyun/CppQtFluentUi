@@ -53,14 +53,14 @@ int main(int argc, char** argv)
     // FRAMELESSHELPER_NAMESPACE::FramelessWidget w;
     // w.show();
 
-   //    FluWindowDemo demo;
-   // demo.show();
+    //    FluWindowDemo demo;
+    // demo.show();
 
     // FluWidgetDemo demo("demo widget");
-    //demo.show();
+    // demo.show();
 
-    //FluNavigationInterface demo;
-    //demo.show();
+    // FluNavigationInterface demo;
+    // demo.show();
 
     // FluFrameLessWidgetV2 v2;
     // v2.show();
@@ -77,9 +77,8 @@ int main(int argc, char** argv)
     //  FluAvatarWidgetDemo demo;
     //  demo.show();
 
-    //FluMenuDemo demo;
-    //demo.show();
-
+    // FluMenuDemo demo;
+    // demo.show();
 
     FluComboBoxDemo demo;
     demo.show();

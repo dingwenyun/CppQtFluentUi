@@ -10,7 +10,7 @@
 
 class FluComboBox : public FluComboBoxBase
 {
-	Q_OBJECT
+    Q_OBJECT
   public:
     FluComboBox(QWidget* parent = nullptr) : FluComboBoxBase(parent)
     {
@@ -25,15 +25,14 @@ class FluComboBox : public FluComboBoxBase
         QPushButton::setText(text);
     }
 
-
   protected:
-     void mouseReleaseEvent(QMouseEvent *e)
+    void mouseReleaseEvent(QMouseEvent* e)
     {
-         QPushButton::mouseReleaseEvent(e);
+        QPushButton::mouseReleaseEvent(e);
         _toggleComboMenu();
     }
 
-     void paintEvent(QPaintEvent *e)
+    void paintEvent(QPaintEvent* e)
     {
         FluComboBoxBase::paintEvent(e);
         QPainter painter(this);

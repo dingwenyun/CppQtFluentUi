@@ -9,7 +9,7 @@ class FluComboBoxDemo : public QWidget
     FluComboBoxDemo(QWidget* widget = nullptr) : QWidget(widget)
     {
         FluComboBox* comboBox = new FluComboBox(this);
-        QList<QString> items = { " shoko 🥰 ", "西宫硝子 ", "aiko-----------", "柳井爱子"};
+        QList<QString> items = {" shoko 🥰 ", "西宫硝子 ", "aiko-----------", "柳井爱子"};
         comboBox->addItems(items);
         comboBox->setCurrentIndex(0);
         connect(comboBox, &FluComboBox::currentTextChanged, [=](QString text) { LogDebug << "current Text:" << text; });
