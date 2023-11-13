@@ -6,15 +6,18 @@
 #include "../FluentUiUtils/FluentUiFontUtils.h"
 #include "../FluentUiUtils/FluentUiThemeUtils.h"
 #include "../FluentUiUtils/FluentUiIconUtils.h"
+#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
 
-class FluComboBox : public QPushButton, public FluComboBoxBase
+class FluComboBox : public FluComboBoxBase
 {
 	Q_OBJECT
   public:
-    FluComboBox(QWidget* parent = nullptr) : QPushButton(parent)
+    FluComboBox(QWidget* parent = nullptr) : FluComboBoxBase(parent)
     {
         m_arrowAni = new FluTranslateYAnimation(this);
-        FluentUiFontUtils::setFont(parent);
+        FluentUiFontUtils::setFont(this);
+        QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluComboBox.qss");
+        setStyleSheet(qss);
     }
 
     void setPlaceholderText(QString text)
@@ -32,9 +35,9 @@ class FluComboBox : public QPushButton, public FluComboBoxBase
 
      void paintEvent(QPaintEvent *e)
     {
-         QPushButton::paintEvent(e);
-        QPainter painter;
-         painter.setRenderHints(QPainter::Antialiasing);
+        FluComboBoxBase::paintEvent(e);
+        QPainter painter(this);
+        painter.setRenderHints(QPainter::Antialiasing);
         if (m_bHover)
             painter.setOpacity(0.8);
         else if (m_bPressed)
@@ -43,11 +46,11 @@ class FluComboBox : public QPushButton, public FluComboBoxBase
         QRect rect = QRect(width() - 22, height() / 2 - 5 + m_arrowAni->getY(), 10, 10);
         if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)
         {
-            painter.drawPixmap(rect, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ArrowDown8));
+            painter.drawPixmap(rect, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ChevronDown));
         }
         else
         {
-            painter.drawPixmap(rect, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ArrowDown8));
+            painter.drawPixmap(rect, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ChevronDown));
         }
     }
 

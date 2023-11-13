@@ -7,6 +7,13 @@
 #include "FluComboBoxMenu.h"
 #include <QPixmap>
 #include <QVariant>
+#include <QPushButton>
+
+enum class FluComboBoxState
+{
+    FluCBS_SHOW, // 展示状态 
+    FluCBS_CLOSE // 关闭状态
+};
 
 class FluComboBoxBase : public QPushButton
 {
@@ -14,7 +21,24 @@ class FluComboBoxBase : public QPushButton
   public:
     FluComboBoxBase(QWidget* parent = nullptr) : QPushButton(parent)
     {
+        m_bHover = false;
+        m_bPressed = false;
+        m_currentIndex = -1;
+        m_maxVisibleItems = -1;
+        m_dropMenu = nullptr;
+        m_comboBoxState = FluComboBoxState::FluCBS_CLOSE;
+
+        // stylesheet
         installEventFilter(this);
+        initDropMenu();
+    }
+
+    void initDropMenu()
+    {
+        FluComboBoxMenu* comboBoxMenu = new FluComboBoxMenu(this);
+        comboBoxMenu->setMaxVisibleItems(m_maxVisibleItems);
+        connect(comboBoxMenu, &FluComboBoxMenu::closedSignal, this, &FluComboBoxBase::_onDropMenuClosed);
+        m_dropMenu = comboBoxMenu;
     }
 
     void addItem(QString text, QPixmap icon = QPixmap(), QVariant userData = QVariant::fromValue(nullptr))
@@ -23,6 +47,20 @@ class FluComboBoxBase : public QPushButton
         m_items.append(item);
         if (m_items.count() == 1)
             setCurrentIndex(0);
+
+        // 添加一个action
+        QAction* action = new QAction(item->getIcon(), item->getText(), this);
+        int nIndex = m_items.count() - 1;
+        connect(action, &QAction::triggered, [=] {
+            //int nIndex = m_items.count() - 1;
+            _onItemClicked(nIndex);
+        });
+
+        m_dropMenu->addAction(action);
+
+        // 调整宽度
+        int nMaxWidth = qMax(width(), m_dropMenu->getView()->width());
+        setMinimumWidth(nMaxWidth);
     }
 
     void addItems(QList<QString> texts)
@@ -73,6 +111,8 @@ class FluComboBoxBase : public QPushButton
         }
 
         m_currentIndex = nIndex;
+        setText(getCurrentText());
+        //adjustSize();
     }
 
     QString getCurrentText()
@@ -115,6 +155,12 @@ class FluComboBoxBase : public QPushButton
 
         auto itf = m_items.begin() + nIndex;
         (*itf)->setText(text);
+
+        if (getCurrentIndex() == nIndex)
+        {
+            setText(text);
+            //adjustSize();
+        }
     }
 
     QVariant getItemData(int nIndex)
@@ -214,11 +260,23 @@ class FluComboBoxBase : public QPushButton
 
     void _closeComboMenu()
     {
-        if (!m_dropMenu)
-            return;
+        m_comboBoxState = FluComboBoxState::FluCBS_CLOSE;
+        m_dropMenu->hide();
+        //if (!m_dropMenu)
+        //    return;
+        //m_dropMenu->close();
+        //m_dropMenu = nullptr;
+    }
 
-        m_dropMenu->close();
-        m_dropMenu = nullptr;
+    void _onDropMenuClosed()
+    {
+        QPoint pos = mapFromGlobal(QCursor::pos());
+        if (!rect().contains(pos))
+        {
+            // m_dropMenu = nullptr;
+            m_comboBoxState = FluComboBoxState::FluCBS_CLOSE;
+            m_dropMenu->hide();
+        }
     }
 
     void _showComboMenu()
@@ -226,68 +284,29 @@ class FluComboBoxBase : public QPushButton
         if (m_items.isEmpty())
             return;
 
-        FluComboBoxMenu* comboBoxMenu = new FluComboBoxMenu((QWidget*)this);
-        for (auto itList = m_items.begin(); itList != m_items.end(); itList++)
-        {
-            FluComboItem* item = (*itList);
-            QAction* action = new QAction(item->getIcon(), item->getText(), this);
-
-            connect(action, &QAction::toggle, [=] {
-                int nIndex = itList - m_items.begin();
-                _onItemClicked(nIndex);
-            });
-
-            comboBoxMenu->addAction(action);
-        }
-
-
-        QWidget* thiswidget = (QWidget*)this;
-        if (comboBoxMenu->getView()->width() < thiswidget->width())
-        {
-            comboBoxMenu->setMinimumWidth(thiswidget->width());
-            comboBoxMenu->adjustSize();
-        }
-
-        comboBoxMenu->setMaxVisibleItems(m_maxVisibleItems);
-        connect(comboBoxMenu, &FluComboBoxMenu::closedSignal, this, &FluComboBoxBase::_closeComboMenu);
-        m_dropMenu = comboBoxMenu;
-
         if (m_currentIndex >= 0 && !m_items.isEmpty())
         {
-            comboBoxMenu->setDefaultAction(m_currentIndex);
+            m_dropMenu->setDefaultAction(m_currentIndex);
         }
 
-        int nX = thiswidget->width() / 2 + comboBoxMenu->layout()->contentsMargins().left() - comboBoxMenu->width() / 2;
-        QPoint pd = thiswidget->mapToGlobal(QPoint(nX, thiswidget->height()));
-        int hd = comboBoxMenu->getView()->heightForAnimation(pd, FluMenuAnimationType::DROP_DOWN);
-        
-        QPoint pu = thiswidget->mapToGlobal(QPoint(nX, 0));
-        int hu = comboBoxMenu->getView()->heightForAnimation(pu, FluMenuAnimationType::PULL_UP);
-
-        if (hd > hu)
-        {
-            comboBoxMenu->getView()->adjustSize(pd, FluMenuAnimationType::DROP_DOWN);
-            comboBoxMenu->exec(pd, true, FluMenuAnimationType::DROP_DOWN);
-        }
-        else
-        {
-            comboBoxMenu->getView()->adjustSize(pu, FluMenuAnimationType::PULL_UP);
-            comboBoxMenu->exec(pu, true, FluMenuAnimationType::PULL_UP);
-        }
-
+        QPoint pd = mapToGlobal(QPoint(0, height()));
+        int hd = m_dropMenu->getView()->heightForAnimation(pd, FluMenuAnimationType::DROP_DOWN);
+        m_dropMenu->getView()->adjustSize(pd, FluMenuAnimationType::DROP_DOWN);
+        m_dropMenu->exec(pd, true, FluMenuAnimationType::DROP_DOWN);
     }
 
 
-  //  void setText(QString text)
-  //  {
-  //  }
-
     void _toggleComboMenu()
     {
-        if (m_dropMenu)
+        if (FluComboBoxState::FluCBS_SHOW == m_comboBoxState)
+        {
             _closeComboMenu();
+
+        }
         else
+        {
             _showComboMenu();
+        }
     }
 
     void _onItemClicked(int nIndex)
@@ -326,6 +345,8 @@ protected:
 
     int m_currentIndex = -1;
     int m_maxVisibleItems = -1;
+
+    FluComboBoxState m_comboBoxState;
 
     QString m_currentText;
     QList<FluComboItem*> m_items;

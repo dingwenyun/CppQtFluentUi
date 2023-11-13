@@ -53,6 +53,9 @@
     <ClCompile Include="FluMenuDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FluComboBoxDemo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluButtonDemo.h">
@@ -62,6 +65,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FluNavigationDemo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluComboBoxDemo.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

@@ -250,6 +250,7 @@
   <ItemGroup>
     <ClCompile Include="FluApiTest_QCursor.cpp" />
     <ClCompile Include="FluAvatarWidgetDemo.cpp" />
+    <ClCompile Include="FluComboBoxDemo.cpp" />
     <ClCompile Include="FluLabelDemo.cpp" />
     <ClCompile Include="FluMenuDemo.cpp" />
     <ClCompile Include="FluRadioButtonDemo.cpp" />
@@ -263,6 +264,7 @@
   <ItemGroup>
     <ClInclude Include="FluApiTest_QCursor.h" />
     <ClInclude Include="FluAvatarWidgetDemo.h" />
+    <QtMoc Include="FluComboBoxDemo.h" />
     <ClInclude Include="FluLabelDemo.h" />
     <ClInclude Include="FluMenuDemo.h" />
     <ClInclude Include="FluRadioButtonDemo.h" />

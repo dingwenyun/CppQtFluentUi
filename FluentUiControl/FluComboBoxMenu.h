@@ -18,6 +18,7 @@ class FluComboBoxMenu : public FluRoundMenu
         viewPort->setContentsMargins(0, 2, 0, 6);
         listWidget->setViewport(viewPort);
 
+        listWidget->setItemDelegate(nullptr);
         FluIndicatorMenuItemDelegate* delegate = new FluIndicatorMenuItemDelegate();
         listWidget->setItemDelegate(delegate);
         listWidget->setObjectName("comboListWidget");
