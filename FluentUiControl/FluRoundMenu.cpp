@@ -113,9 +113,17 @@ QString FluRoundMenu::getTitle()
 
 void FluRoundMenu::clear()
 {
-    for (auto itList = m_actions.begin(); itList != m_actions.end(); itList++)
+    /*for (auto itList = m_actions.begin(); itList != m_actions.end(); itList++)
     {
         removeAction((*itList));
+    }*/
+   // m_actions.clear();
+
+    auto itList = m_actions.begin();
+    for (;itList != m_actions.end();)
+    {
+        removeAction((*itList));
+        itList = m_actions.begin();
     }
 }
 

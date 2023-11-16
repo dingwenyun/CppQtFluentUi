@@ -252,6 +252,7 @@
     <ClCompile Include="FluAvatarWidgetDemo.cpp" />
     <ClCompile Include="FluComboBoxDemo.cpp" />
     <ClCompile Include="FluLabelDemo.cpp" />
+    <ClCompile Include="FluLineEditDemo.cpp" />
     <ClCompile Include="FluMenuDemo.cpp" />
     <ClCompile Include="FluRadioButtonDemo.cpp" />
     <ClCompile Include="FluSliderDemo.cpp" />
@@ -266,6 +267,7 @@
     <ClInclude Include="FluAvatarWidgetDemo.h" />
     <QtMoc Include="FluComboBoxDemo.h" />
     <ClInclude Include="FluLabelDemo.h" />
+    <ClInclude Include="FluLineEditDemo.h" />
     <ClInclude Include="FluMenuDemo.h" />
     <ClInclude Include="FluRadioButtonDemo.h" />
     <ClInclude Include="FluSliderDemo.h" />

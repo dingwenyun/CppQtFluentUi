@@ -9,10 +9,10 @@ void FluIndicatorMenuItemDelegate::paint(QPainter *painter, const QStyleOptionVi
     QStyledItemDelegate::paint(painter, option, index);
     if (!(option.state & QStyle::State_Selected))
     {
-        LogDebug << "row:" << index.row() << "not selected!";
+        // LogDebug << "row:" << index.row() << "not selected!";
         return;
     }
-    LogDebug << "row:" << index.row() << "selected!";
+    // LogDebug << "row:" << index.row() << "selected!";
 
     painter->save();
 

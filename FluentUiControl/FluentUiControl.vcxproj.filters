@@ -74,9 +74,6 @@
     <ClInclude Include="FluDialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FluLineEdit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FluAvatarWidget.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -257,6 +254,15 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FluTranslateYAnimation.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluLineEdit.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluCompleterMenu.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluLineEditButton.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -475,6 +481,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluTranslateYAnimation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluCompleterMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluLineEditButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

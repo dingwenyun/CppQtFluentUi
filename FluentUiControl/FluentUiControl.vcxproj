@@ -247,6 +247,7 @@
     <ClCompile Include="FluComboBoxBase.cpp" />
     <ClCompile Include="FluComboBoxMenu.cpp" />
     <ClCompile Include="FluComboItem.cpp" />
+    <ClCompile Include="FluCompleterMenu.cpp" />
     <ClCompile Include="FluCustomMenuStyle.cpp" />
     <ClCompile Include="FluDialog.cpp" />
     <ClCompile Include="FluDisplayLabel.cpp" />
@@ -260,6 +261,7 @@
     <ClCompile Include="FluLabelBase.cpp" />
     <ClCompile Include="FluLargeTitleLabel.cpp" />
     <ClCompile Include="FluLineEdit.cpp" />
+    <ClCompile Include="FluLineEditButton.cpp" />
     <ClCompile Include="FluMenuActionListWidget.cpp" />
     <ClCompile Include="FluMenuAnimationManager.cpp" />
     <ClCompile Include="FluMenuItemDelegate.cpp" />
@@ -326,6 +328,7 @@
     <QtMoc Include="FluComboBoxMenu.h" />
     <QtMoc Include="FluComboBox.h" />
     <ClInclude Include="FluComboItem.h" />
+    <QtMoc Include="FluCompleterMenu.h" />
     <ClInclude Include="FluCustomMenuStyle.h" />
     <ClInclude Include="FluDialog.h" />
     <QtMoc Include="FluImageLabel.h" />
@@ -337,8 +340,9 @@
     <ClInclude Include="FluFadeInPullUpMenuAnimationManager.h" />
     <QtMoc Include="FluIndicatorMenuItemDelegate.h" />
     <ClInclude Include="FluLargeTitleLabel.h" />
-    <ClInclude Include="FluLineEdit.h" />
+    <QtMoc Include="FluLineEdit.h" />
     <QtMoc Include="FluMenuActionListWidget.h" />
+    <QtMoc Include="FluLineEditButton.h" />
     <ClInclude Include="FluMenuAnimationManager.h" />
     <ClInclude Include="FluMenuAnimationType.h" />
     <QtMoc Include="FluMenuItemDelegate.h" />
