@@ -237,6 +237,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FluAnimationBase.cpp" />
+    <ClCompile Include="FluArrowButton.cpp" />
     <ClCompile Include="FluAvatarWidget.cpp" />
     <ClCompile Include="FluBodyLabel.cpp" />
     <ClCompile Include="FluButton.cpp" />
@@ -277,10 +278,15 @@
     <ClCompile Include="FluPullUpMenuAnimationManager.cpp" />
     <ClCompile Include="FluRadioButton.cpp" />
     <ClCompile Include="FluRoundMenu.cpp" />
+    <ClCompile Include="FluScrollArea.cpp" />
     <ClCompile Include="FluScrollBar.cpp" />
+    <ClCompile Include="FluScrollBarGroove.cpp" />
+    <ClCompile Include="FluScrollBarHandle.cpp" />
     <ClCompile Include="FluSeparator.cpp" />
     <ClCompile Include="FluShortcutMenuItemDelegate.cpp" />
     <ClCompile Include="FluSlider.cpp" />
+    <ClCompile Include="FluSmoothScrollBar.cpp" />
+    <ClCompile Include="FluSmoothScrollDelegate.cpp" />
     <ClCompile Include="FluStrongBodyLabel.cpp" />
     <ClCompile Include="FluSubMenuItemWidget.cpp" />
     <ClCompile Include="FluSubTitleLabel.cpp" />
@@ -325,6 +331,7 @@
     <QtMoc Include="FluCheckBox.h" />
     <QtMoc Include="FluNavigationBarPushButton.h" />
     <QtMoc Include="FluAnimationBase.h" />
+    <QtMoc Include="FluArrowButton.h" />
     <ClInclude Include="FluAvatarWidget.h" />
     <ClInclude Include="FluBodyLabel.h" />
     <ClInclude Include="FluCaptionLabel.h" />
@@ -358,9 +365,14 @@
     <QtMoc Include="FluRadioButton.h" />
     <ClInclude Include="FluPullUpMenuAnimationManager.h" />
     <QtMoc Include="FluRoundMenu.h" />
+    <ClInclude Include="FluScrollArea.h" />
+    <ClInclude Include="FluScrollBarGroove.h" />
+    <ClInclude Include="FluScrollBarHandle.h" />
     <ClInclude Include="FluSeparator.h" />
     <QtMoc Include="FluSlider.h" />
     <QtMoc Include="FluShortcutMenuItemDelegate.h" />
+    <QtMoc Include="FluSmoothScrollDelegate.h" />
+    <ClInclude Include="FluSmoothScrollBar.h" />
     <ClInclude Include="FluStrongBodyLabel.h" />
     <QtMoc Include="FluSubMenuItemWidget.h" />
     <ClInclude Include="FluSubTitleLabel.h" />

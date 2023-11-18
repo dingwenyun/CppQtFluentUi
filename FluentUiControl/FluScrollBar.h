@@ -10,106 +10,363 @@
 #include <QPropertyAnimation>
 #include <QPainter>
 #include "../FluentUiUtils/FluentUiIconUtils.h"
+#include<QAbstractScrollArea>
+#include "FluScrollBarGroove.h"
+#include "FluScrollBarHandle.h"
+#include <QTimer>
+#include <QScrollBar>
+#include <QApplication>
 
-class FluArrowButton : public QToolButton
+class FluScrollBar : public QWidget
 {
     Q_OBJECT
   public:
-    FluArrowButton(QPixmap icon, QWidget* parent = nullptr) : QToolButton(parent)
+    FluScrollBar(Qt::Orientation orient, QAbstractScrollArea* parent = nullptr) : QWidget(parent)
     {
-        setFixedSize(10, 10);
-        m_icon = icon;
-    }
+        m_parentSrollArea = parent;
+        m_groove = new FluScrollBarGroove(orient, this);
+        m_handle = new FluScrollBarHandle(orient, this);
+        m_timer = new QTimer(this);
 
-  protected:
-    void paintEvent(QPaintEvent* event)
-    {
-        Q_UNUSED(event);
-        QPainter painter(this);
-        painter.setRenderHints(QPainter::Antialiasing);
 
-        int s = 7;
-        if (!isDown())
-            s = 8;
+        m_orientation = orient;
+        m_nSingleStep = 1;
+        m_nPageStep = 50;
+        m_nPadding =  14;
 
-        int x = (width() - s) / 2;
-        painter.drawPixmap(QRect(x, x, s, s), m_icon);
-    }
+        m_minimum = 0;
+        m_maximum = 0;
+        m_value = 0;
 
-  private:
-    QPixmap m_icon;
-};
+        m_bPressed = false;
+        m_bEnter = false;
+        m_bExpanded = false;
 
-class FluScrollBarGroove : public QWidget
-{
-  public:
-    FluScrollBarGroove(Qt::Orientation orient, QWidget* parent) : QWidget(parent)
-    {
+        m_pressedPos = QPoint(0, 0);
+        m_bForceHidden = false;
+
         if (orient == Qt::Vertical)
         {
-            setFixedWidth(12);
-            m_upButton = new FluArrowButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ArrowUp8));
-            m_downButton = new FluArrowButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ArrowDown8));
-
-            m_vLayout = new QVBoxLayout(this);
-            setLayout(m_vLayout);
-            m_vLayout->addWidget(m_upButton, 0, Qt::AlignHCenter);
-            m_vLayout->addStretch(1);
-            m_vLayout->addWidget(m_downButton, 0, Qt::AlignHCenter);
-            m_vLayout->setContentsMargins(0, 3, 0, 3);
+            m_partnerBar = parent->verticalScrollBar();
+            parent->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         }
         else
         {
-            setFixedHeight(12);
-            m_upButton = new FluArrowButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ArrowLeft8));
-            m_downButton = new FluArrowButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ArrowRight8));
-
-            m_hLayout = new QHBoxLayout(this);
-            setLayout(m_hLayout);
-            m_hLayout->addWidget(m_upButton, 0, Qt::AlignVCenter);
-            m_hLayout->addStretch(1);
-            m_hLayout->addWidget(m_downButton, 0, Qt::AlignVCenter);
-            m_hLayout->setContentsMargins(3, 0, 3, 0);
+            m_partnerBar = parent->horizontalScrollBar();
+            parent->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         }
 
-        m_opacityEffect = new QGraphicsOpacityEffect(this);
-        m_opcityAni = new QPropertyAnimation(m_opacityEffect, "opacity", this);
-        setGraphicsEffect(m_opacityEffect);
-        m_opacityEffect->setOpacity(0);
+        __initWidget();
     }
 
-    void fadeIn()
+    void __initWidget()
     {
-        m_opcityAni->setEndValue(1);
-        m_opcityAni->setDuration(150);
-        m_opcityAni->start();
+        connect(m_groove->getUpButton(), &FluArrowButton::clicked, this, &FluScrollBar::onPageUp);
+        connect(m_groove->getDownButton(), &FluArrowButton::clicked, this, &FluScrollBar::onPageDown);
+
+        connect(m_groove->getOpcityAni(), &QPropertyAnimation::valueChanged, this, &FluScrollBar::onOpacityAniValueChanged);
+
+        connect(m_partnerBar, &QScrollBar::rangeChanged, [=](int nMin, int nMax) { setRange(nMin, nMax); });
+        connect(m_partnerBar, &QScrollBar::valueChanged, this, &FluScrollBar::onValueChanged);
+        connect(this, &FluScrollBar::valueChanged, m_partnerBar, &QScrollBar::setValue);
+
+        QAbstractScrollArea* parentSrollArea = (QAbstractScrollArea*)(parent());
+        parentSrollArea->installEventFilter(this);
+        setRange(m_partnerBar->minimum(), m_partnerBar->maximum());
+        
+        bool bVisible = m_maximum > 0 && !m_bForceHidden;
+        setVisible(bVisible);
+
+        adjustPos(m_parentSrollArea->size());
     }
 
-    void fadeOut()
+    int getMinimum()
     {
-        m_opcityAni->setEndValue(0);
-        m_opcityAni->setDuration(150);
-        m_opcityAni->start();
+        return m_minimum;
     }
 
-    void paintEvent(QPaintEvent* event)
+    void setMinimum(int min)
     {
-        QPainter painter(this);
-        painter.setRenderHints(QPainter::Antialiasing);
-        painter.setPen(Qt::NoPen);
+        if (min == m_minimum)
+            return;
+
+        m_minimum = min;
+        emit rangeChanged(min, m_maximum);
     }
 
-  private:
-    FluArrowButton* m_upButton;
-    FluArrowButton* m_downButton;
+    int getMaximum()
+    {
+        return m_maximum;
+    }
 
-    QHBoxLayout* m_hLayout;
-    QVBoxLayout* m_vLayout;
 
-    QGraphicsOpacityEffect* m_opacityEffect;
-    QPropertyAnimation* m_opcityAni;
-};
+    void setMaximum(int max)
+    {
+        if (max == m_maximum)
+            return;
 
-class FluScrollBar
-{
+        m_maximum = max;
+        emit rangeChanged(m_minimum, max);
+    }
+
+    Qt::Orientation getOrientation()
+    {
+        return m_orientation;
+    }
+
+    void setOrientation(Qt::Orientation orientation)
+    {
+        m_orientation = orientation;
+    }
+
+    int getPageStep()
+    {
+        return m_nPageStep;
+    }
+
+    void setPageStep(int nStep)
+    {
+        if (nStep >= 1)
+        {
+            m_nPageStep = nStep;
+        }
+    }
+
+    int getSigleStep()
+    {
+        return m_nSingleStep;
+    }
+
+    void setSingleStep(int nStep)
+    {
+        if (nStep >= 1)
+        {
+            m_nSingleStep = nStep;
+        }
+    }
+
+    bool getSliderDown()
+    {
+        return m_bPressed;
+    }
+
+    void setSliderDown(bool bDown)
+    {
+        m_bPressed = true;
+        if (bDown)
+            emit sliderPerssed();
+        else
+            emit sliderReleased();
+    }
+
+    int getValue()
+    {
+        return m_value;
+    }
+
+    void setValue(int value)
+    {
+        m_value = value;
+    }
+
+    void setRange(int nMin, int nMax)
+    {
+        if ((nMin > nMax) || (nMax == m_maximum && nMin == m_minimum))
+            return;
+
+        setMinimum(nMin);
+        setMaximum(nMax);
+
+        adjustHandleSize();
+        adjustHandlePos();
+        setVisible(nMax > 0 && !m_bForceHidden);
+
+        emit rangeChanged(nMin, nMax);
+    }
+
+    void setForceHidden(bool bHidden)
+    {
+        m_bForceHidden = bHidden;
+        bool bVisible = m_maximum > 0 && !bHidden;
+        setVisible(bVisible);
+    }
+
+    int getSlideLength()
+    {
+    }
+
+    void adjustPos(QSize size)
+    {
+        if (m_orientation == Qt::Vertical)
+        {
+            resize(12, size.height() - 2);
+            move(size.width() - 13, 1);
+        }
+        else
+        {
+            resize(size.width() - 2, 12);
+            move(1, size.height() - 13);
+        }
+    }
+
+    void adjustHandleSize() 
+    {
+                //: p = self.parent() ;
+        if (m_orientation == Qt::Vertical)
+        {
+           
+        }
+        else
+        {
+        }
+    }
+
+    void adjustHandlePos()
+    {
+    }
+
+    int getGrooveLength()
+    {
+    }
+
+
+  signals:
+    void rangeChanged(int nMin, int nMax);
+    void valueChanged(int value);
+    void sliderPerssed();
+    void sliderReleased();
+    void sliderMoved();
+ public slots:
+    void onPageUp()
+   {
+        //setValue(getValue() - pageStep());
+   }
+
+   void onPageDown()
+   {
+        //setValue(value() - pageStep());
+   }
+
+    void onValueChanged(const QVariant& value)
+   {
+   }
+
+   void onOpacityAniValueChanged(const QVariant& value)
+   {
+   }
+
+   void expand()
+   {
+       if (m_bExpanded || !m_bEnter)
+           return;
+
+       m_bExpanded = true;
+       m_groove->fadeIn();
+   }
+
+   void collapse()
+   {
+       if (!m_bExpanded || m_bEnter)
+           return;
+
+       m_bExpanded = false;
+       m_groove->fadeOut();
+   }
+
+ protected:
+   bool eventFilter(QObject *watched, QEvent *event)
+   {
+       if (watched != m_parentSrollArea)
+           return QWidget::eventFilter(watched, event);
+
+       if (event->type() == QEvent::Resize)
+       {
+           QResizeEvent* resizeEvent = (QResizeEvent*)event;
+           adjustPos(resizeEvent->size());
+       }
+
+       return QWidget::eventFilter(watched, event);
+   }
+   
+   void enterEvent(QEvent *event)
+   {
+       m_bEnter = true;
+       m_timer->stop();
+       m_timer->singleShot(200, this, &FluScrollBar::expand);
+   }
+
+   void leaveEvent(QEvent *event)
+   {
+       m_bEnter = false;
+       m_timer->stop();
+       m_timer->singleShot(200, this, &FluScrollBar::collapse);
+   }
+
+   void resizeEvent(QResizeEvent* e)
+   {
+       m_groove->resize(size());
+   }
+
+   void mousePressEvent(QMouseEvent* e)
+   {
+       QWidget::mousePressEvent(e);
+       m_bPressed = true;
+       m_pressedPos = e->pos();
+
+   }
+
+   void mouseReleaseEvent(QMouseEvent *event)
+   {
+       QWidget::mouseReleaseEvent(event);
+       m_bPressed = false;
+       emit sliderReleased();
+   }
+
+   void mouseMoveEvent(QMouseEvent *event)
+   {
+       int nDv = 0;
+       if (m_orientation == Qt::Vertical)
+       {
+           nDv = event->pos().y() - m_pressedPos.y();
+       }
+       else
+       {
+           nDv = event->pos().x() - m_pressedPos.x();
+       }
+
+       nDv = nDv / qMax(getSlideLength(), 1) * (m_maximum - m_minimum);
+       FluScrollBar::setValue(getValue() + nDv);
+
+       m_pressedPos = event->pos();
+       emit sliderMoved();
+   }
+
+   void wheelEvent(QWheelEvent *event)
+   {
+       QApplication::sendEvent(m_parentSrollArea->viewport(), event);
+   }
+ private:
+   QAbstractScrollArea* m_parentSrollArea;
+   FluScrollBarGroove* m_groove;
+   FluScrollBarHandle* m_handle;
+   QScrollBar* m_partnerBar;
+   
+   
+   Qt::Orientation m_orientation;
+   
+   int m_nSingleStep;
+   int m_nPageStep;
+   int m_nPadding;
+   int m_minimum;
+   int m_maximum;
+   int m_value;
+
+   bool m_bPressed;
+   bool m_bEnter;
+   bool m_bExpanded;
+   bool m_bForceHidden;
+
+   QPoint m_pressedPos;
+
+   QTimer* m_timer;
 };
