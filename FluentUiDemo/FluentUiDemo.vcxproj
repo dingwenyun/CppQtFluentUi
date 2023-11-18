@@ -260,11 +260,13 @@
     <ClCompile Include="FluNavigationDemo.cpp" />
     <QtMoc Include="FluButtonDemo.h" />
     <ClCompile Include="FluButtonDemo.cpp" />
+    <ClCompile Include="FluTableWidgetDemo.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FluApiTest_QCursor.h" />
     <ClInclude Include="FluAvatarWidgetDemo.h" />
+    <ClInclude Include="FluTableWidgetDemo.h" />
     <QtMoc Include="FluComboBoxDemo.h" />
     <ClInclude Include="FluLabelDemo.h" />
     <ClInclude Include="FluLineEditDemo.h" />

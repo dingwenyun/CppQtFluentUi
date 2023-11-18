@@ -6,6 +6,7 @@
 #include "FluMenuAnimationManager.h"
 #include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
 #include "../FluentUiUtils/FluentUiLogUtils.h"
+#include <QEvent>
 
 class FluMenuActionListWidget : public QListWidget
 {
@@ -124,6 +125,16 @@ class FluMenuActionListWidget : public QListWidget
 
         nH += viewportMargins().top() + viewportMargins().bottom();
         return nH;
+    }
+
+    //void __event(QEvent* e)
+    //{
+    //    QListWidget::event(e);
+    //}
+
+    void hockEvent(QEvent* event)
+    {
+        QListWidget::event(event);
     }
 
   private:

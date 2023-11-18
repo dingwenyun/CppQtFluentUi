@@ -262,6 +262,7 @@
     <ClCompile Include="FluLargeTitleLabel.cpp" />
     <ClCompile Include="FluLineEdit.cpp" />
     <ClCompile Include="FluLineEditButton.cpp" />
+    <ClCompile Include="FluListView.cpp" />
     <ClCompile Include="FluMenuActionListWidget.cpp" />
     <ClCompile Include="FluMenuAnimationManager.cpp" />
     <ClCompile Include="FluMenuItemDelegate.cpp" />
@@ -283,6 +284,9 @@
     <ClCompile Include="FluStrongBodyLabel.cpp" />
     <ClCompile Include="FluSubMenuItemWidget.cpp" />
     <ClCompile Include="FluSubTitleLabel.cpp" />
+    <ClCompile Include="FluTableItemDelegate.cpp" />
+    <ClCompile Include="FluTableView.cpp" />
+    <ClCompile Include="FluTableWidget.cpp" />
     <ClCompile Include="FluTheme.cpp" />
     <ClCompile Include="FluTitleLabel.cpp" />
     <ClCompile Include="FluToolTip.cpp" />
@@ -343,6 +347,7 @@
     <QtMoc Include="FluLineEdit.h" />
     <QtMoc Include="FluMenuActionListWidget.h" />
     <QtMoc Include="FluLineEditButton.h" />
+    <ClInclude Include="FluListView.h" />
     <ClInclude Include="FluMenuAnimationManager.h" />
     <ClInclude Include="FluMenuAnimationType.h" />
     <QtMoc Include="FluMenuItemDelegate.h" />
@@ -359,6 +364,9 @@
     <ClInclude Include="FluStrongBodyLabel.h" />
     <QtMoc Include="FluSubMenuItemWidget.h" />
     <ClInclude Include="FluSubTitleLabel.h" />
+    <ClInclude Include="FluTableItemDelegate.h" />
+    <QtMoc Include="FluTableView.h" />
+    <QtMoc Include="FluTableWidget.h" />
     <ClInclude Include="FluTheme.h" />
     <ClInclude Include="FluTitleLabel.h" />
     <ClInclude Include="FluToolTip.h" />

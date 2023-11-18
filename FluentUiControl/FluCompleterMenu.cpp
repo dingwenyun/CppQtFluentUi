@@ -98,7 +98,9 @@ bool FluCompleterMenu::eventFilter(QObject* watched, QEvent* event)
         return FluRoundMenu::eventFilter(watched, event);
 
     m_lineEdit->event(event);
-    // getView()->event(event);
+    //getView()->event(event);
+    //getView()->eventFilter(getView(), event);
+    getView()->hockEvent(event);
 
     QKeyEvent* keyEvent = (QKeyEvent*)event;
     if (keyEvent->key() == Qt::Key_Escape)

@@ -19,6 +19,7 @@
 #include "FluMenuDemo.h"
 #include "FluComboBoxDemo.h"
 #include "FluLineEditDemo.h"
+#include "FluTableWidgetDemo.h"
 
 int main(int argc, char** argv)
 {
@@ -54,7 +55,7 @@ int main(int argc, char** argv)
     // FRAMELESSHELPER_NAMESPACE::FramelessWidget w;
     // w.show();
 
-    //    FluWindowDemo demo;
+    // FluWindowDemo demo;
     // demo.show();
 
     // FluWidgetDemo demo("demo widget");
@@ -81,10 +82,13 @@ int main(int argc, char** argv)
     // FluMenuDemo demo;
     // demo.show();
 
-   // FluComboBoxDemo demo;
-   // demo.show();
+    //FluComboBoxDemo demo;
+    //demo.show();
 
-    FluLineEditDemo demo;
+    //FluLineEditDemo demo;
+    //demo.show();
+
+    FluTableWidgetDemo demo;
     demo.show();
     return app.exec();
 }

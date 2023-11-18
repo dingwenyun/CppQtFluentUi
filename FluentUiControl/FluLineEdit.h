@@ -15,6 +15,7 @@
 #include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
 #include "../FluentUiUtils/FluentUiLogUtils.h"
 #include <QTimer>
+#include <QCompleter>
 
 class FluLineEdit : public QLineEdit
 {
@@ -47,8 +48,9 @@ class FluLineEdit : public QLineEdit
         QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluLineEdit.qss");
         setStyleSheet(qss);
 
-        connect(m_clearButton, &FluLineEditButton::click, [=]() { LogDebug << "clicked! hahaha!";
-            });
+        connect(m_clearButton, &FluLineEditButton::clicked, [=](bool bChecked) { clear(); });
+
+        //connect(m_clearButton, &FluLineEditButton::clicked, this, &FluLineEdit::_onClicked);
         connect(this, &FluLineEdit::textChanged, this, &FluLineEdit::_onTextChanged);
         connect(this, &FluLineEdit::textEdited, this, &FluLineEdit::_onTextEdited);
     }
@@ -63,11 +65,11 @@ class FluLineEdit : public QLineEdit
         m_bClearButtonEnable = bEnable;
         if (bEnable)
         {
-            setContentsMargins(0, 0, 28, 0);
+            setTextMargins(0, 0, 28, 0);
         }
         else
         {
-            setContentsMargins(0, 0, 0, 0);
+            setTextMargins(0, 0, 0, 0);
         }
     }
 
@@ -122,8 +124,8 @@ class FluLineEdit : public QLineEdit
         if (!m_completerMenu)
         {
             m_completerMenu = new FluCompleterMenu(this);
-            connect(m_completerMenu, SIGNAL(activated(const QString& str)), m_completer, SLOT(activated(const QString& str)));
-//            m_completerMenu->setMaxVisibleItems(m_completer->maxVisibleItems());
+            connect(m_completerMenu, &FluCompleterMenu::activated, m_completer, QOverload<const QString&>::of(&QCompleter::activated));
+            //            m_completerMenu->setMaxVisibleItems(m_completer->maxVisibleItems());
         }
 
         m_completer->setCompletionPrefix(text());
@@ -133,6 +135,11 @@ class FluLineEdit : public QLineEdit
         if (bChanged)
             m_completerMenu->popup();
     }
+
+    //void _onClicked(bool b)
+   // {
+   //     LogDebug << "called";
+   // }
   protected:
     void focusOutEvent(QFocusEvent *e)
     {
@@ -172,7 +179,7 @@ class FluLineEdit : public QLineEdit
         QPainterPath path = QPainterPath();
         int nW = width() - margins.left() - margins.right();
         int nH = height();
-
+        
         path.addRoundedRect(QRect(margins.left(), nH - 10, nW, 10), 5, 5);
 
         QPainterPath rectPath = QPainterPath();

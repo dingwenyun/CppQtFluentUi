@@ -32,7 +32,7 @@ class FluLineEditButton : public QToolButton
 
     void mouseReleaseEvent(QMouseEvent *event)
     {
-        QToolButton::mousePressEvent(event);
+        QToolButton::mouseReleaseEvent(event);
         m_bPressed = false;
     }
 
