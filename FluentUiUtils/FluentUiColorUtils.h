@@ -49,7 +49,7 @@ class FluentUiColorUtils
   public:
     static FluentUiColorUtils* getInstance()
     {
-        FluentUiColorUtils utils;
+        static FluentUiColorUtils utils;
         return &utils;
     }
 };

@@ -70,8 +70,6 @@ class FluListView : public QListView
    {
    }
 
-
-
  private:
 
 };

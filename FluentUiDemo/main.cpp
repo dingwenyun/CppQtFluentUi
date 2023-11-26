@@ -22,6 +22,7 @@
 #include "FluTableWidgetDemo.h"
 #include "FluApiTest_WheelEvent.h"
 #include "FluScrollAreaDemo.h"
+#include "FluColorDemo.h"
 
 int main(int argc, char** argv)
 {
@@ -37,6 +38,7 @@ int main(int argc, char** argv)
     // buttonDemo.show();
 
     FluentUiLogUtils::init();
+    LogDebug << "📢 Tips:";
 
     // FluCenterLabelWidget widget(nullptr, "TempText");
     // widget.show();
@@ -90,13 +92,16 @@ int main(int argc, char** argv)
     //FluLineEditDemo demo;
     //demo.show();
 
-   // FluTableWidgetDemo demo;
-   // demo.show();
+    //FluTableWidgetDemo demo;
+    //demo.show();
 
     //FluApiTest_WheelEvent w;
     //w.show();
     
-    FluScrollAreaDemo demo;
+    //FluScrollAreaDemo demo;
+    //demo.show();
+
+    FluColorDemo demo;
     demo.show();
 
     return app.exec();
