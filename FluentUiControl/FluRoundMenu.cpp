@@ -117,10 +117,10 @@ void FluRoundMenu::clear()
     {
         removeAction((*itList));
     }*/
-   // m_actions.clear();
+    // m_actions.clear();
 
     auto itList = m_actions.begin();
-    for (;itList != m_actions.end();)
+    for (; itList != m_actions.end();)
     {
         removeAction((*itList));
         itList = m_actions.begin();

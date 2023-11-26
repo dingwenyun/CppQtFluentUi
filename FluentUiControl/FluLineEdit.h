@@ -19,9 +19,9 @@
 
 class FluLineEdit : public QLineEdit
 {
-   Q_OBJECT
+    Q_OBJECT
   public:
-    FluLineEdit(QWidget *parent = nullptr) : QLineEdit(parent)
+    FluLineEdit(QWidget* parent = nullptr) : QLineEdit(parent)
     {
         m_bClearButtonEnable = false;
         m_completer = nullptr;
@@ -36,7 +36,7 @@ class FluLineEdit : public QLineEdit
         m_hBoxLayout = new QHBoxLayout(this);
         m_clearButton = new FluLineEditButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ChromeClose), this);
         m_clearButton->setObjectName("lineEditButton");
-        
+
         m_clearButton->setFixedSize(29, 25);
         m_clearButton->hide();
 
@@ -50,7 +50,7 @@ class FluLineEdit : public QLineEdit
 
         connect(m_clearButton, &FluLineEditButton::clicked, [=](bool bChecked) { clear(); });
 
-        //connect(m_clearButton, &FluLineEditButton::clicked, this, &FluLineEdit::_onClicked);
+        // connect(m_clearButton, &FluLineEditButton::clicked, this, &FluLineEdit::_onClicked);
         connect(this, &FluLineEdit::textChanged, this, &FluLineEdit::_onTextChanged);
         connect(this, &FluLineEdit::textEdited, this, &FluLineEdit::_onTextEdited);
     }
@@ -58,7 +58,6 @@ class FluLineEdit : public QLineEdit
     ~FluLineEdit() noexcept
     {
     }
-
 
     void setClearButtonEnabled(bool bEnable)
     {
@@ -88,7 +87,7 @@ class FluLineEdit : public QLineEdit
         return m_completer;
     }
 
- public slots:
+  public slots:
     void _onTextChanged(QString text)
     {
         if (getClearButtonEnabled())
@@ -120,7 +119,6 @@ class FluLineEdit : public QLineEdit
             return;
         }
 
-
         if (!m_completerMenu)
         {
             m_completerMenu = new FluCompleterMenu(this);
@@ -136,38 +134,37 @@ class FluLineEdit : public QLineEdit
             m_completerMenu->popup();
     }
 
-    //void _onClicked(bool b)
-   // {
-   //     LogDebug << "called";
-   // }
+    // void _onClicked(bool b)
+    // {
+    //     LogDebug << "called";
+    // }
   protected:
-    void focusOutEvent(QFocusEvent *e)
+    void focusOutEvent(QFocusEvent* e)
     {
-          QLineEdit::focusOutEvent(e);
-          m_clearButton->hide();
+        QLineEdit::focusOutEvent(e);
+        m_clearButton->hide();
     }
 
-    void focusInEvent(QFocusEvent *e)
+    void focusInEvent(QFocusEvent* e)
     {
-          QLineEdit::focusInEvent(e);
+        QLineEdit::focusInEvent(e);
         if (getClearButtonEnabled())
-          {
+        {
             if (!text().isEmpty())
-              {
+            {
                 m_clearButton->setVisible(true);
-              }
-              else
-              {
-                  m_clearButton->setVisible(false);
-              }
-          }
+            }
+            else
+            {
+                m_clearButton->setVisible(false);
+            }
+        }
     }
 
-    void paintEvent(QPaintEvent *event)
+    void paintEvent(QPaintEvent* event)
     {
         QLineEdit::paintEvent(event);
 
-        
         if (!hasFocus())
             return;
 
@@ -179,7 +176,7 @@ class FluLineEdit : public QLineEdit
         QPainterPath path = QPainterPath();
         int nW = width() - margins.left() - margins.right();
         int nH = height();
-        
+
         path.addRoundedRect(QRect(margins.left(), nH - 10, nW, 10), 5, 5);
 
         QPainterPath rectPath = QPainterPath();
@@ -188,7 +185,6 @@ class FluLineEdit : public QLineEdit
 
         painter.fillPath(path, QBrush(Qt::red));
     }
-
 
   private:
     bool m_bClearButtonEnable;

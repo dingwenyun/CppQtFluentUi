@@ -95,7 +95,6 @@ class FluTableWidget : public QTableWidget
         updateSelectedRows();
     }
 
-
     void setCurrentItem(QTableWidgetItem *item)
     {
         QTableWidget::setCurrentItem(item);
@@ -107,8 +106,6 @@ class FluTableWidget : public QTableWidget
         QTableWidget::setCurrentItem(item, command);
         updateSelectedRows();
     }
-
-
 
   protected:
     void showEvent(QShowEvent *event)

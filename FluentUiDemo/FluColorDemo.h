@@ -12,7 +12,6 @@ class FluColorDemo : public QWidget
         resize(250, 280);
     }
 
-
     void fillColorSet(const FluentUiColorSet& colorSet, QVector<QString>& colors)
     {
         colors.push_back(colorSet.darkest);
@@ -22,14 +21,14 @@ class FluColorDemo : public QWidget
         colors.push_back(colorSet.light);
         colors.push_back(colorSet.lighter);
         colors.push_back(colorSet.lightest);
-
     }
+
   protected:
-    void paintEvent(QPaintEvent *event)
+    void paintEvent(QPaintEvent* event)
     {
         QPainter painter(this);
         painter.setPen(Qt::NoPen);
-        
+
         QVector<QString> colors;
         fillColorSet(FluentUiColorUtils::getInstance()->Yellow, colors);
         fillColorSet(FluentUiColorUtils::getInstance()->Orange, colors);
@@ -48,7 +47,7 @@ class FluColorDemo : public QWidget
                 brush.setStyle(Qt::SolidPattern);
                 brush.setColor(QColor(color.toStdString().c_str()));
                 painter.setBrush(brush);
-                painter.drawRoundedRect(25 + 30 * j, 25 + 30 * i, 25, 25 , 5, 5);
+                painter.drawRoundedRect(25 + 30 * j, 25 + 30 * i, 25, 25, 5, 5);
             }
         }
     }

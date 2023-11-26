@@ -6,12 +6,12 @@
 #include "FluTableItemDelegate.h"
 #include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
 
-class FluTableView : public QTableView 
+class FluTableView : public QTableView
 {
     Q_OBJECT
-    Q_PROPERTY(bool selectRightClickedRow READ getSelectRightClickedRow WRITE setSelectRightClickedRow) 
+    Q_PROPERTY(bool selectRightClickedRow READ getSelectRightClickedRow WRITE setSelectRightClickedRow)
   public:
-    FluTableView(QWidget* parent = nullptr) : QTableView(parent)
+    FluTableView(QWidget *parent = nullptr) : QTableView(parent)
     {
         m_tableItemDelegate = new FluTableItemDelegate(this);
         m_bSelectRightClickedRow = false;
@@ -19,7 +19,7 @@ class FluTableView : public QTableView
         setShowGrid(false);
         setMouseTracking(true);
         setItemDelegate(m_tableItemDelegate);
-        //setSelectionBehavior()
+        // setSelectionBehavior()
 
         QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluTableView.qss");
         setStyleSheet(qss);
@@ -47,13 +47,13 @@ class FluTableView : public QTableView
         m_bSelectRightClickedRow = bSelected;
     }
 
-    void setSelectedRows(const QList<QModelIndex>& indexs)
+    void setSelectedRows(const QList<QModelIndex> &indexs)
     {
         m_tableItemDelegate->setSelectedRows(indexs);
         viewport()->update();
     }
 
-     void setItemDelegate(FluTableItemDelegate *delegate)
+    void setItemDelegate(FluTableItemDelegate *delegate)
     {
         QTableView::setItemDelegate(delegate);
         m_tableItemDelegate = delegate;
@@ -81,8 +81,9 @@ class FluTableView : public QTableView
     {
         setSelectedRows(selectedIndexes());
     }
+
   protected:
-    void showEvent(QShowEvent* event)
+    void showEvent(QShowEvent *event)
     {
         QTableView::showEvent(event);
         resizeRowsToContents();
@@ -128,8 +129,7 @@ class FluTableView : public QTableView
         }
     }
 
-
   private:
-    FluTableItemDelegate* m_tableItemDelegate;
+    FluTableItemDelegate *m_tableItemDelegate;
     bool m_bSelectRightClickedRow;
 };

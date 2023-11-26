@@ -4,12 +4,12 @@
 #include <QWheelEvent>
 #include "../FluentUiUtils/FluentUiLogUtils.h"
 
-class FluApiTest_WheelEvent : public QWidget 
+class FluApiTest_WheelEvent : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
   public:
     FluApiTest_WheelEvent(QWidget* widget = nullptr);
 
   protected:
-    void wheelEvent(QWheelEvent *event);
+    void wheelEvent(QWheelEvent* event);
 };

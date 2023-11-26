@@ -73,5 +73,4 @@ class FluTableWidgetDemo : public QWidget
   private:
     QHBoxLayout* m_hLayout;
     FluTableWidget* m_tableWidget;
-
 };

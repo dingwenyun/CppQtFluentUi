@@ -9,7 +9,7 @@ FluCompleterMenu::FluCompleterMenu(FluLineEdit* lineEdit) : FluRoundMenu("")
 
     m_delegate = new FluIndicatorMenuItemDelegate();
     getView()->setItemDelegate(m_delegate);
- //   getView()->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    //   getView()->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
     installEventFilter(this);
     setItemHeight(33);
@@ -98,8 +98,8 @@ bool FluCompleterMenu::eventFilter(QObject* watched, QEvent* event)
         return FluRoundMenu::eventFilter(watched, event);
 
     m_lineEdit->event(event);
-    //getView()->event(event);
-    //getView()->eventFilter(getView(), event);
+    // getView()->event(event);
+    // getView()->eventFilter(getView(), event);
     getView()->hockEvent(event);
 
     QKeyEvent* keyEvent = (QKeyEvent*)event;

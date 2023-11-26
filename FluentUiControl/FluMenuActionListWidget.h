@@ -127,7 +127,7 @@ class FluMenuActionListWidget : public QListWidget
         return nH;
     }
 
-    //void __event(QEvent* e)
+    // void __event(QEvent* e)
     //{
     //    QListWidget::event(e);
     //}

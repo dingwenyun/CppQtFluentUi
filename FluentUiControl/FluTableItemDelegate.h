@@ -15,7 +15,7 @@
 class FluTableItemDelegate : public QStyledItemDelegate
 {
   public:
-    FluTableItemDelegate(QTableView* parent) : QStyledItemDelegate(parent)
+    FluTableItemDelegate(QTableView *parent) : QStyledItemDelegate(parent)
     {
         m_margin = 2;
         m_hoverRow = -1;
@@ -33,7 +33,7 @@ class FluTableItemDelegate : public QStyledItemDelegate
         m_pressRow = row;
     }
 
-    void setSelectedRows(const QList<QModelIndex>& indexs)
+    void setSelectedRows(const QList<QModelIndex> &indexs)
     {
         m_selectedRows.clear();
         for (auto index : indexs)
@@ -51,7 +51,7 @@ class FluTableItemDelegate : public QStyledItemDelegate
         return tmpSize;
     }
 
-    QWidget* createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
     {
         FluLineEdit *lineEdit = new FluLineEdit(parent);
         lineEdit->setProperty("transparent", false);
@@ -61,23 +61,21 @@ class FluTableItemDelegate : public QStyledItemDelegate
         return lineEdit;
     }
 
-     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
     {
-         QRect tmpRect = option.rect;
+        QRect tmpRect = option.rect;
         int nX = qMax(8, tmpRect.x());
         int nY = tmpRect.y() + (tmpRect.height() - editor->height()) / 2;
         int nW = tmpRect.width();
         if (index.column() == 0)
             nW = nW - 8;
-        
+
         int nH = tmpRect.height();
         editor->setGeometry(nX, nY, nW, nH);
 
-
-     //   int nTmpW = editor->width();
-     //   int nTmpH = editor->height();
+        //   int nTmpW = editor->width();
+        //   int nTmpH = editor->height();
     }
-
 
     void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const
     {
@@ -98,7 +96,7 @@ class FluTableItemDelegate : public QStyledItemDelegate
         option->palette.setColor(QPalette::HighlightedText, textColor);
     }
 
-    void drawBackground(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex &index) const
+    void drawBackground(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
     {
         int nR = 5;
         if (index.column() == 0)
@@ -122,15 +120,15 @@ class FluTableItemDelegate : public QStyledItemDelegate
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
     {
         QStyledItemDelegate::paint(painter, option, index);
-       // QTableView *tableView = (QTableView *)(parent());
-        
+        // QTableView *tableView = (QTableView *)(parent());
+
         painter->save();
         painter->setPen(Qt::NoPen);
         painter->setRenderHint(QPainter::Antialiasing);
         painter->setClipping(true);
         painter->setClipRect(option.rect);
 
-        //option.rect.adjust(0, m_margin, 0, -m_margin);
+        // option.rect.adjust(0, m_margin, 0, -m_margin);
         bool bHover = (m_hoverRow == index.row());
         bool bPressed = (m_pressRow == index.row());
         bool bAlternate = index.row() % 2 == 0;
@@ -202,6 +200,7 @@ class FluTableItemDelegate : public QStyledItemDelegate
 
         painter->restore();
     }
+
   protected:
     int m_margin;
     int m_hoverRow;

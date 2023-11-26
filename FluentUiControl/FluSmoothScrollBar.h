@@ -70,15 +70,16 @@ class FluSmoothScrollBar : public FluScrollBar
         m_ani->setDuration(nDuration);
         m_ani->setEasingCurve(easingCurve);
     }
+
   protected:
     void mousePressEvent(QMouseEvent* e)
     {
-          FluScrollBar::mousePressEvent(e);
-          m_ani->stop();
-          m_nValue = getValue();
+        FluScrollBar::mousePressEvent(e);
+        m_ani->stop();
+        m_nValue = getValue();
     }
 
-    void mouseMoveEvent(QMouseEvent *event)
+    void mouseMoveEvent(QMouseEvent* event)
     {
         FluScrollBar::mouseMoveEvent(event);
         m_ani->stop();

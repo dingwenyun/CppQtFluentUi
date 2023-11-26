@@ -86,20 +86,20 @@ int main(int argc, char** argv)
     // FluMenuDemo demo;
     // demo.show();
 
-    //FluComboBoxDemo demo;
-    //demo.show();
+    // FluComboBoxDemo demo;
+    // demo.show();
 
-    //FluLineEditDemo demo;
-    //demo.show();
+    // FluLineEditDemo demo;
+    // demo.show();
 
-    //FluTableWidgetDemo demo;
-    //demo.show();
+    // FluTableWidgetDemo demo;
+    // demo.show();
 
-    //FluApiTest_WheelEvent w;
-    //w.show();
-    
-    //FluScrollAreaDemo demo;
-    //demo.show();
+    // FluApiTest_WheelEvent w;
+    // w.show();
+
+    // FluScrollAreaDemo demo;
+    // demo.show();
 
     FluColorDemo demo;
     demo.show();

@@ -7,9 +7,9 @@
 #include <QGraphicsOpacityEffect>
 #include <QPropertyAnimation>
 
- class FluScrollBarGroove : public QWidget
+class FluScrollBarGroove : public QWidget
 {
-     Q_OBJECT
+    Q_OBJECT
   public:
     FluScrollBarGroove(Qt::Orientation orient, QWidget* parent) : QWidget(parent)
     {
@@ -67,7 +67,7 @@
         painter.setPen(Qt::NoPen);
 
         bool bDarkMode = FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark;
-        
+
         if (!bDarkMode)
         {
             QBrush brush(QColor(252, 252, 252, 217));

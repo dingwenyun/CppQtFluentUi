@@ -22,14 +22,14 @@ class FluScrollBarHandle : public QWidget
     }
 
   protected:
-    void paintEvent(QPaintEvent *event)
+    void paintEvent(QPaintEvent* event)
     {
         QPainter painter(this);
         painter.setRenderHints(QPainter::Antialiasing);
         painter.setPen(Qt::NoPen);
 
         int nR = 0;
-        //int nC = 0;
+        // int nC = 0;
         if (m_orient == Qt::Vertical)
         {
             nR = width() / 2;

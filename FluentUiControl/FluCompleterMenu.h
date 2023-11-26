@@ -16,13 +16,15 @@ class FluCompleterMenu : public FluRoundMenu
 
     void popup();
 
-signals:
+  signals:
     void activated(const QString& str);
 
-public slots:
-  void _onItemSelected(const QString text);
+  public slots:
+    void _onItemSelected(const QString text);
+
   protected:
-    bool eventFilter(QObject *watched, QEvent *event);
+    bool eventFilter(QObject* watched, QEvent* event);
+
   private:
     QList<QString> m_items;
     FluLineEdit* m_lineEdit;
