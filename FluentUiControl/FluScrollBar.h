@@ -10,6 +10,7 @@
 #include <QPropertyAnimation>
 #include <QPainter>
 #include "../FluentUiUtils/FluentUiIconUtils.h"
+#include "../FluentUiUtils/FluentUiLogUtils.h"
 #include<QAbstractScrollArea>
 #include "FluScrollBarGroove.h"
 #include "FluScrollBarHandle.h"
@@ -20,9 +21,11 @@
 class FluScrollBar : public QWidget
 {
     Q_OBJECT
+    Q_PROPERTY(int val READ getVal WRITE setVal) 
   public:
     FluScrollBar(Qt::Orientation orient, QAbstractScrollArea* parent = nullptr) : QWidget(parent)
     {
+        
         m_parentSrollArea = parent;
         m_groove = new FluScrollBarGroove(orient, this);
         m_handle = new FluScrollBarHandle(orient, this);
@@ -63,15 +66,12 @@ class FluScrollBar : public QWidget
     {
         connect(m_groove->getUpButton(), &FluArrowButton::clicked, this, &FluScrollBar::onPageUp);
         connect(m_groove->getDownButton(), &FluArrowButton::clicked, this, &FluScrollBar::onPageDown);
-
         connect(m_groove->getOpcityAni(), &QPropertyAnimation::valueChanged, this, &FluScrollBar::onOpacityAniValueChanged);
-
         connect(m_partnerBar, &QScrollBar::rangeChanged, [=](int nMin, int nMax) { setRange(nMin, nMax); });
         connect(m_partnerBar, &QScrollBar::valueChanged, this, &FluScrollBar::onValueChanged);
         connect(this, &FluScrollBar::valueChanged, m_partnerBar, &QScrollBar::setValue);
 
-        QAbstractScrollArea* parentSrollArea = (QAbstractScrollArea*)(parent());
-        parentSrollArea->installEventFilter(this);
+        m_parentSrollArea->installEventFilter(this);
         setRange(m_partnerBar->minimum(), m_partnerBar->maximum());
         
         bool bVisible = m_maximum > 0 && !m_bForceHidden;
@@ -166,7 +166,25 @@ class FluScrollBar : public QWidget
 
     void setValue(int value)
     {
+       // m_value = value;
+        setVal(value);
+    }
+
+    int getVal()
+    {
+        return m_value;
+    }
+
+    void setVal(int value)
+    {
+        if (value == m_value)
+            return;
+
+        LogDebug << "value:" << value;
+        value = qMax(m_minimum, qMin(value, m_maximum));
         m_value = value;
+        emit valueChanged(value);
+        adjustHandlePos();
     }
 
     void setRange(int nMin, int nMax)
@@ -191,8 +209,34 @@ class FluScrollBar : public QWidget
         setVisible(bVisible);
     }
 
+    int getGrooveLength()
+    {
+        if (m_orientation == Qt::Vertical)
+        {
+            return height() - 2 * m_nPadding;
+        }
+
+        return width() - 2 * m_nPadding;
+    }
+
     int getSlideLength()
     {
+     //   LogDebug << "grooveLen:" << getGrooveLength() << ", handle height:" << m_handle->height();
+        if (m_orientation == Qt::Vertical)
+        {
+           return getGrooveLength() - m_handle->height();
+        }
+        return getGrooveLength() - m_handle->width();
+    }
+
+    bool isSlideResion(const QPoint& pos) const
+    {
+        if (m_orientation == Qt::Vertical)
+        {
+            return pos.y() >= m_nPadding && pos.y() <= height() - m_nPadding;
+        }
+
+        return pos.x() >= m_nPadding && pos.x() <= width() - m_nPadding;
     }
 
     void adjustPos(QSize size)
@@ -211,24 +255,37 @@ class FluScrollBar : public QWidget
 
     void adjustHandleSize() 
     {
-                //: p = self.parent() ;
         if (m_orientation == Qt::Vertical)
         {
-           
+            int nTotal = m_maximum - m_minimum + m_parentSrollArea->height();
+            int nH = 1.0 * getGrooveLength() * m_parentSrollArea->height() / qMax(nTotal, 1);
+            m_handle->setFixedHeight(qMax(30, nH));
         }
         else
         {
+            int nTotal = m_maximum - m_minimum + m_parentSrollArea->width();
+            int nW = 1.0 * getGrooveLength() * m_parentSrollArea->width() / qMax(nTotal, 1);
+            m_handle->setFixedWidth(qMax(30, nW));
         }
     }
 
     void adjustHandlePos()
     {
-    }
+        int nTotal = qMax(m_maximum - m_minimum, 1);
+        int nDelta = getValue() * 1.0 / nTotal * getSlideLength();
 
-    int getGrooveLength()
-    {
+      //  LogDebug << "value:" << getValue() << "; slide length:" << getSlideLength();
+        if (m_orientation == Qt::Vertical)
+        {
+            int nX = width() - m_handle->width() - 3;
+            m_handle->move(nX, m_nPadding + nDelta);
+        }
+        else
+        {
+            int nY = height() - m_handle->height() - 3;
+            m_handle->move(m_nPadding + nDelta, nY);
+        }
     }
-
 
   signals:
     void rangeChanged(int nMin, int nMax);
@@ -240,19 +297,33 @@ class FluScrollBar : public QWidget
     void onPageUp()
    {
         //setValue(getValue() - pageStep());
+       setValue(getValue() - getPageStep());
    }
 
    void onPageDown()
    {
         //setValue(value() - pageStep());
+       setValue(getValue() + getPageStep());
    }
 
-    void onValueChanged(const QVariant& value)
+   void onValueChanged(const QVariant& value)
    {
+       LogDebug << "value:" << value.toInt();
+       setVal(value.toInt());
    }
 
    void onOpacityAniValueChanged(const QVariant& value)
    {
+       qreal opacity = m_groove->getOpacityEffect()->opacity();
+       if (m_orientation == Qt::Vertical)
+       {
+           m_handle->setFixedWidth(3 + opacity * 3);
+       }
+       else
+       {
+           m_handle->setFixedHeight(3 + opacity * 3);
+       }
+       adjustHandlePos();
    }
 
    void expand()
@@ -288,7 +359,7 @@ class FluScrollBar : public QWidget
        return QWidget::eventFilter(watched, event);
    }
    
-   void enterEvent(QEvent *event)
+   void enterEvent(QEnterEvent *event)
    {
        m_bEnter = true;
        m_timer->stop();
@@ -313,6 +384,35 @@ class FluScrollBar : public QWidget
        m_bPressed = true;
        m_pressedPos = e->pos();
 
+       if (childAt(e->pos()) == m_handle || !isSlideResion(e->pos()))
+           return;
+
+       int nValue = 0;
+       if (m_orientation == Qt::Vertical)
+       {
+           if (e->pos().y() > m_handle->geometry().bottom())
+           {
+               nValue = e->pos().y() - m_handle->height() - m_nPadding;
+           }
+           else
+           {
+               nValue = e->pos().y() - m_nPadding;
+           }
+       }
+       else
+       {
+           if (e->pos().x() > m_handle->geometry().right())
+           {
+               nValue = e->pos().x() - m_handle->width() - m_nPadding;
+           }
+           else
+           {
+               nValue = e->pos().x() - m_nPadding;
+           }
+       }
+
+       setValue(1.0 * nValue / qMax(getSlideLength(), 1) * m_maximum);
+       emit sliderPerssed();
    }
 
    void mouseReleaseEvent(QMouseEvent *event)
@@ -334,7 +434,7 @@ class FluScrollBar : public QWidget
            nDv = event->pos().x() - m_pressedPos.x();
        }
 
-       nDv = nDv / qMax(getSlideLength(), 1) * (m_maximum - m_minimum);
+       nDv = 1.0 * nDv / qMax(getSlideLength(), 1) * (m_maximum - m_minimum);
        FluScrollBar::setValue(getValue() + nDv);
 
        m_pressedPos = event->pos();

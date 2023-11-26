@@ -20,6 +20,8 @@
 #include "FluComboBoxDemo.h"
 #include "FluLineEditDemo.h"
 #include "FluTableWidgetDemo.h"
+#include "FluApiTest_WheelEvent.h"
+#include "FluScrollAreaDemo.h"
 
 int main(int argc, char** argv)
 {
@@ -88,7 +90,14 @@ int main(int argc, char** argv)
     //FluLineEditDemo demo;
     //demo.show();
 
-    FluTableWidgetDemo demo;
+   // FluTableWidgetDemo demo;
+   // demo.show();
+
+    //FluApiTest_WheelEvent w;
+    //w.show();
+    
+    FluScrollAreaDemo demo;
     demo.show();
+
     return app.exec();
 }

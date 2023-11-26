@@ -62,6 +62,12 @@
     <ClCompile Include="FluTableWidgetDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FluApiTest_WheelEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluScrollAreaDemo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluButtonDemo.h">
@@ -74,6 +80,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FluComboBoxDemo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluApiTest_WheelEvent.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -100,6 +109,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FluTableWidgetDemo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FluScrollAreaDemo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -285,6 +285,7 @@
     <ClCompile Include="FluSeparator.cpp" />
     <ClCompile Include="FluShortcutMenuItemDelegate.cpp" />
     <ClCompile Include="FluSlider.cpp" />
+    <ClCompile Include="FluSmoothScrollArea.cpp" />
     <ClCompile Include="FluSmoothScrollBar.cpp" />
     <ClCompile Include="FluSmoothScrollDelegate.cpp" />
     <ClCompile Include="FluStrongBodyLabel.cpp" />
@@ -365,14 +366,14 @@
     <QtMoc Include="FluRadioButton.h" />
     <ClInclude Include="FluPullUpMenuAnimationManager.h" />
     <QtMoc Include="FluRoundMenu.h" />
-    <ClInclude Include="FluScrollArea.h" />
-    <ClInclude Include="FluScrollBarGroove.h" />
+    <QtMoc Include="FluScrollBarGroove.h" />
     <ClInclude Include="FluScrollBarHandle.h" />
     <ClInclude Include="FluSeparator.h" />
     <QtMoc Include="FluSlider.h" />
     <QtMoc Include="FluShortcutMenuItemDelegate.h" />
     <QtMoc Include="FluSmoothScrollDelegate.h" />
-    <ClInclude Include="FluSmoothScrollBar.h" />
+    <QtMoc Include="FluSmoothScrollBar.h" />
+    <ClInclude Include="FluSmoothScrollArea.h" />
     <ClInclude Include="FluStrongBodyLabel.h" />
     <QtMoc Include="FluSubMenuItemWidget.h" />
     <ClInclude Include="FluSubTitleLabel.h" />

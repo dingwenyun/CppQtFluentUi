@@ -134,6 +134,12 @@
     <ClInclude Include="FluTableItemDelegate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FluScrollBarHandle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FluSmoothScrollArea.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluFrameLessWidgetV1.h">
@@ -275,6 +281,18 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FluTableWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluArrowButton.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluSmoothScrollDelegate.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluSmoothScrollBar.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluScrollBarGroove.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -511,6 +529,27 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluTableWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluArrowButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluScrollArea.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluScrollBarGroove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluScrollBarHandle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluSmoothScrollBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluSmoothScrollDelegate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluSmoothScrollArea.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

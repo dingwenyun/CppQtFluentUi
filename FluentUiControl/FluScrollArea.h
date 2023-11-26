@@ -10,6 +10,6 @@ class FluScrollArea : public QScrollArea
         
     }
 
-    private:
-        // SmoothscrollDelegate
+  private:
+    QScrollArea* m_widget;
 };

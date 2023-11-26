@@ -249,12 +249,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FluApiTest_QCursor.cpp" />
+    <ClCompile Include="FluApiTest_WheelEvent.cpp" />
     <ClCompile Include="FluAvatarWidgetDemo.cpp" />
     <ClCompile Include="FluComboBoxDemo.cpp" />
     <ClCompile Include="FluLabelDemo.cpp" />
     <ClCompile Include="FluLineEditDemo.cpp" />
     <ClCompile Include="FluMenuDemo.cpp" />
     <ClCompile Include="FluRadioButtonDemo.cpp" />
+    <ClCompile Include="FluScrollAreaDemo.cpp" />
     <ClCompile Include="FluSliderDemo.cpp" />
     <ClCompile Include="FluToolTipDemo.cpp" />
     <ClCompile Include="FluNavigationDemo.cpp" />
@@ -265,7 +267,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FluApiTest_QCursor.h" />
+    <QtMoc Include="FluApiTest_WheelEvent.h" />
     <ClInclude Include="FluAvatarWidgetDemo.h" />
+    <ClInclude Include="FluScrollAreaDemo.h" />
     <ClInclude Include="FluTableWidgetDemo.h" />
     <QtMoc Include="FluComboBoxDemo.h" />
     <ClInclude Include="FluLabelDemo.h" />

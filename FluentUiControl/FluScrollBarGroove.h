@@ -3,19 +3,21 @@
 #include <QWidget>
 #include "FluArrowButton.h"
 #include "../FluentUiUtils/FluentUiIconUtils.h"
+#include "../FluentUiUtils/FluentUiThemeUtils.h"
 #include <QGraphicsOpacityEffect>
 #include <QPropertyAnimation>
 
  class FluScrollBarGroove : public QWidget
 {
+     Q_OBJECT
   public:
     FluScrollBarGroove(Qt::Orientation orient, QWidget* parent) : QWidget(parent)
     {
         if (orient == Qt::Vertical)
         {
             setFixedWidth(12);
-            m_upButton = new FluArrowButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ArrowUp8));
-            m_downButton = new FluArrowButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ArrowDown8));
+            m_upButton = new FluArrowButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::CaretSolidUp));
+            m_downButton = new FluArrowButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::CaretSolidDown));
 
             m_vLayout = new QVBoxLayout(this);
             setLayout(m_vLayout);
@@ -27,8 +29,8 @@
         else
         {
             setFixedHeight(12);
-            m_upButton = new FluArrowButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ArrowLeft8));
-            m_downButton = new FluArrowButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ArrowRight8));
+            m_upButton = new FluArrowButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::CaretSolidLeft));
+            m_downButton = new FluArrowButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::CaretSolidRight));
 
             m_hLayout = new QHBoxLayout(this);
             setLayout(m_hLayout);
@@ -63,6 +65,21 @@
         QPainter painter(this);
         painter.setRenderHints(QPainter::Antialiasing);
         painter.setPen(Qt::NoPen);
+
+        bool bDarkMode = FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark;
+        
+        if (!bDarkMode)
+        {
+            QBrush brush(QColor(252, 252, 252, 217));
+            painter.setBrush(brush);
+        }
+        else
+        {
+            QBrush brush(QColor(44, 44, 44, 245));
+            painter.setBrush(brush);
+        }
+
+        painter.drawRoundedRect(rect(), 6, 6);
     }
 
     FluArrowButton* getUpButton()
@@ -78,6 +95,11 @@
     QPropertyAnimation* getOpcityAni()
     {
         return m_opcityAni;
+    }
+
+    QGraphicsOpacityEffect* getOpacityEffect()
+    {
+        return m_opacityEffect;
     }
 
   private:

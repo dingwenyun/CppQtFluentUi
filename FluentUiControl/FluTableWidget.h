@@ -5,6 +5,7 @@
 #include <QHeaderView>
 #include "FluTableView.h"
 #include "FluTableItemDelegate.h"
+#include "FluSmoothScrollDelegate.h"
 #include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
 
 class FluTableWidget : public QTableWidget
@@ -15,6 +16,7 @@ class FluTableWidget : public QTableWidget
     FluTableWidget(QWidget *parent = nullptr) : QTableWidget(parent)
     {
         m_tableItemDelegate = new FluTableItemDelegate(this);
+        m_scrollDelegate = new FluSmoothScrollDelegate(this);
         m_bSelectRightClickedRow = false;
 
         setShowGrid(false);
@@ -156,6 +158,7 @@ class FluTableWidget : public QTableWidget
     }
 
   private:
+    FluSmoothScrollDelegate *m_scrollDelegate;
     FluTableItemDelegate *m_tableItemDelegate;
     bool m_bSelectRightClickedRow;
 };
