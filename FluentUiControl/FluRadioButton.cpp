@@ -1,9 +1,9 @@
 #include "FluRadioButton.h"
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 
 FluRadioButton::FluRadioButton(QWidget* parent /*= nullptr*/) : QRadioButton(parent)
 {
-    QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluRadioButton.qss");
+    QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluRadioButton.qss");
     setStyleSheet(qss);
 }
 

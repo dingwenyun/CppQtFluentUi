@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../FluentUiControl/FluRoundMenu.h"
-#include "../FluentUiUtils/FluentUiIconUtils.h"
+#include "../FluentUiUtils/FluIconUtils.h"
 #include <QWidget>
 #include <QLabel>
 
@@ -26,27 +26,27 @@ class FluMenuDemo : public QWidget
     {
         FluRoundMenu* roundMenu = new FluRoundMenu("", this);
 
-        QAction* copyAction = new QAction(FluentUiIconUtils::GetFluentIcon(FluAwesomeType::Copy), "Copy");
+        QAction* copyAction = new QAction(FluIconUtils::GetFluentIcon(FluAwesomeType::Copy), "Copy");
         roundMenu->addAction(copyAction);
 
-        QAction* cutAction = new QAction(FluentUiIconUtils::GetFluentIcon(FluAwesomeType::Cut), "Cut");
+        QAction* cutAction = new QAction(FluIconUtils::GetFluentIcon(FluAwesomeType::Cut), "Cut");
         roundMenu->addAction(cutAction);
 
         FluRoundMenu* subRoundMenu = new FluRoundMenu("Add to", this);
-        subRoundMenu->setIcon(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::Add));
+        subRoundMenu->setIcon(FluIconUtils::GetFluentIconPixmap(FluAwesomeType::Add));
 
-        QAction* musicAction = new QAction(FluentUiIconUtils::GetFluentIcon(FluAwesomeType::MusicAlbum), "Music");
-        QAction* videoAction = new QAction(FluentUiIconUtils::GetFluentIcon(FluAwesomeType::Video), "Video");
+        QAction* musicAction = new QAction(FluIconUtils::GetFluentIcon(FluAwesomeType::MusicAlbum), "Music");
+        QAction* videoAction = new QAction(FluIconUtils::GetFluentIcon(FluAwesomeType::Video), "Video");
         QList<QAction*> actions;
         actions.append(musicAction);
         actions.append(videoAction);
         subRoundMenu->addActions(actions);
         roundMenu->addMenu(subRoundMenu);
 
-        QAction* pasteAction = new QAction(FluentUiIconUtils::GetFluentIcon(FluAwesomeType::Paste), "Paste");
+        QAction* pasteAction = new QAction(FluIconUtils::GetFluentIcon(FluAwesomeType::Paste), "Paste");
         roundMenu->addAction(pasteAction);
 
-        QAction* undoAction = new QAction(FluentUiIconUtils::GetFluentIcon(FluAwesomeType::Undo), "Undo");
+        QAction* undoAction = new QAction(FluIconUtils::GetFluentIcon(FluAwesomeType::Undo), "Undo");
         roundMenu->addAction(undoAction);
 
         roundMenu->addSeparator();
@@ -55,9 +55,9 @@ class FluMenuDemo : public QWidget
         selectAllAction->setShortcut(QKeySequence("Ctrl+A"));
         roundMenu->addAction(selectAllAction);
 
-        QAction* settingAction = new QAction(FluentUiIconUtils::GetFluentIcon(FluAwesomeType::Settings), "Setting");
-        QAction* helpAction = new QAction(FluentUiIconUtils::GetFluentIcon(FluAwesomeType::Help), "Help");
-        QAction* feedbackAction = new QAction(FluentUiIconUtils::GetFluentIcon(FluAwesomeType::Feedback), "Feedback");
+        QAction* settingAction = new QAction(FluIconUtils::GetFluentIcon(FluAwesomeType::Settings), "Setting");
+        QAction* helpAction = new QAction(FluIconUtils::GetFluentIcon(FluAwesomeType::Help), "Help");
+        QAction* feedbackAction = new QAction(FluIconUtils::GetFluentIcon(FluAwesomeType::Feedback), "Feedback");
 
         settingAction->setShortcut(QKeySequence("Ctrl+S"));
         helpAction->setShortcut(QKeySequence("Ctrl+H"));

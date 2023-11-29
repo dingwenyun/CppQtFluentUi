@@ -2,7 +2,7 @@
 
 #include <QWidget>
 #include <QWheelEvent>
-#include "../FluentUiUtils/FluentUiLogUtils.h"
+#include "../FluentUiUtils/FluLogUtils.h"
 
 class FluApiTest_WheelEvent : public QWidget
 {

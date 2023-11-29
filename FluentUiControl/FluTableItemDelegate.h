@@ -9,8 +9,8 @@
 #include <QTableView>
 #include <QScrollBar>
 #include "FluLineEdit.h"
-#include "../FluentUiUtils/FluentUiThemeUtils.h"
-#include "../FluentUiUtils/FluentUiThemeUtils.h"
+#include "../FluentUiUtils/FluThemeUtils.h"
+#include "../FluentUiUtils/FluThemeUtils.h"
 
 class FluTableItemDelegate : public QStyledItemDelegate
 {
@@ -83,7 +83,7 @@ class FluTableItemDelegate : public QStyledItemDelegate
         option->font = index.data(Qt::FontRole).value<QFont>();
 
         QColor textColor;
-        if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)
+        if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
         {
             textColor = Qt::white;
         }
@@ -135,7 +135,7 @@ class FluTableItemDelegate : public QStyledItemDelegate
 
         int c = 255;
         int alpha = 0;
-        bool bDarkTheme = FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark;
+        bool bDarkTheme = FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark;
         if (bDarkTheme)
         {
             c = 255;

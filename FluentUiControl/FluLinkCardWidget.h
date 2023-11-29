@@ -8,7 +8,7 @@
 #include <QLabel>
 #include <QMouseEvent>
 #include "FluImgWidget.h"
-#include "../FluentUiUtils/FluentUiIconUtils.h"
+#include "../FluentUiUtils/FluIconUtils.h"
 
 class FluLinkCardWidget : public QWidget
 {

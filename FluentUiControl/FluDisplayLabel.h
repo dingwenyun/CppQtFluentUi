@@ -1,7 +1,7 @@
 #pragma once
 
 #include "FluLabelBase.h"
-#include "../FluentUiUtils/FluentUiFontUtils.h"
+#include "../FluentUiUtils/FluFontUtils.h"
 
 class FluDisplayLabel : public FluLabelBase
 {
@@ -12,6 +12,6 @@ class FluDisplayLabel : public FluLabelBase
 
     QFont _getFont()
     {
-        return FluentUiFontUtils::getFont(68, QFont::DemiBold);
+        return FluFontUtils::getFont(68, QFont::DemiBold);
     }
 };

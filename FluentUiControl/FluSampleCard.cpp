@@ -2,7 +2,7 @@
 #include <QStyle>
 #include <QPainter>
 #include <QStyleOption>
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 
 FluSampleCard::FluSampleCard(QWidget* parent /*= nullptr*/, QPixmap img /*= QPixmap()*/, QString title /*= ""*/, QString content /*= ""*/, QString routeKey /*= ""*/, int index /*= -1*/) : QWidget(parent), m_routeKey(routeKey), m_index(index)
 {

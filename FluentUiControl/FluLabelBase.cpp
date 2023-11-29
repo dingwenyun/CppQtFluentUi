@@ -1,5 +1,5 @@
 #include "FluLabelBase.h"
-#include "../FluentUiUtils/FluentUiThemeUtils.h"
+#include "../FluentUiUtils/FluThemeUtils.h"
 FluLabelBase::FluLabelBase(QWidget* parent /*= nullptr*/) : QLabel(parent)
 {
     // setFont(_getFont());
@@ -23,7 +23,7 @@ void FluLabelBase::_setTextColor(QColor light /*= QColor(0,0,0)*/, QColor dark /
 
     QPalette tmpPalette = palette();
     QColor textColor;
-    if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)
+    if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
     {
         textColor = m_darkColor;
     }

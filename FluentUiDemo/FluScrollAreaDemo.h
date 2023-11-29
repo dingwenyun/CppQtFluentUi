@@ -2,6 +2,7 @@
 
 #include "../FluentUiControl/FluSmoothScrollArea.h"
 #include "../FluentUiControl/FluPixmapLabel.h"
+
 class FluScrollAreaDemo : public FluSmoothScrollArea
 {
   public:
@@ -11,7 +12,6 @@ class FluScrollAreaDemo : public FluSmoothScrollArea
         m_label->setPixmap(QPixmap("../res/scrollareademo.jpg"));
         setScrollAnimation(Qt::Vertical, 400);
         setScrollAnimation(Qt::Horizontal, 400);
-
         horizontalScrollBar()->setValue(1900);
         setWidget(m_label);
         resize(1200, 800);

@@ -4,7 +4,7 @@
 #include <QShowEvent>
 #include "FluTableView.h"
 #include "FluTableItemDelegate.h"
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 
 class FluTableView : public QTableView
 {
@@ -21,7 +21,7 @@ class FluTableView : public QTableView
         setItemDelegate(m_tableItemDelegate);
         // setSelectionBehavior()
 
-        QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluTableView.qss");
+        QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluTableView.qss");
         setStyleSheet(qss);
     }
 

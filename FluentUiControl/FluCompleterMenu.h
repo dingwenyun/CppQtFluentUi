@@ -3,7 +3,7 @@
 #include "FluRoundMenu.h"
 #include <QLineEdit>
 #include "FluIndicatorMenuItemDelegate.h"
-#include "../FluentUiUtils/FluentUiFontUtils.h"
+#include "../FluentUiUtils/FluFontUtils.h"
 
 class FluLineEdit;
 class FluCompleterMenu : public FluRoundMenu

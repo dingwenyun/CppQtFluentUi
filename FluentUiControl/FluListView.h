@@ -35,7 +35,7 @@ class FluListView : public QListView
         QListView::setCurrentIndex(index);
     }
 
-    void updateSelecedRows()
+    void updateSelectedRows()
     {
     }
 

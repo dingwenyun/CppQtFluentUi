@@ -13,17 +13,17 @@ void FluShortcutMenuItemDelegate::paint(QPainter *painter, const QStyleOptionVie
     painter->save();
     if (!option.state & QStyle::State_Enabled)
     {
-        if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)
+        if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
             painter->setOpacity(0.5);
         else
             painter->setOpacity(0.6);
     }
 
-    QFont font = FluentUiFontUtils::getFont(12);
+    QFont font = FluFontUtils::getFont(12);
     painter->setFont(font);
 
     QColor penColor;
-    if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)
+    if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
     {
         penColor = QColor(255, 255, 255, 200);
     }

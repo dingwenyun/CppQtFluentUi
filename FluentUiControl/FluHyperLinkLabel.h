@@ -3,8 +3,8 @@
 #include <QDesktopServices>
 #include <QPushButton>
 #include <QUrl>
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
-#include "../FluentUiUtils/FluentUiFontUtils.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
+#include "../FluentUiUtils/FluFontUtils.h"
 
 class FluHyperLinkLabel : public QPushButton
 {
@@ -15,7 +15,7 @@ class FluHyperLinkLabel : public QPushButton
     FluHyperLinkLabel(QWidget* parent = nullptr) : QPushButton(parent)
     {
         m_url = QUrl();
-        FluentUiFontUtils::setFont(this, 14);
+        FluFontUtils::setFont(this, 14);
         setUnderlineVisble(true);
         setCursor(Qt::PointingHandCursor);
 
@@ -24,7 +24,7 @@ class FluHyperLinkLabel : public QPushButton
                 QDesktopServices::openUrl(m_url);
         });
 
-        QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluHyperLinkLabel.qss");
+        QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluHyperLinkLabel.qss");
         setStyleSheet(qss);
 
         // setAttribute(Qt::WA_StyledBackground);

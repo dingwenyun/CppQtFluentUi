@@ -2,7 +2,7 @@
 
 #include <QWidget>
 #include <QPainter>
-#include "../FluentUiUtils/FluentUiThemeUtils.h"
+#include "../FluentUiUtils/FluThemeUtils.h"
 
 // "---"
 class FluHorizontalSeparator : public QWidget
@@ -19,7 +19,7 @@ class FluHorizontalSeparator : public QWidget
         QPainter painter;
         painter.setRenderHints(QPainter::Antialiasing);
 
-        if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)
+        if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
             painter.setPen(QColor(255, 255, 255, 51));
         else
             painter.setPen(QColor(0, 0, 0, 22));
@@ -41,7 +41,7 @@ class FluVerticalSeparator : public QWidget
     {
         QPainter painter;
         painter.setRenderHints(QPainter::Antialiasing);
-        if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)
+        if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
             painter.setPen(QColor(255, 255, 255, 51));
         else
             painter.setPen(QColor(0, 0, 0, 22));

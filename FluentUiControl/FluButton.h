@@ -6,7 +6,7 @@
 #include <QPainter>
 #include <QPaintEvent>
 #include <QMouseEvent>
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 
 class FluPushButton : public QPushButton
 {

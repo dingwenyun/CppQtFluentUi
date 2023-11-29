@@ -3,7 +3,7 @@
 #include <QWidget>
 #include <QPaintEvent>
 #include <QPainter>
-#include "../FluentUiUtils/FluentUiThemeUtils.h"
+#include "../FluentUiUtils/FluThemeUtils.h"
 
 class FluScrollBarHandle : public QWidget
 {
@@ -39,7 +39,7 @@ class FluScrollBarHandle : public QWidget
             nR = height() / 2;
         }
 
-        bool darkMode = FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark;
+        bool darkMode = FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark;
 
         QColor color;
         if (darkMode)

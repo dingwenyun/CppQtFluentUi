@@ -2,7 +2,7 @@
 #include <QPainter>
 #include <QModelIndex>
 #include <QStyleOptionViewItem>
-#include "../FluentUiUtils/FluentUiLogUtils.h"
+#include "../FluentUiUtils/FluLogUtils.h"
 
 void FluIndicatorMenuItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {

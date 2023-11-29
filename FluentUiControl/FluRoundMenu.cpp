@@ -1,6 +1,6 @@
 #include "FluRoundMenu.h"
 #include "FluSubMenuItemWidget.h"
-#include "../FluentUiUtils/FluentUiLogUtils.h"
+#include "../FluentUiUtils/FluLogUtils.h"
 
 FluRoundMenu::FluRoundMenu(QString title, QWidget* parent /*= nullptr*/) : QMenu(parent)
 {
@@ -40,7 +40,7 @@ void FluRoundMenu::__initWidgets()
     m_hBoxLayout->setContentsMargins(12, 8, 12, 20);
 
     // stylesheet
-    QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluRoundMenu.qss");
+    QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluRoundMenu.qss");
     setStyleSheet(qss);
 
     connect(m_view, &FluMenuActionListWidget::itemClicked, this, &FluRoundMenu::_onItemClicked);
@@ -194,7 +194,7 @@ int FluRoundMenu::_adjustItemText(QListWidgetItem* item, QAction* action)
 
 int FluRoundMenu::_longestShortcutWidth()
 {
-    QFontMetrics fontMetrics = QFontMetrics(FluentUiFontUtils::getFont(12));
+    QFontMetrics fontMetrics = QFontMetrics(FluFontUtils::getFont(12));
     int nMax = 0;
     for (auto itList = m_actions.begin(); itList != m_actions.end(); itList++)
     {

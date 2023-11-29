@@ -154,7 +154,7 @@
       <AdditionalDependencies>FramelessHelperCore64d.lib;FramelessHelperQuick64d.lib;FramelessHelperWidgets64d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ClCompile>
-      <AdditionalIncludeDirectories>../third_party/install/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/third_party/install/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -256,6 +256,7 @@
     <ClCompile Include="FluDummyMenuAnimationManager.cpp" />
     <ClCompile Include="FluFadeInDropDownMenuAnimationManager.cpp" />
     <ClCompile Include="FluFadeInPullUpMenuAnimationManager.cpp" />
+    <ClCompile Include="FluFrameLessWindow.cpp" />
     <ClCompile Include="FluHyperLinkLabel.cpp" />
     <ClCompile Include="FluImageLabel.cpp" />
     <ClCompile Include="FluIndicatorMenuItemDelegate.cpp" />
@@ -301,7 +302,6 @@
     <ClCompile Include="FluTransparentToolButton.cpp" />
     <ClCompile Include="FluBannerWidget.cpp" />
     <ClCompile Include="FluFlowLayout.cpp" />
-    <ClCompile Include="FluFrameLessWidgetV1.cpp" />
     <ClCompile Include="FluHomeInterface.cpp" />
     <ClCompile Include="FluImgWidget.cpp" />
     <ClCompile Include="FluLinkCardView.cpp" />
@@ -320,9 +320,9 @@
     <ClCompile Include="FluSampleCardView.cpp" />
     <ClCompile Include="FluUiMessBox.cpp" />
     <ClCompile Include="FluWidget.cpp" />
-    <ClCompile Include="FluFrameLessWidgetV2.cpp" />
+    <ClCompile Include="FluFrameLessWidget.cpp" />
     <QtMoc Include="FluUiMessBox.h" />
-    <QtMoc Include="FluFrameLessWidgetV2.h" />
+    <QtMoc Include="FluFrameLessWidget.h" />
     <QtMoc Include="FluNavigationAvatarWidget.h" />
     <QtMoc Include="FluNavigationTreeWidgetBase.h" />
     <QtMoc Include="FluCenterLabelWidget.h" />
@@ -351,6 +351,7 @@
     <ClInclude Include="FluFadeInDropDownMenuAnimationManager.h" />
     <ClInclude Include="FluFadeInPullUpMenuAnimationManager.h" />
     <QtMoc Include="FluIndicatorMenuItemDelegate.h" />
+    <QtMoc Include="FluFrameLessWindow.h" />
     <ClInclude Include="FluLargeTitleLabel.h" />
     <QtMoc Include="FluLineEdit.h" />
     <QtMoc Include="FluMenuActionListWidget.h" />
@@ -409,7 +410,6 @@
     <QtMoc Include="FluSampleCardView.h" />
     <QtMoc Include="FluWidget.h" />
     <ClInclude Include="FluLabel.h" />
-    <QtMoc Include="FluFrameLessWidgetV1.h" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluLabelBase.h" />

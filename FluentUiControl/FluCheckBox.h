@@ -3,7 +3,7 @@
 #include <QCheckBox>
 
 #include "FluDef.h"
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 
 class FluCheckBox : public QCheckBox
 {
@@ -11,13 +11,13 @@ class FluCheckBox : public QCheckBox
   public:
     FluCheckBox(QWidget* parent = nullptr) : QCheckBox(parent)
     {
-        QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluCheckBox.qss");
+        QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluCheckBox.qss");
         setStyleSheet(qss);
     }
 
     FluCheckBox(QString text, QWidget* parent)
     {
-        QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluCheckBox.qss");
+        QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluCheckBox.qss");
         setStyleSheet(qss);
         setText(text);
     }

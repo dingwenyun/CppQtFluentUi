@@ -7,7 +7,7 @@
 #include <QWidget>
 #include "FluLinkCardView.h"
 #include "FluSampleCardView.h"
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 
 class FluHomeInterface : public QScrollArea
 {

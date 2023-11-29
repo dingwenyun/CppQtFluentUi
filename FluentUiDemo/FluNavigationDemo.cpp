@@ -1,8 +1,8 @@
 #include "FluNavigationDemo.h"
 #include "../FluentUiControl/FluNavigationAvatarWidget.h"
-#include "../FluentUiUtils/FluentUiLogUtils.h"
-#include "../FluentUiUtils/FluentUiIconUtils.h"
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluLogUtils.h"
+#include "../FluentUiUtils/FluIconUtils.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 #include <QMessageBox>
 
 using namespace std;
@@ -32,7 +32,7 @@ FluWidgetDemo::FluWidgetDemo(QString text, QWidget* parent /*= nullptr*/) : QFra
     LogDebug << "demo size:" << size();
 }
 
-FluWindowDemo::FluWindowDemo(QWidget* parent /*= nullptr*/) : FluFrameLessWidgetV2(parent)
+FluWindowDemo::FluWindowDemo(QWidget* parent /*= nullptr*/) : FluFrameLessWidget(parent)
 {
     setWindowTitle("Fluent Navigation Demo Application");
     //  m_hBoxLayout = new QHBoxLayout(m_centerWidget);
@@ -122,7 +122,7 @@ void FluWindowDemo::addSubInterface(QWidget* interface, QPixmap icon, QString te
 
 void FluWindowDemo::setQss()
 {
-    QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluNavigationPanel.qss");
+    QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluNavigationPanel.qss");
     setStyleSheet(qss);
 }
 

@@ -2,13 +2,13 @@
 #include <QWidget>
 #include "../FluentUiControl/FluMainWidget.h"
 #include "../FluentUiControl/FluSampleCard.h"
-#include "../FluentUiUtils/FluentUiLogUtils.h"
+#include "../FluentUiUtils/FluLogUtils.h"
 
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
 
-    FluentUiLogUtils::init();
+    FluLogUtils::init();
     LogDebug << "called!";
 
     FluMainWidget w;

@@ -2,7 +2,7 @@
 
 #include <QToolButton>
 #include <QPainter>
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 
 class FluTransparentToolButton : public QToolButton
 {
@@ -10,7 +10,7 @@ class FluTransparentToolButton : public QToolButton
   public:
     FluTransparentToolButton(QWidget* parent = nullptr, QPixmap icon = QPixmap()) : QToolButton(parent), m_icon(icon)
     {
-        QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluTransparentToolButton.qss");
+        QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluTransparentToolButton.qss");
         setStyleSheet(qss);
         setText("FluTransparentToolButton");
     }

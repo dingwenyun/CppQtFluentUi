@@ -1,6 +1,6 @@
-#include "FluentUiColorUtils.h"
+#include "FluColorUtils.h"
 
-FluentUiColorUtils::FluentUiColorUtils()
+FluColorUtils::FluColorUtils()
 {
     Black = QString("#000000");
     White = QString("#ffffff");
@@ -27,7 +27,7 @@ FluentUiColorUtils::FluentUiColorUtils()
     Grey210 = QString("#161514");
     Grey220 = QString("#11100f");
 
-    FluentUiColorSet tmpYellow;
+    FluColorSet tmpYellow;
     tmpYellow.darkest = QString("#f9a825");
     tmpYellow.darker = QString("#fbc02d");
     tmpYellow.dark = QString("#fdd435");
@@ -37,7 +37,7 @@ FluentUiColorUtils::FluentUiColorUtils()
     tmpYellow.lightest = QString("#fff59b");
     Yellow = tmpYellow;
 
-    FluentUiColorSet tmpOrange;
+    FluColorSet tmpOrange;
     tmpOrange.darkest = QString("#993d07");
     tmpOrange.darker = QString("#ac4408");
     tmpOrange.dark = QString("#d1580a");
@@ -47,7 +47,7 @@ FluentUiColorUtils::FluentUiColorUtils()
     tmpOrange.lightest = QString("#fac06a");
     Orange = tmpOrange;
 
-    FluentUiColorSet tmpRed;
+    FluColorSet tmpRed;
     tmpRed.darkest = QString("#8f0a15");
     tmpRed.darker = QString("#a20b18");
     tmpRed.dark = QString("#b90d1c");
@@ -57,7 +57,7 @@ FluentUiColorUtils::FluentUiColorUtils()
     tmpRed.lightest = QString("#f06b76");
     Red = tmpRed;
 
-    FluentUiColorSet tmpMagenta;
+    FluColorSet tmpMagenta;
     tmpMagenta.darkest = QString("#6f004f");
     tmpMagenta.darker = QString("#a0076c");
     tmpMagenta.dark = QString("#b50d7d");
@@ -67,7 +67,7 @@ FluentUiColorUtils::FluentUiColorUtils()
     tmpMagenta.lightest = QString("#f18cd5");
     Magenta = tmpMagenta;
 
-    FluentUiColorSet tmpPurple;
+    FluColorSet tmpPurple;
     tmpPurple.darkest = QString("#2c0f76");
     tmpPurple.darker = QString("#3d0f99");
     tmpPurple.dark = QString("#4e11ae");
@@ -77,7 +77,7 @@ FluentUiColorUtils::FluentUiColorUtils()
     tmpPurple.lightest = QString("#9e8ed9");
     Purple = tmpPurple;
 
-    FluentUiColorSet tmpBlue;
+    FluColorSet tmpBlue;
     tmpBlue.darkest = QString("#004A83");
     tmpBlue.darker = QString("#005494");
     tmpBlue.dark = QString("#0066B4");
@@ -87,7 +87,7 @@ FluentUiColorUtils::FluentUiColorUtils()
     tmpBlue.lightest = QString("#60ABE4");
     Blue = tmpBlue;
 
-    FluentUiColorSet tmpTeal;
+    FluColorSet tmpTeal;
     tmpTeal.darkest = QString("#006E5B");
     tmpTeal.darker = QString("#007C67");
     tmpTeal.dark = QString("#00977D");
@@ -97,7 +97,7 @@ FluentUiColorUtils::FluentUiColorUtils()
     tmpTeal.lightest = QString("#60CFBC");
     Teal = tmpTeal;
 
-    FluentUiColorSet tmpGreen;
+    FluColorSet tmpGreen;
     tmpGreen.darkest = QString("#094C09");
     tmpGreen.darker = QString("#0C5D0C");
     tmpGreen.dark = QString("#0E6F0E");

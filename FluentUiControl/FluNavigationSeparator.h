@@ -3,7 +3,7 @@
 #include "FluNavigationWidget.h"
 #include <QPaintEvent>
 #include <QPainter>
-#include "../FluentUiUtils/FluentUiThemeUtils.h"
+#include "../FluentUiUtils/FluThemeUtils.h"
 
 class FluNavigationSeparator : public FluNavigationWidget
 {
@@ -31,7 +31,7 @@ class FluNavigationSeparator : public FluNavigationWidget
     {
         QPainter painter(this);
         QColor bgColor = QColor(0, 0, 0, 15);
-        if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)
+        if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
         {
             bgColor = QColor(255, 255, 255, 15);
         }

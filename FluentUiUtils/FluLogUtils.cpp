@@ -1,23 +1,23 @@
-#include "FluentUiLogUtils.h"
+#include "FluLogUtils.h"
 
-QFile* FluentUiLogUtils::gFileLog = nullptr;
-QtMessageHandler FluentUiLogUtils::gDefaultHandler = nullptr;
+QFile* FluLogUtils::gFileLog = nullptr;
+QtMessageHandler FluLogUtils::gDefaultHandler = nullptr;
 
-QString FluentUiLogUtils::getTime()
+QString FluLogUtils::getTime()
 {
     QDateTime dateTime = QDateTime::currentDateTime();
     QString timeStr = dateTime.toString("yyyy-MM-dd hh:mm:ss.zzz");
     return timeStr;
 }
 
-QString FluentUiLogUtils::getFileName(const char* file)
+QString FluLogUtils::getFileName(const char* file)
 {
     QString fileStr = file;
     QString fileNameStr = fileStr.right(fileStr.size() - fileStr.lastIndexOf("\\") - 1);
     return fileNameStr;
 }
 
-void FluentUiLogUtils::init()
+void FluLogUtils::init()
 {
     QDateTime dateTime = QDateTime::currentDateTime();
     QString timeStr = dateTime.toString("[yyyy-MM-dd][hh_mm_ss_zzz]");
@@ -33,7 +33,7 @@ void FluentUiLogUtils::init()
     gDefaultHandler = qInstallMessageHandler(myMessageOutput);
 }
 
-void FluentUiLogUtils::exit()
+void FluLogUtils::exit()
 {
     if (gFileLog != nullptr)
     {
@@ -43,7 +43,7 @@ void FluentUiLogUtils::exit()
     }
 }
 
-void FluentUiLogUtils::myMessageOutput(QtMsgType type, const QMessageLogContext& context, const QString& msg)
+void FluLogUtils::myMessageOutput(QtMsgType type, const QMessageLogContext& context, const QString& msg)
 {
     if (gFileLog)
     {

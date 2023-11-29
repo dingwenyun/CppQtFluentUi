@@ -1,8 +1,8 @@
 #pragma once
 
 #include "FluMenuITemDelegate.h"
-#include "../FluentUiUtils/FluentUiThemeUtils.h"
-#include "../FluentUiUtils/FluentUiFontUtils.h"
+#include "../FluentUiUtils/FluThemeUtils.h"
+#include "../FluentUiUtils/FluFontUtils.h"
 #include <QFontMetrics>
 #include <QStyleOptionViewItem>
 

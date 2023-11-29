@@ -4,9 +4,9 @@
 #include <QObject>
 #include <QString>
 
-#include "FluentUiColorSet.h"
+#include "FluColorSet.h"
 
-class FluentUiColorUtils
+class FluColorUtils
 {
   public:
     QString Black;
@@ -34,22 +34,22 @@ class FluentUiColorUtils
     QString Grey210;
     QString Grey220;
 
-    FluentUiColorSet Yellow;
-    FluentUiColorSet Orange;
-    FluentUiColorSet Red;
-    FluentUiColorSet Magenta;
-    FluentUiColorSet Purple;
-    FluentUiColorSet Blue;
-    FluentUiColorSet Teal;
-    FluentUiColorSet Green;
+    FluColorSet Yellow;
+    FluColorSet Orange;
+    FluColorSet Red;
+    FluColorSet Magenta;
+    FluColorSet Purple;
+    FluColorSet Blue;
+    FluColorSet Teal;
+    FluColorSet Green;
 
   private:
-    FluentUiColorUtils();
+    FluColorUtils();
 
   public:
-    static FluentUiColorUtils* getInstance()
+    static FluColorUtils* getInstance()
     {
-        static FluentUiColorUtils utils;
+        static FluColorUtils utils;
         return &utils;
     }
 };

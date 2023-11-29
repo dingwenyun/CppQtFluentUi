@@ -3,10 +3,10 @@
 #include <QPushButton>
 #include "FluComboBoxBase.h"
 #include "FluTranslateYAnimation.h"
-#include "../FluentUiUtils/FluentUiFontUtils.h"
-#include "../FluentUiUtils/FluentUiThemeUtils.h"
-#include "../FluentUiUtils/FluentUiIconUtils.h"
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluFontUtils.h"
+#include "../FluentUiUtils/FluThemeUtils.h"
+#include "../FluentUiUtils/FluIconUtils.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 
 class FluComboBox : public FluComboBoxBase
 {
@@ -15,8 +15,8 @@ class FluComboBox : public FluComboBoxBase
     FluComboBox(QWidget* parent = nullptr) : FluComboBoxBase(parent)
     {
         m_arrowAni = new FluTranslateYAnimation(this);
-        FluentUiFontUtils::setFont(this);
-        QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluComboBox.qss");
+        FluFontUtils::setFont(this);
+        QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluComboBox.qss");
         setStyleSheet(qss);
     }
 
@@ -43,13 +43,13 @@ class FluComboBox : public FluComboBoxBase
             painter.setOpacity(0.7);
 
         QRect rect = QRect(width() - 22, height() / 2 - 5 + m_arrowAni->getY(), 10, 10);
-        if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)
+        if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
         {
-            painter.drawPixmap(rect, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ChevronDown));
+            painter.drawPixmap(rect, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::ChevronDown));
         }
         else
         {
-            painter.drawPixmap(rect, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ChevronDown));
+            painter.drawPixmap(rect, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::ChevronDown));
         }
     }
 

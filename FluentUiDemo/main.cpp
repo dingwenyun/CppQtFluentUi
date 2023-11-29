@@ -2,15 +2,15 @@
 #include <QWidget>
 #include "FluButtonDemo.h"
 #include "../FluentUiControl/FluCenterLabelWidget.h"
-#include "../FluentUiUtils/FluentUiLogUtils.h"
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluLogUtils.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 #include "FluApiTest_QCursor.h"
 #include "FluToolTipDemo.h"
 #include "../FluentUiControl/FluNavigationPanel.h"
 #include "../FluentUiControl/FluNavigationInterface.h"
 #include <FramelessHelper/Widgets/FramelessWidget.h>
 #include "FluNavigationDemo.h"
-#include "../FluentUiControl/FluFrameLessWidgetV2.h"
+#include "../FluentUiControl/FluFrameLessWidget.h"
 //#include "FramelessWidgetsHelperDemo.h"
 #include "../FluentUiControl/FluDialog.h"
 #include "FluSliderDemo.h"
@@ -23,6 +23,7 @@
 #include "FluApiTest_WheelEvent.h"
 #include "FluScrollAreaDemo.h"
 #include "FluColorDemo.h"
+#include "../FluentUiControl/FluFrameLessWindow.h"
 
 int main(int argc, char** argv)
 {
@@ -37,7 +38,7 @@ int main(int argc, char** argv)
     // ButtonDemo buttonDemo;
     // buttonDemo.show();
 
-    FluentUiLogUtils::init();
+    FluLogUtils::init();
     LogDebug << "📢 Tips:";
 
     // FluCenterLabelWidget widget(nullptr, "TempText");
@@ -68,8 +69,11 @@ int main(int argc, char** argv)
     // FluNavigationInterface demo;
     // demo.show();
 
-    // FluFrameLessWidgetV2 v2;
-    // v2.show();
+    // FluFrameLessWidget demo;
+    // demo.show();
+
+    FluFrameLessWindow demo;
+    demo.show();
 
     // FluDialog dialog("a dialog example", "just a example", nullptr);
     // dialog.exec();
@@ -101,8 +105,8 @@ int main(int argc, char** argv)
     // FluScrollAreaDemo demo;
     // demo.show();
 
-    FluColorDemo demo;
-    demo.show();
+    // FluColorDemo demo;
+    // demo.show();
 
     return app.exec();
 }

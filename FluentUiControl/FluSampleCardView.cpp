@@ -4,7 +4,7 @@
 #include <QStyleOption>
 #include <QPainter>
 #include <QStyle>
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 
 FluSampleCardView::FluSampleCardView(QWidget* parent /*= nullptr*/, QString title /*= ""*/) : QWidget(parent)
 {
@@ -25,7 +25,7 @@ FluSampleCardView::FluSampleCardView(QWidget* parent /*= nullptr*/, QString titl
     m_vLayout->addStretch(1);
     setLayout(m_vLayout);
 
-    QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluSampleCardView.qss");
+    QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluSampleCardView.qss");
     setStyleSheet(qss);
 }
 

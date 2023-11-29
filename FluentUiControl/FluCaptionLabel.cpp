@@ -12,5 +12,5 @@ FluCaptionLabel::FluCaptionLabel(QString text, QWidget* parent /*= nullptr*/) : 
 
 QFont FluCaptionLabel::_getFont()
 {
-    return FluentUiFontUtils::getFont(12);
+    return FluFontUtils::getFont(12);
 }

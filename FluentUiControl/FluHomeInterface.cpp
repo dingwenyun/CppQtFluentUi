@@ -32,7 +32,7 @@ FluHomeInterface::FluHomeInterface(QWidget* parent /*= nullptr*/) : QScrollArea(
     m_view->setLayout(m_vLayout);
 
     setWidget(m_view);
-    QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluHomeInterface.qss");
+    QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluHomeInterface.qss");
     setStyleSheet(qss);
     /*setStyleSheet(R"(FluBannerWidget > #galleryLabel {
 font: 42px 'Segoe UI', 'Microsoft YaHei';

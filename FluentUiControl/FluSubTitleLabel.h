@@ -1,5 +1,5 @@
 #include "FluLabelBase.h"
-#include "../FluentUiUtils/FluentUiFontUtils.h"
+#include "../FluentUiUtils/FluFontUtils.h"
 
 class FluSubTitleLabel : public FluLabelBase
 {
@@ -10,6 +10,6 @@ class FluSubTitleLabel : public FluLabelBase
 
     QFont _getFont()
     {
-        return FluentUiFontUtils::getFont(20, QFont::DemiBold);
+        return FluFontUtils::getFont(20, QFont::DemiBold);
     }
 };

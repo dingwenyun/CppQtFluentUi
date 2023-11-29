@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QApplication>
-#include "../FluentUiUtils/FluentUiLogUtils.h"
+#include "../FluentUiUtils/FluLogUtils.h"
 #include <QWidget>
 #include <QMouseEvent>
 

@@ -1,4 +1,4 @@
-#include "FluFrameLessWidgetV2.h"
+#include "FluFrameLessWidget.h"
 #include <QtCore/qdatetime.h>
 #if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 #include <QtGui/qshortcut.h>
@@ -20,20 +20,20 @@ using namespace Global;
 FRAMELESSHELPER_STRING_CONSTANT(Geometry)
 FRAMELESSHELPER_STRING_CONSTANT(DevicePixelRatio)
 
-FluFrameLessWidgetV2::FluFrameLessWidgetV2(QWidget *parent) : FramelessWidget(parent)
+FluFrameLessWidget::FluFrameLessWidget(QWidget *parent) : FramelessWidget(parent)
 {
     initialize();
-    connect(FramelessManager::instance(), &FramelessManager::systemThemeChanged, this, &FluFrameLessWidgetV2::updateStyleSheet);
+    connect(FramelessManager::instance(), &FramelessManager::systemThemeChanged, this, &FluFrameLessWidget::updateStyleSheet);
 }
 
-FluFrameLessWidgetV2::~FluFrameLessWidgetV2() = default;
+FluFrameLessWidget::~FluFrameLessWidget() = default;
 
-void FluFrameLessWidgetV2::closeEvent(QCloseEvent *event)
+void FluFrameLessWidget::closeEvent(QCloseEvent *event)
 {
     FramelessWidget::closeEvent(event);
 }
 
-void FluFrameLessWidgetV2::initialize()
+void FluFrameLessWidget::initialize()
 {
     setWindowTitle(tr("FramelessHelper demo application - QWidget"));
     setWindowIcon(QFileIconProvider().icon(QFileIconProvider::Computer));
@@ -50,8 +50,8 @@ void FluFrameLessWidgetV2::initialize()
     const auto mainLayout = new QVBoxLayout(this);
     mainLayout->setSpacing(0);
     mainLayout->setContentsMargins(0, 0, 0, 0);
-    mainLayout->addWidget(m_titleBar);
-    mainLayout->addLayout(m_contentLayout);
+    mainLayout->addWidget(m_titleBar, Qt::AlignTop);
+    mainLayout->addLayout(m_contentLayout, 1);
     setLayout(mainLayout);
 
     updateStyleSheet();
@@ -65,13 +65,13 @@ void FluFrameLessWidgetV2::initialize()
 #endif  // Q_OS_MACOS
 }
 
-void FluFrameLessWidgetV2::updateStyleSheet()
+void FluFrameLessWidget::updateStyleSheet()
 {
     //  m_contentWidget->setStyleSheet("background-color:pink;");
     update();
 }
 
-void FluFrameLessWidgetV2::waitReady()
+void FluFrameLessWidget::waitReady()
 {
     FramelessWidgetsHelper *helper = FramelessWidgetsHelper::get(this);
     helper->waitForReady();

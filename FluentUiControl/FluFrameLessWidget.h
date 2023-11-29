@@ -1,6 +1,6 @@
 #pragma once
 
-#include <FramelessHelper/Widgets/framelesswidget.h>
+#include <FramelessHelper/Widgets/FramelessWidget>
 #include <QHBoxLayout>
 
 QT_BEGIN_NAMESPACE
@@ -12,24 +12,25 @@ FRAMELESSHELPER_BEGIN_NAMESPACE
 class StandardTitleBar;
 FRAMELESSHELPER_END_NAMESPACE
 
-class FluFrameLessWidgetV2 : public FRAMELESSHELPER_PREPEND_NAMESPACE(FramelessWidget)
+class FluFrameLessWidget : public FRAMELESSHELPER_PREPEND_NAMESPACE(FramelessWidget)
 {
     Q_OBJECT
-    Q_DISABLE_COPY_MOVE(FluFrameLessWidgetV2)
+    Q_DISABLE_COPY_MOVE(FluFrameLessWidget)
 
   public:
-    explicit FluFrameLessWidgetV2(QWidget *parent = nullptr);
-    ~FluFrameLessWidgetV2() override;
+    explicit FluFrameLessWidget(QWidget *parent = nullptr);
+    ~FluFrameLessWidget() override;
 
-    void waitReady();
+    virtual void waitReady();
+    virtual void initialize();
 
   protected:
     void closeEvent(QCloseEvent *event) override;
 
-  private:
-    void initialize();
+    // private:
+    // void initialize();
 
-  private Q_SLOTS:
+  public slots:
     void updateStyleSheet();
 
   protected:

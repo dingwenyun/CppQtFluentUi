@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QPaintEvent>
 #include <QPainter>
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 
 class FluLineEditButton : public QToolButton
 {

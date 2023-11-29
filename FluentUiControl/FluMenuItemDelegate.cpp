@@ -12,7 +12,7 @@ void FluMenuItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     painter->save();
     int c = 0;
-    if (FluentUiThemeUtils::getInstance()->getDarkMode() != FluentUiThemeUtilsDarkMode::Dark)
+    if (FluThemeUtils::getInstance()->getThemeMode() != FluThemeMode::Dark)
         c = 0;
     else
         c = 255;

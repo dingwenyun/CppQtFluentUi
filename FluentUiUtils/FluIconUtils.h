@@ -6,17 +6,17 @@
 
 #include "../FluentUiControl/FluDef.h"
 
-#define FluGetIcon(nType) FluentUiIconUtils::GetFluentIcon(nType)
-#define FluGetIconPixmap(nType) FluentUiIconUtils::GetFluentIconPixmap(nType)
+#define FluGetIcon(nType) FluIconUtils::GetFluentIcon(nType)
+#define FluGetIconPixmap(nType) FluIconUtils::GetFluentIconPixmap(nType)
 
-class FluentUiIconUtils
+class FluIconUtils
 {
   private:
-    FluentUiIconUtils();
-    ~FluentUiIconUtils();
+    FluIconUtils();
+    ~FluIconUtils();
 
   public:
-    static FluentUiIconUtils* getInstance();
+    static FluIconUtils* getInstance();
     static QPixmap GetFluentIconPixmap(FluAwesomeType nType);
     static QIcon GetFluentIcon(FluAwesomeType nType);
 

@@ -3,27 +3,24 @@
 #include "FluDef.h"
 #include <QHBoxLayout>
 #include <QVBoxLayout>
-#include "FluFrameLessWidgetV1.h"
+#include "FluFrameLessWidget.h"
 #include "FluNavigationInterface.h"
 #include <QWidget>
 #include <QStackedLayout>
 
-class FluMainWidget : public FluFrameLessWidgetV1
+class FluMainWidget : public FluFrameLessWidget
 {
     Q_OBJECT
 
   public:
-    FluMainWidget(QWidget* parent = nullptr, QWidget* centerWidget = nullptr);
+    FluMainWidget(QWidget* parent = nullptr);
 
+    void initialize();
+
+  protected:
+  private:
     // 水平布局
     QHBoxLayout* m_hLayout;
-
-    // QWidge* m_leftWidget;
     FluNavigationInterface* m_navigationInterface;
-    // QVBoxLayout* m_leftVLayout;
-
-    // QWidget* m_rightTopWidget;
-    // QWidget* m_rightBottomWidget;
-    // QVBoxLayout* m_rightVLayout;
     QStackedLayout* m_stackLayout;
 };

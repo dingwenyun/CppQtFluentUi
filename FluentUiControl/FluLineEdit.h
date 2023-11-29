@@ -10,10 +10,10 @@
 #include <QPainterPath>
 #include "FluLineEditButton.h"
 #include "FluCompleterMenu.h"
-#include "../FluentUiUtils/FluentUiFontUtils.h"
-#include "../FluentUiUtils/FluentUiIconUtils.h"
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
-#include "../FluentUiUtils/FluentUiLogUtils.h"
+#include "../FluentUiUtils/FluFontUtils.h"
+#include "../FluentUiUtils/FluIconUtils.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
+#include "../FluentUiUtils/FluLogUtils.h"
 #include <QTimer>
 #include <QCompleter>
 
@@ -31,10 +31,10 @@ class FluLineEdit : public QLineEdit
         setFixedHeight(33);
         setAttribute(Qt::WA_MacShowFocusRect, false);
 
-        FluentUiFontUtils::setFont(this);
+        FluFontUtils::setFont(this);
 
         m_hBoxLayout = new QHBoxLayout(this);
-        m_clearButton = new FluLineEditButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ChromeClose), this);
+        m_clearButton = new FluLineEditButton(FluIconUtils::GetFluentIconPixmap(FluAwesomeType::ChromeClose), this);
         m_clearButton->setObjectName("lineEditButton");
 
         m_clearButton->setFixedSize(29, 25);
@@ -45,7 +45,7 @@ class FluLineEdit : public QLineEdit
         m_hBoxLayout->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
         m_hBoxLayout->addWidget(m_clearButton, 0, Qt::AlignRight);
 
-        QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluLineEdit.qss");
+        QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluLineEdit.qss");
         setStyleSheet(qss);
 
         connect(m_clearButton, &FluLineEditButton::clicked, [=](bool bChecked) { clear(); });

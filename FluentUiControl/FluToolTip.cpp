@@ -1,6 +1,6 @@
 #include "FluToolTip.h"
 #include <qmath.h>
-#include "../FluentUiUtils/FluentUiLogUtils.h"
+#include "../FluentUiUtils/FluLogUtils.h"
 
 FluToolTip::FluToolTip(QWidget* parent /*= nullptr*/, QString text /*= ""*/) : QFrame(parent)
 {
@@ -56,7 +56,7 @@ void FluToolTip::__setQss()
 {
     m_container->setObjectName("container");
     m_label->setObjectName("contentLabel");
-    QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluToolTip.qss");
+    QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluToolTip.qss");
     setStyleSheet(qss);
 
     m_label->adjustSize();

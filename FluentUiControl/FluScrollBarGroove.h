@@ -2,8 +2,8 @@
 
 #include <QWidget>
 #include "FluArrowButton.h"
-#include "../FluentUiUtils/FluentUiIconUtils.h"
-#include "../FluentUiUtils/FluentUiThemeUtils.h"
+#include "../FluentUiUtils/FluIconUtils.h"
+#include "../FluentUiUtils/FluThemeUtils.h"
 #include <QGraphicsOpacityEffect>
 #include <QPropertyAnimation>
 
@@ -16,8 +16,8 @@ class FluScrollBarGroove : public QWidget
         if (orient == Qt::Vertical)
         {
             setFixedWidth(12);
-            m_upButton = new FluArrowButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::CaretSolidUp));
-            m_downButton = new FluArrowButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::CaretSolidDown));
+            m_upButton = new FluArrowButton(FluIconUtils::GetFluentIconPixmap(FluAwesomeType::CaretSolidUp));
+            m_downButton = new FluArrowButton(FluIconUtils::GetFluentIconPixmap(FluAwesomeType::CaretSolidDown));
 
             m_vLayout = new QVBoxLayout(this);
             setLayout(m_vLayout);
@@ -29,8 +29,8 @@ class FluScrollBarGroove : public QWidget
         else
         {
             setFixedHeight(12);
-            m_upButton = new FluArrowButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::CaretSolidLeft));
-            m_downButton = new FluArrowButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::CaretSolidRight));
+            m_upButton = new FluArrowButton(FluIconUtils::GetFluentIconPixmap(FluAwesomeType::CaretSolidLeft));
+            m_downButton = new FluArrowButton(FluIconUtils::GetFluentIconPixmap(FluAwesomeType::CaretSolidRight));
 
             m_hLayout = new QHBoxLayout(this);
             setLayout(m_hLayout);
@@ -66,7 +66,7 @@ class FluScrollBarGroove : public QWidget
         painter.setRenderHints(QPainter::Antialiasing);
         painter.setPen(Qt::NoPen);
 
-        bool bDarkMode = FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark;
+        bool bDarkMode = FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark;
 
         if (!bDarkMode)
         {

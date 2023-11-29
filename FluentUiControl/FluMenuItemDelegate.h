@@ -2,7 +2,7 @@
 
 #include <QStyledItemDelegate>
 #include <QPainter>
-#include "../FluentUiUtils/FluentUiThemeUtils.h"
+#include "../FluentUiUtils/FluThemeUtils.h"
 #include <QStyleOptionViewItem>
 #include <QModelIndex>
 

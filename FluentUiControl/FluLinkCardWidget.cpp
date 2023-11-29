@@ -3,7 +3,7 @@
 #include <QStyle>
 #include <QPainter>
 #include <QStyleOption>
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 
 FluLinkCardWidget::FluLinkCardWidget(QWidget* parent /*= nullptr*/, QPixmap img /*= QPixmap()*/, QString title /*= ""*/, QString content /*= ""*/, QString url /*= "" */) : QWidget(parent)
 {
@@ -16,7 +16,7 @@ FluLinkCardWidget::FluLinkCardWidget(QWidget* parent /*= nullptr*/, QPixmap img 
     m_iconWidget = new FluImgWidget(this, img);
     m_titleLabel = new QLabel(this);
     m_contentLabel = new QLabel(this);
-    m_urlWidegt = new FluImgWidget(this, FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::Link));
+    m_urlWidegt = new FluImgWidget(this, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::Link));
 
     m_vLayout->addWidget(m_iconWidget);
     m_vLayout->addWidget(m_titleLabel);

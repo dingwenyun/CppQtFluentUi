@@ -2,7 +2,7 @@
 #include <QStyle>
 #include <QPainter>
 #include <QStyleOption>
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 
 FluLinkCardView::FluLinkCardView(QWidget* parent /*= nullptr*/) : QScrollArea(parent)
 {
@@ -19,7 +19,7 @@ FluLinkCardView::FluLinkCardView(QWidget* parent /*= nullptr*/) : QScrollArea(pa
     setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_view->setObjectName("view");
 
-    QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluLinkCardView.qss");
+    QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluLinkCardView.qss");
     setStyleSheet(qss);
 }
 

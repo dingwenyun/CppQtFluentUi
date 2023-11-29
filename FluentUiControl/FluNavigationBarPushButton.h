@@ -32,7 +32,7 @@ class FluNavigationBarPushButton : public FluNavigationPushButton
 
         if (getSelected())
         {
-            if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)
+            if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
             {
                 painter.setBrush(QColor(255, 255, 255, 42));
             }
@@ -60,7 +60,7 @@ class FluNavigationBarPushButton : public FluNavigationPushButton
                 alpha = 9;
 
             int c = 0;
-            if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)
+            if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
             {
                 c = 255;
             }
@@ -89,7 +89,7 @@ class FluNavigationBarPushButton : public FluNavigationPushButton
             painter.setPen(Qt::blue);  // theme color
         else
         {
-            if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)
+            if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
             {
                 painter.setPen(Qt::white);
             }

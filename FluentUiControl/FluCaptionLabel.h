@@ -1,7 +1,7 @@
 #pragma once
 
 #include "FluLabelBase.h"
-#include "../FluentUiUtils/FluentUiFontUtils.h"
+#include "../FluentUiUtils/FluFontUtils.h"
 
 class FluCaptionLabel : public FluLabelBase
 {

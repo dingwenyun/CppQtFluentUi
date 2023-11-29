@@ -23,53 +23,59 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FluentUiUtilsGlobal.h">
+    <ClInclude Include="FluUtilsGlobal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClCompile Include="FluentUiUtils.cpp">
+    <ClCompile Include="FluUiUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClInclude Include="FluentUiUtils.h">
+    <ClInclude Include="FluUiUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FluentUiIconUtils.h">
+    <ClInclude Include="FluIconUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FluentUiStyleSheetUitls.h">
+    <ClInclude Include="FluStyleSheetUitls.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FluentUiLogUtils.h">
+    <ClInclude Include="FluLogUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FluentUiColorSet.h">
+    <ClInclude Include="FluColorSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FluentUiColorUtils.h">
+    <ClInclude Include="FluColorUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FluFontUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FluentUiIconUtils.cpp">
+    <ClCompile Include="FluIconUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FluentUiStyleSheetUitls.cpp">
+    <ClCompile Include="FluStyleSheetUitls.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FluentUiLogUtils.cpp">
+    <ClCompile Include="FluLogUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FluentUiColorSet.cpp">
+    <ClCompile Include="FluColorSet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FluentUiColorUtils.cpp">
+    <ClCompile Include="FluColorUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FluentUiThemeUtils.cpp">
+    <ClCompile Include="FluThemeUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluFontUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="FluentUiThemeUtils.h">
+    <QtMoc Include="FluThemeUtils.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

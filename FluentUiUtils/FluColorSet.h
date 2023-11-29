@@ -3,7 +3,7 @@
 #include "../FluentUiControl/FluDef.h"
 #include <QString>
 
-class FluentUiColorSet
+class FluColorSet
 {
   public:
     QString darkest;
@@ -15,5 +15,5 @@ class FluentUiColorSet
     QString lightest;
 
   public:
-    FluentUiColorSet();
+    FluColorSet();
 };

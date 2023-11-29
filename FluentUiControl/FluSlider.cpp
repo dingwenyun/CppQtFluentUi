@@ -1,16 +1,16 @@
 #include "FluDef.h"
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 #include "FluSlider.h"
 
 FluSlider::FluSlider(QWidget* parent) : QSlider(parent)
 {
-    QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluSlider.qss");
+    QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluSlider.qss");
     setStyleSheet(qss);
 }
 
 FluSlider::FluSlider(Qt::Orientation orientation, QWidget* parent /*= nullptr*/) : QSlider(orientation, parent)
 {
-    QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluSlider.qss");
+    QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluSlider.qss");
     setStyleSheet(qss);
 }
 

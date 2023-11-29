@@ -2,7 +2,7 @@
 
 #include "FluDef.h"
 #include "FluNavigationPanel.h"
-#include "../FluentUiUtils/FluentUiLogUtils.h"
+#include "../FluentUiUtils/FluLogUtils.h"
 #include <QFunctionPointer>
 #include <QFrame>
 #include <QStyleOption>

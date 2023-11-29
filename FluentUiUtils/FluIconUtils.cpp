@@ -1,27 +1,27 @@
 #include "../FluentUiControl/FluDef.h"
-#include "FluentUiIconUtils.h"
+#include "FluIconUtils.h"
 #include <QFontDatabase>
 #include <QPainter>
 #include "../FluentUiControl/FluDef.h"
 
-FluentUiIconUtils::FluentUiIconUtils()
+FluIconUtils::FluIconUtils()
 {
     int fontId = QFontDatabase::addApplicationFont("../res/Segoe_Fluent_Icons.ttf");
     QStringList fontFamilies = QFontDatabase::applicationFontFamilies(fontId);
     m_fluentFont.setFamily(fontFamilies.at(0));
 }
 
-FluentUiIconUtils::~FluentUiIconUtils()
+FluIconUtils::~FluIconUtils()
 {
 }
 
-FluentUiIconUtils* FluentUiIconUtils::getInstance()
+FluIconUtils* FluIconUtils::getInstance()
 {
-    static FluentUiIconUtils utils;
+    static FluIconUtils utils;
     return &utils;
 }
 
-QPixmap FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType nType)
+QPixmap FluIconUtils::GetFluentIconPixmap(FluAwesomeType nType)
 {
     QFont tmpFont = getInstance()->m_fluentFont;
     tmpFont.setPixelSize(20);
@@ -41,7 +41,7 @@ QPixmap FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType nType)
     return tmpPixMap;
 }
 
-QIcon FluentUiIconUtils::GetFluentIcon(FluAwesomeType nType)
+QIcon FluIconUtils::GetFluentIcon(FluAwesomeType nType)
 {
     return QIcon(GetFluentIconPixmap(nType));
 }

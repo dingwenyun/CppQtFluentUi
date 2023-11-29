@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../FluentUiUtils/FluentUiColorUtils.h"
+#include "../FluentUiUtils/FluColorUtils.h"
 #include <QWidget>
 #include <QPainter>
 
@@ -12,7 +12,7 @@ class FluColorDemo : public QWidget
         resize(250, 280);
     }
 
-    void fillColorSet(const FluentUiColorSet& colorSet, QVector<QString>& colors)
+    void fillColorSet(const FluColorSet& colorSet, QVector<QString>& colors)
     {
         colors.push_back(colorSet.darkest);
         colors.push_back(colorSet.darker);
@@ -30,13 +30,13 @@ class FluColorDemo : public QWidget
         painter.setPen(Qt::NoPen);
 
         QVector<QString> colors;
-        fillColorSet(FluentUiColorUtils::getInstance()->Yellow, colors);
-        fillColorSet(FluentUiColorUtils::getInstance()->Orange, colors);
-        fillColorSet(FluentUiColorUtils::getInstance()->Red, colors);
-        fillColorSet(FluentUiColorUtils::getInstance()->Magenta, colors);
-        fillColorSet(FluentUiColorUtils::getInstance()->Purple, colors);
-        fillColorSet(FluentUiColorUtils::getInstance()->Blue, colors);
-        fillColorSet(FluentUiColorUtils::getInstance()->Green, colors);
+        fillColorSet(FluColorUtils::getInstance()->Yellow, colors);
+        fillColorSet(FluColorUtils::getInstance()->Orange, colors);
+        fillColorSet(FluColorUtils::getInstance()->Red, colors);
+        fillColorSet(FluColorUtils::getInstance()->Magenta, colors);
+        fillColorSet(FluColorUtils::getInstance()->Purple, colors);
+        fillColorSet(FluColorUtils::getInstance()->Blue, colors);
+        fillColorSet(FluColorUtils::getInstance()->Green, colors);
 
         for (int i = 0; i < (colors.size() / 7); i++)
         {

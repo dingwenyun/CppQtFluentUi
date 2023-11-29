@@ -7,7 +7,7 @@
 #include <QApplication>
 #include <QScreen>
 #include "../FluentUiControl/FluNavigationPanel.h"
-#include "../FluentUiControl/FluFrameLessWidgetV2.h"
+#include "../FluentUiControl/FluFrameLessWidget.h"
 #include "../FluentUiControl/FluNavigationInterface.h"
 
 class FluWidgetDemo : public QFrame
@@ -21,7 +21,7 @@ class FluWidgetDemo : public QFrame
     QHBoxLayout* m_hLayout;
 };
 
-class FluWindowDemo : public FluFrameLessWidgetV2
+class FluWindowDemo : public FluFrameLessWidget
 {
     Q_OBJECT
   public:

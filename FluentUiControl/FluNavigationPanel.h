@@ -8,8 +8,8 @@
 #include "FluNavigationItemLayout.h"
 #include "FluNavigationHistory.h"
 #include "FluNavigationToolButton.h"
-#include "../FluentUiUtils/FluentUiIconUtils.h"
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluIconUtils.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 #include "FluNavigationTreeWidget.h"
 #include <QPainter>
 #include <QStyleOption>
@@ -52,8 +52,8 @@ class FluNavigationPanel : public QFrame
         m_scrollArea = new QScrollArea(this);
         m_scrollWidget = new QWidget();
 
-        m_menuButton = new FluNavigationToolButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::GlobalNavButton), this);
-        m_returnButton = new FluNavigationToolButton(FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::Back), this);
+        m_menuButton = new FluNavigationToolButton(FluIconUtils::GetFluentIconPixmap(FluAwesomeType::GlobalNavButton), this);
+        m_returnButton = new FluNavigationToolButton(FluIconUtils::GetFluentIconPixmap(FluAwesomeType::Back), this);
         m_returnButton->setVisible(false);
 
         // ---
@@ -109,7 +109,7 @@ class FluNavigationPanel : public QFrame
         setProperty("menu", false);
         m_scrollWidget->setObjectName("scrollWidget");
         // mark it! styleSheet
-        QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluNavigationInterface.qss");
+        QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluNavigationInterface.qss");
         setStyleSheet(qss);
         m_scrollWidget->setStyleSheet(qss);
 

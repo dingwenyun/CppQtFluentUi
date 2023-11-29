@@ -1,7 +1,7 @@
 #pragma once
 #include <QWidget>
 #include "../FluentUiControl/FluComboBox.h"
-#include "../FluentUiUtils/FluentUiLogUtils.h"
+#include "../FluentUiUtils/FluLogUtils.h"
 class FluComboBoxDemo : public QWidget
 {
     Q_OBJECT

@@ -1,6 +1,6 @@
 #include "FluNavigationTreeWidget.h"
 #include "FluNavigationTreeItem.h"
-#include "../FluentUiUtils/FluentUiLogUtils.h"
+#include "../FluentUiUtils/FluLogUtils.h"
 
 FluNavigationTreeWidget::FluNavigationTreeWidget(QPixmap icon, QString text, bool bSelectable, QWidget* parent) : FluNavigationTreeWidgetBase(bSelectable, parent)
 {

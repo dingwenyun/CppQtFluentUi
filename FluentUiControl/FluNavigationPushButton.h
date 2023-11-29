@@ -1,8 +1,8 @@
 #pragma once
 
 #include "FluNavigationWidget.h"
-#include "../FluentUiUtils/FluentUiThemeUtils.h"
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluThemeUtils.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 #include <QPainter>
 #include <QMargins>
 
@@ -66,14 +66,14 @@ class FluNavigationPushButton : public FluNavigationWidget
 
         QRect globalRect = QRect(mapToGlobal(QPoint()), size());
 
-        if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Light)
+        if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Light)
         {
             normalCorlor = QColor(0, 0, 0, 6);
             enterColor = QColor(0, 0, 0, 10);
             fontColor = QColor(0, 0, 0);
         }
 
-        if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)
+        if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
         {
             normalCorlor = QColor(255, 255, 255, 6);
             enterColor = QColor(255, 255, 255, 10);

@@ -9,8 +9,8 @@
 #include <QGraphicsOpacityEffect>
 #include <QPropertyAnimation>
 #include <QPainter>
-#include "../FluentUiUtils/FluentUiIconUtils.h"
-#include "../FluentUiUtils/FluentUiLogUtils.h"
+#include "../FluentUiUtils/FluIconUtils.h"
+#include "../FluentUiUtils/FluLogUtils.h"
 #include <QAbstractScrollArea>
 #include "FluScrollBarGroove.h"
 #include "FluScrollBarHandle.h"

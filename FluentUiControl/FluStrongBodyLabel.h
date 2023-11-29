@@ -17,6 +17,6 @@ class FluStrongBodyLabel : public FluLabelBase
 
     QFont _getFont()
     {
-        return FluentUiFontUtils::getFont(14, QFont::DemiBold);
+        return FluFontUtils::getFont(14, QFont::DemiBold);
     }
 };

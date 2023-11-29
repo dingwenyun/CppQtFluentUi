@@ -1,5 +1,5 @@
 #include "FluNavigationItemLayout.h"
-#include "../FluentUiUtils/FluentUiLogUtils.h"
+#include "../FluentUiUtils/FluLogUtils.h"
 
 FluNavigationItemLayout::FluNavigationItemLayout(QWidget* parent /*= nullptr*/) : QVBoxLayout(parent)
 {

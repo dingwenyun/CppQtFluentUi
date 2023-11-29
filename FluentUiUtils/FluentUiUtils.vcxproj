@@ -219,23 +219,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="FluentUiColorSet.cpp" />
-    <ClCompile Include="FluentUiColorUtils.cpp" />
-    <ClCompile Include="FluentUiFontUtils.cpp" />
-    <ClCompile Include="FluentUiLogUtils.cpp" />
-    <ClInclude Include="FluentUiColorUtils.h" />
-    <ClInclude Include="FluentUiColorSet.h" />
-    <ClInclude Include="FluentUiFontUtils.h" />
-    <ClInclude Include="FluentUiIconUtils.h" />
-    <ClInclude Include="FluentUiStyleSheetUitls.h" />
-    <QtMoc Include="FluentUiThemeUtils.h" />
-    <ClInclude Include="FluentUiUtilsGlobal.h" />
-    <ClInclude Include="FluentUiUtils.h" />
-    <ClCompile Include="FluentUiIconUtils.cpp" />
-    <ClCompile Include="FluentUiStyleSheetUitls.cpp" />
-    <ClCompile Include="FluentUiThemeUtils.cpp" />
-    <ClCompile Include="FluentUiUtils.cpp" />
-    <ClInclude Include="FluentUiLogUtils.h" />
+    <ClCompile Include="FluColorSet.cpp" />
+    <ClCompile Include="FluColorUtils.cpp" />
+    <ClCompile Include="FluFontUtils.cpp" />
+    <ClCompile Include="FluLogUtils.cpp" />
+    <ClInclude Include="FluColorUtils.h" />
+    <ClInclude Include="FluColorSet.h" />
+    <ClInclude Include="FluFontUtils.h" />
+    <ClInclude Include="FluIconUtils.h" />
+    <ClInclude Include="FluStyleSheetUitls.h" />
+    <QtMoc Include="FluThemeUtils.h" />
+    <ClInclude Include="FluUtilsGlobal.h" />
+    <ClInclude Include="FluUiUtils.h" />
+    <ClCompile Include="FluIconUtils.cpp" />
+    <ClCompile Include="FluStyleSheetUitls.cpp" />
+    <ClCompile Include="FluThemeUtils.cpp" />
+    <ClCompile Include="FluUiUtils.cpp" />
+    <ClInclude Include="FluLogUtils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

@@ -78,7 +78,7 @@ void FluNavigationTreeItem::paintEvent(QPaintEvent* event)
 
     painter.translate(width() - 20, 18);
     painter.rotate(m_nArrowAngle);
-    painter.drawPixmap(QRect(-5, -5, 10, 10), FluentUiIconUtils::GetFluentIconPixmap(FluAwesomeType::ChevronDown));
+    painter.drawPixmap(QRect(-5, -5, 10, 10), FluIconUtils::GetFluentIconPixmap(FluAwesomeType::ChevronDown));
 }
 
 void FluNavigationTreeItem::mouseReleaseEvent(QMouseEvent* event)

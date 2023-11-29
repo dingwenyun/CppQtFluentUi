@@ -2,8 +2,8 @@
 
 #include "FluNavigationPushButton.h"
 #include "FluNavigationTreeWidget.h"
-#include "../FluentUiUtils/FluentUiIconUtils.h"
-#include "../FluentUiUtils/FluentUiLogUtils.h"
+#include "../FluentUiUtils/FluIconUtils.h"
+#include "../FluentUiUtils/FluLogUtils.h"
 #include <QPropertyAnimation>
 #include <QMargins>
 

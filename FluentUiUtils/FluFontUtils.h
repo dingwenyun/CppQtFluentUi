@@ -3,7 +3,7 @@
 #include <QWidget>
 #include <QFont>
 
-class FluentUiFontUtils
+class FluFontUtils
 {
   public:
     static void setFont(QWidget* widget, int fontSize = 14, QFont::Weight weight = QFont::Normal)

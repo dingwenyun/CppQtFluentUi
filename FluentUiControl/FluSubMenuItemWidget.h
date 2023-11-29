@@ -4,7 +4,7 @@
 #include <QListWidgetItem>
 #include <QPainter>
 #include "FluRoundMenu.h"
-#include "../FluentUiUtils/FluentUiIconUtils.h"
+#include "../FluentUiUtils/FluIconUtils.h"
 
 class FluSubMenuItemWidget : public QWidget
 {

@@ -4,8 +4,8 @@
 #include "FluMenuAnimationType.h"
 #include "FluShortcutMenuItemDelegate.h"
 #include "FluMenuAnimationManager.h"
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
-#include "../FluentUiUtils/FluentUiLogUtils.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
+#include "../FluentUiUtils/FluLogUtils.h"
 #include <QEvent>
 
 class FluMenuActionListWidget : public QListWidget
@@ -28,7 +28,7 @@ class FluMenuActionListWidget : public QListWidget
         setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-        QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluMenuActionListWidget.qss");
+        QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluMenuActionListWidget.qss");
         setStyleSheet(qss);
     }
 

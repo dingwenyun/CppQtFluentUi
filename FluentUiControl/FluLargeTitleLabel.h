@@ -1,5 +1,5 @@
 #pragma once
-#include "../FluentUiUtils/FluentUiFontUtils.h"
+#include "../FluentUiUtils/FluFontUtils.h"
 #include "FluLabelBase.h"
 
 class FluLargeTitleLabel : public FluLabelBase
@@ -11,6 +11,6 @@ class FluLargeTitleLabel : public FluLabelBase
 
     QFont _getFont()
     {
-        return FluentUiFontUtils::getFont(40, QFont::DemiBold);
+        return FluFontUtils::getFont(40, QFont::DemiBold);
     }
 };

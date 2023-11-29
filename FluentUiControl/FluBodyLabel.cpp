@@ -12,5 +12,5 @@ FluBodyLabel::FluBodyLabel(QString text, QWidget* parent /*= nullptr*/) : FluBod
 
 QFont FluBodyLabel::_getFont()
 {
-    return FluentUiFontUtils::getFont(14);
+    return FluFontUtils::getFont(14);
 }

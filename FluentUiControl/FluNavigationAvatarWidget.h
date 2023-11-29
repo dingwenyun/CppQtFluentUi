@@ -3,7 +3,7 @@
 #include "FluNavigationWidget.h"
 #include <QWidget>
 #include <QPainter>
-#include "../FluentUiUtils/FluentUiThemeUtils.h"
+#include "../FluentUiUtils/FluThemeUtils.h"
 
 class FluNavigationAvatarWidget : public FluNavigationWidget
 {
@@ -30,14 +30,14 @@ class FluNavigationAvatarWidget : public FluNavigationWidget
         if (getEnter())
         {
             // 绘制背景颜色
-            if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)
+            if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
             {
                 QColor bgColor = QColor(255, 255, 255, 10);
                 painter.setBrush(bgColor);
                 painter.drawRoundedRect(rect(), 5, 5);
             }
 
-            if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Light)
+            if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Light)
             {
                 QColor bgColor = QColor(0, 0, 0, 10);
                 painter.setBrush(bgColor);
@@ -54,14 +54,14 @@ class FluNavigationAvatarWidget : public FluNavigationWidget
         // 不是压缩状态
         if (!getCompacted())
         {
-            if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Dark)
+            if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
             {
                 painter.setPen(Qt::white);
                 painter.setFont(font());
                 painter.drawText(44, 0, 255, 36, Qt::AlignVCenter, getName());
             }
 
-            if (FluentUiThemeUtils::getInstance()->getDarkMode() == FluentUiThemeUtilsDarkMode::Light)
+            if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Light)
             {
                 painter.setPen(Qt::black);
                 painter.setFont(font());

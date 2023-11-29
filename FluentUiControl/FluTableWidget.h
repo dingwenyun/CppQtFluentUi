@@ -6,7 +6,7 @@
 #include "FluTableView.h"
 #include "FluTableItemDelegate.h"
 #include "FluSmoothScrollDelegate.h"
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 
 class FluTableWidget : public QTableWidget
 {
@@ -24,7 +24,7 @@ class FluTableWidget : public QTableWidget
         setItemDelegate(m_tableItemDelegate);
         // setSelectionBehavior()
 
-        QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluTableTableWiget.qss");
+        QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluTableTableWiget.qss");
         setStyleSheet(qss);
 
         connect(this, &FluTableWidget::entered, [=](const QModelIndex &index) { setHoverRow(index.row()); });

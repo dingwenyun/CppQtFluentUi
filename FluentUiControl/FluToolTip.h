@@ -8,7 +8,7 @@
 #include <QPropertyAnimation>
 #include <QGraphicsDropShadowEffect>
 #include <QApplication>
-#include "../FluentUiUtils/FluentUiStyleSheetUitls.h"
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 #include <QCursor>
 #include <QScreen>
 #include <QApplication>
