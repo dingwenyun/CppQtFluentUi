@@ -16,9 +16,9 @@ class FluIconInfoPanel : public QFrame
         m_iconWidget = new FluIconWidget(type, this);
         m_iconWidget->setFixedSize(32, 32);
 
-        m_iconNameTitleLabel = new QLabel("Icon name", this);
+        m_iconNameTitleLabel = new QLabel("图标名", this);
         m_iconNameLabel = new QLabel(EnumTypeToQString(type), this);
-        m_enumNameTitleLabel = new QLabel("Enum member", this);
+        m_enumNameTitleLabel = new QLabel("图标枚举", this);
         m_enumNameLabel = new QLabel("FluAwesomeType::" + EnumTypeToQString(type), this);
 
         m_vBoxLayout = new QVBoxLayout(this);
@@ -27,16 +27,16 @@ class FluIconInfoPanel : public QFrame
         m_vBoxLayout->setAlignment(Qt::AlignTop);
 
         m_vBoxLayout->addWidget(m_nameLabel);
-        m_vBoxLayout->addSpacing(16);
+        m_vBoxLayout->addSpacing(10);
 
         m_vBoxLayout->addWidget(m_iconWidget);
-        m_vBoxLayout->addSpacing(45);
+        m_vBoxLayout->addSpacing(5);
 
         m_vBoxLayout->addWidget(m_iconNameTitleLabel);
         m_vBoxLayout->addSpacing(5);
 
         m_vBoxLayout->addWidget(m_iconNameLabel);
-        m_vBoxLayout->addSpacing(34);
+        m_vBoxLayout->addSpacing(5);
 
         m_vBoxLayout->addWidget(m_enumNameTitleLabel);
         m_vBoxLayout->addSpacing(5);
@@ -54,6 +54,7 @@ class FluIconInfoPanel : public QFrame
     {
         m_iconWidget->setIcon(FluIconUtils::GetFluentIcon(type));
         m_nameLabel->setText(EnumTypeToQString(type));
+        m_iconNameLabel->setText(EnumTypeToQString(type));
         m_enumNameLabel->setText("FluAwesomeType::" + EnumTypeToQString(type));
     }
 

@@ -319,6 +319,12 @@
     <QtMoc Include="FluExampleCard.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="FluIconCard.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluSearchLineEdit.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FluWidget.cpp">
@@ -598,6 +604,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluIconInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluIconCard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluSearchLineEdit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

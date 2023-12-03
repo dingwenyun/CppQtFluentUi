@@ -95,7 +95,7 @@
     <QtQMLDebugEnable>true</QtQMLDebugEnable>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
-    <QtInstall>msvc2017_64</QtInstall>
+    <QtInstall>6.5.1_msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
@@ -147,6 +147,7 @@
     <OutDir>$(SolutionDir)\$(Platform)\$(Configuration)\lib\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutDir>$(SolutionDir)\$(Platform)\$(Configuration)\lib\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Lib>
@@ -156,6 +157,15 @@
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)/third_party/install/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)/third_party/install/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>FramelessHelperCore64.lib;FramelessHelperQuick64.lib;FramelessHelperWidgets64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../third_party/install/lib/release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
@@ -261,6 +271,7 @@
     <ClCompile Include="FluGalleryInterface.cpp" />
     <ClCompile Include="FluGalleryWindow.cpp" />
     <ClCompile Include="FluHyperLinkLabel.cpp" />
+    <ClCompile Include="FluIconCard.cpp" />
     <ClCompile Include="FluIconCardView.cpp" />
     <ClCompile Include="FluIconInfoPanel.cpp" />
     <ClCompile Include="FluIconInterface.cpp" />
@@ -290,6 +301,7 @@
     <ClCompile Include="FluScrollBar.cpp" />
     <ClCompile Include="FluScrollBarGroove.cpp" />
     <ClCompile Include="FluScrollBarHandle.cpp" />
+    <ClCompile Include="FluSearchLineEdit.cpp" />
     <ClCompile Include="FluSeparator.cpp" />
     <ClCompile Include="FluSeparatorWidget.cpp" />
     <ClCompile Include="FluShortcutMenuItemDelegate.cpp" />
@@ -365,6 +377,7 @@
     <ClInclude Include="FluGalleryWindow.h" />
     <QtMoc Include="FluIconCardView.h" />
     <QtMoc Include="FluIconInfoPanel.h" />
+    <QtMoc Include="FluIconCard.h" />
     <ClInclude Include="FluIconInterface.h" />
     <ClInclude Include="FluIconWidget.h" />
     <ClInclude Include="FluLargeTitleLabel.h" />
@@ -384,6 +397,7 @@
     <QtMoc Include="FluRoundMenu.h" />
     <QtMoc Include="FluScrollBarGroove.h" />
     <ClInclude Include="FluScrollBarHandle.h" />
+    <QtMoc Include="FluSearchLineEdit.h" />
     <ClInclude Include="FluSeparator.h" />
     <QtMoc Include="FluSlider.h" />
     <QtMoc Include="FluShortcutMenuItemDelegate.h" />

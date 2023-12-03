@@ -186,7 +186,7 @@ class FluLineEdit : public QLineEdit
         painter.fillPath(path, QBrush(Qt::red));
     }
 
-  private:
+  protected:
     bool m_bClearButtonEnable;
     QCompleter* m_completer;
     FluCompleterMenu* m_completerMenu;

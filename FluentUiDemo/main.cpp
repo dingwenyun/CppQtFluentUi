@@ -97,8 +97,8 @@ int main(int argc, char** argv)
     // FluLineEditDemo demo;
     // demo.show();
 
-    // FluTableWidgetDemo demo;
-    // demo.show();
+     FluTableWidgetDemo demo;
+     demo.show();
 
     // FluApiTest_WheelEvent w;
     // w.show();
@@ -109,8 +109,8 @@ int main(int argc, char** argv)
     // FluColorDemo demo;
     // demo.show();
 
-    FluEnumDemo demo;
-    demo.show();
+    //FluEnumDemo demo;
+    //demo.show();
 
     return app.exec();
 }

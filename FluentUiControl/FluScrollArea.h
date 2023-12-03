@@ -1,14 +1,16 @@
 #pragma once
 
 #include <QScrollArea>
+#include "FluSmoothScrollDelegate.h"
 
 class FluScrollArea : public QScrollArea
 {
   public:
     FluScrollArea(QWidget* parent = nullptr) : QScrollArea(parent)
     {
+        m_srollDelegate = new FluSmoothScrollDelegate(this);
     }
 
-  private:
-    QScrollArea* m_widget;
+    protected:
+    FluSmoothScrollDelegate* m_srollDelegate;
 };

@@ -75,6 +75,15 @@ QLayoutItem* FluFlowLayout::takeAt(int index)
     else
         return 0;
 }
+
+void FluFlowLayout::removeAllWidgets()
+{
+    while (!itemList.isEmpty())
+    {
+        takeAt(0);
+    }
+}
+
 //! [5]
 
 //! [6]

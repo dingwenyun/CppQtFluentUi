@@ -26,6 +26,7 @@ class FluIconWidget : public QWidget
     void setIcon(QIcon icon)
     {
         m_icon = icon;
+        update();
     }
 
     QIcon getIcon()

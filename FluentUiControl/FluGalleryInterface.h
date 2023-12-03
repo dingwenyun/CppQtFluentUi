@@ -6,6 +6,7 @@
 #include <QVBoxLayout>
 #include "FluExampleCard.h"
 #include <QScrollBar>
+#include "../FluentUiUtils/FluStyleSheetUitls.h"
 
 class FluGalleryInterface : public FluScrollArea
 {
@@ -15,6 +16,7 @@ class FluGalleryInterface : public FluScrollArea
     {
         m_view = new QWidget(this);
         m_toolBar = new FluToolBar(title, subTitle, this);
+        m_vBoxLayout = new QVBoxLayout(m_view);
 
         setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         setViewportMargins(0, m_toolBar->height(), 0, 0);
@@ -27,6 +29,9 @@ class FluGalleryInterface : public FluScrollArea
 
         m_view->setObjectName("view");
         // stylesheet
+
+        QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluGalleryInterface.qss");
+        setStyleSheet(qss);
     }
 
     FluExampleCard* addExampleCard(QString title, QWidget* widget, QString sourcePath, int stretch = 0)
@@ -48,7 +53,8 @@ class FluGalleryInterface : public FluScrollArea
         FluScrollArea::resizeEvent(event);
         m_toolBar->resize(width(), m_toolBar->height());
     }
-  private:
+
+  protected:
     QWidget* m_view;
     FluToolBar* m_toolBar;
     QVBoxLayout* m_vBoxLayout;
