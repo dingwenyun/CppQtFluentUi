@@ -91,7 +91,7 @@ class FluTogglePushButton : public FluPushButton
 
 class FluToolButton : public QToolButton
 {
-   Q_OBJECT
+    Q_OBJECT
   public:
     FluToolButton(QWidget* parent = nullptr) : QToolButton(parent)
     {

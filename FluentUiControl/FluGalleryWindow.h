@@ -13,7 +13,6 @@ class FluGalleryWindow : public FluFrameLessWindow
 
     void initNavigation();
 
-
   private:
     FluHomeInterface* m_homeInterface;
     FluIconInterface* m_iconInterface;

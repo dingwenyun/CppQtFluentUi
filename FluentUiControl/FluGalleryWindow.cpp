@@ -7,8 +7,8 @@ FluGalleryWindow::FluGalleryWindow(QWidget* parent /*= nullptr*/) : FluFrameLess
 {
     setWindowTitle("GalleryWindow(CppQtFluentUi)");
     setWindowIcon(QIcon("../res/logo.png"));
-    
-   // m_titleBar->setStyleSheet("background-color:transparent");
+
+    // m_titleBar->setStyleSheet("background-color:transparent");
 
     m_homeInterface = new FluHomeInterface(this);
     m_iconInterface = new FluIconInterface(this);

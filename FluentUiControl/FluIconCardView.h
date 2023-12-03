@@ -84,7 +84,7 @@ class FluIconCardView : public QWidget
         QMetaEnum metaEnum = QMetaEnum::fromType<FluAwesomeType>();
         for (int i = 0; i < metaEnum.keyCount(); i++)
         {
-#ifdef _DEBUG // debug加载图标设置为256个，太多影响体验
+#ifdef _DEBUG  // debug加载图标设置为256个，太多影响体验
             if (i >= 256)
                 return;
 #endif
