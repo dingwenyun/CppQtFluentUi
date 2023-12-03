@@ -304,6 +304,7 @@
     <ClCompile Include="FluSearchLineEdit.cpp" />
     <ClCompile Include="FluSeparator.cpp" />
     <ClCompile Include="FluSeparatorWidget.cpp" />
+    <ClCompile Include="FluSettingInterface.cpp" />
     <ClCompile Include="FluShortcutMenuItemDelegate.cpp" />
     <ClCompile Include="FluSlider.cpp" />
     <ClCompile Include="FluSmoothScrollArea.cpp" />
@@ -404,6 +405,7 @@
     <QtMoc Include="FluSmoothScrollDelegate.h" />
     <QtMoc Include="FluSmoothScrollBar.h" />
     <QtMoc Include="FluSeparatorWidget.h" />
+    <QtMoc Include="FluSettingInterface.h" />
     <ClInclude Include="FluSmoothScrollArea.h" />
     <ClInclude Include="FluStrongBodyLabel.h" />
     <QtMoc Include="FluSubMenuItemWidget.h" />

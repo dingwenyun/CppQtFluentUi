@@ -44,6 +44,10 @@ void FluFrameLessWindow::initialize()
     resize(800, 600);
     m_titleBar = new StandardTitleBar(this);
     m_titleBar->setWindowIconVisible(true);
+  //  m_titleBar->setObjectName("titleBar");
+    m_titleBar->setStyleSheet("background-color: transparent;");
+    m_titleBar->chromePalette()->setTitleBarActiveBackgroundColor(Qt::transparent);
+    m_titleBar->chromePalette()->setTitleBarInactiveBackgroundColor(Qt::transparent);
     m_titleBar->raise();
 
     m_contentLayout = new QVBoxLayout;
