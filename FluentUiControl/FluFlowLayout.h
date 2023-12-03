@@ -26,6 +26,7 @@ class FluFlowLayout : public QLayout
     QLayoutItem* takeAt(int index) override;
 
     void removeAllWidgets();
+
   private:
     int doLayout(const QRect& rect, bool testOnly) const;
     int smartSpacing(QStyle::PixelMetric pm) const;

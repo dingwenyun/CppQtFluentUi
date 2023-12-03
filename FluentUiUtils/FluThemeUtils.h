@@ -35,7 +35,7 @@ class FluThemeUtils : public QObject
 
     static QColor getThemeColor();
 
-    static QColor getThemeColorByColorMode(QColor color,FluThemeColorMode colorMode);
+    static QColor getThemeColorByColorMode(QColor color, FluThemeColorMode colorMode);
     static QColor getThemeColorByColorMode(FluThemeColorMode colorMode);
     static void setThemeColor(const QColor& color);
     static QString getThemeColorName();

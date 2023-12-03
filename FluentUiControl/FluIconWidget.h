@@ -33,13 +33,15 @@ class FluIconWidget : public QWidget
     {
         return m_icon;
     }
+
   protected:
-    void paintEvent(QPaintEvent *event)
+    void paintEvent(QPaintEvent* event)
     {
         QPainter painter(this);
         painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
         painter.drawPixmap(rect(), m_icon.pixmap(size()));
     }
+
   private:
     QIcon m_icon;
 };

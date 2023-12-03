@@ -143,7 +143,8 @@ class FluNavigationPanel : public QFrame
 
         m_vTopLayout->addWidget(m_returnButton, 0, Qt::AlignTop);
         m_vTopLayout->addWidget(m_menuButton, 0, Qt::AlignTop);
-        LogDebug << "panel size " << "width = " << width() << ", height = " << height();
+        LogDebug << "panel size "
+                 << "width = " << width() << ", height = " << height();
     }
 
     FluNavigationWidget* __widget(QString routeKey)
@@ -338,9 +339,9 @@ class FluNavigationPanel : public QFrame
         LogFunc;
         _setWidgetCompacted(false);
         m_expandAni->setProperty("expand", true);
-        m_menuButton->setToolTip("关闭导航栏");        // 关闭导航栏
-                                                       // determine the display mode according to the width of window
-                                                       // https://learn.microsoft.com/en-us/windows/apps/design/controls/navigationview#default
+        m_menuButton->setToolTip("关闭导航栏");  // 关闭导航栏
+                                                 // determine the display mode according to the width of window
+                                                 // https://learn.microsoft.com/en-us/windows/apps/design/controls/navigationview#default
         int nExpandWidth = 1007 + m_expandWidth - 322;
         if ((window()->width() > nExpandWidth && !m_bMinimalEnabled) || (!m_bCollapsible))
         {
@@ -363,7 +364,7 @@ class FluNavigationPanel : public QFrame
 
         if (bUseAni)
         {
-            emit displayModeChanged(m_displayMode);// 发送信号：展示模式变更
+            emit displayModeChanged(m_displayMode);  // 发送信号：展示模式变更
             m_expandAni->setStartValue(QRect(pos(), QSize(48, height())));
             m_expandAni->setEndValue(QRect(pos(), QSize(312, height())));
             m_expandAni->start();

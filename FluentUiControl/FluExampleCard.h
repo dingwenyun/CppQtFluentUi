@@ -20,7 +20,7 @@ class FluExampleCard : public QWidget
         m_stretch = stretch;
 
         m_titleLabel = new FluStrongBodyLabel(title, this);
-        
+
         m_card = new QFrame(this);
         m_sourceWidget = new QFrame(m_card);
         m_sourcePath = sourcePath;
@@ -32,7 +32,7 @@ class FluExampleCard : public QWidget
         m_vCardLayout = new QVBoxLayout(m_card);
         m_hTopLayout = new QHBoxLayout();
         m_hBottomLayout = new QHBoxLayout(m_sourceWidget);
-    
+
         __initWidget();
     }
 
@@ -46,7 +46,6 @@ class FluExampleCard : public QWidget
 
         m_card->setObjectName("card");
         m_sourceWidget->setObjectName("sourceWidget");
-
     }
 
     void __initLayout()
@@ -72,7 +71,7 @@ class FluExampleCard : public QWidget
 
         m_Widget->setParent(m_card);
         m_hTopLayout->addWidget(m_Widget);
-        
+
         if (m_stretch == 0)
             m_hTopLayout->addStretch(1);
 
@@ -84,7 +83,7 @@ class FluExampleCard : public QWidget
     }
 
   protected:
-    bool eventFilter(QObject *watched, QEvent *event)
+    bool eventFilter(QObject* watched, QEvent* event)
     {
         if (watched == m_sourceWidget && event->type() == QEvent::MouseButtonRelease)
         {

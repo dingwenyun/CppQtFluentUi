@@ -28,8 +28,7 @@ class FluIconCardView : public QWidget
 
         m_vBoxLayout = new QVBoxLayout(this);
         m_hBoxLayout = new QHBoxLayout(m_view);
-        m_flowLayout = new FluFlowLayout(m_scrollWidget); 
-
+        m_flowLayout = new FluFlowLayout(m_scrollWidget);
 
         m_currentIndex = -1;
         __initWidget();
@@ -55,7 +54,6 @@ class FluIconCardView : public QWidget
 
         m_flowLayout->setContentsMargins(8, 3, 8, 8);
 
-
         __setQss();
 
         connect(m_searchLineEdit, &FluSearchLineEdit::clearSignal, this, &FluIconCardView::showAllIcons);
@@ -76,7 +74,7 @@ class FluIconCardView : public QWidget
         }
 
         QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluIconInterface.qss");
-       // FluStyleSheetUitls::replaceVar("{\"ThemeColorNormal\":\"blue\"}", qss);
+        // FluStyleSheetUitls::replaceVar("{\"ThemeColorNormal\":\"blue\"}", qss);
         m_scrollWidget->setStyleSheet(qss);
         setStyleSheet(qss);
     }
@@ -86,6 +84,10 @@ class FluIconCardView : public QWidget
         QMetaEnum metaEnum = QMetaEnum::fromType<FluAwesomeType>();
         for (int i = 0; i < metaEnum.keyCount(); i++)
         {
+#ifdef _DEBUG // debug加载图标设置为256个，太多影响体验
+            if (i >= 256)
+                return;
+#endif
             addIcon((FluAwesomeType)metaEnum.value(i));
         }
         setSelectedIcon(m_listIcons.at(0));
@@ -103,7 +105,6 @@ class FluIconCardView : public QWidget
 
     void search(QString keyWord)
     {
-        
     }
 
     void showAllIcons()
@@ -119,15 +120,16 @@ class FluIconCardView : public QWidget
             m_listCards.at(m_currentIndex)->setSelected(false);
         }
 
-        m_currentIndex = nIndex;// 找到index
+        m_currentIndex = nIndex;  // 找到index
         m_listCards.at(nIndex)->setSelected(true);
         m_infoPanel->setIcon(awesomeType);
     }
+
   private:
     FluStrongBodyLabel* m_iconLibraryLabel;
     FluSearchLineEdit* m_searchLineEdit;
 
-    QFrame* m_view;// 用于显示图像
+    QFrame* m_view;  // 用于显示图像
 
     FluSmoothScrollArea* m_scrollArea;
     QWidget* m_scrollWidget;

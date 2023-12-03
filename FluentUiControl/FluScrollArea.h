@@ -11,6 +11,6 @@ class FluScrollArea : public QScrollArea
         m_srollDelegate = new FluSmoothScrollDelegate(this);
     }
 
-    protected:
+  protected:
     FluSmoothScrollDelegate* m_srollDelegate;
 };

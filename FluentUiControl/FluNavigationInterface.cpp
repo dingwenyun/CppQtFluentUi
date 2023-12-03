@@ -14,7 +14,7 @@ FluNavigationInterface::FluNavigationInterface(QWidget* parent /*= nullptr*/, bo
     m_panel->installEventFilter(this);
     connect(this, &FluNavigationInterface::displayModeChanged, m_panel, &FluNavigationPanel::displayModeChanged);
 
-    resize(48, height()); // 设置宽度为48
+    resize(48, height());  // 设置宽度为48
     setMinimumWidth(48);
     setAttribute(Qt::WA_TranslucentBackground);
     // setWindowFlag(Qt::FramelessWindowHint);

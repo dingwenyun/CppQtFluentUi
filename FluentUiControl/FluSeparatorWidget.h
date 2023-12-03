@@ -13,12 +13,12 @@ class FluSeparatorWidget : public QWidget
     }
 
   protected:
-    void paintEvent(QPaintEvent *event)
+    void paintEvent(QPaintEvent* event)
     {
         QPainter painter(this);
         QPen pen = QPen(1);
         pen.setCosmetic(true);
-        
+
         QColor penColor;
         if (FluThemeUtils::isDarkMode())
         {

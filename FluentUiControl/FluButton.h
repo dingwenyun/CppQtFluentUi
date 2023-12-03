@@ -91,11 +91,11 @@ class FluTogglePushButton : public FluPushButton
 
 class FluToolButton : public QToolButton
 {
-    Q_OBJECT
+   Q_OBJECT
   public:
     FluToolButton(QWidget* parent = nullptr) : QToolButton(parent)
     {
-        //set qss
+        // set qss
 
         m_bPressed = false;
         m_bHover = false;
@@ -105,7 +105,6 @@ class FluToolButton : public QToolButton
 
         QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluPushButton.qss");
         setStyleSheet(qss);
-
     }
 
     FluToolButton(FluAwesomeType awesomeType, QWidget* parent = nullptr) : FluToolButton(parent)
@@ -124,7 +123,7 @@ class FluToolButton : public QToolButton
         update();
     }
 
-    bool setProperty(const char *name, const QVariant &value)
+    bool setProperty(const char* name, const QVariant& value)
     {
         if (name == nullptr || name != "icon")
         {
@@ -135,34 +134,33 @@ class FluToolButton : public QToolButton
     }
 
   protected:
-    void mousePressEvent(QMouseEvent *event)
+    void mousePressEvent(QMouseEvent* event)
     {
-          QToolButton::mousePressEvent(event);
-          m_bPressed = true;
+        QToolButton::mousePressEvent(event);
+        m_bPressed = true;
     }
 
-    void mouseReleaseEvent(QMouseEvent *event)
+    void mouseReleaseEvent(QMouseEvent* event)
     {
         QToolButton::mouseReleaseEvent(event);
         m_bPressed = false;
     }
 
-    void enterEvent(QEnterEvent *event)
+    void enterEvent(QEnterEvent* event)
     {
         QToolButton::enterEvent(event);
         m_bHover = true;
         update();
     }
 
-
-    void leaveEvent(QEvent *event)
+    void leaveEvent(QEvent* event)
     {
         QToolButton::leaveEvent(event);
         m_bHover = false;
         update();
     }
 
-    void paintEvent(QPaintEvent *event)
+    void paintEvent(QPaintEvent* event)
     {
         QToolButton::paintEvent(event);
         if (m_icon.isNull())
@@ -186,6 +184,7 @@ class FluToolButton : public QToolButton
         int nY = (height() - iconH) / 2;
         painter.drawPixmap(QRect(nX, nY, iconW, iconH), m_icon.pixmap(iconH, iconW));
     }
+
   private:
     bool m_bPressed;
     bool m_bHover;

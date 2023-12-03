@@ -1,4 +1,4 @@
-#pragma 
+#pragma
 
 #include "FluFrameLessWindow.h"
 #include <QWidget>
@@ -11,6 +11,7 @@ class FluGalleryWindow : public FluFrameLessWindow
     FluGalleryWindow(QWidget* parent = nullptr);
 
     void initNavigation();
+
   private:
     FluHomeInterface* m_homeInterface;
     FluIconInterface* m_iconInterface;

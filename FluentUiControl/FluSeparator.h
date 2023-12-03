@@ -10,7 +10,7 @@ enum class FluSeparatorDirection
     Vertical,
 };
 
-class FluSeparator : public QWidget 
+class FluSeparator : public QWidget
 {
   public:
     FluSeparator(FluSeparatorDirection direction, QWidget* parent) : QWidget(parent)

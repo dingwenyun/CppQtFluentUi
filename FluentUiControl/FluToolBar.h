@@ -18,9 +18,9 @@ class FluToolBar : public QWidget
         m_titleLabel = new FluTitleLabel(title, this);
         m_subTitleLabel = new FluCaptionLabel(subTitle, this);
 
-        m_documentButton = new FluPushButton("在线文档",this, FluIconUtils::GetFluentIcon(FluAwesomeType::Document));
+        m_documentButton = new FluPushButton("在线文档", this, FluIconUtils::GetFluentIcon(FluAwesomeType::Document));
         m_sourceButton = new FluPushButton("源代码", this, FluIconUtils::GetFluentIcon(FluAwesomeType::Code));
-        m_themeButton = new FluToolButton(FluIconUtils::GetFluentIcon(FluAwesomeType::Light), this);// 主题色按钮
+        m_themeButton = new FluToolButton(FluIconUtils::GetFluentIcon(FluAwesomeType::Light), this);  // 主题色按钮
         m_separator = new FluSeparator(FluSeparatorDirection::Vertical, this);
         m_supportButton = new FluToolButton(FluIconUtils::GetFluentIcon(FluAwesomeType::Heart), this);
         m_feedbackButton = new FluToolButton(FluIconUtils::GetFluentIcon(FluAwesomeType::Feedback), this);

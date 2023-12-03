@@ -8,7 +8,7 @@
 
 class FluIconInfoPanel : public QFrame
 {
-	Q_OBJECT
+    Q_OBJECT
   public:
     FluIconInfoPanel(FluAwesomeType type, QWidget* parent = nullptr) : QFrame(parent)
     {

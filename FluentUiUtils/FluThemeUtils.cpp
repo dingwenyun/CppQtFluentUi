@@ -40,7 +40,7 @@ QColor FluThemeUtils::getThemeColor()
 
 QColor FluThemeUtils::getThemeColorByColorMode(QColor color, FluThemeColorMode colorMode)
 {
-   // QColor color = getThemeColor();
+    // QColor color = getThemeColor();
     float h, s, v, f;
     color.getHsvF(&h, &s, &v, &h);
 

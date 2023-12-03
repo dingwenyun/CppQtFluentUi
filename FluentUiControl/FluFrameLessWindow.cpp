@@ -137,7 +137,7 @@ void FluFrameLessWindow::paintEvent(QPaintEvent *event)
 
 void FluFrameLessWindow::updateStyleSheet()
 {
-    //setStyleSheet("background-color:pink;");
+    // setStyleSheet("background-color:pink;");
     update();
 }
 

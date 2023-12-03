@@ -10,7 +10,7 @@
 
 class FluGalleryInterface : public FluScrollArea
 {
-	Q_OBJECT
+    Q_OBJECT
   public:
     FluGalleryInterface(QString title, QString subTitle, QWidget* parent = nullptr) : FluScrollArea(parent)
     {
@@ -43,12 +43,12 @@ class FluGalleryInterface : public FluScrollArea
 
     void srollToCard(int nIndex)
     {
-        QWidget *widget = m_vBoxLayout->itemAt(nIndex)->widget();
+        QWidget* widget = m_vBoxLayout->itemAt(nIndex)->widget();
         verticalScrollBar()->setValue(widget->y());
     }
 
   protected:
-    void resizeEvent(QResizeEvent *event)
+    void resizeEvent(QResizeEvent* event)
     {
         FluScrollArea::resizeEvent(event);
         m_toolBar->resize(width(), m_toolBar->height());

@@ -13,6 +13,7 @@ class FluColorSet
     QString light;
     QString lighter;
     QString lightest;
+
   public:
     FluColorSet();
 };

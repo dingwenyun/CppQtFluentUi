@@ -21,10 +21,10 @@ class FluIconCard : public QFrame
         m_vBoxLayout->setSpacing(0);
         m_vBoxLayout->setContentsMargins(4, 16, 4, 0);
         m_vBoxLayout->setAlignment(Qt::AlignTop);
-        
+
         m_iconWidget->setFixedSize(16, 16);
         m_vBoxLayout->addWidget(m_iconWidget, 0, Qt::AlignHCenter);
-        //m_vBoxLayout->addSpacing(8);
+        // m_vBoxLayout->addSpacing(8);
         m_vBoxLayout->addWidget(m_nameLabel, 0, Qt::AlignHCenter);
         QString text = EnumTypeToQString(m_awesomeType);
         m_nameLabel->setText(text);
@@ -39,32 +39,31 @@ class FluIconCard : public QFrame
 
         m_bSelected = bSelected;
         m_iconWidget->setIcon(FluIconUtils::GetFluentIcon(m_awesomeType));
-      //  if (!bSelected)
-      //  {
-      //      m_iconWidget->setIcon(FluIconUtils::GetFluentIcon(m_awesomeType));
-      //  }
-     //   else
-     //   {
-//
-    //    }
+        //  if (!bSelected)
+        //  {
+        //      m_iconWidget->setIcon(FluIconUtils::GetFluentIcon(m_awesomeType));
+        //  }
+        //   else
+        //   {
+        //
+        //    }
 
         setProperty("isSelected", m_bSelected);
         setStyle(QApplication::style());
     }
 
   protected:
-    void mouseReleaseEvent(QMouseEvent *event)
+    void mouseReleaseEvent(QMouseEvent* event)
     {
         if (m_bSelected)
             return;
 
         emit clicked(m_awesomeType);
-
     }
-  signals: 
+  signals:
     void clicked(FluAwesomeType awesomeType);
 
-private:
+  private:
     FluAwesomeType m_awesomeType;
     bool m_bSelected;
 

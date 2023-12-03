@@ -9,7 +9,6 @@ FluHomeInterface::FluHomeInterface(QWidget* parent /*= nullptr*/) : FluScrollAre
     m_vLayout = new QVBoxLayout(m_view);
     m_view->setLayout(m_vLayout);
 
-
     __initWidget();
 
     __loadSamples();
@@ -20,7 +19,7 @@ void FluHomeInterface::__initWidget()
     m_view->setObjectName("view");
     setObjectName("homeInterface");
 
-    //setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    // setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setWidget(m_view);
     setWidgetResizable(true);
@@ -46,15 +45,11 @@ void FluHomeInterface::__loadSamples()
     m_basicInputView->addSampleCard(QPixmap("../res/imgs/SplitButton.png"), "SplitButton", "A two-part button that displays a flyout when its secondary part is clicked.", "basicInputInterface", 0);
     m_basicInputView->addSampleCard(QPixmap("../res/imgs/ToggleSwitch.png"), "SwitchButton", "A switch that can be toggled between 2 states.", "basicInputInterface", 0);
     m_basicInputView->addSampleCard(QPixmap("../res/imgs/ToggleButton.png"), "ToggleButton", "A button that can be switched between two states like a CheckBox.", "basicInputInterface", 0);
-    
-    
+
     m_dateTimeView = new FluSampleCardView(m_view, "Date and time samples");
     m_dateTimeView->addSampleCard(QPixmap("../res/imgs/CalendarDatePicker.png"), "CalendarPicker", "A control that lets a user pick a date value using a calendar.", "dateTimeInterface", 0);
     m_dateTimeView->addSampleCard(QPixmap("../res/imgs/DatePicker.png"), "DatePicker", "A control that lets a user pick a date value.", "dateTimeInterface", 0);
     m_dateTimeView->addSampleCard(QPixmap("../res/imgs/TimePicker.png"), "TimePicker", "A configurable control that lets a user pick a time value.", "dateTimeInterface", 0);
-
-
-
 
     m_vLayout->addWidget(m_basicInputView);
     m_vLayout->addWidget(m_dateTimeView);

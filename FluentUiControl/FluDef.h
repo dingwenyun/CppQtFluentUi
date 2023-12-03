@@ -57,8 +57,8 @@ static QString EnumTypeToQString(EnumType type)
 
 namespace FluAwesomeTypeNameSpace
 {
-    Q_NAMESPACE
-    enum class FluAwesomeType
+Q_NAMESPACE
+enum class FluAwesomeType
 {
     GlobalNavButton = 0xe700,
     Wifi = 0xe701,
@@ -1464,7 +1464,7 @@ namespace FluAwesomeTypeNameSpace
     SpeechSolidBold = 0xf8b2,
     ClickedOutLoudSolidBold = 0xf8b3,
 };
-    Q_ENUM_NS(FluAwesomeType)
-}
+Q_ENUM_NS(FluAwesomeType)
+}  // namespace FluAwesomeTypeNameSpace
 
 using namespace FluAwesomeTypeNameSpace;

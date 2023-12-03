@@ -14,8 +14,8 @@ class FluSearchLineEdit : public FluLineEdit
         m_searchButton = new FluLineEditButton(FluIconUtils::GetFluentIconPixmap(FluAwesomeType::Search), this);
         m_hBoxLayout->addWidget(m_searchButton, 0, Qt::AlignRight);
         setClearButtonEnabled(true);
-       // setTextMargins(0, 0, 59, 0);
-       m_searchButton->setObjectName("lineEditButton");
+        // setTextMargins(0, 0, 59, 0);
+        m_searchButton->setObjectName("lineEditButton");
     }
 
     void setClearButtonEnabled(bool bEnable)
@@ -35,18 +35,19 @@ class FluSearchLineEdit : public FluLineEdit
     void searchSigal(QString str);
     void clearSignal();
 
-public slots:
-   void search()
-  {
-       QString searchText = text();
-      if (!searchText.isEmpty())
-       {
-          emit searchSigal(searchText);
-           return;
-       }
+  public slots:
+    void search()
+    {
+        QString searchText = text();
+        if (!searchText.isEmpty())
+        {
+            emit searchSigal(searchText);
+            return;
+        }
 
-      emit clearSignal();
-  }
+        emit clearSignal();
+    }
+
   private:
     FluLineEditButton* m_searchButton;
 };
