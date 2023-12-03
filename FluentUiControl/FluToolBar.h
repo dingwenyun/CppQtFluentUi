@@ -16,14 +16,14 @@ class FluToolBar : public QWidget
     FluToolBar(QString title, QString subTitle, QWidget* parent = nullptr) : QWidget(parent)
     {
         m_titleLabel = new FluTitleLabel(title, this);
-        m_subTitleLabel = new FluSubTitleLabel(subTitle, this);
+        m_subTitleLabel = new FluCaptionLabel(subTitle, this);
 
         m_documentButton = new FluPushButton("在线文档",this, FluIconUtils::GetFluentIcon(FluAwesomeType::Document));
         m_sourceButton = new FluPushButton("源代码", this, FluIconUtils::GetFluentIcon(FluAwesomeType::Code));
-        m_themeButton = new FluPushButton("", this, FluIconUtils::GetFluentIcon(FluAwesomeType::Light));// 主题色按钮
+        m_themeButton = new FluToolButton(FluIconUtils::GetFluentIcon(FluAwesomeType::Light), this);// 主题色按钮
         m_separator = new FluSeparator(FluSeparatorDirection::Vertical, this);
-        m_supportButton = new FluPushButton("", this, FluIconUtils::GetFluentIcon(FluAwesomeType::Heart));
-        m_feedbackButton = new FluPushButton("", this, FluIconUtils::GetFluentIcon(FluAwesomeType::Feedback));
+        m_supportButton = new FluToolButton(FluIconUtils::GetFluentIcon(FluAwesomeType::Heart), this);
+        m_feedbackButton = new FluToolButton(FluIconUtils::GetFluentIcon(FluAwesomeType::Feedback), this);
 
         m_vBoxLayout = new QVBoxLayout(this);
         m_hButtonBoxLayout = new QHBoxLayout();
@@ -67,13 +67,13 @@ class FluToolBar : public QWidget
 
   private:
     FluTitleLabel* m_titleLabel;
-    FluSubTitleLabel* m_subTitleLabel;
+    FluCaptionLabel* m_subTitleLabel;
     FluPushButton* m_documentButton;
     FluPushButton* m_sourceButton;
-    FluPushButton* m_themeButton;
+    FluToolButton* m_themeButton;
     FluSeparator* m_separator;
-    FluPushButton* m_supportButton;
-    FluPushButton* m_feedbackButton;
+    FluToolButton* m_supportButton;
+    FluToolButton* m_feedbackButton;
     QVBoxLayout* m_vBoxLayout;
     QHBoxLayout* m_hButtonBoxLayout;
 };

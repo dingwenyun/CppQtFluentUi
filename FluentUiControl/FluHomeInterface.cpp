@@ -40,15 +40,20 @@ void FluHomeInterface::__loadSamples()
     m_basicInputView->addSampleCard(QPixmap("../res/imgs/CheckBox.png"), "CheckBox", "A control that a user can select or clear.", "basicInputInterface", 0);
     m_basicInputView->addSampleCard(QPixmap("../res/imgs/ComboBox.png"), "ComboBox", "A drop-down list of items a user can select from.", "basicInputInterface", 0);
     m_basicInputView->addSampleCard(QPixmap("../res/imgs/DropDownButton.png"), "DropDownButton", "A button that displays a flyout of choices when clicked.", "basicInputInterface", 0);
+    m_basicInputView->addSampleCard(QPixmap("../res/imgs/HyperlinkButton.png"), "HyperlinkButton", "A button that appears as hyperlink text, and can navigate to a URI or handle a Click event.", "basicInputInterface", 0);
     m_basicInputView->addSampleCard(QPixmap("../res/imgs/RadioButton.png"), "RadioButton", "A control that allows a user to select a single option from a group of options.", "basicInputInterface", 0);
     m_basicInputView->addSampleCard(QPixmap("../res/imgs/Slider.png"), "Slider", "A control that lets the user select from a range of values by moving a Thumb control along a track.", "basicInputInterface", 0);
+    m_basicInputView->addSampleCard(QPixmap("../res/imgs/SplitButton.png"), "SplitButton", "A two-part button that displays a flyout when its secondary part is clicked.", "basicInputInterface", 0);
     m_basicInputView->addSampleCard(QPixmap("../res/imgs/ToggleSwitch.png"), "SwitchButton", "A switch that can be toggled between 2 states.", "basicInputInterface", 0);
+    m_basicInputView->addSampleCard(QPixmap("../res/imgs/ToggleButton.png"), "ToggleButton", "A button that can be switched between two states like a CheckBox.", "basicInputInterface", 0);
     
     
     m_dateTimeView = new FluSampleCardView(m_view, "Date and time samples");
     m_dateTimeView->addSampleCard(QPixmap("../res/imgs/CalendarDatePicker.png"), "CalendarPicker", "A control that lets a user pick a date value using a calendar.", "dateTimeInterface", 0);
-    m_dateTimeView->addSampleCard(QPixmap("../res/imgs/controls/DatePicker.png"), "DatePicker", "A control that lets a user pick a date value.", "dateTimeInterface", 0);
+    m_dateTimeView->addSampleCard(QPixmap("../res/imgs/DatePicker.png"), "DatePicker", "A control that lets a user pick a date value.", "dateTimeInterface", 0);
     m_dateTimeView->addSampleCard(QPixmap("../res/imgs/TimePicker.png"), "TimePicker", "A configurable control that lets a user pick a time value.", "dateTimeInterface", 0);
+
+
 
 
     m_vLayout->addWidget(m_basicInputView);

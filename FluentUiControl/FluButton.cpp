@@ -9,7 +9,7 @@ FluPushButton::FluPushButton(QWidget* parent) : QPushButton(parent)
 
     setFont();
     // setAttribute(Qt::WA_StyledBackground, true);
-    //_postInit();
+    _postInit();
 
     QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluPushButton.qss");
     setStyleSheet(qss);

@@ -6,7 +6,7 @@
 class FluIconInterface : public FluGalleryInterface
 {
   public:
-    FluIconInterface(QWidget* parent = nullptr) : FluGalleryInterface("Icons", "FluentUi::Icons", parent)
+    FluIconInterface(QWidget* parent = nullptr) : FluGalleryInterface("图标", "FluentUiUtils::FluIcon", parent)
     {
         setObjectName("iconInterface");
         m_iconCardView = new FluIconCardView(this);

@@ -11,6 +11,6 @@ FluGalleryWindow::FluGalleryWindow(QWidget* parent /*= nullptr*/) : FluFrameLess
 
 void FluGalleryWindow::initNavigation()
 {
-    addSubInterface(m_homeInterface, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::Home), "home");
-    addSubInterface(m_iconInterface, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::Favicon), "icon");
+    addSubInterface(m_homeInterface, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::Home), "主页");
+    addSubInterface(m_iconInterface, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::Favicon), "图标");
 }
