@@ -8,20 +8,25 @@
 #include "FluLinkCardView.h"
 #include "FluSampleCardView.h"
 #include "../FluentUiUtils/FluStyleSheetUitls.h"
+#include "FluScrollArea.h"
 
-class FluHomeInterface : public QScrollArea
+class FluHomeInterface : public FluScrollArea
 {
     Q_OBJECT
-
-  public:
-    FluSetPropertyP(QWidget, view);
-    FluSetPropertyP(QVBoxLayout, vLayout);
-    FluSetPropertyP(FluBannerWidget, bannerWidget);
-    FluSetPropertyP(FluSampleCardView, basicCardView);
-
   public:
     FluHomeInterface(QWidget* parent = nullptr);
 
+    void __initWidget();
+
+    void __loadSamples();
+
   protected:
     void paintEvent(QPaintEvent* event) override;
+
+  private:
+    FluBannerWidget* m_bannerWidget;
+    QWidget* m_view;
+    QVBoxLayout* m_vLayout;
+    FluSampleCardView* m_basicInputView;
+    FluSampleCardView* m_dateTimeView;
 };

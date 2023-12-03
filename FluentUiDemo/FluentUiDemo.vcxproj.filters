@@ -71,6 +71,9 @@
     <ClCompile Include="FluColorDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FluEnumDemo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluButtonDemo.h">
@@ -86,6 +89,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FluApiTest_WheelEvent.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluEnumDemo.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

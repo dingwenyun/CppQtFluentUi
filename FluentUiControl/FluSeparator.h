@@ -4,36 +4,26 @@
 #include <QPainter>
 #include "../FluentUiUtils/FluThemeUtils.h"
 
-// "---"
-class FluHorizontalSeparator : public QWidget
+enum class FluSeparatorDirection
 {
-  public:
-    FluHorizontalSeparator(QWidget* parent) : QWidget(parent)
-    {
-        setFixedHeight(3);
-    }
-
-  protected:
-    void paintEvent(QPaintEvent* event)
-    {
-        QPainter painter;
-        painter.setRenderHints(QPainter::Antialiasing);
-
-        if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
-            painter.setPen(QColor(255, 255, 255, 51));
-        else
-            painter.setPen(QColor(0, 0, 0, 22));
-        painter.drawLine(0, 1, width(), 1);
-    }
+    Horizontal,
+    Vertical,
 };
 
-// "|"
-class FluVerticalSeparator : public QWidget
+class FluSeparator : public QWidget 
 {
   public:
-    FluVerticalSeparator(QWidget* parent) : QWidget(parent)
+    FluSeparator(FluSeparatorDirection direction, QWidget* parent) : QWidget(parent)
     {
-        setFixedWidth(3);
+        m_direction = direction;
+        if (direction == FluSeparatorDirection::Horizontal)
+        {
+            setFixedHeight(3);
+        }
+        else
+        {
+            setFixedWidth(3);
+        }
     }
 
   protected:
@@ -41,10 +31,18 @@ class FluVerticalSeparator : public QWidget
     {
         QPainter painter;
         painter.setRenderHints(QPainter::Antialiasing);
-        if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
+
+        if (FluThemeUtils::isDarkMode())
             painter.setPen(QColor(255, 255, 255, 51));
         else
             painter.setPen(QColor(0, 0, 0, 22));
-        painter.drawLine(1, 0, 1, height());
+
+        if (m_direction == FluSeparatorDirection::Horizontal)
+            painter.drawLine(1, 0, 1, height());
+        else
+            painter.drawLine(0, 1, width(), 1);
     }
+
+  private:
+    FluSeparatorDirection m_direction;
 };

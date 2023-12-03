@@ -107,7 +107,7 @@ class FluNavigationPushButton : public FluNavigationWidget
             painter.drawRoundedRect(rect(), 5, 5);  // 绘制背景
         }
 
-        LogDebug << "icon size:" << m_icon.size();
+        // LogDebug << "icon size:" << m_icon.size();
         // 绘制icon
         painter.drawPixmap(QRect(11 + nMarginLeft, 10, 20, 20), m_icon);
 

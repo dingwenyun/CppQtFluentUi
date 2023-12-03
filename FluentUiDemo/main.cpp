@@ -24,6 +24,7 @@
 #include "FluScrollAreaDemo.h"
 #include "FluColorDemo.h"
 #include "../FluentUiControl/FluFrameLessWindow.h"
+#include "FluEnumDemo.h"
 
 int main(int argc, char** argv)
 {
@@ -72,8 +73,8 @@ int main(int argc, char** argv)
     // FluFrameLessWidget demo;
     // demo.show();
 
-    FluFrameLessWindow demo;
-    demo.show();
+   // FluFrameLessWindow demo;
+   // demo.show();
 
     // FluDialog dialog("a dialog example", "just a example", nullptr);
     // dialog.exec();
@@ -107,6 +108,9 @@ int main(int argc, char** argv)
 
     // FluColorDemo demo;
     // demo.show();
+
+    FluEnumDemo demo;
+    demo.show();
 
     return app.exec();
 }

@@ -254,10 +254,17 @@
     <ClCompile Include="FluDisplayLabel.cpp" />
     <ClCompile Include="FluDropDownMenuAnimationManager.cpp" />
     <ClCompile Include="FluDummyMenuAnimationManager.cpp" />
+    <ClCompile Include="FluExampleCard.cpp" />
     <ClCompile Include="FluFadeInDropDownMenuAnimationManager.cpp" />
     <ClCompile Include="FluFadeInPullUpMenuAnimationManager.cpp" />
     <ClCompile Include="FluFrameLessWindow.cpp" />
+    <ClCompile Include="FluGalleryInterface.cpp" />
+    <ClCompile Include="FluGalleryWindow.cpp" />
     <ClCompile Include="FluHyperLinkLabel.cpp" />
+    <ClCompile Include="FluIconCardView.cpp" />
+    <ClCompile Include="FluIconInfoPanel.cpp" />
+    <ClCompile Include="FluIconInterface.cpp" />
+    <ClCompile Include="FluIconWidget.cpp" />
     <ClCompile Include="FluImageLabel.cpp" />
     <ClCompile Include="FluIndicatorMenuItemDelegate.cpp" />
     <ClCompile Include="FluLabelBase.cpp" />
@@ -284,6 +291,7 @@
     <ClCompile Include="FluScrollBarGroove.cpp" />
     <ClCompile Include="FluScrollBarHandle.cpp" />
     <ClCompile Include="FluSeparator.cpp" />
+    <ClCompile Include="FluSeparatorWidget.cpp" />
     <ClCompile Include="FluShortcutMenuItemDelegate.cpp" />
     <ClCompile Include="FluSlider.cpp" />
     <ClCompile Include="FluSmoothScrollArea.cpp" />
@@ -297,6 +305,7 @@
     <ClCompile Include="FluTableWidget.cpp" />
     <ClCompile Include="FluTheme.cpp" />
     <ClCompile Include="FluTitleLabel.cpp" />
+    <ClCompile Include="FluToolBar.cpp" />
     <ClCompile Include="FluToolTip.cpp" />
     <ClCompile Include="FluTranslateYAnimation.cpp" />
     <ClCompile Include="FluTransparentToolButton.cpp" />
@@ -306,7 +315,6 @@
     <ClCompile Include="FluImgWidget.cpp" />
     <ClCompile Include="FluLinkCardView.cpp" />
     <ClCompile Include="FluLinkCardWidget.cpp" />
-    <ClCompile Include="FluMainWidget.cpp" />
     <ClCompile Include="FluNavigationHistory.cpp" />
     <ClCompile Include="FluNavigationInterface.cpp" />
     <ClCompile Include="FluNavigationItemLayout.cpp" />
@@ -348,10 +356,17 @@
     <ClInclude Include="FluDisplayLabel.h" />
     <ClInclude Include="FluDropDownMenuAnimationManager.h" />
     <ClInclude Include="FluDummyMenuAnimationManager.h" />
+    <QtMoc Include="FluExampleCard.h" />
     <ClInclude Include="FluFadeInDropDownMenuAnimationManager.h" />
     <ClInclude Include="FluFadeInPullUpMenuAnimationManager.h" />
     <QtMoc Include="FluIndicatorMenuItemDelegate.h" />
     <QtMoc Include="FluFrameLessWindow.h" />
+    <QtMoc Include="FluGalleryInterface.h" />
+    <ClInclude Include="FluGalleryWindow.h" />
+    <QtMoc Include="FluIconCardView.h" />
+    <QtMoc Include="FluIconInfoPanel.h" />
+    <ClInclude Include="FluIconInterface.h" />
+    <ClInclude Include="FluIconWidget.h" />
     <ClInclude Include="FluLargeTitleLabel.h" />
     <QtMoc Include="FluLineEdit.h" />
     <QtMoc Include="FluMenuActionListWidget.h" />
@@ -374,6 +389,7 @@
     <QtMoc Include="FluShortcutMenuItemDelegate.h" />
     <QtMoc Include="FluSmoothScrollDelegate.h" />
     <QtMoc Include="FluSmoothScrollBar.h" />
+    <QtMoc Include="FluSeparatorWidget.h" />
     <ClInclude Include="FluSmoothScrollArea.h" />
     <ClInclude Include="FluStrongBodyLabel.h" />
     <QtMoc Include="FluSubMenuItemWidget.h" />
@@ -383,6 +399,7 @@
     <QtMoc Include="FluTableWidget.h" />
     <ClInclude Include="FluTheme.h" />
     <ClInclude Include="FluTitleLabel.h" />
+    <ClInclude Include="FluToolBar.h" />
     <ClInclude Include="FluToolTip.h" />
     <QtMoc Include="FluTranslateYAnimation.h" />
     <ClInclude Include="FluTransparentToolButton.h" />
@@ -397,7 +414,7 @@
     <QtMoc Include="FluNavigationInterface.h" />
     <QtMoc Include="FluSampleCard.h" />
     <QtMoc Include="FluBannerWidget.h" />
-    <ClInclude Include="FluDef.h" />
+    <QtMoc Include="FluDef.h" />
     <ClInclude Include="FluentUiControlGlobal.h" />
     <ClInclude Include="FluentUiControl.h" />
     <ClCompile Include="FluentUiControl.cpp" />
@@ -406,7 +423,6 @@
     <ClInclude Include="FluImgWidget.h" />
     <QtMoc Include="FluLinkCardView.h" />
     <QtMoc Include="FluLinkCardWidget.h" />
-    <QtMoc Include="FluMainWidget.h" />
     <QtMoc Include="FluSampleCardView.h" />
     <QtMoc Include="FluWidget.h" />
     <ClInclude Include="FluLabel.h" />

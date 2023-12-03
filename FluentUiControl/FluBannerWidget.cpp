@@ -19,7 +19,8 @@ FluBannerWidget::FluBannerWidget(QWidget* parent /*= nullptr*/) : QWidget(parent
     m_vLayout->addWidget(m_linkCardView, 1, Qt::AlignBottom);
     m_vLayout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
-    m_linkCardView->addCard(QPixmap("../res/ic_home_github.png"), "FluentUI GitHub", "The latest FluentUI controls and styles for your applications.", "https://github.com/mowangshuying/CppQtFluentUI");
+    m_linkCardView->addCard(QPixmap("../res/logo.png"), "Getting started", "An overview of app development options and samples.", "");
+    m_linkCardView->addCard(QPixmap("../res/ic_home_github.png"), "Github repo", "The latest FluentUI controls and styles for your applications.", "https://github.com/mowangshuying/CppQtFluentUI");
 }
 
 void FluBannerWidget::paintEvent(QPaintEvent* event)

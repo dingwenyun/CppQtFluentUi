@@ -32,9 +32,6 @@
     <ClInclude Include="FluentUiControl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FluDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FluImgWidget.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -140,15 +137,24 @@
     <ClInclude Include="FluSmoothScrollArea.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FluGalleryWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FluIconWidget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FluToolBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FluIconInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FluSampleCardView.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="FluMainWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FluHomeInterface.h">
@@ -295,12 +301,27 @@
     <QtMoc Include="FluFrameLessWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="FluGalleryInterface.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluIconCardView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluIconInfoPanel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluDef.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluSeparatorWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluExampleCard.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FluWidget.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FluMainWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluImgWidget.cpp">
@@ -550,6 +571,33 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluFrameLessWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluGalleryWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluGalleryInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluIconCardView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluIconInfoPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluIconWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluToolBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluSeparatorWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluExampleCard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluIconInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

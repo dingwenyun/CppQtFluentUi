@@ -97,6 +97,10 @@ class FluNavigationPanel : public QFrame
 
         connect(m_menuButton, &FluNavigationToolButton::clicked, this, &FluNavigationPanel::toggle);
         connect(m_expandAni, &QPropertyAnimation::finished, this, &FluNavigationPanel::_onExpandAniFinished);
+        connect(m_expandAni, &QPropertyAnimation::valueChanged, [=](QVariant value) {
+            QRect gRect = value.value<QRect>();
+            LogDebug << "gRect = " << gRect;
+        });
         // mark it!
         // mark it!
 
@@ -139,9 +143,7 @@ class FluNavigationPanel : public QFrame
 
         m_vTopLayout->addWidget(m_returnButton, 0, Qt::AlignTop);
         m_vTopLayout->addWidget(m_menuButton, 0, Qt::AlignTop);
-
-        LogDebug << "panel size:"
-                 << "w:" << width() << ",h:" << height();
+        LogDebug << "panel size " << "width = " << width() << ", height = " << height();
     }
 
     FluNavigationWidget* __widget(QString routeKey)
@@ -333,9 +335,10 @@ class FluNavigationPanel : public QFrame
 
     void expand(bool bUseAni = true)
     {
+        LogFunc;
         _setWidgetCompacted(false);
         m_expandAni->setProperty("expand", true);
-        m_menuButton->setToolTip("Close Navigation");  // 关闭导航栏
+        m_menuButton->setToolTip("关闭导航栏");        // 关闭导航栏
                                                        // determine the display mode according to the width of window
                                                        // https://learn.microsoft.com/en-us/windows/apps/design/controls/navigationview#default
         int nExpandWidth = 1007 + m_expandWidth - 322;
@@ -360,7 +363,7 @@ class FluNavigationPanel : public QFrame
 
         if (bUseAni)
         {
-            emit displayModeChanged(m_displayMode);
+            emit displayModeChanged(m_displayMode);// 发送信号：展示模式变更
             m_expandAni->setStartValue(QRect(pos(), QSize(48, height())));
             m_expandAni->setEndValue(QRect(pos(), QSize(312, height())));
             m_expandAni->start();
@@ -374,6 +377,7 @@ class FluNavigationPanel : public QFrame
     // 折叠
     void collapse()
     {
+        LogFunc;
         if (m_expandAni->state() == QPropertyAnimation::Running)
             return;
 
@@ -402,6 +406,7 @@ class FluNavigationPanel : public QFrame
 
     void toggle()
     {
+        LogDebug << "toggle.";
         if (m_displayMode == FluNavigationDisplayMode::COMPACT || m_displayMode == FluNavigationDisplayMode::MINIMAL)
             expand();
         else

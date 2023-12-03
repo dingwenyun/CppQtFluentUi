@@ -111,7 +111,7 @@ class FluNavigationInterface : public QWidget
         // LogDebug << "w:" << width() << ",h:" << height() << "; panel w:" << m_panel->width() << ",panel h:" << m_panel->height();
         if (event->oldSize().height() != height())
         {
-            LogDebug << "w =" << width() << ", h= " << height() << ", panel w = " << m_panel->width() << ", panel h = " << m_panel->height();
+            LogDebug << "Nav width = " << width() << ", height = " << height() << ", Panel width = " << m_panel->width() << ", height = " << m_panel->height();
             m_panel->setFixedHeight(height());
         }
     }

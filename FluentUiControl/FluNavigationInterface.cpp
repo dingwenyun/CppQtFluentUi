@@ -14,16 +14,12 @@ FluNavigationInterface::FluNavigationInterface(QWidget* parent /*= nullptr*/, bo
     m_panel->installEventFilter(this);
     connect(this, &FluNavigationInterface::displayModeChanged, m_panel, &FluNavigationPanel::displayModeChanged);
 
-    // m_vLayout->addWidget(m_panel);
-    // m_vLayout->addStretch();
-    // todo display mode change
-    resize(48, height());
+    resize(48, height()); // 设置宽度为48
     setMinimumWidth(48);
-    // setFixedWidth(48);
     setAttribute(Qt::WA_TranslucentBackground);
     // setWindowFlag(Qt::FramelessWindowHint);
     // setAttribute(Qt::WA_StyledBackground);
-    // setStyleSheet("background-color:pink;");
+    // setStyleSheet("background-color:blue;");
     // setStyleSheet("background-color:pink;");  // 样式表未生效
     // LogDebug << "w:" << width() << ",h:" << height();
     // m_panel->show();

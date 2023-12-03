@@ -15,6 +15,7 @@
 
 #include <QPainter>
 #include "../FluentUiUtils/FluStyleSheetUitls.h"
+#include "../FluentUiUtils/FluLogUtils.h"
 
 FRAMELESSHELPER_USE_NAMESPACE
 
@@ -81,13 +82,16 @@ void FluFrameLessWindow::waitReady()
 
 FluNavigationTreeWidget *FluFrameLessWindow::addSubInterface(QWidget *interface, QPixmap icon, QString text, FluNavigationItemPosition position /*= FluNavigationItemPosition::TOP*/, QWidget *parentWidget /*= nullptr*/, bool bTransparent /*= false*/)
 {
+    // interface的对象名必须不为空，为空直接返回错误的指针
     if (interface->objectName().isEmpty())
     {
+        LogErr << "interface objectname empty.";
         return nullptr;
     }
 
     if (parentWidget != nullptr && parentWidget->objectName().isEmpty())
     {
+        LogErr << "parentWidget not nullptr but parentWidget objectname empty.";
         return nullptr;
     }
 
@@ -118,7 +122,7 @@ void FluFrameLessWindow::closeEvent(QCloseEvent *event)
 void FluFrameLessWindow::resizeEvent(QResizeEvent *event)
 {
     FramelessWidget::resizeEvent(event);
-    m_titleBar->move(48, 2);
+    m_titleBar->move(48, 1);
     m_titleBar->resize(width() - 48, m_titleBar->height());
     m_titleBar->raise();
 }
@@ -133,7 +137,7 @@ void FluFrameLessWindow::paintEvent(QPaintEvent *event)
 
 void FluFrameLessWindow::updateStyleSheet()
 {
-    setStyleSheet("background-color:pink;");
+    //setStyleSheet("background-color:pink;");
     update();
 }
 

@@ -4,6 +4,8 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QMetaEnum>
+#include <QMetaObject>
 
 #define FluSetObjectName(objectName) setObjectName(#objectName);
 #define FluSetStyleSheet(objectName) setStyleSheet("../StyleSheet/" #objectName ".qss");
@@ -39,7 +41,24 @@
         return m_##name;            \
     }
 
-enum class FluAwesomeType
+template <typename EnumType>
+static EnumType QStringToEnum(QString str)
+{
+    QMetaEnum metaEnum = QMetaEnum::fromType<EnumType>();
+    return (EnumType)metaEnum.keyToValue(str.toStdString().data());
+}
+
+template <typename EnumType>
+static QString EnumTypeToQString(EnumType type)
+{
+    QMetaEnum metaEnum = QMetaEnum::fromType<EnumType>();
+    return metaEnum.valueToKey((int)(type));
+}
+
+namespace FluAwesomeTypeNameSpace
+{
+    Q_NAMESPACE
+    enum class FluAwesomeType
 {
     GlobalNavButton = 0xe700,
     Wifi = 0xe701,
@@ -1445,3 +1464,7 @@ enum class FluAwesomeType
     SpeechSolidBold = 0xf8b2,
     ClickedOutLoudSolidBold = 0xf8b3,
 };
+    Q_ENUM_NS(FluAwesomeType)
+}
+
+using namespace FluAwesomeTypeNameSpace;

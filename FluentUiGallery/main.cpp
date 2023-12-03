@@ -1,8 +1,8 @@
 #include <QApplication>
 #include <QWidget>
-#include "../FluentUiControl/FluMainWidget.h"
 #include "../FluentUiControl/FluSampleCard.h"
 #include "../FluentUiUtils/FluLogUtils.h"
+#include "../FluentUiControl/FluGalleryWindow.h"
 
 int main(int argc, char** argv)
 {
@@ -11,7 +11,7 @@ int main(int argc, char** argv)
     FluLogUtils::init();
     LogDebug << "called!";
 
-    FluMainWidget w;
+    FluGalleryWindow w;
     w.show();
 
     return app.exec();
