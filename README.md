@@ -4,6 +4,8 @@
 
 CppQtFluentUI采用Vs2019+Qt6.5.2使用纯C++代码编写FluentUI.
 
+![image-20231205010326268](./docs/imgs/image-20231205010326268.png)
+
 ## 1.开始
 
 ...
