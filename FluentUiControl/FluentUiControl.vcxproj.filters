@@ -149,6 +149,18 @@
     <ClInclude Include="FluIconInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FluExpandLayout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FluDateTimeInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FluDialogInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FluLayoutInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluWidget.h">
@@ -326,6 +338,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FluSettingInterface.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluBasicInputInterface.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -616,6 +631,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluSettingInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluExpandLayout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluBasicInputInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluDateTimeInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluDialogInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluLayoutInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -9,6 +9,7 @@
 #include "../FluentUiUtils/FluStyleSheetUitls.h"
 #include "../FluentUiUtils/FluIconUtils.h"
 #include "../FluentUiUtils/FluFontUtils.h"
+#include "../FluentUiUtils/FluThemeUtils.h"
 
 #include <QToolButton>
 
@@ -185,8 +186,57 @@ class FluToolButton : public QToolButton
         painter.drawPixmap(QRect(nX, nY, iconW, iconH), m_icon.pixmap(iconH, iconW));
     }
 
-  private:
+  protected:
     bool m_bPressed;
     bool m_bHover;
     QIcon m_icon;
+};
+
+class FluPrimaryToolButton : public FluToolButton
+{
+  public:
+    FluPrimaryToolButton(QWidget* parent = nullptr) : FluToolButton(parent)
+    {
+    }
+
+    FluPrimaryToolButton(FluAwesomeType awesomeType, QWidget* parent = nullptr) : FluToolButton(awesomeType, parent)
+    {
+
+    }
+
+    FluPrimaryToolButton(QIcon icon, QWidget* parent = nullptr) : FluToolButton(icon, parent)
+    {
+        
+    }
+
+  protected:
+    void paintEvent(QPaintEvent* event)
+    {
+        QToolButton::paintEvent(event);
+        if (m_icon.isNull())
+            return;
+
+        QPainter painter(this);
+        painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+        if (isEnabled())
+        {
+            painter.setOpacity(0.43);
+        }
+        else
+        {
+            if (FluThemeUtils::isDarkMode())
+                painter.setOpacity(0.786);
+            else
+                painter.setOpacity(0.9);
+        }
+
+        int iconW = iconSize().width();
+        int iconH = iconSize().height();
+
+        int nX = (width() - iconW) / 2;
+        int nY = (height() - iconH) / 2;
+
+        painter.drawPixmap(QRect(nX, nY, iconW, iconH), m_icon.pixmap(iconH, iconW));
+
+    }
 };

@@ -28,7 +28,7 @@ QPixmap FluIconUtils::GetFluentIconPixmap(FluAwesomeType nType)
 
     QPixmap tmpPixMap(30, 30);
     tmpPixMap.fill(Qt::transparent);
-    QPainter painter(&tmpPixMap);
+    QPainter painter;
     painter.begin(&tmpPixMap);
     painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
     painter.setPen(QColor("black"));

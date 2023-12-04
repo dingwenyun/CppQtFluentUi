@@ -51,7 +51,7 @@ void FluFrameLessWindow::initialize()
     m_titleBar->raise();
 
     m_contentLayout = new QVBoxLayout;
-    m_contentLayout->setContentsMargins(0, 48, 0, 0);
+    m_contentLayout->setContentsMargins(0, 48, 15, 15);
     m_contentLayout->setSpacing(0);
 
     m_stackedWidget = new QStackedWidget(this);
@@ -142,6 +142,8 @@ void FluFrameLessWindow::paintEvent(QPaintEvent *event)
 void FluFrameLessWindow::updateStyleSheet()
 {
     // setStyleSheet("background-color:pink;");
+    QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluFrameLessWindow.qss");
+    setStyleSheet(qss);
     update();
 }
 

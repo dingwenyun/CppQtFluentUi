@@ -22,11 +22,11 @@ class FluExampleCard : public QWidget
         m_titleLabel = new FluStrongBodyLabel(title, this);
 
         m_card = new QFrame(this);
-        m_sourceWidget = new QFrame(m_card);
+        m_sourceWidget = new QFrame(m_card); 
         m_sourcePath = sourcePath;
 
-        m_sourcePathLabel = new FluBodyLabel("Source code", m_sourceWidget);
-        m_linkIcon = new FluIconWidget(FluAwesomeType::Link, m_sourceWidget);
+        m_sourcePathLabel = new FluBodyLabel("源代码", m_sourceWidget);
+        m_linkIcon = new FluIconWidget(FluAwesomeType::OpenInNewWindow, m_sourceWidget);
 
         m_vBoxLayout = new QVBoxLayout(this);
         m_vCardLayout = new QVBoxLayout(m_card);
@@ -60,14 +60,14 @@ class FluExampleCard : public QWidget
         m_hBottomLayout->setContentsMargins(18, 18, 18, 18);
         m_vCardLayout->setContentsMargins(0, 0, 0, 0);
 
-        m_vBoxLayout->addWidget(m_titleLabel, 0, Qt::AlignTop);
-        m_vBoxLayout->addWidget(m_card, 0, Qt::AlignTop);
+        m_vBoxLayout->addWidget(m_titleLabel, 0, Qt::AlignTop); // 标题
+        m_vBoxLayout->addWidget(m_card, 0, Qt::AlignTop);       // 卡片
         m_vBoxLayout->setAlignment(Qt::AlignTop);
 
         m_vCardLayout->setSpacing(0);
         m_vCardLayout->setAlignment(Qt::AlignTop);
         m_vCardLayout->addLayout(m_hTopLayout, 0);
-        m_vBoxLayout->addWidget(m_sourceWidget, 0, Qt::AlignBottom);
+        m_vCardLayout->addWidget(m_sourceWidget, 0, Qt::AlignBottom);
 
         m_Widget->setParent(m_card);
         m_hTopLayout->addWidget(m_Widget);
@@ -76,20 +76,20 @@ class FluExampleCard : public QWidget
             m_hTopLayout->addStretch(1);
 
         m_Widget->show();
-        m_hBottomLayout->addWidget(m_sourcePathLabel, 0, Qt::AlignLeft);
+        m_hBottomLayout->addWidget(m_sourcePathLabel, 0, Qt::AlignLeft);// 底部标签
         m_hBottomLayout->addStretch(1);
-        m_hBottomLayout->addWidget(m_linkIcon, 0, Qt::AlignRight);
+        m_hBottomLayout->addWidget(m_linkIcon, 0, Qt::AlignRight);// 设置链接标签右部
         m_hBottomLayout->setAlignment(Qt::AlignLeft | Qt::AlignCenter);
     }
 
   protected:
     bool eventFilter(QObject* watched, QEvent* event)
     {
-        if (watched == m_sourceWidget && event->type() == QEvent::MouseButtonRelease)
+        if ((QWidget*)watched == (QWidget*)m_sourceWidget && event->type() == QEvent::MouseButtonRelease)
         {
             QDesktopServices::openUrl(QUrl(m_sourcePath));
         }
-        return eventFilter(watched, event);
+        return QWidget::eventFilter(watched, event);
     }
 
   private:
