@@ -4,6 +4,7 @@ FluThemeUtils* FluThemeUtils::m_themeUtils = nullptr;
 FluThemeUtils::FluThemeUtils()
 {
     m_themeMode = FluThemeMode::Light;
+    m_themeColor = QColor("#009faa");
 }
 
 FluThemeUtils* FluThemeUtils::getInstance()
@@ -38,11 +39,46 @@ QColor FluThemeUtils::getThemeColor()
     return getThemeColorByColorMode(getInstance()->m_themeColor, FluThemeColorMode::NORMAL);
 }
 
+QColor FluThemeUtils::getThemeColorNormal()
+{
+    return getThemeColorByColorMode(getInstance()->m_themeColor, FluThemeColorMode::NORMAL);
+}
+
+QColor FluThemeUtils::getThemeColorLight()
+{
+    return getThemeColorByColorMode(getInstance()->m_themeColor, FluThemeColorMode::LIGHT);
+}
+
+QColor FluThemeUtils::getThemeColorLighter()
+{
+    return getThemeColorByColorMode(getInstance()->m_themeColor, FluThemeColorMode::LIGHT_ER);
+}
+
+QColor FluThemeUtils::getThemeColorLightest()
+{
+    return getThemeColorByColorMode(getInstance()->m_themeColor, FluThemeColorMode::LIGHT_EST);
+}
+
+QColor FluThemeUtils::getThemeColorDark()
+{
+    return getThemeColorByColorMode(getInstance()->m_themeColor, FluThemeColorMode::DARK);
+}
+
+QColor FluThemeUtils::getThemeColorDarker()
+{
+    return getThemeColorByColorMode(getInstance()->m_themeColor, FluThemeColorMode::DARK_ER);
+}
+
+QColor FluThemeUtils::getThemeColorDarkest()
+{
+    return getThemeColorByColorMode(getInstance()->m_themeColor, FluThemeColorMode::DARK_EST);
+}
+
 QColor FluThemeUtils::getThemeColorByColorMode(QColor color, FluThemeColorMode colorMode)
 {
     // QColor color = getThemeColor();
     float h, s, v, f;
-    color.getHsvF(&h, &s, &v, &h);
+    color.getHsvF(&h, &s, &v, &f);
 
     // h:色调
     // s:饱和度颜色的鲜艳程度

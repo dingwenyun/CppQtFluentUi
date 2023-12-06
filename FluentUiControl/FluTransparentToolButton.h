@@ -12,7 +12,7 @@ class FluTransparentToolButton : public QToolButton
     {
         QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluTransparentToolButton.qss");
         setStyleSheet(qss);
-        setText("FluTransparentToolButton");
+        //setText("FluTransparentToolButton");
     }
 
   protected:

@@ -1,5 +1,19 @@
 #include "FluStyleSheetUitls.h"
 
+QString FluStyleSheetUitls::getThemeQssByFileName(QString fileName)
+{
+    std::map<QString, QString> kvMap;
+    kvMap["ThemeColorNormal"] = FluThemeUtils::getThemeColorNormal().name();
+    kvMap["ThemeColorLight"] = FluThemeUtils::getThemeColorLight().name();
+    kvMap["ThemeColorLighter"] = FluThemeUtils::getThemeColorLighter().name();
+    kvMap["ThemeColorLightest"] = FluThemeUtils::getThemeColorLightest().name();
+    kvMap["ThemeColorDark"] = FluThemeUtils::getThemeColorDark().name();
+    kvMap["ThemeColorDarker"] = FluThemeUtils::getThemeColorDarker().name();
+    kvMap["ThemeColorDarkest"] = FluThemeUtils::getThemeColorDarkest().name();
+
+    return getQssByFileName(kvMap, fileName);
+}
+
 QString FluStyleSheetUitls::getQssByFileName(QString fileName)
 {
     QFile file(fileName);
@@ -9,6 +23,7 @@ QString FluStyleSheetUitls::getQssByFileName(QString fileName)
         file.close();
         return qssStr;
     }
+
     return "";
 }
 
@@ -16,6 +31,13 @@ QString FluStyleSheetUitls::getQssByFileName(QString jsonVars, QString fileName)
 {
     QString styleSheet = getQssByFileName(fileName);
     replaceVar(jsonVars, styleSheet);
+    return styleSheet;
+}
+
+QString FluStyleSheetUitls::getQssByFileName(std::map<QString, QString> &kvMap, QString fileName)
+{
+    QString styleSheet = getQssByFileName(fileName);
+    replaceVar(kvMap, styleSheet);
     return styleSheet;
 }
 
@@ -49,11 +71,17 @@ void FluStyleSheetUitls::replaceVar(QString jsonVars, QString &styleSheet)
         }
     }
 
-    for (auto itMap = KVMap.begin(); itMap != KVMap.end(); itMap++)
+    replaceVar(KVMap, styleSheet);
+
+
+}
+
+void FluStyleSheetUitls::replaceVar(std::map<QString, QString> &kvMap, QString &styleSheet)
+{
+    for (auto itMap = kvMap.begin(); itMap != kvMap.end(); itMap++)
     {
         QString key = "[[" + itMap->first + "]]";
         QString value = itMap->second;
-
         styleSheet.replace(key, value);
     }
 }

@@ -2,6 +2,7 @@
 
 #include "FluGalleryInterface.h"
 #include "FluButton.h"
+#include "FluCheckBox.h"
 
 class FluBasicInputInterface : public FluGalleryInterface
 {
@@ -27,5 +28,11 @@ class FluBasicInputInterface : public FluGalleryInterface
 
         auto transparentButton = new FluTransparentPushButton("透明按钮", this, FluIconUtils::GetFluentIcon(FluAwesomeType::BookmarksMirrored));
         addExampleCard("透明按钮", transparentButton, "");
+
+        auto transparentToolButton = new FluTransparentToolButton(this, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::BookmarksMirrored));
+        addExampleCard("透明工具按钮", transparentToolButton, "");
+
+        auto checkButton = new FluCheckBox("双态复选框", this);
+        addExampleCard("双态复选框", checkButton, "");
     }
 };
