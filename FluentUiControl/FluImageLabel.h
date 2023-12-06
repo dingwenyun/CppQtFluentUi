@@ -233,7 +233,6 @@ class FluImageLabel : public QLabel
         // draw image
         QImage img = m_image.scaled(size() * devicePixelRatioF(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
         painter.setPen(Qt::NoPen);
-        painter.setClipPath(path);
         painter.drawImage(rect(), img);
     }
 
