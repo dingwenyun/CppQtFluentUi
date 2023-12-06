@@ -59,11 +59,11 @@ class FluMenuInterface : public FluGalleryInterface
         connect(button, &FluPushButton::clicked, [=](bool bClicked) {
             QPoint pos = button->mapToGlobal(QPoint(button->width() + 5, -100));
             m_contextMenu->exec(pos, true);
-            });
+        });
 
         addExampleCard("圆角菜单", button, "");
     }
 
-    private:
-        FluRoundMenu* m_contextMenu;
+  private:
+    FluRoundMenu* m_contextMenu;
 };
