@@ -18,7 +18,7 @@ class FluLineEditButton : public QToolButton
         setFixedSize(31, 23);
         setIconSize(QSize(10, 10));
         setCursor(Qt::PointingHandCursor);
-        // setObjectName("lineEditButton");
+        setObjectName("lineEditButton");
         // QString qss = FluentUiStyleSheetUitls::getQssByFileName("../StyleSheet/FluLineEditButton.qss");
         // setStyleSheet(qss);
     }

@@ -9,7 +9,8 @@ class FluSettingInterface : public FluScrollArea
     FluSettingInterface(QWidget* parent = nullptr) : FluScrollArea(parent)
     {
         setObjectName("settingInterface");
-        setStyleSheet(" \
+        setStyleSheet(
+            " \
             FluSettingInterface{background-color: transparent;} \
             QScrollArea {border:none;background - color : transparent;} \
             ");

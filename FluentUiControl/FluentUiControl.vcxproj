@@ -271,6 +271,7 @@
     <ClCompile Include="FluExpandLayout.cpp" />
     <ClCompile Include="FluFadeInDropDownMenuAnimationManager.cpp" />
     <ClCompile Include="FluFadeInPullUpMenuAnimationManager.cpp" />
+    <ClCompile Include="FluFrame.cpp" />
     <ClCompile Include="FluFrameLessWindow.cpp" />
     <ClCompile Include="FluGalleryInterface.cpp" />
     <ClCompile Include="FluGalleryWindow.cpp" />
@@ -287,6 +288,7 @@
     <ClCompile Include="FluLayoutInterface.cpp" />
     <ClCompile Include="FluLineEdit.cpp" />
     <ClCompile Include="FluLineEditButton.cpp" />
+    <ClCompile Include="FluListFrame.cpp" />
     <ClCompile Include="FluListView.cpp" />
     <ClCompile Include="FluMaterialInterface.cpp" />
     <ClCompile Include="FluMenuActionListWidget.cpp" />
@@ -302,6 +304,7 @@
     <ClCompile Include="FluNavigationTreeItem.cpp" />
     <ClCompile Include="FluNavigationTreeWidget.cpp" />
     <ClCompile Include="FluNavigationViewInterface.cpp" />
+    <ClCompile Include="FluPasswordLineEdit.cpp" />
     <ClCompile Include="FluPullUpMenuAnimationManager.cpp" />
     <ClCompile Include="FluRadioButton.cpp" />
     <ClCompile Include="FluRoundMenu.cpp" />
@@ -323,6 +326,7 @@
     <ClCompile Include="FluStrongBodyLabel.cpp" />
     <ClCompile Include="FluSubMenuItemWidget.cpp" />
     <ClCompile Include="FluSubTitleLabel.cpp" />
+    <ClCompile Include="FluTableFrame.cpp" />
     <ClCompile Include="FluTableItemDelegate.cpp" />
     <ClCompile Include="FluTableView.cpp" />
     <ClCompile Include="FluTableWidget.cpp" />
@@ -393,6 +397,7 @@
     <QtMoc Include="FluIndicatorMenuItemDelegate.h" />
     <QtMoc Include="FluFrameLessWindow.h" />
     <QtMoc Include="FluGalleryInterface.h" />
+    <QtMoc Include="FluFrame.h" />
     <ClInclude Include="FluGalleryWindow.h" />
     <QtMoc Include="FluIconCardView.h" />
     <QtMoc Include="FluIconInfoPanel.h" />
@@ -404,6 +409,7 @@
     <QtMoc Include="FluMenuActionListWidget.h" />
     <QtMoc Include="FluLineEditButton.h" />
     <ClInclude Include="FluLayoutInterface.h" />
+    <ClInclude Include="FluListFrame.h" />
     <ClInclude Include="FluListView.h" />
     <QtMoc Include="FluMaterialInterface.h" />
     <ClInclude Include="FluMenuAnimationManager.h" />
@@ -415,6 +421,7 @@
     <QtMoc Include="FluScrollBar.h" />
     <QtMoc Include="FluRadioButton.h" />
     <QtMoc Include="FluNavigationViewInterface.h" />
+    <QtMoc Include="FluPasswordLineEdit.h" />
     <ClInclude Include="FluPullUpMenuAnimationManager.h" />
     <QtMoc Include="FluRoundMenu.h" />
     <QtMoc Include="FluScrollBarGroove.h" />
@@ -433,6 +440,7 @@
     <ClInclude Include="FluStrongBodyLabel.h" />
     <QtMoc Include="FluSubMenuItemWidget.h" />
     <ClInclude Include="FluSubTitleLabel.h" />
+    <ClInclude Include="FluTableFrame.h" />
     <ClInclude Include="FluTableItemDelegate.h" />
     <QtMoc Include="FluTableView.h" />
     <QtMoc Include="FluTableWidget.h" />

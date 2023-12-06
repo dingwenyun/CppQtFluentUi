@@ -22,7 +22,7 @@ class FluExampleCard : public QWidget
         m_titleLabel = new FluStrongBodyLabel(title, this);
 
         m_card = new QFrame(this);
-        m_sourceWidget = new QFrame(m_card); 
+        m_sourceWidget = new QFrame(m_card);
         m_sourcePath = sourcePath;
 
         m_sourcePathLabel = new FluBodyLabel("源代码", m_sourceWidget);
@@ -60,8 +60,8 @@ class FluExampleCard : public QWidget
         m_hBottomLayout->setContentsMargins(18, 18, 18, 18);
         m_vCardLayout->setContentsMargins(0, 0, 0, 0);
 
-        m_vBoxLayout->addWidget(m_titleLabel, 0, Qt::AlignTop); // 标题
-        m_vBoxLayout->addWidget(m_card, 0, Qt::AlignTop);       // 卡片
+        m_vBoxLayout->addWidget(m_titleLabel, 0, Qt::AlignTop);  // 标题
+        m_vBoxLayout->addWidget(m_card, 0, Qt::AlignTop);        // 卡片
         m_vBoxLayout->setAlignment(Qt::AlignTop);
 
         m_vCardLayout->setSpacing(0);
@@ -76,9 +76,9 @@ class FluExampleCard : public QWidget
             m_hTopLayout->addStretch(1);
 
         m_Widget->show();
-        m_hBottomLayout->addWidget(m_sourcePathLabel, 0, Qt::AlignLeft);// 底部标签
+        m_hBottomLayout->addWidget(m_sourcePathLabel, 0, Qt::AlignLeft);  // 底部标签
         m_hBottomLayout->addStretch(1);
-        m_hBottomLayout->addWidget(m_linkIcon, 0, Qt::AlignRight);// 设置链接标签右部
+        m_hBottomLayout->addWidget(m_linkIcon, 0, Qt::AlignRight);  // 设置链接标签右部
         m_hBottomLayout->setAlignment(Qt::AlignLeft | Qt::AlignCenter);
     }
 

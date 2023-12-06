@@ -7,6 +7,10 @@ QTableView {
     alternate-background-color: transparent;
 }
 
+QTableView[isBorderVisible=true] {
+    border: 1px solid rgba(0, 0, 0, 15);
+}
+
 QTableView::item {
     background: transparent;
     border: 0px;

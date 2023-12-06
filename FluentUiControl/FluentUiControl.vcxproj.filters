@@ -161,6 +161,12 @@
     <ClInclude Include="FluLayoutInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FluListFrame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FluTableFrame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluWidget.h">
@@ -362,6 +368,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FluScrollInterface.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluPasswordLineEdit.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluFrame.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -688,6 +700,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluMenuInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluPasswordLineEdit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluFrame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluListFrame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluTableFrame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

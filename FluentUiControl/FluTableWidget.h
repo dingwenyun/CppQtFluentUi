@@ -107,6 +107,17 @@ class FluTableWidget : public QTableWidget
         updateSelectedRows();
     }
 
+    void setBorderVisible(bool bVisible)
+    {
+        setProperty("isBorderVisible", bVisible);
+    }
+
+    void setBorderRadius(int radius)
+    {
+       // QString qss = QString("QTableView{border-radius:%1px").arg(radius);
+       // setStyleSheet(qss);
+    }
+
   protected:
     void showEvent(QShowEvent *event)
     {

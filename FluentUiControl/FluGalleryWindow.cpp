@@ -26,7 +26,7 @@ FluGalleryWindow::FluGalleryWindow(QWidget* parent /*= nullptr*/) : FluFrameLess
     m_viewInterface = new FluViewInterface(this);
 
     m_settingInterface = new FluSettingInterface(this);
-    
+
     initNavigation();
 }
 
@@ -49,7 +49,6 @@ void FluGalleryWindow::initNavigation()
     addSubInterface(m_statusInfoInterface, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::Comment), "状态和信息");
     addSubInterface(m_textInfterface, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::Font), "文本");
     addSubInterface(m_viewInterface, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::ViewAll), "视图");
-
 
     m_navigationInterface->addWidget("avatar", new FluNavigationAvatarWidget("mowangshuying", QPixmap("../res/mowangshuying.png")), nullptr, FluNavigationItemPosition::BOTTOM);
     addSubInterface(m_settingInterface, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::Settings), "设置", FluNavigationItemPosition::BOTTOM);

@@ -15,6 +15,7 @@ class FluSearchLineEdit : public FluLineEdit
         m_hBoxLayout->addWidget(m_searchButton, 0, Qt::AlignRight);
         setClearButtonEnabled(true);
         // setTextMargins(0, 0, 59, 0);
+        setFixedHeight(33);
         m_searchButton->setObjectName("lineEditButton");
     }
 

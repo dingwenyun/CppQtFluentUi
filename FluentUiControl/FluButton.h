@@ -201,12 +201,10 @@ class FluPrimaryToolButton : public FluToolButton
 
     FluPrimaryToolButton(FluAwesomeType awesomeType, QWidget* parent = nullptr) : FluToolButton(awesomeType, parent)
     {
-
     }
 
     FluPrimaryToolButton(QIcon icon, QWidget* parent = nullptr) : FluToolButton(icon, parent)
     {
-        
     }
 
   protected:
@@ -237,6 +235,5 @@ class FluPrimaryToolButton : public FluToolButton
         int nY = (height() - iconH) / 2;
 
         painter.drawPixmap(QRect(nX, nY, iconW, iconH), m_icon.pixmap(iconH, iconW));
-
     }
 };

@@ -18,7 +18,8 @@ class FluExpandLayout : public QLayout
             if (tmpW == w)
             {
                 bHas = true;
-                break;;
+                break;
+                ;
             }
         }
 

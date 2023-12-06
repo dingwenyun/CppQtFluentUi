@@ -29,7 +29,7 @@ class FluSeparator : public QWidget
   protected:
     void paintEvent(QPaintEvent* event)
     {
-        QPainter painter;
+        QPainter painter(this);
         painter.setRenderHints(QPainter::Antialiasing);
 
         if (FluThemeUtils::isDarkMode())
