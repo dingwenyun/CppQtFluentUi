@@ -10,14 +10,14 @@ class FluTransparentPushButton : public FluPushButton
   public:
     FluTransparentPushButton(QWidget* parent) : FluPushButton(parent)
     {
-        //FluSetStyleSheet(FluTransparentPushButton);
+        // FluSetStyleSheet(FluTransparentPushButton);
         QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluTransparentPushButton.qss");
         setStyleSheet(qss);
     }
 
     FluTransparentPushButton(QString text, QWidget* parent = nullptr, QIcon icon = QIcon()) : FluPushButton(text, parent, icon)
     {
-        //FluSetStyleSheet(FluTransparentPushButton);
+        // FluSetStyleSheet(FluTransparentPushButton);
         QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluTransparentPushButton.qss");
         setStyleSheet(qss);
     }
