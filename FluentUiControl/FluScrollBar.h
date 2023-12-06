@@ -177,7 +177,7 @@ class FluScrollBar : public QWidget
         if (value == m_value)
             return;
 
-        LogDebug << "value:" << value;
+      //  LogDebug << "value:" << value;
         value = qMax(m_minimum, qMin(value, m_maximum));
         m_value = value;
         emit valueChanged(value);

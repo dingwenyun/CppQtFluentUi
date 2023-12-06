@@ -1,0 +1,68 @@
+FluPushButton {
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.073);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+    border-radius: 5px;
+    font: 14px 'Segoe UI', 'Microsoft YaHei';
+    padding: 5px 12px 6px 12px;
+    outline: none;
+}
+
+FluPushButton[hasIcon=false] {
+    padding: 5px 12px 6px 12px;
+}
+
+FluPushButton[hasIcon=true] {
+    padding: 5px 12px 6px 36px;
+}
+
+FluPushButton:hover {
+    background: rgba(249, 249, 249, 0.5);
+}
+
+FluPushButton::pressed {
+    color: rgba(0, 0, 0, 0.63);
+    background: rgba(249, 249, 249, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
+}
+
+FluPushButton:disabled {
+    color: rgba(0, 0, 0, 0.36);
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+FluPrimaryPushButton {
+    color: white;
+    /*theme color*/
+    background-color: [[ThemeColorNormal]];
+    /*theme color light1*/
+    border: 1px solid [[ThemeColorLight]];
+    /*theme color dark1*/
+    border-bottom: 1px solid [[ThemeColorDark]];
+}
+
+FluPrimaryPushButton:hover {
+    /*theme color light1*/
+    background-color: [[ThemeColorLight]];
+    /*theme color light2*/
+    border: 1px solid [[ThemeColorLighter]];
+    /*theme color dark1*/
+    border-bottom: 1px solid [[ThemeColorDark]];
+}
+
+FluPrimaryPushButton:pressed {
+    color: rgba(255, 255, 255, 0.63);
+    /*theme color light 3*/
+    background-color: [[ThemeColorLightest]];
+    /*theme color light 3*/
+    border: 1px solid [[ThemeColorLightest]];
+}
+
+FluPrimaryPushButton:disabled {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(205, 205, 205);
+    border: 1px solid rgb(205, 205, 205);
+}

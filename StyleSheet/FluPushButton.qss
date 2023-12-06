@@ -34,39 +34,6 @@ FluPushButton:disabled {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-FluPrimaryPushButton {
-    color: white;
-    /*theme color*/
-    background-color: #0078D4;
-    /*theme color light1*/
-    border: 1px solid #60ABE4;
-    /*theme color dark1*/
-    border-bottom: 1px solid #004A83;
-}
-
-FluPrimaryPushButton:hover {
-    /*theme color light1*/
-    background-color: #60ABE4;
-    /*theme color light2*/
-    border: 1px solid #4CA0E0;
-    /*theme color dark1*/
-    border-bottom: 1px solid #004A83;
-}
-
-FluPrimaryPushButton:pressed {
-    color: rgba(255, 255, 255, 0.63);
-    /*theme color light 3*/
-    background-color: #268CDC;
-    /*theme color light 3*/
-    border: 1px solid #268CDC;
-}
-
-FluPrimaryPushButton:disabled {
-    color: rgba(255, 255, 255, 0.9);
-    background-color: rgb(205, 205, 205);
-    border: 1px solid rgb(205, 205, 205);
-}
-
 FluTogglePushButton {
     color: black;
     background: rgba(255, 255, 255, 0.7);
