@@ -461,7 +461,7 @@
     <QtMoc Include="FluToolButton.h" />
     <ClInclude Include="FluToolTip.h" />
     <QtMoc Include="FluTranslateYAnimation.h" />
-    <ClInclude Include="FluTransparentPushButton.h" />
+    <QtMoc Include="FluTransparentPushButton.h" />
     <ClInclude Include="FluTransparentToolButton.h" />
     <ClInclude Include="FluPixmapLabel.h" />
     <QtMoc Include="FluNavigationItemLayout.h" />

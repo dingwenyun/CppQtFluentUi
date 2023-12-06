@@ -18,8 +18,6 @@ class FluStyleSheetUitls
     }
 
     static QString getQssByFileName(QString fileName);
-
     static QString getQssByFileName(QString jsonVars, QString fileName);
-
     static void replaceVar(QString jsonVars, QString &styleSheet);
 };

@@ -170,9 +170,6 @@
     <ClInclude Include="FluButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FluTransparentPushButton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FluPrimaryToolButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -392,6 +389,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FluToolButton.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluTransparentPushButton.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

@@ -24,5 +24,8 @@ class FluBasicInputInterface : public FluGalleryInterface
 
         auto primaryToolButton = new FluPrimaryToolButton(FluIconUtils::GetFluentIcon(FluAwesomeType::Globe));
         addExampleCard("主题色工具按钮", primaryToolButton, "");
+
+        auto transparentButton = new FluTransparentPushButton("透明按钮", this, FluIconUtils::GetFluentIcon(FluAwesomeType::BookmarksMirrored));
+        addExampleCard("透明按钮", transparentButton, "");
     }
 };
