@@ -25,11 +25,10 @@ class FluUiMessBox : public QObject
 
     void __initWidget(QString title, QString content, QWidget* parent)
     {
-        m_titleLabel = new QLabel(title);
-        m_contentLabel = new QLabel(content);
+        m_titleLabel = new QLabel(title, parent);
+        m_contentLabel = new QLabel(content, parent);
         m_yesButton = new QPushButton("确定");
         m_noButton = new QPushButton("取消");
-
         m_vBoxLayout = new QVBoxLayout(parent);
         m_hBtnLayout = new QHBoxLayout();
     }
