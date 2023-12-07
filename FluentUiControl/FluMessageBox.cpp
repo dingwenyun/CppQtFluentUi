@@ -4,7 +4,7 @@
 FluMessageBox::FluMessageBox(QString title, QString content, QWidget* parent /*= nullptr*/) : FluMaskDialog(parent)
 {
     setupUi(title, content, m_widget);
-    LogDebug << "centerWidget w: " << m_widget->width() << "h: " << m_widget->height(); 
+    LogDebug << "centerWidget w: " << m_widget->width() << "h: " << m_widget->height();
     setShadowEffect(60, QPoint(0, 10), QColor(0, 0, 0, 50));
     setMaskColor(QColor(0, 0, 0, 76));
 }
@@ -35,14 +35,14 @@ void FluMessageBox::__initLayout()
     //标题
     m_vBoxLayout->setContentsMargins(24, 24, 24, 24);
     m_vBoxLayout->addWidget(m_titleLabel);
-    
+
     // 内容
     m_vBoxLayout->addWidget(m_contentLabel);
 
     // 按钮
     m_hBtnLayout->addWidget(m_yesButton);
     m_hBtnLayout->addWidget(m_noButton);
-  //  m_hBtnLayout->setContentsMargins(24, 24, 24, 24);
+    //  m_hBtnLayout->setContentsMargins(24, 24, 24, 24);
     m_vBoxLayout->addLayout(m_hBtnLayout);
 }
 

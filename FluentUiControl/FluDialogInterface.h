@@ -15,10 +15,10 @@ class FluDialogInterface : public FluGalleryInterface
     void initMessBox()
     {
         auto button = new FluPushButton("显示对话框");
-        connect(button, &FluPushButton::clicked, [=](bool bClicked) { 
+        connect(button, &FluPushButton::clicked, [=](bool bClicked) {
             FluMessageBox* msgBox = new FluMessageBox("遮罩对话框", "文本.../文本...文本...文本...文本...", window());
             msgBox->exec();
-            });
+        });
 
         addExampleCard("带遮罩的消息框", button, "");
     }

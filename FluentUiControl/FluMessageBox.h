@@ -37,6 +37,7 @@ class FluMessageBox : public FluMaskDialog
   signals:
     void yesSignal();
     void noSignal();
+
   protected:
     QLabel* m_titleLabel;
     QLabel* m_contentLabel;
@@ -48,10 +49,10 @@ class FluMessageBox : public FluMaskDialog
     QHBoxLayout* m_hBtnLayout;
 
   protected:
-  //  bool eventFilter(QObject *obj, QEvent *event)
-  //   {
-  //       if (obj == window() && event->type() == QEvent::Resize)
-  //       {
-  //       }
-  //   }
+    //  bool eventFilter(QObject *obj, QEvent *event)
+    //   {
+    //       if (obj == window() && event->type() == QEvent::Resize)
+    //       {
+    //       }
+    //   }
 };

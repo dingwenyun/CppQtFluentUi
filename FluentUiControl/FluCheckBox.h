@@ -26,7 +26,7 @@ class FluCheckBox : public QCheckBox
     }
 
   protected:
-    void paintEvent(QPaintEvent *event)
+    void paintEvent(QPaintEvent* event)
     {
         QCheckBox::paintEvent(event);
 
@@ -43,6 +43,5 @@ class FluCheckBox : public QCheckBox
             painter.drawPixmap(rect, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::Accept));
         else if (checkState() == Qt::PartiallyChecked)
             painter.drawPixmap(rect, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::Remove));
-
     }
 };

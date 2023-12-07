@@ -38,7 +38,7 @@ class FluBasicInputInterface : public FluGalleryInterface
         auto twoStateCheckButton = new FluCheckBox("双态复选框", nullptr);
         addExampleCard("复选框", twoStateCheckButton, "");
 
-         auto threeStateCheckButton = new FluCheckBox("三态复选框", nullptr);
+        auto threeStateCheckButton = new FluCheckBox("三态复选框", nullptr);
         threeStateCheckButton->setTristate(true);
         addExampleCard("复选框", threeStateCheckButton, "");
 
@@ -50,7 +50,7 @@ class FluBasicInputInterface : public FluGalleryInterface
 
         // EditableComboBox
 
-        auto roundMenu = new FluRoundMenu("" ,this);
+        auto roundMenu = new FluRoundMenu("", this);
         QAction* sendAction = new QAction(FluIconUtils::GetFluentIcon(FluAwesomeType::Send), "发送");
         QAction* saveAction = new QAction(FluIconUtils::GetFluentIcon(FluAwesomeType::Save), "保存");
         roundMenu->addActions({sendAction, saveAction});

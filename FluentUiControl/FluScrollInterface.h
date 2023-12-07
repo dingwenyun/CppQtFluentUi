@@ -12,7 +12,6 @@ class FluScrollInterface : public FluGalleryInterface
     {
         setObjectName("srollInterface");
 
-       
         initScrollArea();
         initSmoothScrollArea();
     }
@@ -22,7 +21,7 @@ class FluScrollInterface : public FluGalleryInterface
         auto scrollArea = new FluScrollArea();
         auto imageLabel = new FluImageLabel("../res/chidanta2.jpg", this);
         imageLabel->scaledToWidth(775);
-        //imageLabel->setBorderRadius(8, 8, 8, 8);
+        // imageLabel->setBorderRadius(8, 8, 8, 8);
         scrollArea->horizontalScrollBar()->setValue(0);
         scrollArea->setWidget(imageLabel);
         scrollArea->setFixedSize(775, 430);
@@ -34,7 +33,7 @@ class FluScrollInterface : public FluGalleryInterface
         auto scrollArea = new FluSmoothScrollArea();
         auto imageLabel = new FluImageLabel("../res/chidanta3.jpg", this);
         imageLabel->scaledToWidth(660);
-        //imageLabel->setBorderRadius(8, 8, 8, 8);
+        // imageLabel->setBorderRadius(8, 8, 8, 8);
         scrollArea->horizontalScrollBar()->setValue(0);
         scrollArea->setWidget(imageLabel);
         scrollArea->setFixedSize(660, 540);

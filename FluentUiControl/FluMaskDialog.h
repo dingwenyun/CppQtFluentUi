@@ -13,7 +13,7 @@
 
 class FluMaskDialog : public QDialog
 {
-	Q_OBJECT
+    Q_OBJECT
   public:
     FluMaskDialog(QWidget* parent = nullptr) : QDialog(parent)
     {
@@ -44,7 +44,7 @@ class FluMaskDialog : public QDialog
         window()->installEventFilter(this);
     }
 
-    void setShadowEffect(int blurRadius = 60, QPoint offset = QPoint(0,10), QColor color = QColor(0,0,0))
+    void setShadowEffect(int blurRadius = 60, QPoint offset = QPoint(0, 10), QColor color = QColor(0, 0, 0))
     {
         m_shadowEffect = new QGraphicsDropShadowEffect(m_widget);
         m_shadowEffect->setBlurRadius(blurRadius);
@@ -61,26 +61,26 @@ class FluMaskDialog : public QDialog
     }
 
   protected:
-     void showEvent(QShowEvent *event)
+    void showEvent(QShowEvent* event)
     {
-         QDialog::showEvent(event);
-         auto opacityEffect = new QGraphicsOpacityEffect(this);
-         setGraphicsEffect(opacityEffect);
-         auto opacityAni = new QPropertyAnimation(opacityEffect, "opacity", this);
-         opacityAni->setStartValue(0);
-         opacityAni->setEndValue(1);
-         opacityAni->setDuration(200);                                                                                                  
-         opacityAni->setEasingCurve(QEasingCurve::InSine);
-         connect(opacityAni, &QPropertyAnimation::finished, [=]() { opacityEffect->deleteLater(); });
-         opacityAni->start();
+        QDialog::showEvent(event);
+        auto opacityEffect = new QGraphicsOpacityEffect(this);
+        setGraphicsEffect(opacityEffect);
+        auto opacityAni = new QPropertyAnimation(opacityEffect, "opacity", this);
+        opacityAni->setStartValue(0);
+        opacityAni->setEndValue(1);
+        opacityAni->setDuration(200);
+        opacityAni->setEasingCurve(QEasingCurve::InSine);
+        connect(opacityAni, &QPropertyAnimation::finished, [=]() { opacityEffect->deleteLater(); });
+        opacityAni->start();
     }
 
-    void closeEvent(QCloseEvent *event)
+    void closeEvent(QCloseEvent* event)
     {
         m_widget->setGraphicsEffect(nullptr);
         auto opacityEffect = new QGraphicsOpacityEffect(this);
         setGraphicsEffect(opacityEffect);
-        auto opacityAni =new QPropertyAnimation(opacityEffect, "opacity", this);
+        auto opacityAni = new QPropertyAnimation(opacityEffect, "opacity", this);
         opacityAni->setStartValue(1);
         opacityAni->setEndValue(0);
         opacityAni->setDuration(100);
@@ -90,16 +90,16 @@ class FluMaskDialog : public QDialog
         event->ignore();
     }
 
-    void resizeEvent(QResizeEvent *event)
+    void resizeEvent(QResizeEvent* event)
     {
-        LogDebug << "window mask resize:" << "(" << size().width() << "," << size().height() << ")";
+        LogDebug << "window mask resize:"
+                 << "(" << size().width() << "," << size().height() << ")";
         LogDebug << "center Widget:"
-                 << "(" << m_widget->width() << "," << m_widget->height()
-                 << ")";
+                 << "(" << m_widget->width() << "," << m_widget->height() << ")";
         m_windowMask->resize(size());
     }
 
-    bool eventFilter(QObject *obj, QEvent *event)
+    bool eventFilter(QObject* obj, QEvent* event)
     {
         if (obj == window() && event->type() == QEvent::Resize)
         {
@@ -109,6 +109,7 @@ class FluMaskDialog : public QDialog
 
         return QDialog::eventFilter(obj, event);
     }
+
   protected:
     QHBoxLayout* m_hBoxLayout;
     QWidget* m_windowMask;

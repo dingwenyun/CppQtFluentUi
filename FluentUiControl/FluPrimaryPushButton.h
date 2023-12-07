@@ -9,8 +9,8 @@ class FluPrimaryPushButton : public FluPushButton
   public:
     FluPrimaryPushButton(QWidget* parent) : FluPushButton(parent)
     {
-       QString qss =  FluStyleSheetUitls::getThemeQssByFileName("../StyleSheet/FluPrimaryPushButton.qss");
-       setStyleSheet(qss);
+        QString qss = FluStyleSheetUitls::getThemeQssByFileName("../StyleSheet/FluPrimaryPushButton.qss");
+        setStyleSheet(qss);
     }
     FluPrimaryPushButton(QString text, QWidget* parent = nullptr, QIcon icon = QIcon()) : FluPushButton(text, parent, icon)
     {

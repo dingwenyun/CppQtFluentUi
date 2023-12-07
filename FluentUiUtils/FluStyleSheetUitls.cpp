@@ -72,8 +72,6 @@ void FluStyleSheetUitls::replaceVar(QString jsonVars, QString &styleSheet)
     }
 
     replaceVar(KVMap, styleSheet);
-
-
 }
 
 void FluStyleSheetUitls::replaceVar(std::map<QString, QString> &kvMap, QString &styleSheet)

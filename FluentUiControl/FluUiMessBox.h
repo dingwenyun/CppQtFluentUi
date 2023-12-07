@@ -16,13 +16,13 @@ class FluUiMessBox : public QObject
     void noSignal();
 
   public:
-      // parent为顶层窗口
+    // parent为顶层窗口
     void setupUi(QString title, QString content, QWidget* parent)
     {
         __initWidget(title, content, parent);
         __initLayout();
         __setQss();
-       // __setConnect();
+        // __setConnect();
     }
 
     void __initWidget(QString title, QString content, QWidget* parent)
