@@ -47,10 +47,10 @@ void FluStyleSheetUitls::replaceVar(QString jsonVars, QString &styleSheet)
     QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonVars.toUtf8(), &jsonError);
 
     QString jsonStr(jsonDoc.toJson());
-    LogDebug << "jsonStr:" << jsonStr;
+    //LogDebug << "jsonStr:" << jsonStr;
     if (!jsonDoc.isArray())
     {
-        LogDebug << jsonError.errorString();
+        LogErr << jsonError.errorString();
         return;
     }
     //[{key:k1,value:v1},{key:k2,value:v2}]

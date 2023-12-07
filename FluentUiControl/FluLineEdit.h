@@ -14,6 +14,7 @@
 #include "../FluentUiUtils/FluIconUtils.h"
 #include "../FluentUiUtils/FluStyleSheetUitls.h"
 #include "../FluentUiUtils/FluLogUtils.h"
+#include "../FluentUiUtils/FluThemeUtils.h"
 #include <QTimer>
 #include <QCompleter>
 
@@ -45,7 +46,7 @@ class FluLineEdit : public QLineEdit
         m_hBoxLayout->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
         m_hBoxLayout->addWidget(m_clearButton, 0, Qt::AlignRight);
 
-        QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluLineEdit.qss");
+        QString qss = FluStyleSheetUitls::getThemeQssByFileName("../StyleSheet/FluLineEdit.qss");
         setStyleSheet(qss);
 
         connect(m_clearButton, &FluLineEditButton::clicked, [=](bool bChecked) { clear(); });
@@ -183,7 +184,7 @@ class FluLineEdit : public QLineEdit
         rectPath.addRect(margins.left(), nH - 10, nW, 8);
         path = path.subtracted(rectPath);
 
-        painter.fillPath(path, QBrush(Qt::red));
+        painter.fillPath(path, QBrush(FluThemeUtils::getThemeColor()));
     }
 
   protected:

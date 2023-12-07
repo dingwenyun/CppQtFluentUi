@@ -98,7 +98,7 @@ void FluToolTip::showEvent(QShowEvent* event)
         m_timer->start(m_duration + m_opcityAni->duration());
     }
 
-    LogDebug << "pos:" << pos() << ", size:" << size() << ",label size:" << m_label->size();
+    //LogDebug << "pos:" << pos() << ", size:" << size() << ",label size:" << m_label->size();
     QFrame::showEvent(event);
 }
 
