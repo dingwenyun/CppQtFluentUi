@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
+#include "../FluentUiUtils/FluLogUtils.h"
 
 class FluUiMessBox : public QObject
 {
@@ -15,12 +16,13 @@ class FluUiMessBox : public QObject
     void noSignal();
 
   public:
+      // parent为顶层窗口
     void setupUi(QString title, QString content, QWidget* parent)
     {
         __initWidget(title, content, parent);
         __initLayout();
         __setQss();
-        __setConnect();
+       // __setConnect();
     }
 
     void __initWidget(QString title, QString content, QWidget* parent)
@@ -50,23 +52,7 @@ class FluUiMessBox : public QObject
         m_noButton->setObjectName("noButton");
     }
 
-    void __setConnect()
-    {
-        connect(m_yesButton, &QPushButton::clicked, this, &FluUiMessBox::__onYesButtonClicked);
-        connect(m_noButton, &QPushButton::clicked, this, &FluUiMessBox::__onCancelButtonClicked);
-    }
-
-    void __onCancelButtonClicked()
-    {
-        emit noSignal();
-    }
-
-    void __onYesButtonClicked()
-    {
-        emit yesSignal();
-    }
-
-  private:
+  protected:
     QLabel* m_titleLabel;
     QLabel* m_contentLabel;
 

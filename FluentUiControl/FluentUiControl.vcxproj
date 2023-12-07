@@ -290,11 +290,13 @@
     <ClCompile Include="FluLineEditButton.cpp" />
     <ClCompile Include="FluListFrame.cpp" />
     <ClCompile Include="FluListView.cpp" />
+    <ClCompile Include="FluMaskDialog.cpp" />
     <ClCompile Include="FluMaterialInterface.cpp" />
     <ClCompile Include="FluMenuActionListWidget.cpp" />
     <ClCompile Include="FluMenuAnimationManager.cpp" />
     <ClCompile Include="FluMenuInterface.cpp" />
     <ClCompile Include="FluMenuItemDelegate.cpp" />
+    <ClCompile Include="FluMessageBox.cpp" />
     <ClCompile Include="FluNavigationAvatarWidget.cpp" />
     <ClCompile Include="FluNavigationBar.cpp" />
     <ClCompile Include="FluNavigationBarPushButton.cpp" />
@@ -418,9 +420,11 @@
     <ClInclude Include="FluListFrame.h" />
     <ClInclude Include="FluListView.h" />
     <QtMoc Include="FluMaterialInterface.h" />
+    <QtMoc Include="FluMaskDialog.h" />
     <ClInclude Include="FluMenuAnimationManager.h" />
     <ClInclude Include="FluMenuAnimationType.h" />
     <QtMoc Include="FluMenuItemDelegate.h" />
+    <QtMoc Include="FluMessageBox.h" />
     <ClInclude Include="FluNavigationBar.h" />
     <ClInclude Include="FluNavigationItem.h" />
     <ClInclude Include="FluNavigationToolTipFilter.h" />

@@ -394,6 +394,12 @@
     <QtMoc Include="FluTransparentPushButton.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="FluMaskDialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluMessageBox.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FluWidget.cpp">
@@ -748,6 +754,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluPrimaryToolButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluMaskDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluMessageBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
