@@ -234,17 +234,17 @@ bool FluToolTipFilter::eventFilter(QObject* object, QEvent* event)
 {
     if (event->type() == QEvent::ToolTip)
     {
-        LogDebug << "Event ToolTip";
+        //LogDebug << "Event ToolTip";
         return true;
     }
     else if (event->type() == QEvent::Hide || event->type() == QEvent::Leave)
     {
-        LogDebug << "Event Hide or Leave";
+       // LogDebug << "Event Hide or Leave";
         hideToolTip();
     }
     else if (event->type() == QEvent::Enter)
     {
-        LogDebug << "Event Enter";
+        //LogDebug << "Event Enter";
         m_isEnter = true;
         QWidget* parent = (QWidget*)((QWidget*)(this->parent())->parent());
         if (_canShowToolTip())

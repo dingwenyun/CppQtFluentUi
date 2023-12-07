@@ -2,6 +2,7 @@
 #include "FluHomeInterface.h"
 #include "../FluentUiUtils/FluIconUtils.h"
 #include "FluNavigationAvatarWidget.h"
+#include "FluMessageBox.h"
 
 FluGalleryWindow::FluGalleryWindow(QWidget* parent /*= nullptr*/) : FluFrameLessWindow(parent)
 {
@@ -50,6 +51,14 @@ void FluGalleryWindow::initNavigation()
     addSubInterface(m_textInfterface, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::Font), "文本");
     addSubInterface(m_viewInterface, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::ViewAll), "视图");
 
-    m_navigationInterface->addWidget("avatar", new FluNavigationAvatarWidget("mowangshuying", QPixmap("../res/mowangshuying.png")), nullptr, FluNavigationItemPosition::BOTTOM);
+    m_navigationInterface->addWidget(
+        "avatar",
+        new FluNavigationAvatarWidget("mowangshuying", QPixmap("../res/mowangshuying.png")),
+        [=]() {
+            auto messageBox = new FluMessageBox("支持作者", "个人开发不易，如果这个项目帮助到了您，可以考虑请作者喝一瓶快乐水🥤。您的支持就是作者开发和维护项目的动力🚀!", window());
+            messageBox->exec();
+            messageBox->deleteLater();
+        },
+        FluNavigationItemPosition::BOTTOM);
     addSubInterface(m_settingInterface, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::Settings), "设置", FluNavigationItemPosition::BOTTOM);
 }

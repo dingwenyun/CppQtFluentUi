@@ -20,7 +20,7 @@ class FluToolButton : public QToolButton
         setIcon(QIcon());
         FluFontUtils::setFont(this);
 
-        QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluPushButton.qss");
+        QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluToolButton.qss");
         setStyleSheet(qss);
     }
 

@@ -1,0 +1,52 @@
+FluToolButton {
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.073);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+    border-radius: 5px;
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 5px 9px 6px 8px;
+    outline: none;
+}
+
+FluToolButton:hover {
+    background: rgba(249, 249, 249, 0.5);
+}
+
+FluToolButton:pressed {
+    color: rgba(0, 0, 0, 0.63);
+    background: rgba(249, 249, 249, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
+}
+
+FluToolButton:disabled {
+    color: rgba(0, 0, 0, 0.36);
+    background: rgba(249, 249, 249, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+FluPrimaryToolButton {
+    color: white;
+    background-color: [[ThemeColorNormal]];
+    border: 1px solid [[ThemeColorLight]];
+    border-bottom: 1px solid [[ThemeColorDark]];
+}
+
+FluPrimaryToolButton:hover {
+    background-color: [[ThemeColorLight]];
+    border: 1px solid [[ThemeColorLighter]];
+    border-bottom: 1px solid [[ThemeColorDark]];
+}
+
+FluPrimaryToolButton:pressed {
+    color: rgba(255, 255, 255, 0.63);
+    background-color: [[ThemeColorLightest]];
+    border: 1px solid [[ThemeColorLightest]];
+}
+
+FluPrimaryToolButton:disabled {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(205, 205, 205);
+    border: 1px solid rgb(205, 205, 205);
+}

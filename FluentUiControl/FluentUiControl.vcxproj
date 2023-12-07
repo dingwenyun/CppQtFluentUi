@@ -433,7 +433,7 @@
     <QtMoc Include="FluNavigationViewInterface.h" />
     <QtMoc Include="FluPasswordLineEdit.h" />
     <QtMoc Include="FluPrimaryPushButton.h" />
-    <ClInclude Include="FluPrimaryToolButton.h" />
+    <QtMoc Include="FluPrimaryToolButton.h" />
     <ClInclude Include="FluPullUpMenuAnimationManager.h" />
     <QtMoc Include="FluRoundMenu.h" />
     <QtMoc Include="FluScrollBarGroove.h" />

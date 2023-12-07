@@ -6,17 +6,24 @@
 
 class FluPrimaryToolButton : public FluToolButton
 {
+    Q_OBJECT
   public:
     FluPrimaryToolButton(QWidget* parent = nullptr) : FluToolButton(parent)
     {
+        QString qss = FluStyleSheetUitls::getThemeQssByFileName("../StyleSheet/FluPrimaryToolButton.qss");
+        setStyleSheet(qss);
     }
 
     FluPrimaryToolButton(FluAwesomeType awesomeType, QWidget* parent = nullptr) : FluToolButton(awesomeType, parent)
     {
+        QString qss = FluStyleSheetUitls::getThemeQssByFileName("../StyleSheet/FluPrimaryToolButton.qss");
+        setStyleSheet(qss);
     }
 
     FluPrimaryToolButton(QIcon icon, QWidget* parent = nullptr) : FluToolButton(icon, parent)
     {
+        QString qss = FluStyleSheetUitls::getThemeQssByFileName("../StyleSheet/FluPrimaryToolButton.qss");
+        setStyleSheet(qss);
     }
 
   protected:

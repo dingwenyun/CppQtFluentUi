@@ -28,7 +28,7 @@ class FluNavigationTreeItem : public FluNavigationPushButton
     void setArrowAngle(int nArrowAngle)
     {
         m_nArrowAngle = nArrowAngle;
-        LogDebug << "nArrowAngle = " << nArrowAngle;
+        // LogDebug << "nArrowAngle = " << nArrowAngle;
         update();
     }
   signals:
