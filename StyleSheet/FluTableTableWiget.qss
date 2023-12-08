@@ -9,6 +9,7 @@ QTableView {
 
 QTableView[isBorderVisible=true] {
     border: 1px solid rgba(0, 0, 0, 15);
+    border-radius: 8px;
 }
 
 QTableView::item {
@@ -39,28 +40,28 @@ QTableView::indicator:pressed {
 
 QTableView::indicator:checked,
 QTableView::indicator:indeterminate {
-    border: 1px solid --ThemeColorPrimary;
-    background-color: --ThemeColorPrimary;
+    border: 1px solid [[ThemeColorNormal]];
+    background-color: [[ThemeColorNormal]];
 }
 
 QTableView::indicator:checked {
-    image: url(:/qfluentwidgets/images/check_box/Accept_white.svg);
+    /*image: url(:/qfluentwidgets/images/check_box/Accept_white.svg);*/
 }
 
 QTableView::indicator:indeterminate {
-    image: url(:/qfluentwidgets/images/check_box/PartialAccept_white.svg);
+    /* image: url(:/qfluentwidgets/images/check_box/PartialAccept_white.svg); */
 }
 
 QTableView::indicator:checked:hover,
 QTableView::indicator:indeterminate:hover {
-    border: 1px solid --ThemeColorLight1;
-    background-color: --ThemeColorLight1;
+    border: 1px solid [[ThemeColorLight]];
+    background-color: [[ThemeColorLight]];
 }
 
 QTableView::indicator:checked:pressed,
 QTableView::indicator:indeterminate:pressed {
-    border: 1px solid --ThemeColorLight3;
-    background-color: --ThemeColorLight3;
+    border: 1px solid [[ThemeColorLightest]];
+    background-color: [[ThemeColorLightest]];
 }
 
 QTableView::indicator:disabled {
@@ -90,6 +91,7 @@ QHeaderView::section {
 QHeaderView::section:horizontal {
     border-bottom: 1px solid rgba(0, 0, 0, 7);
     border-left: none;
+    border-top: none;
     height: 40px;
 }
 
@@ -109,14 +111,14 @@ QHeaderView::down-arrow {
     subcontrol-origin: padding;
     subcontrol-position: center right;
     margin-right: 6px;
-    image: url(:/qfluentwidgets/images/table_view/Down_black.svg);
+    /* image: url(:/qfluentwidgets/images/table_view/Down_black.svg); */
 }
 
 QHeaderView::up-arrow {
     subcontrol-origin: padding;
     subcontrol-position: center right;
     margin-right: 6px;
-    image: url(:/qfluentwidgets/images/table_view/Up_black.svg);
+    /* image: url(:/qfluentwidgets/images/table_view/Up_black.svg); */
 }
 
 QTableCornerButton::section {

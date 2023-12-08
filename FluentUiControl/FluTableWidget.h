@@ -24,7 +24,7 @@ class FluTableWidget : public QTableWidget
         setItemDelegate(m_tableItemDelegate);
         // setSelectionBehavior()
 
-        QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluTableTableWiget.qss");
+        QString qss = FluStyleSheetUitls::getThemeQssByFileName("../StyleSheet/FluTableTableWiget.qss");
         setStyleSheet(qss);
 
         connect(this, &FluTableWidget::entered, [=](const QModelIndex &index) { setHoverRow(index.row()); });
@@ -114,8 +114,9 @@ class FluTableWidget : public QTableWidget
 
     void setBorderRadius(int radius)
     {
-        // QString qss = QString("QTableView{border-radius:%1px").arg(radius);
-        // setStyleSheet(qss);
+        //QString qss = QString("QTableView{border-radius:%1px}").arg(radius);
+        //setStyleSheet(qss);
+        setProperty("border-radius", radius);
     }
 
   protected:
