@@ -36,7 +36,7 @@ class FluSmoothScrollBar : public FluScrollBar
 
         m_ani->setStartValue(getValue());
         m_ani->setEndValue(nValue);
-        //LogDebug << "ani start value:" << getValue() << ", end value = " << nValue;
+        // LogDebug << "ani start value:" << getValue() << ", end value = " << nValue;
         m_ani->start();
     }
 
@@ -46,7 +46,7 @@ class FluSmoothScrollBar : public FluScrollBar
         m_nValue = qMax(getMinimum(), m_nValue);
         m_nValue = qMin(getMaximum(), m_nValue);
 
-        //LogDebug << m_nValue << "=>" << m_nValue - nValue;
+        // LogDebug << m_nValue << "=>" << m_nValue - nValue;
         setValue(m_nValue);
     }
 

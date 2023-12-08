@@ -92,9 +92,9 @@ class FluMaskDialog : public QDialog
 
     void resizeEvent(QResizeEvent* event)
     {
-        //LogDebug << "window mask resize:"
+        // LogDebug << "window mask resize:"
         //         << "(" << size().width() << "," << size().height() << ")";
-        //LogDebug << "center Widget:"
+        // LogDebug << "center Widget:"
         //         << "(" << m_widget->width() << "," << m_widget->height() << ")";
         m_windowMask->resize(size());
     }

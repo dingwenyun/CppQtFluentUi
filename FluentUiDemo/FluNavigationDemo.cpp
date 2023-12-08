@@ -29,7 +29,7 @@ FluWidgetDemo::FluWidgetDemo(QString text, QWidget* parent /*= nullptr*/) : QFra
 
     setStyleSheet(qss);
     m_label->setStyleSheet("font: 24px 'Segoe UI', 'Microsoft YaHei';");
-    //LogDebug << "demo size:" << size();
+    // LogDebug << "demo size:" << size();
 }
 
 FluWindowDemo::FluWindowDemo(QWidget* parent /*= nullptr*/) : FluFrameLessWidget(parent)
@@ -39,7 +39,7 @@ FluWindowDemo::FluWindowDemo(QWidget* parent /*= nullptr*/) : FluFrameLessWidget
     //  m_centerWidget->setLayout(m_hBoxLayout);
 
     m_navigationInterface = new FluNavigationInterface(this);
-    //LogDebug << "navigation infterface size:" << m_navigationInterface->size();
+    // LogDebug << "navigation infterface size:" << m_navigationInterface->size();
 
     m_stackWidget = new QStackedWidget(this);
 
@@ -60,7 +60,7 @@ FluWindowDemo::FluWindowDemo(QWidget* parent /*= nullptr*/) : FluFrameLessWidget
 
     __initWindow();
 
-    //LogDebug << "navigation interface size:" << m_navigationInterface->size();
+    // LogDebug << "navigation interface size:" << m_navigationInterface->size();
     setMouseTracking(true);
 }
 

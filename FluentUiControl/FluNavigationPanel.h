@@ -99,7 +99,7 @@ class FluNavigationPanel : public QFrame
         connect(m_expandAni, &QPropertyAnimation::finished, this, &FluNavigationPanel::_onExpandAniFinished);
         connect(m_expandAni, &QPropertyAnimation::valueChanged, [=](QVariant value) {
             QRect gRect = value.value<QRect>();
-            //LogDebug << "gRect = " << gRect;
+            // LogDebug << "gRect = " << gRect;
         });
         // mark it!
         // mark it!
@@ -143,7 +143,7 @@ class FluNavigationPanel : public QFrame
 
         m_vTopLayout->addWidget(m_returnButton, 0, Qt::AlignTop);
         m_vTopLayout->addWidget(m_menuButton, 0, Qt::AlignTop);
-        //LogDebug << "panel size "
+        // LogDebug << "panel size "
         //         << "width = " << width() << ", height = " << height();
     }
 
@@ -386,7 +386,7 @@ class FluNavigationPanel : public QFrame
         {
             FluNavigationWidget* tmpWidget = itMap->second->m_widget;
 
-           // LogDebug << "calssName:" << tmpWidget->metaObject()->className();
+            // LogDebug << "calssName:" << tmpWidget->metaObject()->className();
             if (tmpWidget->inherits("FluNavigationTreeWidgetBase") && tmpWidget->isRoot())
             {
                 FluNavigationTreeWidgetBase* treeWidgetBase = (FluNavigationTreeWidgetBase*)(tmpWidget);
@@ -407,7 +407,7 @@ class FluNavigationPanel : public QFrame
 
     void toggle()
     {
-        //LogDebug << "toggle.";
+        // LogDebug << "toggle.";
         if (m_displayMode == FluNavigationDisplayMode::COMPACT || m_displayMode == FluNavigationDisplayMode::MINIMAL)
             expand();
         else

@@ -4,7 +4,7 @@
 FluMessageBox::FluMessageBox(QString title, QString content, QWidget* parent /*= nullptr*/) : FluMaskDialog(parent)
 {
     setupUi(title, content, m_widget);
-    //LogDebug << "centerWidget w: " << m_widget->width() << "h: " << m_widget->height();
+    // LogDebug << "centerWidget w: " << m_widget->width() << "h: " << m_widget->height();
     setShadowEffect(60, QPoint(0, 10), QColor(0, 0, 0, 50));
     setMaskColor(QColor(0, 0, 0, 76));
 }

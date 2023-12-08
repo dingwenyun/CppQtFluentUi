@@ -95,9 +95,9 @@ class FluNavigationPushButton : public FluNavigationWidget
             // painter.setBrush(m_themeColor); // mark it!(仅仅是标记代码作用，方便查找代码)
             // 绘制指示器(竖线)
 
-         //   QColor indicatorColor;
-         //   indicatorColor.setRgb(0, 159, 170);
-         //   painter.setBrush(indicatorColor);
+            //   QColor indicatorColor;
+            //   indicatorColor.setRgb(0, 159, 170);
+            //   painter.setBrush(indicatorColor);
             painter.setBrush(FluThemeUtils::getThemeColor());
             painter.drawRoundedRect(0 + nMarginLeft, 10, 3, 16, 1.5, 1.5);
         }

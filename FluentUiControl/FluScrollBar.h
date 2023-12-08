@@ -305,7 +305,7 @@ class FluScrollBar : public QWidget
 
     void onValueChanged(const QVariant& value)
     {
-        //LogDebug << "value:" << value.toInt();
+        // LogDebug << "value:" << value.toInt();
         setVal(value.toInt());
     }
 
