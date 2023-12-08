@@ -400,6 +400,12 @@
     <QtMoc Include="FluPrimaryToolButton.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="FluListWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluListItemDelegate.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FluWidget.cpp">
@@ -760,6 +766,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluMessageBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluListWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluListItemDelegate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

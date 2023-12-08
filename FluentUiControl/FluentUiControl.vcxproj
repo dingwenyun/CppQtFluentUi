@@ -289,7 +289,9 @@
     <ClCompile Include="FluLineEdit.cpp" />
     <ClCompile Include="FluLineEditButton.cpp" />
     <ClCompile Include="FluListFrame.cpp" />
+    <ClCompile Include="FluListItemDelegate.cpp" />
     <ClCompile Include="FluListView.cpp" />
+    <ClCompile Include="FluListWidget.cpp" />
     <ClCompile Include="FluMaskDialog.cpp" />
     <ClCompile Include="FluMaterialInterface.cpp" />
     <ClCompile Include="FluMenuActionListWidget.cpp" />
@@ -418,9 +420,11 @@
     <QtMoc Include="FluLineEditButton.h" />
     <ClInclude Include="FluLayoutInterface.h" />
     <ClInclude Include="FluListFrame.h" />
+    <QtMoc Include="FluListItemDelegate.h" />
     <ClInclude Include="FluListView.h" />
     <QtMoc Include="FluMaterialInterface.h" />
     <QtMoc Include="FluMaskDialog.h" />
+    <QtMoc Include="FluListWidget.h" />
     <ClInclude Include="FluMenuAnimationManager.h" />
     <ClInclude Include="FluMenuAnimationType.h" />
     <QtMoc Include="FluMenuItemDelegate.h" />
