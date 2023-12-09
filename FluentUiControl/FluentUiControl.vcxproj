@@ -364,10 +364,16 @@
     <ClCompile Include="FluPixmapLabel.cpp" />
     <ClCompile Include="FluSampleCard.cpp" />
     <ClCompile Include="FluSampleCardView.cpp" />
+    <ClCompile Include="FluTreeFrame.cpp" />
+    <ClCompile Include="FluTreeItemDelegate.cpp" />
+    <ClCompile Include="FluTreeWidget.cpp" />
     <ClCompile Include="FluUiMessBox.cpp" />
     <ClCompile Include="FluViewInterface.cpp" />
     <ClCompile Include="FluWidget.cpp" />
     <ClCompile Include="FluFrameLessWidget.cpp" />
+    <ClInclude Include="FluTreeFrame.h" />
+    <QtMoc Include="FluTreeItemDelegate.h" />
+    <QtMoc Include="FluTreeWidget.h" />
     <QtMoc Include="FluMenuInterface.h" />
     <QtMoc Include="FluViewInterface.h" />
     <QtMoc Include="FluUiMessBox.h" />

@@ -170,6 +170,9 @@
     <ClInclude Include="FluButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FluTreeFrame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluWidget.h">
@@ -404,6 +407,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FluListItemDelegate.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluTreeWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluTreeItemDelegate.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -772,6 +781,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluListItemDelegate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluTreeWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluTreeItemDelegate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluTreeFrame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

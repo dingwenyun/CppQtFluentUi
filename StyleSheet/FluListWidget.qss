@@ -1,0 +1,74 @@
+FluListWidget {
+    background: transparent;
+    outline: none;
+    border: none;
+    /* font: 13px 'Segoe UI', 'Microsoft YaHei'; */
+    selection-background-color: transparent;
+    alternate-background-color: transparent;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+FluListWidget::item {
+    background: transparent;
+    border: 0px;
+    padding-left: 11px;
+    padding-right: 11px;
+    height: 35px;
+}
+
+FluListWidget::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.48);
+    background-color: rgba(0, 0, 0, 0.022);
+    margin-right: 4px;
+}
+
+FluListWidget::indicator:hover {
+    border: 1px solid rgba(0, 0, 0, 0.56);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+FluListWidget::indicator:pressed {
+    border: 1px solid rgba(0, 0, 0, 0.27);
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+FluListWidget::indicator:checked,
+FluListWidget::indicator:indeterminate {
+    border: 1px solid [[ThemeColorNormal]];
+    background-color: [[ThemeColorNormal]];
+}
+
+FluListWidget::indicator:checked {
+    /* image: url(:/qfluentwidgets/images/check_box/Accept_white.svg); */
+}
+
+FluListWidget::indicator:indeterminate {
+    /* image: url(:/qfluentwidgets/images/check_box/PartialAccept_white.svg); */
+}
+
+FluListWidget::indicator:checked:hover,
+FluListWidget::indicator:indeterminate:hover {
+    border: 1px solid [[ThemeColorLight]];
+    background-color: [[ThemeColorLight]];
+}
+
+FluListWidget::indicator:checked:pressed,
+FluListWidget::indicator:indeterminate:pressed {
+    border: 1px solid [[ThemeColorLightest]];
+    background-color: [[ThemeColorLightest]];
+}
+
+FluListWidget::indicator:disabled {
+    border: 1px solid rgba(0, 0, 0, 0.27);
+    background-color: transparent;
+}
+
+FluListWidget::indicator:checked:disabled,
+FluListWidget::indicator:indeterminate:disabled {
+    border: 1px solid rgb(199, 199, 199);
+    background-color: rgb(199, 199, 199);
+}

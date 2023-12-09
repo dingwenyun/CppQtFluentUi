@@ -3,6 +3,7 @@
 #include "FluGalleryInterface.h"
 #include "FluTableFrame.h"
 #include "FluListFrame.h"
+#include "FluTreeFrame.h"
 
 class FluViewInterface : public FluGalleryInterface
 {
@@ -17,5 +18,8 @@ class FluViewInterface : public FluGalleryInterface
 
         auto taleFrame = new FluTableFrame(this);
         addExampleCard("简单的表格组件", taleFrame, "");
+
+        auto treeFrame = new FluTreeFrame(this);
+        addExampleCard("简单的树状组件", treeFrame, "");
     }
 };
