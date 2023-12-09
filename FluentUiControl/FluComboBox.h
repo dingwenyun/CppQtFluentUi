@@ -1,58 +1,102 @@
 #pragma once
 
 #include <QPushButton>
-#include "FluComboBoxBase.h"
+#include <QObject>
+#include <QList>
+
+#include "FluComboItem.h"
+#include "FluComboBoxMenu.h"
+#include <QPixmap>
+#include <QVariant>
 #include "FluTranslateYAnimation.h"
 #include "../FluentUiUtils/FluFontUtils.h"
 #include "../FluentUiUtils/FluThemeUtils.h"
 #include "../FluentUiUtils/FluIconUtils.h"
 #include "../FluentUiUtils/FluStyleSheetUitls.h"
 
-class FluComboBox : public FluComboBoxBase
+enum class FluComboBoxState
+{
+    FluCBS_SHOW,  // 展示状态
+    FluCBS_CLOSE  // 关闭状态
+};
+
+class FluComboBox : public QPushButton
 {
     Q_OBJECT
   public:
-    FluComboBox(QWidget* parent = nullptr) : FluComboBoxBase(parent)
-    {
-        m_arrowAni = new FluTranslateYAnimation(this);
-        FluFontUtils::setFont(this);
-        QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluComboBox.qss");
-        setStyleSheet(qss);
-    }
+    FluComboBox(QWidget* parent = nullptr);
 
-    void setPlaceholderText(QString text)
-    {
-        QPushButton::setText(text);
-    }
+    void initDropMenu();
 
+    void addItem(QString text, QPixmap icon = QPixmap(), QVariant userData = QVariant::fromValue(nullptr));
+
+    void addItems(QList<QString> texts);
+
+    void removeItem(int nIndex);
+
+    int getCurrentIndex();
+
+    void setCurrentIndex(int nIndex);
+
+    QString getCurrentText();
+
+    void setCurrentText(QString text);
+
+    QString getItemText(int nIndex);
+
+    void setItemText(int nIndex, QString text);
+
+    QVariant getItemData(int nIndex);
+
+    FluComboItem* getComboItem(int nIndex);
+
+    QPixmap getItemIcon(int nIndex);
+
+    void setItemIcon(int nIndex, QPixmap pixmap);
+
+    int findText(QString text);
+
+    void clear();
+
+    int count();
+
+    void insertItem(int nIndex, QString text, QPixmap icon, QVariant userData);
+
+    void insertItems(int nIndex, QList<QString> texts);
+
+    int getMaxVisibleItems();
+
+    void setMaxVisibleItems(int nNum);
+
+    void _closeComboMenu();
+
+    void _onDropMenuClosed();
+
+    void _showComboMenu();
+
+    void _toggleComboMenu();
+
+    void _onItemClicked(int nIndex);
+
+    void setPlaceholderText(QString text);
+  signals:
+    void currentIndexChanged(int nIndex);
+    void currentTextChanged(QString text);
   protected:
-    void mouseReleaseEvent(QMouseEvent* e)
-    {
-        QPushButton::mouseReleaseEvent(e);
-        _toggleComboMenu();
-    }
+    bool eventFilter(QObject* watched, QEvent* event);
 
-    void paintEvent(QPaintEvent* e)
-    {
-        FluComboBoxBase::paintEvent(e);
-        QPainter painter(this);
-        painter.setRenderHints(QPainter::Antialiasing);
-        if (m_bHover)
-            painter.setOpacity(0.8);
-        else if (m_bPressed)
-            painter.setOpacity(0.7);
+    void mouseReleaseEvent(QMouseEvent* e);
 
-        QRect rect = QRect(width() - 22, height() / 2 - 5 + m_arrowAni->getY(), 10, 10);
-        if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
-        {
-            painter.drawPixmap(rect, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::ChevronDown));
-        }
-        else
-        {
-            painter.drawPixmap(rect, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::ChevronDown));
-        }
-    }
+    void paintEvent(QPaintEvent* e);
 
   private:
+    bool m_bHover;
+    bool m_bPressed;
+    int m_currentIndex = -1;
+    int m_maxVisibleItems = -1;
+    FluComboBoxState m_comboBoxState;
+    QString m_currentText;
+    QList<FluComboItem*> m_items;
+    FluComboBoxMenu* m_dropMenu;
     FluTranslateYAnimation* m_arrowAni;
 };

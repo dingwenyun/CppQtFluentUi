@@ -256,7 +256,6 @@
     <ClCompile Include="FluCenterLabelWidget.cpp" />
     <ClCompile Include="FluCheckBox.cpp" />
     <ClCompile Include="FluComboBox.cpp" />
-    <ClCompile Include="FluComboBoxBase.cpp" />
     <ClCompile Include="FluComboBoxMenu.cpp" />
     <ClCompile Include="FluComboItem.cpp" />
     <ClCompile Include="FluCompleterMenu.cpp" />
@@ -392,7 +391,6 @@
     <QtMoc Include="FluBasicInputInterface.h" />
     <ClInclude Include="FluBodyLabel.h" />
     <ClInclude Include="FluCaptionLabel.h" />
-    <QtMoc Include="FluComboBoxBase.h" />
     <QtMoc Include="FluComboBoxMenu.h" />
     <QtMoc Include="FluComboBox.h" />
     <ClInclude Include="FluComboItem.h" />

@@ -256,9 +256,6 @@
     <QtMoc Include="FluHyperLinkLabel.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="FluComboBoxBase.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="FluLabelBase.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -568,9 +565,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluTitleLabel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FluComboBoxBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluComboItem.cpp">

@@ -44,6 +44,8 @@ class FluTreeItemDelegate : public QStyledItemDelegate
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
     {
         QStyledItemDelegate::paint(painter, option, index);
+        auto treeView = (QTreeView *)parent();
+
         painter->setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
 
         bool bSelected = option.state & QStyle::State_Selected || option.state & QStyle::State_MouseOver;
@@ -63,9 +65,7 @@ class FluTreeItemDelegate : public QStyledItemDelegate
             bgColor = QColor(0, 0, 0, 9);
         }
         painter->setBrush(bgColor);
-        painter->drawRoundedRect(4, option.rect.y() + 2, option.rect.width() - 8, option.rect.height() - 4, 4, 4); 
-
-        auto treeView = (QTreeView *)parent();
+        painter->drawRoundedRect(4, option.rect.y() + 2, treeView->width() - 8, option.rect.height() - 4, 4, 4); 
         if (option.state & QStyle::State_Selected && treeView->horizontalScrollBar()->value() == 0)
         {
             painter->setBrush(FluThemeUtils::getThemeColor());
