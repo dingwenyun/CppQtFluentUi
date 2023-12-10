@@ -12,7 +12,7 @@ class FluListItemDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
   public:
-    FluListItemDelegate(QListView* parent) : QStyledItemDelegate(parent)
+    FluListItemDelegate(QListView *parent) : QStyledItemDelegate(parent)
     {
         m_margin = 2;
         m_hoverRow = -1;
@@ -47,7 +47,6 @@ class FluListItemDelegate : public QStyledItemDelegate
         return tmpSize;
     }
 
-
     void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const
     {
         QStyledItemDelegate::initStyleOption(option, index);
@@ -59,7 +58,7 @@ class FluListItemDelegate : public QStyledItemDelegate
         else
             textColor = Qt::black;
 
-        //QColor textBrush = index.data(Qt::ForegroundRole).value<QColor>();
+        // QColor textBrush = index.data(Qt::ForegroundRole).value<QColor>();
         QVariant variant = index.data(Qt::ForegroundRole);
         if (!variant.isNull())
             textColor = variant.value<QColor>();
@@ -84,7 +83,7 @@ class FluListItemDelegate : public QStyledItemDelegate
             pH = 0.257 * nH;
 
         painter->setBrush(FluThemeUtils::getThemeColor());
-        painter->drawRoundedRect(0, pH + nY, 3, nH - 2 *pH, 1.5, 1.5);
+        painter->drawRoundedRect(0, pH + nY, 3, nH - 2 * pH, 1.5, 1.5);
     }
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -128,10 +127,10 @@ class FluListItemDelegate : public QStyledItemDelegate
             {
                 alpha = 12;
             }
-          //  else if (bAlternate)
-          //  {
-          //      alpha = 5;
-          //  }
+            //  else if (bAlternate)
+            //  {
+            //      alpha = 5;
+            //  }
             else
             {
                 alpha = 0;

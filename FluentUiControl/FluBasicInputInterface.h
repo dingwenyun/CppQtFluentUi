@@ -5,6 +5,8 @@
 #include "FluCheckBox.h"
 #include "FluComboBox.h"
 #include "FluRoundMenu.h"
+#include "FluLineEditButton.h"
+#include "FluEditableComboBox.h"
 #include <QAction>
 
 class FluBasicInputInterface : public FluGalleryInterface
@@ -43,16 +45,20 @@ class FluBasicInputInterface : public FluGalleryInterface
         addExampleCard("复选框", threeStateCheckButton, "");
 
         auto comboBox = new FluComboBox();
+       // comboBox->setMinimumWidth(210);
+        comboBox->setFixedWidth(210);
         comboBox->addItems({" shoko 🥰 ", "西宫硝子 😊 ", "一级棒卡哇伊的硝子酱 😘"});
         comboBox->setCurrentIndex(0);
-        comboBox->setMinimumWidth(210);
         addExampleCard("下拉框", comboBox, "");
 
         // EditableComboBox
+        auto editComboBox = new FluEditableComboBox();
+       // editComboBox->setMinimumWidth(210);
+        editComboBox->setFixedWidth(210);
+        editComboBox->addItems({"白金之星", "疯狂砖石", "黄金体验", "钢炼手指"});
+        editComboBox->setPlaceholderText("选择你的替身");
+        addExampleCard("可编辑的下拉框", editComboBox, "");
 
-        auto roundMenu = new FluRoundMenu("", this);
-        QAction* sendAction = new QAction(FluIconUtils::GetFluentIcon(FluAwesomeType::Send), "发送");
-        QAction* saveAction = new QAction(FluIconUtils::GetFluentIcon(FluAwesomeType::Save), "保存");
-        roundMenu->addActions({sendAction, saveAction});
+
     }
 };

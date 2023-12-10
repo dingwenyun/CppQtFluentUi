@@ -114,8 +114,8 @@ class FluTableWidget : public QTableWidget
 
     void setBorderRadius(int radius)
     {
-        //QString qss = QString("QTableView{border-radius:%1px}").arg(radius);
-        //setStyleSheet(qss);
+        // QString qss = QString("QTableView{border-radius:%1px}").arg(radius);
+        // setStyleSheet(qss);
         setProperty("border-radius", radius);
     }
 

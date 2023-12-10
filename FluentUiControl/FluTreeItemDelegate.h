@@ -10,9 +10,9 @@
 
 class FluTreeItemDelegate : public QStyledItemDelegate
 {
-	Q_OBJECT
+    Q_OBJECT
   public:
-    FluTreeItemDelegate(QTreeView* parent) : QStyledItemDelegate(parent)
+    FluTreeItemDelegate(QTreeView *parent) : QStyledItemDelegate(parent)
     {
     }
 
@@ -38,7 +38,6 @@ class FluTreeItemDelegate : public QStyledItemDelegate
 
         option->palette.setColor(QPalette::Text, textColor);
         option->palette.setColor(QPalette::HighlightedText, textColor);
-
     }
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -65,14 +64,13 @@ class FluTreeItemDelegate : public QStyledItemDelegate
             bgColor = QColor(0, 0, 0, 9);
         }
         painter->setBrush(bgColor);
-        painter->drawRoundedRect(4, option.rect.y() + 2, treeView->width() - 8, option.rect.height() - 4, 4, 4); 
+        painter->drawRoundedRect(4, option.rect.y() + 2, treeView->width() - 8, option.rect.height() - 4, 4, 4);
         if (option.state & QStyle::State_Selected && treeView->horizontalScrollBar()->value() == 0)
         {
             painter->setBrush(FluThemeUtils::getThemeColor());
-            painter->drawRoundedRect(4, 9 + option.rect.y(), 3, option.rect.height() - 4 - 13, 1.5, 1.5); 
+            painter->drawRoundedRect(4, 9 + option.rect.y(), 3, option.rect.height() - 4 - 13, 1.5, 1.5);
         }
 
         painter->restore();
     }
-
 };

@@ -1,6 +1,5 @@
 #include "FluComboBox.h"
 
-
 FluComboBox::FluComboBox(QWidget* parent /*= nullptr*/) : QPushButton(parent)
 {
     m_bHover = false;
@@ -24,7 +23,7 @@ void FluComboBox::initDropMenu()
 {
     FluComboBoxMenu* comboBoxMenu = new FluComboBoxMenu(this);
     comboBoxMenu->setMaxVisibleItems(m_maxVisibleItems);
-    connect(comboBoxMenu, &FluComboBoxMenu::closedSignal, this, &FluComboBox::_onDropMenuClosed);
+    connect(comboBoxMenu, &FluComboBoxMenu::closedSignal, this, &FluComboBox::onDropMenuClosed);
     m_dropMenu = comboBoxMenu;
 }
 
@@ -40,7 +39,7 @@ void FluComboBox::addItem(QString text, QPixmap icon /*= QPixmap()*/, QVariant u
     int nIndex = m_items.count() - 1;
     connect(action, &QAction::triggered, [=] {
         // int nIndex = m_items.count() - 1;
-        _onItemClicked(nIndex);
+        onItemClicked(nIndex);
     });
 
     m_dropMenu->addAction(action);
@@ -69,12 +68,12 @@ void FluComboBox::removeItem(int nIndex)
 
     if (nIndex < m_currentIndex)
     {
-        _onItemClicked(m_currentIndex - 1);
+        onItemClicked(m_currentIndex - 1);
     }
     else if (nIndex == m_currentIndex)
     {
         if (nIndex > 0)
-            _onItemClicked(m_currentIndex - 1);
+            onItemClicked(m_currentIndex - 1);
         else
         {
             setCurrentIndex(0);
@@ -218,7 +217,7 @@ void FluComboBox::insertItem(int nIndex, QString text, QPixmap icon, QVariant us
     FluComboItem* item = new FluComboItem(text, icon, userData);
     m_items.insert(nIndex, item);
     if (nIndex <= m_currentIndex)
-        _onItemClicked(m_currentIndex + 1);
+        onItemClicked(m_currentIndex + 1);
 }
 
 void FluComboBox::insertItems(int nIndex, QList<QString> texts)
@@ -232,7 +231,7 @@ void FluComboBox::insertItems(int nIndex, QList<QString> texts)
     }
 
     if (nIndex <= m_currentIndex)
-        _onItemClicked(m_currentIndex + nPos - nIndex);
+        onItemClicked(m_currentIndex + nPos - nIndex);
 }
 
 int FluComboBox::getMaxVisibleItems()
@@ -245,7 +244,7 @@ void FluComboBox::setMaxVisibleItems(int nNum)
     m_maxVisibleItems = nNum;
 }
 
-void FluComboBox::_closeComboMenu()
+void FluComboBox::closeComboMenu()
 {
     m_comboBoxState = FluComboBoxState::FluCBS_CLOSE;
     m_dropMenu->hide();
@@ -255,7 +254,7 @@ void FluComboBox::_closeComboMenu()
     // m_dropMenu = nullptr;
 }
 
-void FluComboBox::_onDropMenuClosed()
+void FluComboBox::onDropMenuClosed()
 {
     QPoint pos = mapFromGlobal(QCursor::pos());
     if (!rect().contains(pos))
@@ -266,7 +265,7 @@ void FluComboBox::_onDropMenuClosed()
     }
 }
 
-void FluComboBox::_showComboMenu()
+void FluComboBox::showComboMenu()
 {
     if (m_items.isEmpty())
         return;
@@ -282,19 +281,19 @@ void FluComboBox::_showComboMenu()
     m_dropMenu->exec(pd, true, FluMenuAnimationType::DROP_DOWN);
 }
 
-void FluComboBox::_toggleComboMenu()
+void FluComboBox::toggleComboMenu()
 {
     if (FluComboBoxState::FluCBS_SHOW == m_comboBoxState)
     {
-        _closeComboMenu();
+        closeComboMenu();
     }
     else
     {
-        _showComboMenu();
+        showComboMenu();
     }
 }
 
-void FluComboBox::_onItemClicked(int nIndex)
+void FluComboBox::onItemClicked(int nIndex)
 {
     if (nIndex == m_currentIndex)
         return;
@@ -327,7 +326,7 @@ bool FluComboBox::eventFilter(QObject* watched, QEvent* event)
 void FluComboBox::mouseReleaseEvent(QMouseEvent* e)
 {
     QPushButton::mouseReleaseEvent(e);
-    _toggleComboMenu();
+    toggleComboMenu();
 }
 
 void FluComboBox::paintEvent(QPaintEvent* e)
@@ -341,7 +340,7 @@ void FluComboBox::paintEvent(QPaintEvent* e)
         painter.setOpacity(0.7);
 
     QRect rect = QRect(width() - 22, height() / 2 - 5 + m_arrowAni->getY(), 10, 10);
-    if (FluThemeUtils::getInstance()->getThemeMode() == FluThemeMode::Dark)
+    if (FluThemeUtils::isDarkMode())
     {
         painter.drawPixmap(rect, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::ChevronDown));
     }

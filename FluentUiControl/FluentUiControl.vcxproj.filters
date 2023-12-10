@@ -412,6 +412,15 @@
     <QtMoc Include="FluTreeItemDelegate.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="FluEditableComboBox.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluInfoBar.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluInfoBarIconWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FluWidget.cpp">
@@ -784,6 +793,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluTreeFrame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluEditableComboBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluInfoBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluInfoBarIconWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

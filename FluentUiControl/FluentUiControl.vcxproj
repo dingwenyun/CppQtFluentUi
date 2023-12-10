@@ -266,6 +266,7 @@
     <ClCompile Include="FluDisplayLabel.cpp" />
     <ClCompile Include="FluDropDownMenuAnimationManager.cpp" />
     <ClCompile Include="FluDummyMenuAnimationManager.cpp" />
+    <ClCompile Include="FluEditableComboBox.cpp" />
     <ClCompile Include="FluExampleCard.cpp" />
     <ClCompile Include="FluExpandLayout.cpp" />
     <ClCompile Include="FluFadeInDropDownMenuAnimationManager.cpp" />
@@ -282,6 +283,8 @@
     <ClCompile Include="FluIconWidget.cpp" />
     <ClCompile Include="FluImageLabel.cpp" />
     <ClCompile Include="FluIndicatorMenuItemDelegate.cpp" />
+    <ClCompile Include="FluInfoBar.cpp" />
+    <ClCompile Include="FluInfoBarIconWidget.cpp" />
     <ClCompile Include="FluLabelBase.cpp" />
     <ClCompile Include="FluLargeTitleLabel.cpp" />
     <ClCompile Include="FluLayoutInterface.cpp" />
@@ -370,6 +373,9 @@
     <ClCompile Include="FluViewInterface.cpp" />
     <ClCompile Include="FluWidget.cpp" />
     <ClCompile Include="FluFrameLessWidget.cpp" />
+    <QtMoc Include="FluEditableComboBox.h" />
+    <QtMoc Include="FluInfoBar.h" />
+    <QtMoc Include="FluInfoBarIconWidget.h" />
     <ClInclude Include="FluTreeFrame.h" />
     <QtMoc Include="FluTreeItemDelegate.h" />
     <QtMoc Include="FluTreeWidget.h" />

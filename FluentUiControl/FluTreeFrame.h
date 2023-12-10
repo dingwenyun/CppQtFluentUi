@@ -28,7 +28,7 @@ class FluTreeFrame : public FluFrame
 
         item2->addChild(item21);
         item21->addChildren({item211, item212, item213, item214, item215});
-        
+
         m_treeWidget->addTopLevelItem(item1);
         m_treeWidget->addTopLevelItem(item2);
 
@@ -37,15 +37,14 @@ class FluTreeFrame : public FluFrame
 
         setFixedSize(300, 380);
 
-        //if (bEnableCheck)
+        // if (bEnableCheck)
         //{
-         //   auto iter = QTreeWidgetItemIterator(m_treeWidget);
-          //  while )
-          //  {
-          //  }
+        //   auto iter = QTreeWidgetItemIterator(m_treeWidget);
+        //  while )
+        //  {
+        //  }
         //}
     }
-
 
   private:
     FluTreeWidget* m_treeWidget;

@@ -68,20 +68,20 @@ class FluComboBox : public QPushButton
 
     void setMaxVisibleItems(int nNum);
 
-    void _closeComboMenu();
+    void closeComboMenu();
 
-    void _onDropMenuClosed();
+    void onDropMenuClosed();
 
-    void _showComboMenu();
+    void showComboMenu();
 
-    void _toggleComboMenu();
+    void toggleComboMenu();
 
-    void _onItemClicked(int nIndex);
-
+    void onItemClicked(int nIndex);
     void setPlaceholderText(QString text);
   signals:
     void currentIndexChanged(int nIndex);
     void currentTextChanged(QString text);
+
   protected:
     bool eventFilter(QObject* watched, QEvent* event);
 
