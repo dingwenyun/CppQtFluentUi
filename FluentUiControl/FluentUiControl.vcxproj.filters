@@ -173,6 +173,9 @@
     <ClInclude Include="FluTreeFrame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FluTopInfoBarManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FluWidget.h">
@@ -419,6 +422,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FluInfoBarIconWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FluInfoBarManager.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -802,6 +808,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FluInfoBarIconWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluInfoBarManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FluTopInfoBarManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

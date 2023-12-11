@@ -25,6 +25,7 @@
 #include "FluColorDemo.h"
 #include "../FluentUiControl/FluFrameLessWindow.h"
 #include "FluEnumDemo.h"
+#include "FluInfoBarDemo.h"
 
 int main(int argc, char** argv)
 {
@@ -97,8 +98,8 @@ int main(int argc, char** argv)
     // FluLineEditDemo demo;
     // demo.show();
 
-    FluTableWidgetDemo demo;
-    demo.show();
+  //  FluTableWidgetDemo demo;
+  //  demo.show();
 
     // FluApiTest_WheelEvent w;
     // w.show();
@@ -111,6 +112,9 @@ int main(int argc, char** argv)
 
     // FluEnumDemo demo;
     // demo.show();
+
+    FluInfoBarDemo demo;
+    demo.show();
 
     return app.exec();
 }
