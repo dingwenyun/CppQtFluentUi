@@ -19,8 +19,6 @@ FluInfoBar::FluInfoBar(FluAwesomeType awesomeType, FluInfoBarType type, QString 
     m_opacityEffect = new QGraphicsOpacityEffect(this);
     m_opacityAni = new QPropertyAnimation(m_opacityEffect, "opacity", this);
 
-    //setProperty("type", "Success");
-
     __initWidget();
     __initLayout();
     __setQss();
