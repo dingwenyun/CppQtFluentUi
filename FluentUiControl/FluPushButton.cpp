@@ -11,13 +11,8 @@ FluPushButton::FluPushButton(QWidget* parent) : QPushButton(parent)
     setIcon(QIcon());
 
     setFont();
-    // setAttribute(Qt::WA_StyledBackground, true);
-    //_postInit();
-
     QString qss = FluStyleSheetUitls::getQssByFileName("../StyleSheet/FluPushButton.qss");
     setStyleSheet(qss);
-
-    //_postInit();
 }
 
 FluPushButton::FluPushButton(QString text, QWidget* parent /*= nullptr*/, QIcon icon /*= QIcon()*/) : FluPushButton(parent)
