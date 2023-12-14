@@ -1,12 +1,10 @@
 # CppQtFluentUI(GPLv3 )
 
-#### CppQtFluentUi:采用C++对PyQt-Fluent-Widgets进行重新编写，用以支持C++版的Qt的FluentUi。
+#### CppQtFluentUi:采用C++对PyQt-Fluent-Widgets进行重新编写，用以支持C++版的Qt的FluentUi.
 
-![image-20231205010326268](./docs/imgs/image-20231205010326268.png)
+为保持对原项目的尊重，本项目只提供浅色主题及Windows版本的编译方式。
 
 ## 1.开始
-
-...
 
 ## 2.文档
 
