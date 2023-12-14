@@ -1,5 +1,4 @@
 #include "FluInfoBarManager.h"
-#include "FluTopInfoBarManager.h"
 #include "FluInfoBar.h"
 
 FluInfoBarManager* FluInfoBarManager::m_infoBarManager = nullptr;

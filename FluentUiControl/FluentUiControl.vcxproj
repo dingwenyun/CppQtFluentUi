@@ -347,7 +347,6 @@
     <ClCompile Include="FluToolBar.cpp" />
     <ClCompile Include="FluToolButton.cpp" />
     <ClCompile Include="FluToolTip.cpp" />
-    <ClCompile Include="FluTopInfoBarManager.cpp" />
     <ClCompile Include="FluTranslateYAnimation.cpp" />
     <ClCompile Include="FluTransparentPushButton.cpp" />
     <ClCompile Include="FluTransparentToolButton.cpp" />
@@ -379,7 +378,6 @@
     <QtMoc Include="FluInfoBar.h" />
     <QtMoc Include="FluInfoBarIconWidget.h" />
     <QtMoc Include="FluInfoBarManager.h" />
-    <ClInclude Include="FluTopInfoBarManager.h" />
     <ClInclude Include="FluTreeFrame.h" />
     <QtMoc Include="FluTreeItemDelegate.h" />
     <QtMoc Include="FluTreeWidget.h" />
