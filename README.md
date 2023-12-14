@@ -1,8 +1,6 @@
 # CppQtFluentUI
 
-#### 概述：
-
-CppQtFluentUI采用Vs2019+Qt6.5.2使用纯C++代码编写FluentUI.
+#### CppQtFluentUi:采用C++对PyQt-Fluent-Widgets进行重新编写，用以支持C++版的Qt的FluentUi。
 
 ![image-20231205010326268](./docs/imgs/image-20231205010326268.png)
 
@@ -22,7 +20,7 @@ CppQtFluentUI采用Vs2019+Qt6.5.2使用纯C++代码编写FluentUI.
 
 ## 4.许可
 
-...
+> GNU GENERAL PUBLIC LICENSE
 
 ## 5.历史
 
