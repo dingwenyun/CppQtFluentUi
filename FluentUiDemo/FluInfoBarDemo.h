@@ -23,10 +23,10 @@ class FluInfoBarDemo : public QWidget
         hBoxLayout->addWidget(warnButton);
         hBoxLayout->addWidget(errorButton);
 
-        connect(infoButton, &FluPushButton::clicked, [=](bool bclicked) { FluInfoBar::__info("这是一个信息的消息条", true, 1000, this); });
-        connect(succButton, &FluPushButton::clicked, [=](bool bclicked) { FluInfoBar::__succ("这是一个成功的消息条", true, 1000, this); });
-        connect(warnButton, &FluPushButton::clicked, [=](bool bclicked) { FluInfoBar::__warn("这是一个警告的消息条", true, 1000, this); });
-        connect(errorButton, &FluPushButton::clicked, [=](bool bclicked) { FluInfoBar::__err("这是一个错误的消息条", true, 1000, this); });
+        connect(infoButton, &FluPushButton::clicked, [=](bool bclicked) { FluInfoBar::__info("这是一个信息的消息条", false, 1000, this); });
+        connect(succButton, &FluPushButton::clicked, [=](bool bclicked) { FluInfoBar::__succ("这是一个成功的消息条", false, 1000, this); });
+        connect(warnButton, &FluPushButton::clicked, [=](bool bclicked) { FluInfoBar::__warn("这是一个警告的消息条", false, 1000, this); });
+        connect(errorButton, &FluPushButton::clicked, [=](bool bclicked) { FluInfoBar::__err("这是一个错误的消息条", false, 1000, this); });
 
         resize(600, 400);
     }

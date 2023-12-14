@@ -126,7 +126,7 @@ FluInfoBarManager* FluInfoBarManager::getInstance()
     return m_infoBarManager;
 }
 
-FluInfoBar* FluInfoBarManager::__new(FluAwesomeType awesomeType, FluInfoBarType type, const QString& context, bool bClosable /*= true*/, int duration /*= 1000*/, QWidget* parent /*= nullptr*/)
+FluInfoBar* FluInfoBarManager::__new(FluAwesomeType awesomeType, FluInfoBarType type, const QString& context, bool bClosable /*= false*/, int duration /*= 1000*/, QWidget* parent /*= nullptr*/)
 {
     FluInfoBar* infoBar = new FluInfoBar(awesomeType, type, context, bClosable, duration, parent);
     FluInfoBarManager::getInstance()->addInfoBar(infoBar);
@@ -134,22 +134,22 @@ FluInfoBar* FluInfoBarManager::__new(FluAwesomeType awesomeType, FluInfoBarType 
     return infoBar;
 }
 
-void FluInfoBarManager::__info(const QString& context, bool bClosable /*= true*/, int duration /*= 1000*/, QWidget* parent /*= nullptr*/)
+void FluInfoBarManager::__info(const QString& context, bool bClosable /*= false*/, int duration /*= 1000*/, QWidget* parent /*= nullptr*/)
 {
     __new(FluAwesomeType::InfoSolid, FluInfoBarType::INFO, context, bClosable, duration, parent);
 }
 
-void FluInfoBarManager::__warn(const QString& context, bool bClosable /*= true*/, int duration /*= 1000*/, QWidget* parent /*= nullptr*/)
+void FluInfoBarManager::__warn(const QString& context, bool bClosable /*= false*/, int duration /*= 1000*/, QWidget* parent /*= nullptr*/)
 {
     __new(FluAwesomeType::InfoSolid, FluInfoBarType::WARN, context, bClosable, duration, parent);
 }
 
-void FluInfoBarManager::__succ(const QString& context, bool bClosable /*= true*/, int duration /*= 1000*/, QWidget* parent /*= nullptr*/)
+void FluInfoBarManager::__succ(const QString& context, bool bClosable /*= false*/, int duration /*= 1000*/, QWidget* parent /*= nullptr*/)
 {
     __new(FluAwesomeType::CompletedSolid, FluInfoBarType::SUCC, context, bClosable, duration, parent);
 }
 
-void FluInfoBarManager::__err(const QString& context, bool bClosable /*= true*/, int duration /*= 1000*/, QWidget* parent /*= nullptr*/)
+void FluInfoBarManager::__err(const QString& context, bool bClosable /*= false*/, int duration /*= 1000*/, QWidget* parent /*= nullptr*/)
 {
     __new(FluAwesomeType::StatusErrorFull, FluInfoBarType::ERR, context, bClosable, duration, parent);
 }

@@ -47,10 +47,10 @@ class FluInfoBar : public QFrame
 
     void __fadeOut();
 
-    static void __info(const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
-    static void __warn(const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
-    static void __succ(const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
-    static void __err(const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
+    static void __info(const QString& context, bool bClosable = false, int duration = 1000, QWidget* parent = nullptr);
+    static void __warn(const QString& context, bool bClosable = false, int duration = 1000, QWidget* parent = nullptr);
+    static void __succ(const QString& context, bool bClosable = false, int duration = 1000, QWidget* parent = nullptr);
+    static void __err(const QString& context, bool bClosable = false, int duration = 1000, QWidget* parent = nullptr);
 
   protected:
     void closeEvent(QCloseEvent* event);

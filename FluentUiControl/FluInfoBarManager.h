@@ -24,11 +24,11 @@ class FluInfoBarManager : public QObject
     QPoint getInfoBarPos(FluInfoBar* infoBar);
 
     static FluInfoBarManager* getInstance();
-    static FluInfoBar* __new(FluAwesomeType awesomeType, FluInfoBarType type, const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
-    static void __info(const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
-    static void __warn(const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
-    static void __succ(const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
-    static void __err(const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
+    static FluInfoBar* __new(FluAwesomeType awesomeType, FluInfoBarType type, const QString& context, bool bClosable = false, int duration = 1000, QWidget* parent = nullptr);
+    static void __info(const QString& context, bool bClosable = false, int duration = 1000, QWidget* parent = nullptr);
+    static void __warn(const QString& context, bool bClosable = false, int duration = 1000, QWidget* parent = nullptr);
+    static void __succ(const QString& context, bool bClosable = false, int duration = 1000, QWidget* parent = nullptr);
+    static void __err(const QString& context, bool bClosable = false, int duration = 1000, QWidget* parent = nullptr);
 
   protected:
     int m_spacing;

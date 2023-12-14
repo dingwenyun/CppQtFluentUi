@@ -11,7 +11,7 @@ class FluInfoBarIconWidget : public QWidget
   public:
     FluInfoBarIconWidget(FluAwesomeType awesomeType, QWidget* parent = nullptr) : QWidget(parent)
     {
-        setFixedSize(36, 36);
+        setFixedSize(28, 28);
         m_awesomeType = awesomeType;
     }
 
@@ -21,7 +21,7 @@ class FluInfoBarIconWidget : public QWidget
         QWidget::paintEvent(event);
         QPainter painter(this);
         painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
-        QRect rect(10, 10, 15, 15);
+        QRect rect(0, 0, 28, 28);
         painter.drawPixmap(rect, FluIconUtils::GetFluentIconPixmap(m_awesomeType));
     }
 

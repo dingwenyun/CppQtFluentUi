@@ -15,6 +15,8 @@ FluInfoBar::FluInfoBar(FluAwesomeType awesomeType, FluInfoBarType type, QString 
     m_contextLabel = new QLabel(this);
     m_contextLabel->setText(context);
     m_closeButton = new FluTransparentToolButton(this, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::ChromeClose));
+    
+    // 
     m_iconWidget = new FluInfoBarIconWidget(awesomeType, this);
     m_opacityEffect = new QGraphicsOpacityEffect(this);
     m_opacityAni = new QPropertyAnimation(m_opacityEffect, "opacity", this);
@@ -82,22 +84,22 @@ void FluInfoBar::__fadeOut()
     m_opacityAni->start();
 }
 
-void FluInfoBar::__info(const QString &context, bool bClosable /*= true*/, int duration /*= 1000*/, QWidget *parent /*= nullptr*/)
+void FluInfoBar::__info(const QString &context, bool bClosable /*= false*/, int duration /*= 1000*/, QWidget *parent /*= nullptr*/)
 {
     FluInfoBarManager::__info(context, bClosable, duration, parent);
 }
 
-void FluInfoBar::__warn(const QString &context, bool bClosable /*= true*/, int duration /*= 1000*/, QWidget *parent /*= nullptr*/)
+void FluInfoBar::__warn(const QString &context, bool bClosable /*= false*/, int duration /*= 1000*/, QWidget *parent /*= nullptr*/)
 {
     FluInfoBarManager::__warn(context, bClosable, duration, parent);
 }
 
-void FluInfoBar::__succ(const QString &context, bool bClosable /*= true*/, int duration /*= 1000*/, QWidget *parent /*= nullptr*/)
+void FluInfoBar::__succ(const QString &context, bool bClosable /*= false*/, int duration /*= 1000*/, QWidget *parent /*= nullptr*/)
 {
     FluInfoBarManager::__succ(context, bClosable, duration, parent);
 }
 
-void FluInfoBar::__err(const QString &context, bool bClosable /*= true*/, int duration /*= 1000*/, QWidget *parent /*= nullptr*/)
+void FluInfoBar::__err(const QString &context, bool bClosable /*= false*/, int duration /*= 1000*/, QWidget *parent /*= nullptr*/)
 {
     FluInfoBarManager::__err(context, bClosable, duration, parent);
 }
