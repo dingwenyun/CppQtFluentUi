@@ -1,4 +1,4 @@
-# CppQtFluentUI
+# CppQtFluentUI(GPLv3 )
 
 #### CppQtFluentUi:采用C++对PyQt-Fluent-Widgets进行重新编写，用以支持C++版的Qt的FluentUi。
 
