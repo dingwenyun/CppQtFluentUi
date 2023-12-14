@@ -45,7 +45,7 @@ class FluBasicInputInterface : public FluGalleryInterface
         addExampleCard("复选框", threeStateCheckButton, "");
 
         auto comboBox = new FluComboBox();
-       // comboBox->setMinimumWidth(210);
+        // comboBox->setMinimumWidth(210);
         comboBox->setFixedWidth(210);
         comboBox->addItems({" shoko 🥰 ", "西宫硝子 😊 ", "一级棒卡哇伊的硝子酱 😘"});
         comboBox->setCurrentIndex(0);
@@ -53,12 +53,10 @@ class FluBasicInputInterface : public FluGalleryInterface
 
         // EditableComboBox
         auto editComboBox = new FluEditableComboBox();
-       // editComboBox->setMinimumWidth(210);
+        // editComboBox->setMinimumWidth(210);
         editComboBox->setFixedWidth(210);
         editComboBox->addItems({"白金之星", "疯狂砖石", "黄金体验", "钢炼手指"});
         editComboBox->setPlaceholderText("选择你的替身");
         addExampleCard("可编辑的下拉框", editComboBox, "");
-
-
     }
 };

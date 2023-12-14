@@ -22,11 +22,9 @@ class FluInfoBarDemo : public QWidget
         hBoxLayout->addWidget(warnButton);
         hBoxLayout->addWidget(errorButton);
 
-        connect(succButton, &FluPushButton::clicked, [=](bool bclicked) {
-            //;
-            //;
+        connect(succButton, &FluPushButton::clicked, [=](bool bclicked) {  
             FluInfoBarManagers::success("这是一个成功的消息条", true, 1000, FluInfoBarPositon::TOP, this);
-            });
+        });
         resize(600, 400);
     }
 };

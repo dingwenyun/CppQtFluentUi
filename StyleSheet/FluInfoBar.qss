@@ -1,0 +1,40 @@
+FluInfoBar {
+    border: 1px solid rgb(229, 229, 229);
+    border-radius: 6px;
+    background-color: rgb(244, 244, 244);
+}
+
+#contextLabel {
+    font: 14px 'Segoe UI', 'Microsoft YaHei', 'PingFang SC';
+    color: black;
+    background-color: transparent;
+}
+
+FluInfoBar[type="Info"] {
+    background-color: rgb(244, 244, 244);
+}
+
+FluInfoBar[type="Success"] {
+    background-color: rgb(223, 246, 221);
+}
+
+FluInfoBar[type="Warning"] {
+    background-color: rgb(255, 244, 206);
+}
+
+FluInfoBar[type="Error"] {
+    background-color: rgb(253, 231, 233);
+}
+
+FluInfoBarCloseButton {
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+FluInfoBarCloseButton:hover {
+    background-color: rgba(0, 0, 0, 9);
+}
+
+FluInfoBarCloseButton:pressed {
+    background-color: rgba(0, 0, 0, 6);
+}

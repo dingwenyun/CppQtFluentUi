@@ -1,12 +1,12 @@
 #include "FluTopInfoBarManager.h"
 
- FluTopInfoBarManager::FluTopInfoBarManager() : FluInfoBarManager()
+FluTopInfoBarManager::FluTopInfoBarManager() : FluInfoBarManager()
 {
 }
 
 QPoint FluTopInfoBarManager::slideAniStartPos(FluInfoBar* infoBar)
 {
-    return (getInfoBarPos(infoBar) - QPoint(m_spacing, 0));
+    return (getInfoBarPos(infoBar) - QPoint(0, m_spacing));
 }
 
 QPoint FluTopInfoBarManager::slideAniEndPos(FluInfoBar* infoBar)

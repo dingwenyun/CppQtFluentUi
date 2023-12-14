@@ -2,7 +2,7 @@
 #include "FluTopInfoBarManager.h"
 #include "FluInfoBar.h"
 
-//QMap<FluInfoBarPositon, FluInfoBarManager*> FluInfoBarManager::m_managers;
+// QMap<FluInfoBarPositon, FluInfoBarManager*> FluInfoBarManager::m_managers;
 FluInfoBarManager::FluInfoBarManager() : QObject()
 {
     m_spacing = 16;
@@ -28,7 +28,7 @@ void FluInfoBarManager::addInfoBar(FluInfoBar* infoBar)
         return;
 
     QPropertyAnimation* dropAni = new QPropertyAnimation(infoBar, "pos");
-    dropAni->setDuration(200);
+    dropAni->setDuration(500);
     m_aniGroups[parentWidget]->addAnimation(dropAni);
     infoBar->setProperty("dropAni", QVariant::fromValue(dropAni));
 
@@ -36,8 +36,7 @@ void FluInfoBarManager::addInfoBar(FluInfoBar* infoBar)
     auto slideAni = createSlideAni(infoBar);
     m_slideAnis.append(slideAni);
     infoBar->setProperty("slideAni", QVariant::fromValue(slideAni));
-
-    connect(infoBar, &FluInfoBar::closeSignal, [=]() {});
+    connect(infoBar, &FluInfoBar::closeSignal, [=]() { removeInfoBar(infoBar); });
     slideAni->start();
 }
 
@@ -50,6 +49,7 @@ void FluInfoBarManager::removeInfoBar(FluInfoBar* infoBar)
     if (!m_infoBars[parentWidget].contains(infoBar))
         return;
 
+    m_infoBars[parentWidget].removeOne(infoBar);
     auto dropAni = infoBar->property("dropAni").value<QPropertyAnimation*>();
     if (dropAni != nullptr)
     {
@@ -71,7 +71,7 @@ QPropertyAnimation* FluInfoBarManager::createSlideAni(FluInfoBar* infoBar)
 {
     QPropertyAnimation* slideAni = new QPropertyAnimation(infoBar, "pos");
     slideAni->setEasingCurve(QEasingCurve::OutQuad);
-    slideAni->setDuration(200);
+    slideAni->setDuration(500);
     slideAni->setStartValue(slideAniStartPos(infoBar));
     slideAni->setEndValue(slideAniEndPos(infoBar));
     return slideAni;
@@ -90,14 +90,10 @@ void FluInfoBarManager::updateDropAni(QWidget* parentWidget)
     }
 }
 
-
 FluInfoBarManagers* FluInfoBarManagers::m_infoBarManagers;
 FluInfoBarManagers::FluInfoBarManagers()
 {
-    if (m_infoBarManagers != nullptr)
-        return;
-    m_infoBarManagers = new FluInfoBarManagers();
-    m_infoBarManagers->m_managers[FluInfoBarPositon::TOP] = new FluTopInfoBarManager();
+    m_managers[FluInfoBarPositon::TOP] = new FluTopInfoBarManager();
 }
 
 FluInfoBarManagers::~FluInfoBarManagers()
@@ -110,6 +106,14 @@ FluInfoBarManagers::~FluInfoBarManagers()
     m_infoBarManagers->m_managers.clear();
 }
 
+FluInfoBarManagers* FluInfoBarManagers::getInstance()
+{
+    if (m_infoBarManagers != nullptr)
+        return m_infoBarManagers;
+    m_infoBarManagers = new FluInfoBarManagers();
+    return m_infoBarManagers;
+}
+
 void FluInfoBarManagers::addInfoBar(FluInfoBar* infoBar, FluInfoBarPositon postion)
 {
     FluInfoBarManager* manager = getInfoBarManager(postion);
@@ -120,9 +124,10 @@ void FluInfoBarManagers::addInfoBar(FluInfoBar* infoBar, FluInfoBarPositon posti
 
 FluInfoBarManager* FluInfoBarManagers::getInfoBarManager(FluInfoBarPositon position)
 {
-    if (!m_infoBarManagers->m_managers.contains(position))
+    auto infoBarManagers = getInstance();
+    if (!infoBarManagers->m_managers.contains(position))
         return nullptr;
-    return m_infoBarManagers->m_managers[position];
+    return infoBarManagers->m_managers[position];
 }
 
 FluInfoBar* FluInfoBarManagers::__new(FluAwesomeType awesomeType, const QString& context, bool bClosable /*= true*/, int duration /*= 1000*/, FluInfoBarPositon position /*= FluInfoBarPositon::TOP*/, QWidget* parent /*= nullptr*/)
@@ -134,5 +139,7 @@ FluInfoBar* FluInfoBarManagers::__new(FluAwesomeType awesomeType, const QString&
 
 FluInfoBar* FluInfoBarManagers::success(const QString& context, bool bClosable /*= true*/, int duration /*= 1000*/, FluInfoBarPositon position /*= FluInfoBarPositon::TOP*/, QWidget* parent /*= nullptr*/)
 {
-    return __new(FluAwesomeType::CompletedSolid, context, bClosable, duration, position, parent);
+    auto infoBar =  __new(FluAwesomeType::CompletedSolid, context, bClosable, duration, position, parent);
+  //  infoBar->setProperty("type", "Success");
+    return infoBar;
 }
