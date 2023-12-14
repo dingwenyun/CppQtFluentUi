@@ -17,13 +17,15 @@ class FluInfoBarDemo : public QWidget
         auto succButton = new FluPushButton("succ", this);
         auto warnButton = new FluPushButton("warn", this);
         auto errorButton = new FluPushButton("error", this);
+
         hBoxLayout->addWidget(infoButton);
         hBoxLayout->addWidget(succButton);
         hBoxLayout->addWidget(warnButton);
         hBoxLayout->addWidget(errorButton);
 
         connect(succButton, &FluPushButton::clicked, [=](bool bclicked) {  
-            FluInfoBarManagers::success("这是一个成功的消息条", true, 1000, FluInfoBarPositon::TOP, this);
+            //FluInfoBarManagers::success("这是一个成功的消息条", true, 1000, FluInfoBarPositon::TOP, this);
+            FluInfoBar::__succ("这是一个成功的消息条", true, 1000, this);
         });
         resize(600, 400);
     }

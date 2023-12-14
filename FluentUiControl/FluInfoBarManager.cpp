@@ -2,7 +2,7 @@
 #include "FluTopInfoBarManager.h"
 #include "FluInfoBar.h"
 
-// QMap<FluInfoBarPositon, FluInfoBarManager*> FluInfoBarManager::m_managers;
+FluInfoBarManager* FluInfoBarManager::m_infoBarManager = nullptr;
 FluInfoBarManager::FluInfoBarManager() : QObject()
 {
     m_spacing = 16;
@@ -90,56 +90,67 @@ void FluInfoBarManager::updateDropAni(QWidget* parentWidget)
     }
 }
 
-FluInfoBarManagers* FluInfoBarManagers::m_infoBarManagers;
-FluInfoBarManagers::FluInfoBarManagers()
+QPoint FluInfoBarManager::slideAniStartPos(FluInfoBar* infoBar)
 {
-    m_managers[FluInfoBarPositon::TOP] = new FluTopInfoBarManager();
+    return (getInfoBarPos(infoBar) - QPoint(0, m_spacing));
 }
 
-FluInfoBarManagers::~FluInfoBarManagers()
+QPoint FluInfoBarManager::slideAniEndPos(FluInfoBar* infoBar)
 {
-    for (auto itMap = m_infoBarManagers->m_managers.begin(); itMap != m_infoBarManagers->m_managers.end(); itMap++)
-    {
-        delete itMap.value();
-    }
-
-    m_infoBarManagers->m_managers.clear();
+    return getInfoBarPos(infoBar);
 }
 
-FluInfoBarManagers* FluInfoBarManagers::getInstance()
+QPoint FluInfoBarManager::dropAniStartPos(FluInfoBar* infoBar)
 {
-    if (m_infoBarManagers != nullptr)
-        return m_infoBarManagers;
-    m_infoBarManagers = new FluInfoBarManagers();
-    return m_infoBarManagers;
+    return infoBar->pos();
 }
 
-void FluInfoBarManagers::addInfoBar(FluInfoBar* infoBar, FluInfoBarPositon postion)
+QPoint FluInfoBarManager::dropAniEndPos(FluInfoBar* infoBar)
 {
-    FluInfoBarManager* manager = getInfoBarManager(postion);
-    if (!manager)
-        return;
-    manager->addInfoBar(infoBar);
+    return getInfoBarPos(infoBar);
 }
 
-FluInfoBarManager* FluInfoBarManagers::getInfoBarManager(FluInfoBarPositon position)
+QPoint FluInfoBarManager::getInfoBarPos(FluInfoBar* infoBar)
 {
-    auto infoBarManagers = getInstance();
-    if (!infoBarManagers->m_managers.contains(position))
-        return nullptr;
-    return infoBarManagers->m_managers[position];
+    QWidget* parentWidget = (QWidget*)infoBar->parent();
+    int nX = (parentWidget->width() - infoBar->width()) / 2;
+    int nIndex = m_infoBars[parentWidget].indexOf(infoBar);
+    int nY = m_margin + (infoBar->height() + m_spacing) * nIndex;
+    return QPoint(nX, nY);
 }
 
-FluInfoBar* FluInfoBarManagers::__new(FluAwesomeType awesomeType, const QString& context, bool bClosable /*= true*/, int duration /*= 1000*/, FluInfoBarPositon position /*= FluInfoBarPositon::TOP*/, QWidget* parent /*= nullptr*/)
+FluInfoBarManager* FluInfoBarManager::getInstance()
 {
-    FluInfoBar* infoBar = new FluInfoBar(awesomeType, context, bClosable, duration, position, parent);
+    if (m_infoBarManager != nullptr)
+        return m_infoBarManager;
+    m_infoBarManager = new FluInfoBarManager();
+    return m_infoBarManager;
+}
+
+FluInfoBar* FluInfoBarManager::__new(FluAwesomeType awesomeType, FluInfoBarType type, const QString& context, bool bClosable /*= true*/, int duration /*= 1000*/, QWidget* parent /*= nullptr*/)
+{
+    FluInfoBar* infoBar = new FluInfoBar(awesomeType, type, context, bClosable, duration, parent);
+    FluInfoBarManager::getInstance()->addInfoBar(infoBar);
     infoBar->show();
     return infoBar;
 }
 
-FluInfoBar* FluInfoBarManagers::success(const QString& context, bool bClosable /*= true*/, int duration /*= 1000*/, FluInfoBarPositon position /*= FluInfoBarPositon::TOP*/, QWidget* parent /*= nullptr*/)
+void FluInfoBarManager::__info(const QString& context, bool bClosable /*= true*/, int duration /*= 1000*/, QWidget* parent /*= nullptr*/)
 {
-    auto infoBar =  __new(FluAwesomeType::CompletedSolid, context, bClosable, duration, position, parent);
-  //  infoBar->setProperty("type", "Success");
-    return infoBar;
+    __new(FluAwesomeType::InfoSolid, FluInfoBarType::INFO, context, bClosable, duration, parent);
+}
+
+void FluInfoBarManager::__warn(const QString& context, bool bClosable /*= true*/, int duration /*= 1000*/, QWidget* parent /*= nullptr*/)
+{
+    __new(FluAwesomeType::InfoSolid, FluInfoBarType::WARN, context, bClosable, duration, parent);
+}
+
+void FluInfoBarManager::__succ(const QString& context, bool bClosable /*= true*/, int duration /*= 1000*/, QWidget* parent /*= nullptr*/)
+{
+    __new(FluAwesomeType::CompletedSolid, FluInfoBarType::SUCC, context, bClosable, duration, parent);
+}
+
+void FluInfoBarManager::__err(const QString& context, bool bClosable /*= true*/, int duration /*= 1000*/, QWidget* parent /*= nullptr*/)
+{
+    __new(FluAwesomeType::StatusErrorFull, FluInfoBarType::ERR, context, bClosable, duration, parent);
 }

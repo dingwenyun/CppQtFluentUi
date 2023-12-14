@@ -14,15 +14,15 @@ FluInfoBar[type="Info"] {
     background-color: rgb(244, 244, 244);
 }
 
-FluInfoBar[type="Success"] {
+FluInfoBar[type="Succ"] {
     background-color: rgb(223, 246, 221);
 }
 
-FluInfoBar[type="Warning"] {
+FluInfoBar[type="Warn"] {
     background-color: rgb(255, 244, 206);
 }
 
-FluInfoBar[type="Error"] {
+FluInfoBar[type="Err"] {
     background-color: rgb(253, 231, 233);
 }
 

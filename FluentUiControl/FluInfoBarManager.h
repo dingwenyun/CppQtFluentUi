@@ -17,12 +17,18 @@ class FluInfoBarManager : public QObject
     void removeInfoBar(FluInfoBar* infoBar);
     QPropertyAnimation* createSlideAni(FluInfoBar* infoBar);
     void updateDropAni(QWidget* parentWidget);
-    virtual QPoint slideAniStartPos(FluInfoBar* infoBar) = 0;
-    virtual QPoint slideAniEndPos(FluInfoBar* infoBar) = 0;
-    virtual QPoint dropAniStartPos(FluInfoBar* infoBar) = 0;
-    virtual QPoint dropAniEndPos(FluInfoBar* infoBar) = 0;
-    virtual QPoint getInfoBarPos(FluInfoBar* infoBar) = 0;
+    QPoint slideAniStartPos(FluInfoBar* infoBar);
+    QPoint slideAniEndPos(FluInfoBar* infoBar);
+    QPoint dropAniStartPos(FluInfoBar* infoBar);
+    QPoint dropAniEndPos(FluInfoBar* infoBar);
+    QPoint getInfoBarPos(FluInfoBar* infoBar);
 
+    static FluInfoBarManager* getInstance();
+    static FluInfoBar* __new(FluAwesomeType awesomeType, FluInfoBarType type, const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
+    static void __info(const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
+    static void __warn(const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
+    static void __succ(const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
+    static void __err(const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
   protected:
     int m_spacing;
     int m_margin;
@@ -30,23 +36,7 @@ class FluInfoBarManager : public QObject
     QMap<QWidget*, QParallelAnimationGroup*> m_aniGroups;
     QList<QPropertyAnimation*> m_slideAnis;
     QList<QPropertyAnimation*> m_dropAnis;
-};
 
-class FluInfoBarManagers : public QObject
-{
-    Q_OBJECT
-  public:
-    FluInfoBarManagers();
-    ~FluInfoBarManagers();
-
-    static FluInfoBarManagers* getInstance();
-    static void addInfoBar(FluInfoBar* infoBar, FluInfoBarPositon postion);
-    static FluInfoBarManager* getInfoBarManager(FluInfoBarPositon position);
-    static FluInfoBar* __new(FluAwesomeType awesomeType, const QString& context, bool bClosable = true, int duration = 1000, FluInfoBarPositon position = FluInfoBarPositon::TOP, QWidget* parent = nullptr);
-    static FluInfoBar* success(const QString& context, bool bClosable = true, int duration = 1000, FluInfoBarPositon position = FluInfoBarPositon::TOP, QWidget* parent = nullptr);
-
-  public:
-    QMap<FluInfoBarPositon, FluInfoBarManager*> m_managers;
-  public:
-    static FluInfoBarManagers* m_infoBarManagers;
+  private:
+    static FluInfoBarManager* m_infoBarManager;
 };
