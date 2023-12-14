@@ -17,7 +17,7 @@ FluInfoBar::FluInfoBar(FluAwesomeType awesomeType, FluInfoBarType type, QString 
     m_closeButton = new FluTransparentToolButton(this, FluIconUtils::GetFluentIconPixmap(FluAwesomeType::ChromeClose));
     
     // 
-    m_iconWidget = new FluInfoBarIconWidget(awesomeType, this);
+    m_iconWidget = new FluInfoBarIconWidget(awesomeType, m_infoBarType, this);
     m_opacityEffect = new QGraphicsOpacityEffect(this);
     m_opacityAni = new QPropertyAnimation(m_opacityEffect, "opacity", this);
 
