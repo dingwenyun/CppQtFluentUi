@@ -29,6 +29,7 @@ class FluInfoBarManager : public QObject
     static void __warn(const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
     static void __succ(const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
     static void __err(const QString& context, bool bClosable = true, int duration = 1000, QWidget* parent = nullptr);
+
   protected:
     int m_spacing;
     int m_margin;

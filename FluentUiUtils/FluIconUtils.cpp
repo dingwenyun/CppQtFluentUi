@@ -23,7 +23,7 @@ FluIconUtils* FluIconUtils::getInstance()
 
 QPixmap FluIconUtils::GetFluentIconPixmap(FluAwesomeType nType)
 {
-   return GetFluentIconPixmap(nType, QColor(Qt::black));
+    return GetFluentIconPixmap(nType, QColor(Qt::black));
 }
 
 QPixmap FluIconUtils::GetFluentIconPixmap(FluAwesomeType nType, QColor penColor)
